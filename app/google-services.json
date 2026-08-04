@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "560413793875",
+    "project_id": "st246-chibi-avatar-maker",
+    "storage_bucket": "st246-chibi-avatar-maker.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560413793875:android:4d4b87d76147fb61a7f0a6",
+        "android_client_info": {
+          "package_name": "com.chibi.avatar.chibimaker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFn8GitAOvFBPj8L84Bt1rqegDYlq7MB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

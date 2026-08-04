@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_bg_lang"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.main.customize.CustomizeFragment">
+
+    <FrameLayout
+        android:id="@+id/layoutActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/actionBar"
+            layout="@layout/layout_actionbar" />
+    </FrameLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar"
+        app:layout_constraintVertical_bias="0.0"
+
+        tools:layout_editor_absoluteX="-16dp">
+        <ImageView
+            android:id="@+id/changeAvatar"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:elevation="3dp"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/change_avatar1"
+            />
+        <FrameLayout
+            android:id="@+id/rlCharacter"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="2dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toTopOf="@+id/frame_rando_all"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frame_rando_all"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="13dp"
+            app:layout_constraintBottom_toTopOf="@+id/frameLayer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Icon mở màu — click để hiện rcvColor -->
+            <ImageView
+                android:id="@+id/imgChangColor"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/ic_color_show"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Icon random -->
+            <ImageView
+                android:id="@+id/imgRandom"
+                android:layout_width="40dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_ramdom_cus"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Container màu ở giữa — y hệt llColor trong Activity -->
+            <ImageView
+                android:id="@+id/imgScale"
+                android:layout_width="40dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/ic_scale_cus_none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/imgRandom"
+                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:elevation="1dp"
+                android:id="@+id/llColor"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imgScale"
+                app:layout_constraintStart_toEndOf="@+id/imgChangColor"
+                app:layout_constraintTop_toTopOf="parent">
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="@color/stroker_blue"
+                    app:cardCornerRadius="8dp"
+                    app:cardBackgroundColor="@color/app_color3"
+                    app:layout_constraintStart_toStartOf="@+id/cardColor"
+                    app:layout_constraintTop_toTopOf="@+id/cardColor"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardColor"
+                    app:layout_constraintEnd_toEndOf="@+id/cardColor">
+
+
+
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="0dp"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@color/transparent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginVertical="8dp">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcvColor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginStart="12dp"
+                            android:clipToPadding="false"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:itemCount="5"
+                            tools:listitem="@layout/item_color" />
+                    </RelativeLayout>
+
+                    <!-- imvEndColor — đóng llColor -->
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/end"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:elevation="3dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/img_end_color"
+                        android:scaleType="centerInside"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <FrameLayout
+            android:id="@+id/frameLayer"
+            android:background="@drawable/img_bg_layer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/rcvNav"
+            app:layout_constraintHeight_percent="0.3">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvPart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="12dp"
+                android:paddingTop="12dp"
+                android:elevation="1dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="5"
+                tools:itemCount="40"
+                tools:listitem="@layout/item_layer" />
+        </FrameLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvNav"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="3.6:0.68"
+            android:background="@drawable/bg_nav_custom"
+            android:clipToPadding="false"
+            android:elevation="1dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="5dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/item_bottom_custom" />
+        <FrameLayout
+            android:id="@+id/frameScale"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/img_bg_layer"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:focusable="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/frameLayer">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="21dp"
+                android:layout_marginVertical="3dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout4"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="0.72:2.56"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <FrameLayout
+                        android:id="@+id/btnResetScale"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/frame_reset_scale_custom"
+                        app:layout_constraintDimensionRatio="0.7:0.36"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+                            android:id="@+id/txtReset"
+                            style="@style/single_marquee"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/atma_bold"
+                            android:gravity="center"
+                            android:text="@string/reset"
+                            app:outerStrokeColor="@color/app_color"
+                            app:outerStrokeWidth="1dp"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="vertical"
+                        android:weightSum="108"
+                        android:layout_marginEnd="22dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="0.5:1.08"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/ratioRight"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="50"
+                            android:src="@drawable/ratio_right" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="8" />
+
+                        <ImageView
+                            android:id="@+id/ratioLeft"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="50"
+                            android:src="@drawable/ratio_left" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="17dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
+                    app:layout_constraintStart_toEndOf="@+id/constraintLayout4"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/transitionLeft"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:src="@drawable/transition_left"
+                        app:layout_constraintBottom_toTopOf="@+id/transitionBottom"
+                        app:layout_constraintDimensionRatio="0.44:0.44"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/transitionTop" />
+
+                    <ImageView
+                        android:id="@+id/transitionRight"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:src="@drawable/transition_right"
+                        app:layout_constraintBottom_toTopOf="@+id/transitionBottom"
+                        app:layout_constraintDimensionRatio="0.44:0.44"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/transitionTop" />
+
+                    <ImageView
+                        android:id="@+id/transitionTop"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:src="@drawable/transition_top"
+                        app:layout_constraintDimensionRatio="0.44:0.44"
+                        app:layout_constraintEnd_toStartOf="@+id/transitionRight"
+                        app:layout_constraintStart_toEndOf="@+id/transitionLeft"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/transitionBottom"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:src="@drawable/transition_bottom"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="0.44:0.44"
+                        app:layout_constraintEnd_toStartOf="@+id/transitionRight"
+                        app:layout_constraintStart_toEndOf="@+id/transitionLeft" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout3"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="0.72:2.56"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <FrameLayout
+                        android:id="@+id/btnDoneScale"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/frame_reset_scale_custom"
+                        app:layout_constraintDimensionRatio="0.7:0.36"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+                            android:id="@+id/txtDone"
+                            style="@style/single_marquee"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/atma_bold"
+                            android:gravity="center"
+                            android:text="@string/done"
+                            app:outerStrokeColor="@color/app_color"
+                            app:outerStrokeWidth="1dp"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </FrameLayout>
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="22dp"
+                        android:orientation="vertical"
+                        android:weightSum="108"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="0.5:1.08"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/ratioPlus"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="50"
+                            android:src="@drawable/ratio_plus" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="8" />
+
+                        <ImageView
+                            android:id="@+id/ratioMinus"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="50"
+                            android:src="@drawable/ratio_minus" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtSize"
+                        style="@style/single_marquee"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/atma_bold"
+                        android:gravity="center"
+                        android:text="@string/size"
+                        android:textColor="@color/app_color"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
