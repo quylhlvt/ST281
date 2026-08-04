@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnActionBarLeft"
         app:outerStrokeColor="@color/app_color"
-        app:outerStrokeWidth="1.5dp"
+        app:outerStrokeWidth="3dp"
         android:textColor="@color/white"
         />
 
@@ -78,7 +78,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnActionBarLeft"
         app:layout_constraintTop_toTopOf="@+id/btnActionBarLeft"
         app:outerStrokeColor="@color/app_color"
-        app:outerStrokeWidth="1.5dp"
+        app:outerStrokeWidth="3dp"
         android:textColor="@color/white"/>
 
     <!--    btnActionBarCenter-->

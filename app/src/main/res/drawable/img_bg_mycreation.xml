@@ -22,7 +22,7 @@
         <shape android:shape="rectangle">
             <corners android:radius="44dp" />
 
-            <solid android:color="#F6ECE6" />
+            <solid android:color="@color/app_color2" />
 
         </shape>
     </item>

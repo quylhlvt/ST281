@@ -3,17 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_bg_lang"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.random.RandomFragment">
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:elevation="-1dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/img_bg_lang" />
+
     <FrameLayout
         android:id="@+id/layoutActionBar"
         android:layout_width="match_parent"
@@ -24,75 +18,59 @@
             android:id="@+id/actionBar"
             layout="@layout/layout_actionbar" />
     </FrameLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/imgRandom"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar"
+        android:layout_marginTop="6dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/app_color"
+        app:cardCornerRadius="50dp"
+        android:id="@+id/mater1"
+        android:elevation="1dp"
+        app:strokeWidth="0dp"/>
 
-        <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@+id/mater1"
+        app:layout_constraintBottom_toBottomOf="@+id/mater1"
+        app:layout_constraintStart_toStartOf="@+id/mater1"
+        app:layout_constraintEnd_toEndOf="@+id/mater1"
+        android:layout_margin="6dp"
+        app:cardBackgroundColor="@color/app_color2"
+        app:cardCornerRadius="44dp"
+        android:id="@+id/mater2"
+        android:elevation="2dp"
+        app:strokeWidth="0dp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@+id/mater2"
+        app:layout_constraintBottom_toBottomOf="@+id/mater2"
+        app:layout_constraintStart_toStartOf="@+id/mater2"
+        app:layout_constraintEnd_toEndOf="@+id/mater2"
+        android:layout_margin="6dp"
+        app:cardBackgroundColor="@color/app_color3"
+        app:cardCornerRadius="44dp"
+        android:id="@+id/mater3"
+        android:elevation="2dp"
+        app:strokeColor="@color/app_color4"
+        app:strokeWidth="1dp">
+        <ImageView
+            android:id="@+id/imvImage"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="13dp"
-            android:elevation="0dp"
-            app:cardBackgroundColor="@color/shadown_blue2"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="0dp"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_permission" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginEnd="13dp"
-            android:layout_marginBottom="13dp"
-            app:cardBackgroundColor="@color/app_color3"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="15dp">
-
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginEnd="2dp"
-                    app:cardBackgroundColor="@color/color_bg_item"
-                    app:cardCornerRadius="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:strokeColor="@color/app_color2"
-                    app:strokeWidth="2dp">
-
-                    <ImageView
-                        android:id="@+id/imvImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_permission" />
+    </com.google.android.material.card.MaterialCardView>
 
 
 
-                </com.google.android.material.card.MaterialCardView>
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/random"
         android:layout_width="0dp"
@@ -100,9 +78,9 @@
         android:layout_marginHorizontal="84dp"
         android:layout_marginTop="50dp"
         app:layout_constraintDimensionRatio="1.56:0.40"
-        app:layout_constraintEnd_toEndOf="@+id/imgRandom"
-        app:layout_constraintStart_toStartOf="@+id/imgRandom"
-        app:layout_constraintTop_toBottomOf="@+id/imgRandom"
+        app:layout_constraintEnd_toEndOf="@+id/mater3"
+        app:layout_constraintStart_toStartOf="@+id/mater3"
+        app:layout_constraintTop_toBottomOf="@+id/mater3"
         app:strokeColor="@color/app_color2"
         app:strokeWidth="1dp">
         <ImageView
