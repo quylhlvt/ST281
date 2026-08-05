@@ -127,7 +127,7 @@ dependencies {
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
     // Color Picker
-    implementation("com.github.Mohammad3125:KavehColorPicker:v1.0.0")
+    implementation 'com.github.quylhlvt:quycolorpiker:v1.7'
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))

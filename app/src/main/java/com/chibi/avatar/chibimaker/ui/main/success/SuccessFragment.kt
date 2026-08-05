@@ -189,8 +189,7 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
             isEdit          = true,
             customizedId    = idEdit,
             savedSelections = customized.selections.toCleanSelections(),
-            isFlipped       = customized.isFlipped,
-            isCouple        = customized.isCouple || template?.isCoupleTemplate() == true
+            isFlipped       = customized.isFlipped
         )
         findNavController().safeNavigate(R.id.action_view_to_customize, args)
     }

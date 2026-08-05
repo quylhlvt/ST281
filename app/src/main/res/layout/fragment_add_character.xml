@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_color2"
     tools:context=".ui.main.add_character.AddCharacterFragment">
 
     <!--    flGetText-->
@@ -36,11 +37,6 @@
             android:textSize="40sp" />
     </FrameLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img_bg_lang" />
 
     <!--    flActionBar-->
     <FrameLayout
@@ -59,8 +55,7 @@
         android:id="@+id/flSpce"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="20dp"
-        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintDimensionRatio="1:1.15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/flActionBar" />
@@ -69,8 +64,7 @@
         android:id="@+id/flSpce1"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/flSpce"
+
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,107 +93,122 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    flFunction-->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/flFunction"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/img_bg_add"
+        android:background="@color/app_color"
         android:elevation="3dp"
         android:layerType="hardware"
-        app:layout_constraintBottom_toTopOf="@+id/lnlBottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flSpce">
 
-        <!--        lnlBackground-->
-        <include
-            android:id="@+id/lnlBackground"
-            layout="@layout/layout_background_tab"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <!--        lnlSticker-->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/lnlSticker"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mater2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone">
-            <RelativeLayout
-                android:id="@+id/relative"
+            android:layout_margin="6dp"
+            android:elevation="2dp"
+            app:cardBackgroundColor="@color/app_color2"
+            app:cardCornerRadius="20dp"
+            app:strokeWidth="0dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mater3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="6dp"
+            android:elevation="1dp"
+            app:cardBackgroundColor="@color/app_color3"
+            app:cardCornerRadius="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mater2"
+            app:layout_constraintEnd_toEndOf="@+id/mater2"
+            app:layout_constraintStart_toStartOf="@+id/mater2"
+            app:layout_constraintTop_toTopOf="@+id/mater2"
+            app:strokeColor="@color/app_color4"
+            app:strokeWidth="1dp">
+            <!--        lnlBackground-->
+            <include
+                android:id="@+id/lnlBackground"
+                layout="@layout/layout_background_tab"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="center"
-                app:layout_constraintDimensionRatio="3.6:0.38"
-                app:layout_constraintTop_toTopOf="parent">
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvStickerTittle"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:elevation="2dp"
-                    android:layout_height="match_parent"
-                    android:paddingBottom="2dp"
-                    tools:listitem="@layout/item_tittle_background_image"
-                    />
+                android:layout_height="match_parent" />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:elevation="1dp"
-                    app:cardBackgroundColor="#40000000"
-                    app:cardCornerRadius="1dp"
-                    app:cardElevation="0dp"
-                    android:layout_alignStart="@+id/rcvStickerTittle"
-                    android:layout_alignEnd="@+id/rcvStickerTittle"
-
-                    />
-            </RelativeLayout>
-
-
-
-            <!--            rcvSticker-->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvSticker"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintTop_toBottomOf="@+id/relative"
-                android:layout_marginTop="12dp"
-                android:paddingHorizontal="7.5dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="5"
-                tools:listitem="@layout/item_sticker" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!--        lnlSpeech-->
-        <LinearLayout
-            android:id="@+id/lnlSpeech"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-
-            <!--            rcvSticker-->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvSpeech"
+            <!--        lnlSticker-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lnlSticker"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="12dp"
-                android:paddingHorizontal="7.5dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="4"
-                tools:listitem="@layout/item_sticker" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:id="@+id/relative"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    app:layout_constraintDimensionRatio="3.36:0.33"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcvStickerTittle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:elevation="2dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+
+                        tools:listitem="@layout/item_tittle_background_image" />
 
 
-        <include
-            android:id="@+id/lnlText"
-            layout="@layout/layout_text_panel" />
-    </FrameLayout>
+                </RelativeLayout>
+
+
+                <!--            rcvSticker-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvSticker"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingHorizontal="3dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/relative"
+                    app:spanCount="5"
+                    tools:listitem="@layout/item_sticker" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--        lnlSpeech-->
+            <LinearLayout
+                android:id="@+id/lnlSpeech"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+                <!--            rcvSticker-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvSpeech"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:paddingHorizontal="3dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="5"
+                    tools:listitem="@layout/item_speech" />
+            </LinearLayout>
+
+
+            <include
+                android:id="@+id/lnlText"
+                layout="@layout/layout_text_panel" />
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/app_color6"
         app:layout_constraintBottom_toBottomOf="@+id/lnlBottom"
         app:layout_constraintEnd_toEndOf="@+id/lnlBottom"
         app:layout_constraintStart_toStartOf="@+id/lnlBottom"
@@ -209,44 +218,77 @@
     <LinearLayout
         android:id="@+id/lnlBottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginBottom="0dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingVertical="8dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/flFunction"
+        app:layout_constraintDimensionRatio="3.6:0.38">
 
-        <!--        btnBackground-->
-        <ImageView
+
+        <FrameLayout
             android:id="@+id/btnBackground"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_background_selected" />
+            android:background="@drawable/bg_selected_add">
+            <!--        btnBackground-->
+            <ImageView
+                android:id="@+id/imgBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="4dp"
+                android:src="@drawable/ic_background_selected" />
+        </FrameLayout>
 
-        <!--        btnSticker-->
-        <ImageView
+        <FrameLayout
             android:id="@+id/btnSticker"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_sticker" />
-
+            android:background="@drawable/bg_unselected_add">
+            <!--        btnSticker-->
+            <ImageView
+                android:id="@+id/imgSticker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="4dp"
+                android:src="@drawable/ic_sticker" />
+        </FrameLayout>
         <!--        btnSpeech-->
-        <ImageView
+        <FrameLayout
             android:id="@+id/btnSpeech"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_speech" />
+            android:background="@drawable/bg_unselected_add">
 
+            <ImageView
+                android:id="@+id/imgSpeech"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="4dp"
+                android:src="@drawable/ic_speech" />
+        </FrameLayout>
         <!--        btnText-->
-        <ImageView
+        <FrameLayout
             android:id="@+id/btnText"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_text" />
+            android:background="@drawable/bg_unselected_add">
+
+            <ImageView
+                android:id="@+id/imgText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="4dp"
+                android:src="@drawable/ic_text" />
+        </FrameLayout>
     </LinearLayout>
 
 

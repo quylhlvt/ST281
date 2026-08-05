@@ -12,7 +12,6 @@ data class CustomizedCharacterDto(
     val selections: ArrayList<SelectionIndex> = arrayListOf(),
     val imageSave:  String                    = "",  // path ảnh render đã lưu
     val isFlipped:  Boolean                   = false,
-    val isCouple:   Boolean                   = false,
     val updatedAt:  Long                      = System.currentTimeMillis(),
     val createdAt:  Long                      = System.currentTimeMillis() // ← THÊM
 
@@ -26,7 +25,6 @@ fun CustomModel.toDto() = CustomizedCharacterDto(
     selections = ArrayList(selections),
     imageSave  = imageSave,
     isFlipped  = isFlipped,
-    isCouple   = isCouple,
     updatedAt  = updatedAt,
     createdAt  = createdAt
 )
@@ -39,8 +37,6 @@ fun CustomizedCharacterDto.toModel(templateListPath: ArrayList<BodyPartModel> = 
     selections = ArrayList(selections),
     imageSave  = imageSave,
     isFlipped  = isFlipped,
-    // Tương thích dữ liệu cũ chưa có field isCouple.
-    isCouple   = isCouple || templateListPath.any { it.charType == 2 },
     updatedAt  = updatedAt,
     createdAt  = createdAt
 )

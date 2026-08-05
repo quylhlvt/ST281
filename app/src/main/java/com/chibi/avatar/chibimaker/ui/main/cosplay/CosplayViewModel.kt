@@ -30,7 +30,7 @@ class CosplayViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             appDataManager.templates
-                .filter { templates -> templates.any { !it.isCoupleTemplate() } }
+                .filter { templates -> templates.isNotEmpty() }
                 .take(1) // Chỉ trigger lần đầu
                 .collect {   _isDataReady.value = true }
         }
@@ -58,10 +58,8 @@ class CosplayViewModel @Inject constructor(
             val allTemplates = appDataManager.templates.value
             if (allTemplates.isEmpty()) return@launch
 
-            // Cosplay chỉ sử dụng template nhân vật đơn, không trộn data couple.
-            val singleTemplates = allTemplates.filter { !it.isCoupleTemplate() }
-            val filtered = if (isOnline) singleTemplates
-            else singleTemplates.filter { !it.id.startsWith("online_") }
+            val filtered = if (isOnline) allTemplates
+            else allTemplates.filter { !it.id.startsWith("online_") }
 
             if (filtered.isEmpty()) return@launch
 

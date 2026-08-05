@@ -12,7 +12,7 @@ import com.facebook.shimmer.Shimmer
 object DataLocal {
     val KEY_LAST_CLICK_TIME = -101
     val shimmer =
-        Shimmer.AlphaHighlightBuilder().setDuration(1800).setBaseAlpha(0.7f).setHighlightAlpha(0.6f)
+        Shimmer.AlphaHighlightBuilder().setDuration(1000).setBaseAlpha(0.8f).setHighlightAlpha(1f)
             .setDirection(Shimmer.Direction.LEFT_TO_RIGHT).setAutoStart(true).build()
 
     fun getLanguageList(): ArrayList<LanguageModel> {

@@ -24,27 +24,11 @@ class StickerCategoryAdapter :
             txtTittle.text = item.category
             val context = binding.root.context
             if (item.isSelected) {
-                txtTittle.setTextColor(ContextCompat.getColor(context, R.color.white))
-                txtTittle.setOuterStrokeColor(
-                    ContextCompat.getColor(context, R.color.app_color2)
-                )
-                txtTittle.setBackgroundColor(
-                    ContextCompat.getColor(
-                        context,
-                        R.color.app_color8
-                    )
-                )
+                frameTittle.background = ContextCompat.getDrawable(context, R.drawable.img_bg_tittle_selected)
+                txtTittle.setTextColor(ContextCompat.getColor(context, R.color.app_color))
             } else {
-                txtTittle.setTextColor(ContextCompat.getColor(context, R.color.gray2))
-                txtTittle.setOuterStrokeColor(
-                    ContextCompat.getColor(context, R.color.gray2)
-                )
-                txtTittle.setBackgroundColor(
-                    ContextCompat.getColor(
-                        context,
-                        R.color.white
-                    )
-                )
+                frameTittle.background = ContextCompat.getDrawable(context, R.drawable.img_bg_tittle_unselected)
+                txtTittle.setTextColor(ContextCompat.getColor(context, R.color.white))
             }
 
         }

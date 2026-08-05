@@ -71,8 +71,6 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
     private var canSave = false
     private var hasTriggeredReInit = false
     private var holdActionJob: kotlinx.coroutines.Job? = null
-    private val isCoupleMode: Boolean
-        get() = arguments?.getBoolean(ARG_IS_COUPLE, false) ?: false
 
     // ── INFLATE ───────────────────────────────────────────────────────────────
 
@@ -119,9 +117,7 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
     override fun initView() {
 
         binding.apply {
-            txtDone.isSelected =true
             txtReset.isSelected =true
-            txtSize.isSelected =true
         }
         binding.actionBar.apply {
             setImageActionBar(btnActionBarLeft, R.drawable.back_app)
@@ -186,33 +182,57 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
         binding.rcvPart.adapter = adapterPart
     }
 
+    private fun closeScalePanel(animate: Boolean = false) {
+        binding.frameScale.animate().cancel()
+        isScaleActive = false
+        if (animate && binding.frameScale.visibility == View.VISIBLE) {
+            binding.frameScale.animate().alpha(0f).setDuration(200).withEndAction {
+                binding.frameScale.visibility = View.GONE
+                binding.rcvPart.visibility = View.VISIBLE
+                binding.frameScale.alpha = 1f
+            }.start()
+        } else {
+            binding.frameScale.alpha = 1f
+            binding.frameScale.visibility = View.GONE
+            binding.rcvPart.visibility = View.VISIBLE
+        }
+    }
+
+    private fun toggleScalePanel() {
+        binding.frameScale.animate().cancel()
+        isScaleActive = !isScaleActive
+        if (isScaleActive) {
+            binding.frameScale.visibility = View.VISIBLE
+            binding.rcvPart.visibility = View.INVISIBLE
+            binding.frameScale.alpha = 0f
+            binding.frameScale.animate().alpha(1f).setDuration(200).start()
+        } else {
+            closeScalePanel(animate = true)
+        }
+    }
+
     // ── ACTIONS ───────────────────────────────────────────────────────────────
     override fun viewListener() {
         binding.imgScale.onClick {
             if (viewModel.resolvePathAt(viewModel.state.value.currentNavIndex) == null) return@onClick
-            isScaleActive = true
-            binding.frameScale.visibility = View.VISIBLE
-            binding.imgScale.visibility = View.INVISIBLE
+            toggleScalePanel()
         }
-        binding.btnDoneScale.onClick {
-            isScaleActive = false
-            binding.frameScale.visibility = View.GONE
-            binding.imgScale.visibility = View.VISIBLE
-        }
+
         binding.ratioRight.onClickAndHold { changeCurrentTransform { it.copy(rotation = normalizeRotation(it.rotation + 5f)) } }
         binding.ratioLeft.onClickAndHold { changeCurrentTransform { it.copy(rotation = normalizeRotation(it.rotation - 5f)) } }
         binding.transitionLeft.onClickAndHold { changeCurrentTransform { it.copy(translationX = it.translationX - 20f) } }
         binding.transitionRight.onClickAndHold { changeCurrentTransform { it.copy(translationX = it.translationX + 20f) } }
         binding.transitionTop.onClickAndHold { changeCurrentTransform { it.copy(translationY = it.translationY - 20f) } }
         binding.transitionBottom.onClickAndHold { changeCurrentTransform { it.copy(translationY = it.translationY + 20f) } }
-        binding.ratioPlus.onClickAndHold { changeCurrentTransform { it.copy(scale = it.scale + 0.05f) } }
-        binding.ratioMinus.onClickAndHold { changeCurrentTransform { it.copy(scale = it.scale - 0.05f) } }
+        binding.scalePlus.onClickAndHold { changeCurrentTransform { it.copy(scale = it.scale + 0.05f) } }
+        binding.scaleMinus.onClickAndHold { changeCurrentTransform { it.copy(scale = it.scale - 0.05f) } }
         binding.btnResetScale.onClick {
             viewModel.resetTransform(viewModel.state.value.currentNavIndex)
             applyTransformsToAllLayers(viewModel.state.value)
             updateScaleControls()
         }
         adapterNav.onClick = {
+            closeScalePanel()
             if (!checkOnlineNetworkOrShowDialog()) syncNavSelection(it)
         }
         adapterColor.onClick = {
@@ -229,11 +249,6 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
         }
 
         binding.apply {
-            changeAvatar.onClick {
-                if (isCoupleMode && !checkOnlineNetworkOrShowDialog()) {
-                    viewModel.toggleCharacter()
-                }
-            }
             end.onClick {
                 val navPos = viewModel.state.value.currentNavIndex
                 if (navPos < arrShowColor.size) arrShowColor[navPos] = false
@@ -271,6 +286,7 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
                     onYes = {
                         arrShowColor.fill(true);
                         viewModel.resetAll()
+                        closeScalePanel()
                     }
                 )
             }
@@ -460,20 +476,11 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
     // ── ADAPTERS ──────────────────────────────────────────────────────────────
 
     private fun updateAdapters(state: CustomizeState) {
-        visibleNavIndices = state.listData.withIndex()
-            .filter { !isCoupleMode || it.value.charType == state.activeCharacter }
-            .map { it.index }
+        visibleNavIndices = state.listData.indices.toList()
         val visibleNavItems = visibleNavIndices.mapNotNull { state.listData.getOrNull(it) }
         val visibleNavPosition = visibleNavIndices.indexOf(state.currentNavIndex)
             .takeIf { it >= 0 } ?: 0
 
-        // Chỉ tách hai nhân vật khi người dùng đi từ nút Couple ở Home.
-        binding.changeAvatar.isVisible =
-            isCoupleMode && state.listData.any { it.charType == 2 }
-        binding.changeAvatar.setImageResource(
-            if (state.activeCharacter == 1) R.drawable.change_avatar1
-            else R.drawable.change_avatar2
-        )
         adapterNav.submitList(visibleNavItems)
         adapterNav.setPos(visibleNavPosition.coerceIn(0, maxOf(0, visibleNavItems.lastIndex)))
         binding.imgChangColor.isVisible = state.hasMultipleColors
@@ -584,10 +591,10 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
 
         binding.imgScale.isEnabled = hasLayer
         binding.imgScale.alpha = if (hasLayer) 1f else 0.4f
-        binding.ratioPlus.isEnabled = canScaleUp
-        binding.ratioPlus.alpha = if (canScaleUp) 1f else 0.4f
-        binding.ratioMinus.isEnabled = canScaleDown
-        binding.ratioMinus.alpha = if (canScaleDown) 1f else 0.4f
+        binding.scalePlus.isEnabled = canScaleUp
+        binding.scalePlus.alpha = if (canScaleUp) 1f else 0.4f
+        binding.scaleMinus.isEnabled = canScaleDown
+        binding.scaleMinus.alpha = if (canScaleDown) 1f else 0.4f
         binding.transitionLeft.isEnabled = canMoveLeft
         binding.transitionLeft.alpha = if (canMoveLeft) 1f else 0.4f
         binding.transitionRight.isEnabled = canMoveRight
@@ -599,9 +606,7 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
         binding.btnResetScale.isEnabled = hasLayer && !viewModel.isTransformDefault(index)
         binding.btnResetScale.alpha = if (binding.btnResetScale.isEnabled) 1f else 0.4f
         if (!hasLayer) {
-            isScaleActive = false
-            binding.frameScale.visibility = View.GONE
-            binding.imgScale.visibility = View.VISIBLE
+            closeScalePanel()
         }
     }
 
@@ -644,6 +649,7 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
 
     private fun performSave() {
         if (!canSave) return
+        closeScalePanel(animate = true)
         setSaveEnabled(false)
         showLoadingSafe()
 
@@ -671,8 +677,7 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
                     character = template,
                     selections = selections,
                     imageSave = savedPath,
-                    isFlipped = viewModel.state.value.isFlipped,
-                    isCouple = isCoupleMode
+                    isFlipped = viewModel.state.value.isFlipped
                 )
             }
 
@@ -684,11 +689,7 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
                 return@launch
             }
             val number = savedCharacter.id.filter { it.isDigit() }
-            val eventName = if (isCoupleMode) {
-                "click_item_couple${number}_${if (isEdit) "edit" else "done"}"
-            } else {
-                "click_item_${number}_${if (isEdit) "edit" else "done"}"
-            }
+            val eventName = "click_item_${number}_${if (isEdit) "edit" else "done"}"
             if (isEdit) {
                 runCatching {
                     findNavController()
@@ -746,7 +747,6 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
         private const val TRANSFORM_EPSILON = 0.01f
         const val ARG_TEMPLATE_INDEX = "template_index"
         const val ARG_TEMPLATE_ID = "template_id"
-        const val ARG_IS_COUPLE = "is_couple"
         const val ARG_IS_EDIT = "is_edit"
         const val ARG_IS_FLIPPED = "is_flipped"
         const val ARG_SELECTIONS = "selections"
@@ -758,14 +758,12 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
             isEdit: Boolean = false,
             customizedId: String? = null,
             savedSelections: ArrayList<SelectionIndex>? = null,
-            isFlipped: Boolean = false,
-            isCouple: Boolean = false
+            isFlipped: Boolean = false
         ) = Bundle().apply {
             putInt(ARG_TEMPLATE_INDEX, templateIndex)
             templateId?.let { putString(ARG_TEMPLATE_ID, it) }
             putBoolean(ARG_IS_EDIT, isEdit)
             putBoolean(ARG_IS_FLIPPED, isFlipped)
-            putBoolean(ARG_IS_COUPLE, isCouple)
             customizedId?.let { putString(ARG_CUSTOMIZED_ID, it) }
             savedSelections?.let { putParcelableArrayList(ARG_SELECTIONS, it) }
         }

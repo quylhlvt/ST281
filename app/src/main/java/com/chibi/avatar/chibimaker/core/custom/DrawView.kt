@@ -123,7 +123,7 @@ open class DrawView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
             borderPaint.strokeWidth = dpToPx(5)
             borderPaint.strokeJoin = Paint.Join.ROUND
             borderPaint.strokeCap = Paint.Cap.ROUND
-            borderPaint.pathEffect = DashPathEffect(floatArrayOf(20f, 35f), 0f)
+            borderPaint.pathEffect = DashPathEffect(floatArrayOf(40f, 55f), 0f)
 
             setupDefaultIcons()
         } finally {

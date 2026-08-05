@@ -507,8 +507,7 @@ class MyPonyFragment : WhatsappSharingFragment<FragmentMyPonyBinding, MyPonyView
             isEdit          = true,
             customizedId    = idEdit,
             savedSelections = customized.selections.toCleanSelections(),
-            isFlipped       = customized.isFlipped,
-            isCouple        = customized.isCouple || template?.isCoupleTemplate() == true
+            isFlipped       = customized.isFlipped
         )
         findNavController().navigate(R.id.action_mypony_to_custom, args)
     }

@@ -15,7 +15,7 @@ class SpeechAdapter  : BaseAdapter<SelectedAddModel, ItemSpeechBinding>(ItemSpee
     override fun onBind(binding: ItemSpeechBinding, item: SelectedAddModel, position: Int) {
         binding.apply {
 
-            loadImage(root, item.path, imageView)
+            loadImage(root, item.path, imvImage)
             root.onClick {
                 selectItem(position)          // ← was missing entirely
                 onItemClick.invoke(item.path)

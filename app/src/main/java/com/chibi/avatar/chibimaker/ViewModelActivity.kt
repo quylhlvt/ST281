@@ -342,8 +342,7 @@ class ViewModelActivity @Inject constructor(
         character:  CustomModel,
         selections: List<SelectionIndex>,
         imageSave:  String  = "",
-        isFlipped:  Boolean = false,
-        isCouple:   Boolean = false
+        isFlipped:  Boolean = false
     ) {
         viewModelScope.launch {
             val toSave = if (isTemplate(character.id)) {
@@ -353,7 +352,6 @@ class ViewModelActivity @Inject constructor(
                     selections = ArrayList(selections),
                     imageSave  = imageSave,
                     isFlipped  = isFlipped,
-                    isCouple   = isCouple,
                     createdAt  = System.currentTimeMillis(),
                     updatedAt  = System.currentTimeMillis()
                     // ✅ KHÔNG set listPath — giữ nguyên từ template
@@ -363,7 +361,6 @@ class ViewModelActivity @Inject constructor(
                     selections = ArrayList(selections),
                     imageSave  = imageSave,
                     isFlipped  = isFlipped,
-                    isCouple   = isCouple,
                     updatedAt  = System.currentTimeMillis()
                     // ✅ KHÔNG set listPath
                 )

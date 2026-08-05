@@ -22,13 +22,13 @@ class StickerAdapter : BaseAdapter<SelectedAddModel, ItemStickerBinding>(ItemSti
         val shimmerDrawable = ShimmerDrawable().apply { setShimmer(DataLocal.shimmer) }
 
         binding.apply {
-            Glide.with(imageView)
+            Glide.with(imvImage)
                 .load(item.path)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .override(256)
                 .dontAnimate()
                 .placeholder(shimmerDrawable)
-                .into(imageView)
+                .into(imvImage)
             root.onClick {
                 selectItem(position)          // ← was missing entirely
                 onItemClick.invoke(item.path)

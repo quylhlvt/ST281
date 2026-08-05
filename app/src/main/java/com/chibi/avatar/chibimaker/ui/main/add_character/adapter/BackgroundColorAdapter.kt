@@ -25,21 +25,11 @@ class BackgroundColorAdapter : BaseAdapter<SelectedAddModel, ItemBackgroundColor
         val context = binding.root.context
 
         binding.apply {
-            materialParent.strokeWidth = (2).dp(context)
-            // ← chỉ dùng currentSelected, không dùng item.isSelected
-                if (currentSelected == position) {
-
-                    materialParent.apply {    strokeColor = ContextCompat.getColor(context, R.color.app_color2)}
-
-                } else {
-                    if (position == 0)materialParent.strokeWidth = (0).dp(context)
-                    else{
-
-                    materialParent.apply { strokeColor = ContextCompat.getColor(context, R.color.app_color7)}
-                // tắt elevation mặc định để dùng custom shadow
-                }
+            if (currentSelected == position) {
+                materiaForcus.visible()
+            } else {
+                materiaForcus.gone()
             }
-
             if (position == 0) {
                 imvAddColor.visible()
                 imvColor.gone()

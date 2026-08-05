@@ -19,7 +19,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.core.os.bundleOf
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chibi.avatar.chibimaker.R
@@ -83,18 +82,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     }
     override fun viewListener() {
         binding.apply {
-            btnCreate.onClick { navigateWithCheck(R.id.action_home_to_createPony, false) }
+            btnCreate.onClick { navigateWithCheck(R.id.action_home_to_createPony) }
             btnMyAlbum.onClick { findNavController().navigate(R.id.action_home_to_myPony) }
             btnRandom.onClick(1000) { navigateWithCheck(R.id.action_home_to_random) }
             btnChallenge.onClick(1000) { navigateWithCheck(R.id.action_home_to_cosplay) }
             actionBar.btnActionBarRight.onClick { toSettingFromHome() }
         }
     }
-    private fun navigateWithCheck(destination: Int, isCouple: Boolean = false) {
+    private fun navigateWithCheck(destination: Int) {
         val hasNetwork = isInternetAvailable(requireContext()) && isNetworkConnected(requireContext())
-        val hasData = viewModelActivity.templates.value.any {
-            it.isCoupleTemplate() == isCouple
-        }
+        val hasData = viewModelActivity.templates.value.isNotEmpty()
 
         when {
             !hasNetwork -> showUnstableNetworkDialog()
@@ -104,10 +101,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
                 mainViewModel.fetchOnlineTemplates()
                 showLoadingDataDialog()
             }
-            else -> findNavController().navigate(
-                destination,
-                bundleOf(ChoosePonyFragment.ARG_IS_COUPLE to isCouple)
-            )
+            else -> findNavController().navigate(destination)
         }
     }
 

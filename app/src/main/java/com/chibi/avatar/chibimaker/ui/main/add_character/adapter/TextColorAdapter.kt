@@ -40,14 +40,14 @@ class TextColorAdapter :
             if (item.isSelected) {
                 frameShadown.visible()
                 frame.apply {
-                    strokeColor = ContextCompat.getColor(context, R.color.app_color2)
-                    strokeWidth = (2).dp(context)
+                    strokeColor = ContextCompat.getColor(context, R.color.app_color)
+
                 }
             } else {
                 frameShadown.gone()
                 frame.apply {
-                    strokeColor = ContextCompat.getColor(context, R.color.app_color7)
-                    strokeWidth = (1.4).dp(context)
+                    strokeColor = ContextCompat.getColor(context, R.color.transparent)
+
                 }
             }
         }

@@ -20,20 +20,19 @@ class TextFontAdapter(val context: Context) : BaseAdapter<SelectedAddModel, Item
 
     override fun onBind(binding: ItemFontBinding, item: SelectedAddModel, position: Int) {
         binding.apply {
-            val ctx= binding.root.context
             if (item.isSelected) {
                 frameShadown.visible()
+                tvFont.setTextColor(ContextCompat.getColor(context, R.color.app_color))
                 frame.apply {
-                    setCardBackgroundColor(ContextCompat.getColor(context, R.color.app_color3))
-                    strokeColor = ContextCompat.getColor(context, R.color.app_color2)
-                    strokeWidth = (4).dp(ctx)
+                    setCardBackgroundColor(ContextCompat.getColor(context, R.color.app_color2))
+                    strokeColor = ContextCompat.getColor(context, R.color.app_color)
                 }
             } else {
                 frameShadown.gone()
+                tvFont.setTextColor(ContextCompat.getColor(context, R.color.white))
                 frame.apply {
-                    setCardBackgroundColor(ContextCompat.getColor(context, R.color.white))
-               strokeColor = ContextCompat.getColor(context, R.color.app_color7)
-                  strokeWidth = (1.4).dp(ctx)
+                    setCardBackgroundColor(ContextCompat.getColor(context, R.color.transparent))
+               strokeColor = ContextCompat.getColor(context, R.color.white)
                 }
             }
 

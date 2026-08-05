@@ -6,7 +6,8 @@
     <color name="black">#000000</color>
     <color name="gray">#99363636</color>
     <color name="black1">#1F1F1F</color>
-    <color name="black2">#1D1F1F1F</color>
+    <color name="black2">#1F000000</color>
+    <color name="black3">#33000000</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="orange_F6">#F68300</color>
     <color name="purple_F0">#F091F5</color>
@@ -18,7 +19,7 @@
     <color name="app_color2">#F6ECE6</color>
     <color name="app_color3">#EAD8CE</color>
     <color name="app_color4">#DFC1B1</color>
-    <color name="app_color5">#FDF5B9</color>
+    <color name="app_color5">#FEF2EF</color>
     <color name="app_color6">#96C93E</color>
     <color name="app_color7">#368A99</color>
     <color name="app_color8">#F2DF7B</color>
@@ -38,8 +39,8 @@
     <color name="stroke_forcus_1">#7EFEFD</color>
     <color name="stroke_forcus_2">#F5A8F6</color>
     <color name="color_content_dialog">#991F2F4F</color>
-    <color name="color_draw">#368A99</color>
-    <color name="color_draw_unselect">#4D358999</color>
+    <color name="color_draw">#664A42</color>
+    <color name="color_draw_unselect">#4C664A42</color>
 
     <color name="color_1">#E2D2D2</color>
     <color name="color_2">#DCD5FF</color>

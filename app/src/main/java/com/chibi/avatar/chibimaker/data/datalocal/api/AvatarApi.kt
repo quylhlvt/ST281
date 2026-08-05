@@ -4,8 +4,6 @@ import android.util.Log
 import com.chibi.avatar.chibimaker.data.model.custom.*
 import com.google.gson.annotations.SerializedName
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 import retrofit2.http.GET
@@ -19,8 +17,6 @@ object ApiConfig {
     const val BASE_URL_1   = "https://lvtglobal.site/"
     const val BASE_URL_2   = "https://lvt-api-site.io.vn/"
     const val BASE_CONNECT = "public/app/ST246_ChibiAvatarDollMaker/"
-
-    const val COUPLE_BASE_CONNECT = "public/app/ST246_ChibiAvatarDollMakerCouple/"
 
     var BASE_URL = BASE_URL_1
 }
@@ -47,10 +43,6 @@ interface AvatarApiService {
     @GET("api/app/ST246_ChibiAvatarDollMaker")
     suspend fun getAllData(): Map<String, List<X10>>
 }
-interface CoupleAvatarApiService {
-    @GET("api/app/ST246_ChibiAvatarDollMakerCouple")
-    suspend fun getAllData(): Map<String, List<X10>>
-}
 // ── MAPPER ────────────────────────────────────────────────────────────────────
 object ApiTemplateMapper {
     fun map(
@@ -74,18 +66,15 @@ object ApiTemplateMapper {
                             listPath      = colors,
                             listThumbPath = listThumbPath,
                             position      = x,
-                            zIndex        = y,
-                            charType      = parts.getOrNull(2)?.toIntOrNull() ?: 1
+                            zIndex        = y
                         )
                     }
-                val minZIndexByCharType = bodyParts
-                    .groupBy { it.charType }
-                    .mapValues { (_, parts) -> parts.minOfOrNull { it.zIndex } ?: Int.MAX_VALUE }
+                val minZIndex = bodyParts.minOfOrNull { it.zIndex } ?: Int.MAX_VALUE
                 bodyParts.forEach { bp ->
                     bp.listPath.forEach { cm ->
                         if (cm.listPath.isEmpty()) return@forEach  // guard
                         when {
-                            bp.zIndex == minZIndexByCharType[bp.charType] -> {
+                            bp.zIndex == minZIndex -> {
                                 // Body chính: chỉ dice
                                 if (cm.listPath.first() != "dice") cm.listPath.add(0, "dice")
                             }
@@ -159,20 +148,7 @@ class RemoteDataSource @Inject constructor(
     companion object { private const val TAG = "RemoteDataSource" }
 
     suspend fun fetchTemplates(): ApiResult<List<CustomModel>> = withContext(Dispatchers.IO) {
-        coroutineScope {
-            val single = async { fetchSingleTemplates() }
-            val couple = async { fetchCoupleTemplates() }
-            val results = listOf(single.await(), couple.await())
-            val templates = results.filterIsInstance<ApiResult.Success<List<CustomModel>>>()
-                .flatMap { it.data }
-            if (templates.isNotEmpty()) {
-                ApiResult.Success(templates)
-            } else {
-                val message = results.filterIsInstance<ApiResult.Error>()
-                    .joinToString("; ") { it.message }
-                ApiResult.Error(message.ifEmpty { "Network error" })
-            }
-        }
+        fetchSingleTemplates()
     }
 
     private suspend fun fetchSingleTemplates(): ApiResult<List<CustomModel>> {
@@ -191,25 +167,6 @@ class RemoteDataSource @Inject constructor(
                 ))
             } catch (e2: Exception) {
                 ApiResult.Error("Single: ${e2.message ?: "Network error"}")
-            }
-        }
-    }
-    private suspend fun fetchCoupleTemplates(): ApiResult<List<CustomModel>> {
-        return try {
-            val body = apiHelper.coupleApi1.getAllData()
-            Log.d(TAG, "✅ Couple URL1 success, size: ${body.size}")
-            ApiResult.Success(ApiTemplateMapper.map(
-                body, ApiConfig.BASE_URL_1, ApiConfig.COUPLE_BASE_CONNECT, "online_couple"
-            ))
-        } catch (e: Exception) {
-            Log.e(TAG, "❌ Couple URL1 failed, trying URL2: ${e.message}")
-            try {
-                val body = apiHelper.coupleApi2.getAllData()
-                ApiResult.Success(ApiTemplateMapper.map(
-                    body, ApiConfig.BASE_URL_2, ApiConfig.COUPLE_BASE_CONNECT, "online_couple"
-                ))
-            } catch (e2: Exception) {
-                ApiResult.Error("Couple: ${e2.message ?: "Network error"}")
             }
         }
     }

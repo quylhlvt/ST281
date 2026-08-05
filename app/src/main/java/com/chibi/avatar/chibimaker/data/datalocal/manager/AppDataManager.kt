@@ -282,8 +282,7 @@ class AppDataManager @Inject constructor(
                         listThumbPath  = listThumbPath,
                         listSinglePath = listSinglePath,
                         position       = x,
-                        zIndex         = y,
-                        charType       = parts.getOrNull(2)?.toIntOrNull() ?: 1
+                        zIndex         = y
                     ))
                     position++
                 }
@@ -333,7 +332,10 @@ class AppDataManager @Inject constructor(
             val type = object : TypeToken<ArrayList<CustomModel>>() {}.type
             val raw: ArrayList<CustomModel> = gson.fromJson(json, type) ?: return@withContext emptyList()
             // ✅ Fix toàn bộ nested LinkedTreeMap → đúng type
-            raw.map { it.withCleanListPath() }
+            raw.asSequence()
+                .filter { !it.id.startsWith("online_") || it.id.startsWith("online_single_") }
+                .map { it.withCleanListPath() }
+                .toList()
         }.getOrDefault(emptyList())
     }
     // ── CUSTOMIZED CHARACTERS ─────────────────────────────────────────────────
@@ -378,7 +380,11 @@ class AppDataManager @Inject constructor(
             val type = object : TypeToken<List<CustomizedCharacterDto>>() {}.type
             val dtos: List<CustomizedCharacterDto> = gson.fromJson(json, type) ?: emptyList()
 
-            val fixedModels = dtos.map { dto ->
+            val fixedModels = dtos
+                .filter { dto ->
+                    dto.templateId?.let { id -> _templates.value.any { it.id == id } } ?: true
+                }
+                .map { dto ->
                 val template = _templates.value.find { it.id == dto.templateId }
                     ?: _templates.value.find { it.avatar == dto.avatar }
                 val model = dto.toModel(templateListPath = template?.listPath ?: arrayListOf())

@@ -2,6 +2,7 @@ package com.chibi.avatar.chibimaker.ui.main.customize
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -31,6 +32,7 @@ import com.chibi.avatar.chibimaker.core.extention.invisible
 import com.chibi.avatar.chibimaker.databinding.ItemBottomCustomBinding
 import com.chibi.avatar.chibimaker.utils.DataLocal
 import com.facebook.shimmer.ShimmerDrawable
+import androidx.core.graphics.drawable.toDrawable
 
 // ── NAV ADAPTER ───────────────────────────────────────────────────────────────
 class NavAdapter :
@@ -51,22 +53,19 @@ class NavAdapter :
 
         binding.apply {
             val ctx = root.context
-            if (posNav == position) {
 
-                cardLayer.strokeColor = ContextCompat.getColor(ctx, R.color.app_color2)
-                cardLayer.strokeWidth = (3).dp(ctx) // 👈 Thêm dòng này (đơn vị dp, tuỳ chỉnh số)
+            imvImage.background = ContextCompat.getColor(
+                ctx,
+                if (posNav == position) R.color.app_color else R.color.white
+            ).toDrawable()
 
-            } else {
-
-                cardLayer.strokeColor = ContextCompat.getColor(ctx, R.color.app_color7)
-                cardLayer.strokeWidth =  (1.4).dp(ctx)  // 👈 Reset về 0 khi không được chọn
-            }
         Glide.with(imvImage)
             .load(item.nav)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .override(256)
             .dontAnimate()
             .placeholder(shimmerDrawable)
+            .error(shimmerDrawable)
             .into(imvImage)
 
         root.setOnClickListener { onClick?.invoke(position) }
@@ -118,19 +117,11 @@ class PartAdapter : BaseAdapter<String, ItemLayerBinding>(ItemLayerBinding::infl
         val shimmerDrawable = ShimmerDrawable().apply { setShimmer(DataLocal.shimmer) }
 
         binding.apply {
-            val ctx = root.context
-
             if (posPath == position) {
-
-                cardLayer.strokeColor = ContextCompat.getColor(ctx, R.color.app_color2)
-                cardLayer.strokeWidth = (3).dp(ctx) // 👈 Thêm dòng này (đơn vị dp, tuỳ chỉnh số)
-
+                forcus.visible()
             } else {
-
-                cardLayer.strokeColor = ContextCompat.getColor(ctx, R.color.app_color7)
-                cardLayer.strokeWidth =  (1.4).dp(ctx)  // 👈 Reset về 0 khi không được chọn
+                forcus.gone()
             }
-        val thumbPath = listThumb.getOrElse(position) { item }
         when (item) {
             "none" -> {
                 Glide.with(imvImage).clear(imvImage)

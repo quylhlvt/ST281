@@ -20,6 +20,7 @@ import com.chibi.avatar.chibimaker.R
 import com.chibi.avatar.chibimaker.ViewModelActivity
 import com.chibi.avatar.chibimaker.core.base.BaseFragment
 import com.chibi.avatar.chibimaker.core.extention.setImageActionBar
+import com.chibi.avatar.chibimaker.data.datalocal.manager.AppDataManager
 import com.chibi.avatar.chibimaker.data.model.custom.CustomModel
 import com.chibi.avatar.chibimaker.databinding.FragmentChoosePonyBinding
 import com.chibi.avatar.chibimaker.databinding.ItemChooseBinding
@@ -31,8 +32,13 @@ import javax.inject.Inject
 // ── VIEWMODEL ─────────────────────────────────────────────────────────────────
 
 @HiltViewModel
-class ChoosePonyViewModel @Inject constructor() : ViewModel()
-// Template data đến từ shared ViewModelActivity – không cần logic riêng ở đây.
+class ChoosePonyViewModel @Inject constructor(
+    appDataManager: AppDataManager
+) : ViewModel() {
+    // State của màn Category nằm trong ViewModel và dùng chung nguồn cache local.
+    // Fragment bị destroy/recreate khi đi Custom rồi quay lại cũng không mất list.
+    val templates = appDataManager.templates
+}
 
 // ── ADAPTER ───────────────────────────────────────────────────────────────────
 

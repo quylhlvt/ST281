@@ -267,7 +267,7 @@
             android:id="@+id/frameLayer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/img_bg_layer"
+            android:background="@color/app_color"
             app:layout_constraintBottom_toTopOf="@+id/rcvNav"
             app:layout_constraintHeight_percent="0.3">
 

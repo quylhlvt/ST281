@@ -10,9 +10,6 @@
     <string name = "native_cl_home" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name = "native_cl_category" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name = "native_category" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
-    <string name = "native_cl_categoryCouple" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
-    <string name = "native_categoryCouple" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
-    <string name = "native_cl_customCouple" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name = "native_cl_custom" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name = "native_cl_bg" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
     <string name = "native_cl_success" translatable="false">ca-app-pub-3940256099942544/2247696110</string>

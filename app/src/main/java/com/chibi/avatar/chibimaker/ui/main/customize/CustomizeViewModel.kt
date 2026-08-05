@@ -28,9 +28,6 @@ data class CustomizeState(
      */
     val selections:     List<SelectionIndex> = emptyList(),
     val currentNavIndex: Int     = 0,
-    val currentNavIndexChar1: Int = 0,
-    val currentNavIndexChar2: Int = 0,
-    val activeCharacter: Int = 1,
     val isFlipped:       Boolean = false,
     val isLoading:       Boolean = true,
     val isSaving:        Boolean = false,
@@ -102,15 +99,11 @@ class CustomizeViewModel @Inject constructor(
         val template = appDataManager.getCharacterByIndex(templateIndex) ?: return
         _layerTransforms.value = template.layerTransforms
         val sorted   = sortBodyParts(template.listPath)
-        val navChar1 = firstNavIndexForChar(sorted, 1)
-        val navChar2 = firstNavIndexForChar(sorted, 2)
         _state.value = CustomizeState(
             template        = template,
             listData        = sorted,
             selections      = buildDefaultSelections(sorted),
-            currentNavIndex = navChar1,
-            currentNavIndexChar1 = navChar1,
-            currentNavIndexChar2 = navChar2,
+            currentNavIndex = 0,
             isLoading       = true
         )
     }
@@ -121,16 +114,12 @@ class CustomizeViewModel @Inject constructor(
         val template = appDataManager.getCharacterByIndex(templateIndex) ?: return
         _layerTransforms.value = template.layerTransforms
         val sorted   = sortBodyParts(template.listPath)
-        val navChar1 = firstNavIndexForChar(sorted, 1)
-        val navChar2 = firstNavIndexForChar(sorted, 2)
         _state.value = CustomizeState(
             template        = template,
             listData        = sorted,
             selections      = clampSelections(sorted, savedSelections),
             isFlipped       = isFlipped,
-            currentNavIndex = navChar1,
-            currentNavIndexChar1 = navChar1,
-            currentNavIndexChar2 = navChar2,
+            currentNavIndex = 0,
             isLoading       = true
         )
     }
@@ -146,16 +135,12 @@ class CustomizeViewModel @Inject constructor(
             val sel = savedSelections.getOrElse(originalIdx) { SelectionIndex(originalIdx, 0, 0) }
             SelectionIndex(sortedIdx, sel.colorIndex, sel.pathIndex)
         }
-        val navChar1 = firstNavIndexForChar(sorted, 1)
-        val navChar2 = firstNavIndexForChar(sorted, 2)
         _state.value = CustomizeState(
             template        = template,
             listData        = sorted,
             selections      = clampSelections(sorted, remapped),
             isFlipped       = false,
-            currentNavIndex = navChar1,
-            currentNavIndexChar1 = navChar1,
-            currentNavIndexChar2 = navChar2,
+            currentNavIndex = 0,
             isLoading       = true
         )
     }
@@ -170,16 +155,12 @@ class CustomizeViewModel @Inject constructor(
         val template = appDataManager.getCharacterByIndex(templateIndex) ?: return
         _layerTransforms.value = appDataManager.getCharacterById(customizedId)?.layerTransforms.orEmpty()
         val sorted   = sortBodyParts(template.listPath)
-        val navChar1 = firstNavIndexForChar(sorted, 1)
-        val navChar2 = firstNavIndexForChar(sorted, 2)
         _state.value = CustomizeState(
             template        = template,
             listData        = sorted,
             selections      = clampSelections(sorted, savedSelections),
             isFlipped       = isFlipped,
-            currentNavIndex = navChar1,
-            currentNavIndexChar1 = navChar1,
-            currentNavIndexChar2 = navChar2,
+            currentNavIndex = 0,
             isLoading       = true
         )
     }
@@ -188,25 +169,7 @@ class CustomizeViewModel @Inject constructor(
     // ── SELECTIONS ────────────────────────────────────────────────────────────
 
     fun selectNav(navIndex: Int) = _state.update { state ->
-        val safeNav = clampNavIndex(state.listData, state.activeCharacter, navIndex)
-        if (state.activeCharacter == 2) {
-            state.copy(currentNavIndex = safeNav, currentNavIndexChar2 = safeNav)
-        } else {
-            state.copy(currentNavIndex = safeNav, currentNavIndexChar1 = safeNav)
-        }
-    }
-
-    fun toggleCharacter() = _state.update { state ->
-        val nextCharacter = if (state.activeCharacter == 1) 2 else 1
-        val rememberedNav = if (nextCharacter == 1) {
-            state.currentNavIndexChar1
-        } else {
-            state.currentNavIndexChar2
-        }
-        state.copy(
-            activeCharacter = nextCharacter,
-            currentNavIndex = clampNavIndex(state.listData, nextCharacter, rememberedNav)
-        )
+        state.copy(currentNavIndex = navIndex.coerceIn(0, maxOf(0, state.listData.lastIndex)))
     }
     fun toggleFlip()               = _state.update { it.copy(isFlipped = !it.isFlipped) }
 
@@ -243,7 +206,6 @@ class CustomizeViewModel @Inject constructor(
         val state = _state.value
         val newSelections = state.listData.mapIndexed { i, bp ->
             val old = state.selections.getOrElse(i) { SelectionIndex(i, 0, 0) }
-            if (bp.charType != state.activeCharacter) return@mapIndexed old
             val colorIdx = if (bp.listPath.size > 1) (0 until bp.listPath.size).random() else 0
             val paths    = bp.listPath.getOrNull(colorIdx)?.listPath ?: emptyList()
             val start    = startIndexAfterSpecial(paths)
@@ -254,15 +216,10 @@ class CustomizeViewModel @Inject constructor(
     }
 
     fun resetAll() { _layerTransforms.value = emptyMap(); _state.update {
-        val navChar1 = firstNavIndexForChar(it.listData, 1)
-        val navChar2 = firstNavIndexForChar(it.listData, 2)
         it.copy(
             selections = buildDefaultSelections(it.listData),
             isFlipped = false,
-            currentNavIndex = navChar1,
-            currentNavIndexChar1 = navChar1,
-            currentNavIndexChar2 = navChar2,
-            activeCharacter = 1
+            currentNavIndex = 0
         )
     } }
 
@@ -317,19 +274,10 @@ class CustomizeViewModel @Inject constructor(
     private fun sortBodyParts(parts: List<BodyPartModel>) = parts.sortedBy { it.zIndex }
 
     private fun buildDefaultSelections(parts: List<BodyPartModel>): List<SelectionIndex> =
-        parts.mapIndexed { i, bp ->
-            val firstForCharacter = parts.indexOfFirst { it.charType == bp.charType }
-            if (i == firstForCharacter) SelectionIndex(i, 0, 1)
+        parts.mapIndexed { i, _ ->
+            if (i == 0) SelectionIndex(i, 0, 1)
             else SelectionIndex(i, 0, 0)
         }
-
-    private fun firstNavIndexForChar(parts: List<BodyPartModel>, charType: Int): Int =
-        parts.indexOfFirst { it.charType == charType }.takeIf { it >= 0 } ?: 0
-
-    private fun clampNavIndex(parts: List<BodyPartModel>, charType: Int, navIndex: Int): Int {
-        if (parts.getOrNull(navIndex)?.charType == charType) return navIndex
-        return firstNavIndexForChar(parts, charType)
-    }
 
     private fun clampSelections(parts: List<BodyPartModel>, saved: List<SelectionIndex>): List<SelectionIndex> =
         parts.mapIndexed { i, bp ->

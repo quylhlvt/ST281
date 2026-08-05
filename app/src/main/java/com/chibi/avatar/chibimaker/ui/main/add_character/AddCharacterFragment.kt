@@ -15,6 +15,7 @@ import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.doOnPreDraw
@@ -110,6 +111,13 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
         binding.btnSticker,
         binding.btnSpeech,
         binding.btnText,
+    )
+
+    private fun imageNavigationList() = arrayListOf(
+        binding.imgBackground,
+        binding.imgSticker,
+        binding.imgSpeech,
+        binding.imgText,
     )
 
     private fun layoutNavigationList() = arrayListOf(
@@ -662,6 +670,12 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                     lnlBackground.rcvBackgroundColor.gone()
                     lnlBackground.imgAddFor.setImageResource(R.drawable.frame_select_add)
                     lnlBackground.imgAddFor1.setImageResource(R.drawable.frame_unselect_add)
+                    lnlBackground.btnBackgroundColorTv.setTextColor(
+                        ContextCompat.getColor(requireContext(), R.color.black3)
+                    )
+                    lnlBackground.btnBackgroundImageTv.setTextColor(
+                        ContextCompat.getColor(requireContext(), R.color.white)
+                    )
                     backgroundImageAdapter.submitList(viewModel.backgroundImageList)
                 }
                 ValueKey.COLOR_BACKGROUND -> {
@@ -670,6 +684,12 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                     lnlBackground.rcvBackgroundColor.visible()
                     lnlBackground.imgAddFor1.setImageResource(R.drawable.frame_select_add)
                     lnlBackground.imgAddFor.setImageResource(R.drawable.frame_unselect_add)
+                    lnlBackground.btnBackgroundColorTv.setTextColor(
+                        ContextCompat.getColor(requireContext(), R.color.white)
+                    )
+                    lnlBackground.btnBackgroundImageTv.setTextColor(
+                        ContextCompat.getColor(requireContext(), R.color.black3)
+                    )
                     backgroundColorAdapter.submitList(viewModel.backgroundColorList)
                 }
             }
@@ -678,13 +698,19 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
 
     private fun setupTypeNavigation(type: Int) {
         buttonNavigationList().forEachIndexed { index, button ->
-            val (res, status) = if (index == type) {
-                DataLocal.bottomNavigationSelected[index] to true
+            val isSelected = index == type
+            val iconRes = if (isSelected) {
+                DataLocal.bottomNavigationSelected[index]
             } else {
-                DataLocal.bottomNavigationNotSelect[index] to false
+                DataLocal.bottomNavigationNotSelect[index]
             }
-            button.setImageResource(res)
-            layoutNavigationList()[index].isVisible = status
+
+            button.setBackgroundResource(
+                if (isSelected) R.drawable.bg_selected_add
+                else R.drawable.bg_unselected_add
+            )
+            imageNavigationList()[index].setImageResource(iconRes)
+            layoutNavigationList()[index].isVisible = isSelected
         }
     }
 

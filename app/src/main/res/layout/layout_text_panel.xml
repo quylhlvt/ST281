@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/text"
@@ -29,7 +29,7 @@
                 app:outerStrokeColor="@color/stroker_gray"
                 android:gravity="center"
                 style="@style/single_marquee"
-                android:fontFamily="@font/atma_bold"
+                android:fontFamily="@font/carter_one_regular"
                 android:textSize="16sp"
                 app:outerStrokeWidth="0.4dp" />
 
@@ -38,7 +38,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="4dp"
                 android:background="@drawable/bg_8_solid_white"
                 android:ellipsize="end"
                 android:fontFamily="@font/itim_regular"
@@ -51,12 +50,11 @@
                 android:textColorHint="#99868686"
                 android:textSize="14sp" />
 
-            <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+            <TextView
                 android:textColor="@color/app_color"
                 app:outerStrokeColor="@color/stroker_gray"
-
                 style="@style/single_marquee"
-                android:fontFamily="@font/atma_bold"
+                android:fontFamily="@font/carter_one_regular"
                 android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,17 +68,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="4dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_font" />
 
-            <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+            <TextView
                 android:textColor="@color/app_color"
                 app:outerStrokeColor="@color/stroker_gray"
 
                 style="@style/single_marquee"
-                android:fontFamily="@font/atma_bold"
+                android:fontFamily="@font/carter_one_regular"
                 android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,7 +91,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_text_color" />

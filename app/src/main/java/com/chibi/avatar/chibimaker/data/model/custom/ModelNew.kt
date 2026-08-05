@@ -44,8 +44,7 @@ data class BodyPartModel(
 val listThumbPath:  ArrayList<String>    = arrayListOf(),
 val listSinglePath: ArrayList<String>    = arrayListOf(),
 val position:       Int                  = 0,
-val zIndex:         Int                  = 0,
-val charType:       Int                  = 1
+val zIndex:         Int                  = 0
 ) : Parcelable
 
 // ─────────────────────────────────────────────
@@ -62,7 +61,6 @@ data class CustomModel(
     val selections: ArrayList<SelectionIndex>  = arrayListOf(),
     val imageSave:  String                     = "",
     val isFlipped:  Boolean                    = false,
-    val isCouple:   Boolean                    = false,
     val createdAt:  Long                       = 0L,
     val updatedAt:  Long                       = System.currentTimeMillis(),
     val level: Int = 0,
@@ -73,5 +71,4 @@ data class CustomModel(
     fun hasPreviewImage() = imageSave.isNotEmpty()
     fun getBodyPart(index: Int) = listPath.getOrNull(index)
     fun getSelection(navIndex: Int) = selections.getOrNull(navIndex)
-    fun isCoupleTemplate() = id.startsWith("online_couple_") || listPath.any { it.charType == 2 }
 }

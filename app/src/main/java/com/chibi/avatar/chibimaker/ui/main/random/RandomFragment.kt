@@ -139,8 +139,7 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
                     templateIndex = item.templateIndex,
                     templateId = templateId,
                     isEdit = false,
-                    savedSelections = item.selections,
-                    isCouple = item.template.isCoupleTemplate()
+                    savedSelections = item.selections
                 )
                 findNavController().navigate(R.id.action_random_to_custom, args)
             }

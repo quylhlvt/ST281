@@ -40,17 +40,4 @@ class ApiHelper @Inject constructor() {
         .build()
         .create(AvatarApiService::class.java)
 
-    val coupleApi1: CoupleAvatarApiService = Retrofit.Builder()
-        .baseUrl(ApiConfig.BASE_URL_1)
-        .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(CoupleAvatarApiService::class.java)
-
-    val coupleApi2: CoupleAvatarApiService = Retrofit.Builder()
-        .baseUrl(ApiConfig.BASE_URL_2)
-        .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(CoupleAvatarApiService::class.java)
 }

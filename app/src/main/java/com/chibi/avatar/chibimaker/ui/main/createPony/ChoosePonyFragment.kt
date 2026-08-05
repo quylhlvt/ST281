@@ -40,17 +40,6 @@ class ChoosePonyFragment : BaseFragment<FragmentChoosePonyBinding, ChoosePonyVie
     private val mainViewModel: ViewModelActivity by activityViewModels()
     private lateinit var adapter: ChoosePonyAdapter
     private var isFirstLoad = true
-    private val isCouple: Boolean get() = arguments?.getBoolean(ARG_IS_COUPLE, false) ?: false
-
-    private val nativeCollapId: Int
-        get() = if (isCouple) R.string.native_cl_categoryCouple else R.string.native_cl_category
-
-    private val nativeCategoryId: Int
-        get() = if (isCouple) R.string.native_categoryCouple else R.string.native_category
-
-    private fun templatesForMode(templates: List<CustomModel>): List<CustomModel> =
-        templates.filter { it.isCoupleTemplate() == isCouple }
-
     override fun inflateBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -77,7 +66,7 @@ class ChoosePonyFragment : BaseFragment<FragmentChoosePonyBinding, ChoosePonyVie
 
         adapter = ChoosePonyAdapter { character, position ->
             val number = character.id.filter { it.isDigit() }
-            val eventName = if (isCouple) "click_item_couple${number}" else "click_item_${number}"
+            val eventName = "click_item_${number}"
             Log.d("logevent", "$eventName- ${character.avatar}")
             if (character.id.startsWith("online_")) {
                 if (!isInternetAvailable(requireContext())) {
@@ -94,7 +83,7 @@ class ChoosePonyFragment : BaseFragment<FragmentChoosePonyBinding, ChoosePonyVie
                 }
             } else {
                 // ✅ Offline item — verify data tồn tại trước khi navigate
-                val safeIndex = mainViewModel.templates.value.indexOfFirst { it.id == character.id }
+                val safeIndex = viewModel.templates.value.indexOfFirst { it.id == character.id }
                 if (safeIndex < 0) {
                     showToast(getString(R.string.download_failed_please_try_again_later)); return@ChoosePonyAdapter
                 }
@@ -109,9 +98,8 @@ class ChoosePonyFragment : BaseFragment<FragmentChoosePonyBinding, ChoosePonyVie
         }
     }
     private fun navigateToCustomize(character: CustomModel, index: Int) {
-        val templates = mainViewModel.templates.value
-        // `index` thuộc list đã filter theo single/couple, nên chỉ dùng như một
-        // fast-path. ID mới là khóa ổn định để tìm index trong list gốc.
+        val templates = viewModel.templates.value
+        // ID là khóa ổn định để tìm index trong list gốc.
         val correctIndex = if (templates.getOrNull(index)?.id == character.id) {
             index
         } else {
@@ -126,9 +114,7 @@ class ChoosePonyFragment : BaseFragment<FragmentChoosePonyBinding, ChoosePonyVie
             R.id.action_createPony_to_custom,
             bundleOf(
                 ARG_TEMPLATE_INDEX to correctIndex,
-                ARG_TEMPLATE_ID to character.id,
-                // Truyền tiếp mode từ Home -> Category -> Customize.
-                CustomizeFragment.ARG_IS_COUPLE to isCouple
+                ARG_TEMPLATE_ID to character.id
             )
         )
     }
@@ -137,11 +123,7 @@ class ChoosePonyFragment : BaseFragment<FragmentChoosePonyBinding, ChoosePonyVie
     }
 
     private fun navigateBack() {
-        if (isCouple) {
         findNavController().navigateUp()
-        } else {
-            findNavController().navigateUp()
-        }
     }
 
     override fun onBackPressed(): Boolean {
@@ -155,33 +137,24 @@ class ChoosePonyFragment : BaseFragment<FragmentChoosePonyBinding, ChoosePonyVie
 
                 launch {
                     kotlinx.coroutines.flow.combine(
-                        mainViewModel.templates,
+                        viewModel.templates,
                         mainViewModel.isFetchingOnlineFlow
                     ) { templates, isFetching -> Pair(templates, isFetching) }
                         .collect { (templates, isFetching) ->
-                            // ✅ Lọc theo trạng thái mạng
-                            val hasInternet = withContext(Dispatchers.IO) {
-                                isInternetAvailable(requireContext())
-                            }
-                            val modeTemplates = templatesForMode(templates)
-                            val filteredTemplates = if (hasInternet) {
-                                modeTemplates
-                            } else {
-                                modeTemplates.filter { !it.id.startsWith("online_") }
-                            }
-
-                            adapter.submitList(filteredTemplates)
+                            // Giữ danh sách đã tải/cache khi mất mạng. Việc mở một
+                            // template online vẫn được kiểm tra ở click listener.
+                            adapter.submitList(templates)
 
                             if (isFirstLoad && !isFetching) {
                                 isFirstLoad = false
-                                if (filteredTemplates.size <= 1) showNoInternetDialog()
+                                if (templates.size <= 1) showNoInternetDialog()
                             }
                         }
                 }
 
                 launch {
-                    mainViewModel.templates.collect { templates ->
-                        val hasOnline = templatesForMode(templates).any { it.id.startsWith("online_") }
+                    viewModel.templates.collect { templates ->
+                        val hasOnline = templates.any { it.id.startsWith("online_") }
                         if (!hasOnline && !mainViewModel.isFetchingOnlineFlow.value) {
                             val hasInternet = withContext(Dispatchers.IO) {
                                 isInternetAvailable(requireContext())
@@ -206,18 +179,13 @@ class ChoosePonyFragment : BaseFragment<FragmentChoosePonyBinding, ChoosePonyVie
             val hasInternet = withContext(Dispatchers.IO) {
                 isInternetAvailable(requireContext())
             }
-            val templates = mainViewModel.templates.value
-            val modeTemplates = templatesForMode(templates)
-            val filtered = if (hasInternet) {
-                modeTemplates
-            } else {
-                modeTemplates.filter { !it.id.startsWith("online_") }
-            }
-            adapter.submitList(filtered)
+            val templates = viewModel.templates.value
+            // Không xóa item online khỏi UI khi offline vì dữ liệu đã có trong cache.
+            adapter.submitList(templates)
 
             // Fetch online nếu có mạng mà chưa có data online
             if (hasInternet) {
-                val hasOnline = modeTemplates.any { it.id.startsWith("online_") }
+                val hasOnline = templates.any { it.id.startsWith("online_") }
                 if (!hasOnline && !mainViewModel.isFetchingOnlineFlow.value) {
                     mainViewModel.fetchOnlineTemplates()
                 }
@@ -227,7 +195,4 @@ class ChoosePonyFragment : BaseFragment<FragmentChoosePonyBinding, ChoosePonyVie
 
     override fun bindViewModel() {}
 
-    companion object {
-        const val ARG_IS_COUPLE = "is_couple"
-    }
 }

@@ -9,19 +9,19 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     android:layout_height="match_parent"
+    android:id="@+id/frame_tittle"
+    android:background="@drawable/img_bg_tittle_selected"
     app:layout_constraintDimensionRatio="9:3.6">
-    <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+    <TextView
         android:id="@+id/txtTittle"
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/next"
         android:layout_gravity="center"
         android:gravity="center"
-        app:outerStrokeWidth="1dp"
-        android:fontFamily="@font/atma_bold"
-        android:textSize="18sp"
-        app:outerStrokeColor="@color/gray2"
-        android:textColor="@color/gray2"/>
+        app:outerStrokeWidth="0dp"
+        android:fontFamily="@font/carter_one_regular"
+        android:textSize="14sp"
+        android:textColor="@color/white"/>
 </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

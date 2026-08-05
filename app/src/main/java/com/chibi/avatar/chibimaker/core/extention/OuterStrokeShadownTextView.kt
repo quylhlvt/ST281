@@ -6,7 +6,7 @@ import android.graphics.Paint.Join
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import com.chibi.avatar.chibimaker.R
-import ir.kotlin.kavehcolorpicker.dp
+import ir.kotlin.quyhcolorpicker.dp
 
 class OuterStrokeShadownTextView : AppCompatTextView {
 
