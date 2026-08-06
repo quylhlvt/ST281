@@ -84,20 +84,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         binding.apply {
             btnCreate.onClick { navigateWithCheck(R.id.action_home_to_createPony) }
             btnMyAlbum.onClick { findNavController().navigate(R.id.action_home_to_myPony) }
-            btnRandom.onClick(1000) { navigateWithCheck(R.id.action_home_to_random) }
-            btnChallenge.onClick(1000) { navigateWithCheck(R.id.action_home_to_cosplay) }
+            btnRandom.onClick(1000) {
+                navigateWithCheck(R.id.action_home_to_random)
+            }
+            btnChallenge.onClick(1000) {
+                navigateWithCheck(R.id.action_home_to_cosplay)
+            }
             actionBar.btnActionBarRight.onClick { toSettingFromHome() }
         }
     }
+
     private fun navigateWithCheck(destination: Int) {
-        val hasNetwork = isInternetAvailable(requireContext()) && isNetworkConnected(requireContext())
+        val hasNetwork = isInternetAvailable(requireContext()) &&
+            isNetworkConnected(requireContext())
         val hasData = viewModelActivity.templates.value.isNotEmpty()
 
         when {
             !hasNetwork -> showUnstableNetworkDialog()
             !hasData -> {
-                // Có thể một trong hai catalogue lỗi/tải chậm trong lần gọi song song đầu tiên.
-                // Retry cả hai; guard trong ViewModel đảm bảo không tạo request trùng.
                 mainViewModel.fetchOnlineTemplates()
                 showLoadingDataDialog()
             }

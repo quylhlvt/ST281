@@ -18,11 +18,13 @@ import com.chibi.avatar.chibimaker.R
 import com.chibi.avatar.chibimaker.core.base.BaseFragment
 import com.chibi.avatar.chibimaker.core.extention.InternetExtension.isInternetAvailable
 import com.chibi.avatar.chibimaker.core.extention.InternetExtension.isNetworkConnected
+import com.chibi.avatar.chibimaker.core.extention.gone
 import com.chibi.avatar.chibimaker.core.extention.onClick
 import com.chibi.avatar.chibimaker.core.extention.popBack
 import com.chibi.avatar.chibimaker.core.extention.select
 import com.chibi.avatar.chibimaker.core.extention.setImageActionBar
 import com.chibi.avatar.chibimaker.core.extention.setTextActionBar
+import com.chibi.avatar.chibimaker.core.extention.visible
 import com.chibi.avatar.chibimaker.databinding.FragmentRandomBinding
 import com.chibi.avatar.chibimaker.ui.main.cosplay.CosplayViewModel
 import com.chibi.avatar.chibimaker.ui.main.customize.CustomizeFragment
@@ -31,6 +33,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.collections.forEach
@@ -87,6 +91,7 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
 
     }
     override fun initView() {
+        Glide.with(binding.imageGif).asGif().load(R.drawable.gif).into(binding.imageGif)
         binding.setupActionBar()
         binding.txtShow.isSelected = true
     }
@@ -185,26 +190,44 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
             val paths = item.resolvedPaths.filterNotNull()
             if (paths.isEmpty()) return@launch
             binding.imvImage.setImageDrawable(null)
-            showLoadingSafe()
+            binding.imageGif.visible()
 
-            val bitmaps = withContext(Dispatchers.IO) {
-                paths.map { path ->
-                    async {
-                        runCatching {
-                            Glide.with(requireContext())
-                                .asBitmap()
-                                .load(path)
-                                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                                .override(800)
-                                .submit()
-                                .get()
-                        }.getOrNull()
+            var networkDialogShown = false
+            var waitingForNetwork = false
+            var bitmaps: List<Bitmap> = emptyList()
+            while (isActive) {
+                val loaded = withContext(Dispatchers.IO) {
+                    paths.map { path ->
+                        async {
+                            runCatching {
+                                Glide.with(requireContext()).asBitmap().load(path)
+                                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                                    .override(800).submit().get()
+                            }.getOrNull()
+                        }
+                    }.awaitAll()
+                }
+                bitmaps = loaded.filterNotNull()
+                if (bitmaps.size == paths.size) break
+
+                val hasNetwork = isNetworkConnected(requireContext()) &&
+                    isInternetAvailable(requireContext())
+                if (!hasNetwork) {
+                    waitingForNetwork = true
+                    if (!networkDialogShown) {
+                        showUnstableNetworkDialog()
+                        networkDialogShown = true
                     }
-                }.awaitAll().filterNotNull()
+                    delay(200)
+                    continue
+                }
+                if (waitingForNetwork) {
+                    viewModel.randomize(isOnline = true)
+                    return@launch
+                }
+                delay(200)
             }
-
-            hideLoadingSafe()
-            if (bitmaps.isEmpty()) return@launch
+            if (!isActive || bitmaps.size != paths.size) return@launch
 
             val merged = mergeBitmaps(bitmaps)
 
@@ -213,6 +236,7 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
 
             withContext(Dispatchers.Main) {
                 showBitmap(merged)
+                binding.imageGif.gone()
             }
         }
     }
@@ -222,6 +246,7 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
             scaleType = ImageView.ScaleType.CENTER_CROP
             setImageBitmap(bitmap)
         }
+        binding.imageGif.gone()
     }
 
     private fun mergeBitmaps(bitmaps: List<Bitmap>): Bitmap {

@@ -74,7 +74,7 @@ class SuccessCosplayFragment : BaseFragment<FragmentSuccessCosplayBinding, Succe
     private fun updateProgressBar(percent: Int) {
         binding.progressTrack.post {
             val trackW = binding.progressTrack.width.toFloat()
-            val fillMarginStartPx = 10 * resources.displayMetrics.density // margin 7dp từ XML
+            val fillMarginStartPx = 17 * resources.displayMetrics.density // margin 7dp từ XML
             val fillW = trackW - fillMarginStartPx
             val targetScale = percent / 100f
             val adjustedScale = targetScale * fillW / trackW
@@ -95,10 +95,10 @@ class SuccessCosplayFragment : BaseFragment<FragmentSuccessCosplayBinding, Succe
                 btnActionBarRight,
                 R.drawable.ic_home
             )
-            setTextActionBar(
-                tvCenter,
-                getString(R.string.successfully)
-            )
+//            setTextActionBar(
+//                tvCenter,
+//                getString(R.string.successfully)
+//            )
         }
     }
 

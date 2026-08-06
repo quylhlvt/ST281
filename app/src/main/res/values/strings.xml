@@ -31,7 +31,7 @@
     <string name="yes">Yes</string>
     <string name="null_edt">Please enter text</string>
     <string name="done">Done</string>
-    <string name="choose_color">Choose Color</string>
+    <string name="choose_color">CHOOSE COLOR</string>
     <string name="do_you_want_to_reset_all">Do you want to reset all?</string>
     <string name="reset">Reset</string>
     <string name="exit">Exit</string>
@@ -46,6 +46,10 @@
     <string name="add_to_whatsapp">Add To WhatsApp</string>
     <string name="add_to_telegram">Add To Telegram</string>
     <string name="share">Share</string>
+    <string name="image_not_found">Image not found</string>
+    <string name="facebook_not_available">Facebook is not installed or cannot receive this image</string>
+    <string name="instagram_not_available">Instagram is not installed or cannot receive this image</string>
+    <string name="share_failed">Unable to share the image. Please try again.</string>
     <string name="no_app_found_to_handle_this_action">No app found to handle this action</string>
     <string name="download_success">Download successful to the %s album</string>
     <string name="download_fail">Download failed, please try again later!</string>
@@ -133,4 +137,12 @@
     <string name="watch_a_short_ad_to_generate_a_random_chibi">Watch a short ad to generate a random chibi.</string>
     <string name="challenge_food">Challenge Food</string>
     <string name="food_random">Food Random</string>
+    <string name="my_food">My Food</string>
+    <string name="facebook_share">Facebook Share</string>
+    <string name="instagram_share">Instagram Share</string>
+    <string name="congratulation">CONGRATULATION!!!</string>
+    <string name="congratulations_on_completing_the_challenge">Congratulations on\ncompleting the challenge!!!</string>
+    <string name="oops">OOPS... :((</string>
+    <string name="keep_trying_harder">Keep trying harder!!!</string>
+    <string name="bubbles">Bubbles</string>
 </resources>

@@ -14,9 +14,9 @@ import javax.inject.Singleton
 // ── CONFIG ────────────────────────────────────────────────────────────────────
 
 object ApiConfig {
-    const val BASE_URL_1   = "https://lvtglobal.site/"
-    const val BASE_URL_2   = "https://lvt-api-site.io.vn/"
-    const val BASE_CONNECT = "public/app/ST246_ChibiAvatarDollMaker/"
+    const val BASE_URL_1   = "https://lvtglobal.tech/"
+    const val BASE_URL_2   = "https://lvt-api-tech.io.vn/"
+    const val BASE_CONNECT = "public/app/ST281_FoodMaker/"
 
     var BASE_URL = BASE_URL_1
 }
@@ -40,7 +40,7 @@ data class X10(
 }
 // ── SERVICE ───────────────────────────────────────────────────────────────────
 interface AvatarApiService {
-    @GET("api/app/ST246_ChibiAvatarDollMaker")
+    @GET("api/app/ST281_FoodMaker")
     suspend fun getAllData(): Map<String, List<X10>>
 }
 // ── MAPPER ────────────────────────────────────────────────────────────────────

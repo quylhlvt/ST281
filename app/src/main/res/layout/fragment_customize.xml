@@ -109,7 +109,10 @@
                     app:layout_constraintBottom_toBottomOf="@+id/cardColor"
                     app:layout_constraintEnd_toEndOf="@+id/cardColor">
 
-
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_10_stroke_linear_color"/>
 
                 </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView

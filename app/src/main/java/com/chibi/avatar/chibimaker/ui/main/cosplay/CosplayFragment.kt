@@ -37,6 +37,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -86,26 +88,27 @@ class CosplayFragment : BaseFragment<FragmentCosplayBinding, CosplayViewModel>(
 
     }
     override fun initView() {
+        Glide.with(binding.imageGif).asGif().load(R.drawable.gif).into(binding.imageGif)
         binding.setupActionBar()
         binding.txtRandom.isSelected = true
         binding.txtShow.isSelected = true
         val space = SpannableString(" ")
         val parts = listOf(
-            changeText(requireContext(), getString(R.string.tvCosplay1), R.color.app_color8, R.font.atma_bold),
+            changeText(requireContext(), getString(R.string.tvCosplay1), R.color.black4, R.font.carter_one_regular),
             space,
-            changeText(requireContext(), getString(R.string.tvCosplay2), R.color.white, R.font.atma_bold),
+            changeText(requireContext(), getString(R.string.tvCosplay2), R.color.app_color, R.font.carter_one_regular),
             space,
-            changeText(requireContext(), getString(R.string.tvCosplay3), R.color.app_color8, R.font.atma_bold),
+            changeText(requireContext(), getString(R.string.tvCosplay3), R.color.black4, R.font.carter_one_regular),
             space,
-            changeText(requireContext(), getString(R.string.tvCosplay4), R.color.white, R.font.atma_bold),
+            changeText(requireContext(), getString(R.string.tvCosplay4), R.color.app_color, R.font.carter_one_regular),
             space,
-            changeText(requireContext(), getString(R.string.tvCosplay5), R.color.app_color8, R.font.atma_bold),
+            changeText(requireContext(), getString(R.string.tvCosplay5), R.color.black4, R.font.carter_one_regular),
             space,
-            changeText(requireContext(), getString(R.string.tvCosplay6), R.color.white, R.font.atma_bold),
+            changeText(requireContext(), getString(R.string.tvCosplay6), R.color.app_color, R.font.carter_one_regular),
             space,
-            changeText(requireContext(), getString(R.string.tvCosplay7), R.color.app_color8, R.font.atma_bold),
+            changeText(requireContext(), getString(R.string.tvCosplay7), R.color.black4, R.font.carter_one_regular),
             space,
-            changeText(requireContext(), getString(R.string.tvCosplay8), R.color.white, R.font.atma_bold),
+            changeText(requireContext(), getString(R.string.tvCosplay8), R.color.app_color, R.font.carter_one_regular),
         )
 
         // ✅ Dùng SpannableStringBuilder thay vì TextUtils.concat
@@ -211,26 +214,44 @@ class CosplayFragment : BaseFragment<FragmentCosplayBinding, CosplayViewModel>(
             if (paths.isEmpty()) return@launch
             binding.imvImage.setImageDrawable(null)
 
-            showLoadingSafe()
+            binding.imageGif.visible()
 
-            val bitmaps = withContext(Dispatchers.IO) {
-                paths.map { path ->
-                    async {
-                        runCatching {
-                            Glide.with(requireContext())
-                                .asBitmap()
-                                .load(path)
-                                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                                .override(512)
-                                .submit()
-                                .get()
-                        }.getOrNull()
+            var networkDialogShown = false
+            var waitingForNetwork = false
+            var bitmaps: List<Bitmap> = emptyList()
+            while (isActive) {
+                val loaded = withContext(Dispatchers.IO) {
+                    paths.map { path ->
+                        async {
+                            runCatching {
+                                Glide.with(requireContext()).asBitmap().load(path)
+                                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                                    .override(512).submit().get()
+                            }.getOrNull()
+                        }
+                    }.awaitAll()
+                }
+                bitmaps = loaded.filterNotNull()
+                if (bitmaps.size == paths.size) break
+
+                val hasNetwork = isNetworkConnected(requireContext()) &&
+                    isInternetAvailable(requireContext())
+                if (!hasNetwork) {
+                    waitingForNetwork = true
+                    if (!networkDialogShown) {
+                        showUnstableNetworkDialog()
+                        networkDialogShown = true
                     }
-                }.awaitAll().filterNotNull()
+                    delay(200)
+                    continue
+                }
+                if (waitingForNetwork) {
+                    viewModel.randomize(isOnline = true)
+                    return@launch
+                }
+                delay(200)
             }
-
-            hideLoadingSafe()
-            if (bitmaps.isEmpty()) return@launch
+            if (!isActive || bitmaps.size != paths.size) return@launch
 
             val merged = mergeBitmaps(bitmaps)
 
@@ -239,6 +260,7 @@ class CosplayFragment : BaseFragment<FragmentCosplayBinding, CosplayViewModel>(
 
             withContext(Dispatchers.Main) {
                 showBitmap(merged)
+                binding.imageGif.gone()
             }
         }
     }
@@ -248,6 +270,7 @@ class CosplayFragment : BaseFragment<FragmentCosplayBinding, CosplayViewModel>(
             scaleType = ImageView.ScaleType.CENTER_CROP
             setImageBitmap(bitmap)
         }
+        binding.imageGif.gone()
     }
 
     private fun mergeBitmaps(bitmaps: List<Bitmap>): Bitmap {

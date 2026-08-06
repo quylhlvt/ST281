@@ -237,6 +237,11 @@ abstract class BaseFragment<VB : ViewBinding, VM : ViewModel>(
         loadingController?.hideGlobalLoading()
     }
 
+    fun hideGlobalDialogSafe() {
+        if (!isAdded || activity == null) return
+        loadingController?.hideGlobalDialog()
+    }
+
 // ========== Confirm Dialog ==========
 
     fun showConfirmDialog(

@@ -1,9 +1,11 @@
 package com.chibi.avatar.chibimaker.ui.main.view
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -23,6 +25,8 @@ import com.chibi.avatar.chibimaker.core.helper.PermissionRequestHelper
 import com.chibi.avatar.chibimaker.databinding.FragmentViewBinding
 import com.chibi.avatar.chibimaker.ui.main.customize.CustomizeFragment
 import com.chibi.avatar.chibimaker.ui.onboarding.permission.PermissionViewModel
+import com.chibi.avatar.chibimaker.core.extention.onClick1
+import com.chibi.avatar.chibimaker.utils.share.SocialShareManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,8 +37,11 @@ class ViewFragment : BaseFragment<FragmentViewBinding, ViewViewModel>(
     private val storageHelper = PermissionRequestHelper()
 
     private val permissionViewModel: PermissionViewModel by activityViewModels()
-
+    private val socialShareManager by lazy(LazyThreadSafetyMode.NONE) {
+        SocialShareManager(requireContext())
+    }
     private var currentImagePath: String = ""
+    private var isReturningFromExternalScreen = false
     private val imagePath: String by lazy { arguments?.getString("imagePath") ?: "" }
     private val imageType: Int by lazy { arguments?.getInt("imageType", 0) ?: 0 }
     private val idEdit: String by lazy { arguments?.getString("idEdit") ?: "" }
@@ -45,6 +52,57 @@ class ViewFragment : BaseFragment<FragmentViewBinding, ViewViewModel>(
         savedInstanceState: Bundle?
     ): FragmentViewBinding = FragmentViewBinding.inflate(inflater, container, false)
 
+    override fun onResume() {
+        super.onResume()
+        hideLoadingSafe()
+        hideGlobalDialogSafe()
+        if (!isReturningFromExternalScreen) return
+
+        restoreWindowInteractions()
+        binding.root.post {
+            if (!isAdded || view == null) return@post
+            restoreWindowInteractions()
+            restoreViewInteractions()
+        }
+        binding.root.postDelayed({
+            if (!isAdded || view == null) return@postDelayed
+            restoreWindowInteractions()
+            restoreViewInteractions()
+            isReturningFromExternalScreen = false
+        }, EXTERNAL_SCREEN_RESTORE_DELAY_MS)
+    }
+
+    private fun restoreViewInteractions() {
+        if (!isAdded || view == null) return
+
+        binding.root.isEnabled = true
+        binding.actionBar.root.isEnabled = true
+        binding.actionBar.btnActionBarLeft.isEnabled = true
+        binding.actionBar.btnActionBarLeft.isClickable = true
+        binding.actionBar.btnActionBarNextToRight.isEnabled = true
+        binding.actionBar.btnActionBarNextToRight.isClickable = true
+        binding.actionBar.btnActionBarRight.isEnabled = true
+        binding.actionBar.btnActionBarRight.isClickable = true
+        binding.btnBottomLeft.isEnabled = true
+        binding.btnBottomLeft.isClickable = true
+        binding.btnBottomRight.isEnabled = true
+        binding.btnBottomRight.isClickable = true
+        binding.btnBottomLeftSocial.isEnabled = true
+        binding.btnBottomLeftSocial.isClickable = true
+        binding.btnBottomRightSocial.isEnabled = true
+        binding.btnBottomRightSocial.isClickable = true
+        binding.root.requestLayout()
+        binding.root.invalidate()
+    }
+
+    private fun restoreWindowInteractions() {
+        requireActivity().window.clearFlags(
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+        )
+        requireActivity().window.decorView.isEnabled = true
+    }
+
     override fun initView() {
         currentImagePath = imagePath
         binding.apply {
@@ -52,6 +110,8 @@ class ViewFragment : BaseFragment<FragmentViewBinding, ViewViewModel>(
             loadImage(requireContext(), imagePath, imvImage)
             txtRight.isSelected = true
             txtLeft.isSelected = true
+            txtLeftSocial.isSelected = true
+            txtRightSocial.isSelected = true
 
             when (imageType) {
                 1 -> {
@@ -61,7 +121,6 @@ class ViewFragment : BaseFragment<FragmentViewBinding, ViewViewModel>(
                     txtRight.apply { visible(); text = getString(R.string.download) }
                     txtLeft.visible()
                 }
-
                 2 -> {
                     txtLeft.text = getString(R.string.share)
                     setImageActionBar(actionBar.btnActionBarRight, R.drawable.ic_delete)
@@ -78,22 +137,38 @@ class ViewFragment : BaseFragment<FragmentViewBinding, ViewViewModel>(
 
             when (imageType) {
                 1 -> {
-                    actionBar.btnActionBarRight.onClick { confirmDelete() }
-                    actionBar.btnActionBarNextToRight.onClick {
-
+                    actionBar.btnActionBarRight.onClick1 { confirmDelete() }
+                    actionBar.btnActionBarNextToRight.onClick1 {
                             navigateToEdit()
-
                     }
                     btnBottomLeft.onClick(1500) { shareImage() }
-                    btnBottomRight.onClick { downloadImage() }
+                    btnBottomRight.onClick1 { downloadImage() }
+                    btnBottomLeftSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.FACEBOOK) }
+                    btnBottomRightSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.INSTAGRAM) }
                 }
 
                 2 -> {
-                    actionBar.btnActionBarRight.onClick { confirmDelete() }
+                    actionBar.btnActionBarRight.onClick1 { confirmDelete() }
                     btnBottomLeft.onClick(1500) { shareImage() }
-                    btnBottomRight.onClick { downloadImage() }
+                    btnBottomRight.onClick1 { downloadImage() }
+                    btnBottomLeftSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.FACEBOOK) }
+                    btnBottomRightSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.INSTAGRAM) }
                 }
             }
+        }
+    }
+
+    companion object {
+        private const val EXTERNAL_SCREEN_RESTORE_DELAY_MS = 500L
+    }
+
+    private fun shareToSocialApp(app: SocialShareManager.SocialApp) {
+        val path = currentImagePath.takeIf { it.isNotBlank() } ?: imagePath
+        when (socialShareManager.shareImage(path, app)) {
+            SocialShareManager.ShareResult.Started -> isReturningFromExternalScreen = true
+            SocialShareManager.ShareResult.ImageNotFound -> showToast(getString(R.string.image_not_found))
+            is SocialShareManager.ShareResult.AppNotAvailable -> showToast(getString(if (app == SocialShareManager.SocialApp.FACEBOOK) R.string.facebook_not_available else R.string.instagram_not_available))
+            is SocialShareManager.ShareResult.Failed -> showToast(getString(R.string.share_failed))
         }
     }
 
@@ -104,10 +179,12 @@ class ViewFragment : BaseFragment<FragmentViewBinding, ViewViewModel>(
             "${requireContext().packageName}.provider",
             java.io.File(imagePath)
         )
-        val intent = android.content.Intent(android.content.Intent.ACTION_SEND).apply {
+        val intent = Intent(Intent.ACTION_SEND).apply {
             type = "image/*"
-            putExtra(android.content.Intent.EXTRA_STREAM, uri)
-            addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            putExtra(Intent.EXTRA_STREAM, uri)
+            addFlags(
+                Intent.FLAG_GRANT_READ_URI_PERMISSION or
+                    Intent.FLAG_ACTIVITY_NEW_TASK)
         }
         startActivity(android.content.Intent.createChooser(intent, getString(R.string.share)))
     }
@@ -121,7 +198,10 @@ class ViewFragment : BaseFragment<FragmentViewBinding, ViewViewModel>(
         val permission = android.Manifest.permission.WRITE_EXTERNAL_STORAGE
         when {
             requireContext().checkPermissions(arrayOf(permission)) -> performDownload()
-            permissionViewModel.shouldGoToSettings(isStorage = true) -> activity?.goToSettings()
+            permissionViewModel.shouldGoToSettings(isStorage = true) -> {
+                isReturningFromExternalScreen = true
+                activity?.goToSettings()
+            }
             else -> downloadPermissionLauncher.launch(arrayOf(permission))
         }
     }

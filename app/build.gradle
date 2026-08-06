@@ -24,7 +24,7 @@ android {
 
         testInstrumentationRunner= "androidx.test.runner.AndroidJUnitRunner"
         def formattedDate = new Date().format('MM.dd.yyyy')
-        archivesBaseName = "ST246_Chibi_Avatar_Doll_Maker_v${versionName}_${formattedDate}"
+        archivesBaseName = "ST281_FoodMaker_v${versionName}_${formattedDate}"
     }
 
     buildTypes {

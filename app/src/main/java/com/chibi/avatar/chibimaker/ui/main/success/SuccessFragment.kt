@@ -1,11 +1,13 @@
 package com.chibi.avatar.chibimaker.ui.main.success
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -16,6 +18,7 @@ import com.chibi.avatar.chibimaker.core.extention.checkPermissions
 import com.chibi.avatar.chibimaker.core.extention.goToSettings
 import com.chibi.avatar.chibimaker.core.extention.loadImage
 import com.chibi.avatar.chibimaker.core.extention.onClick
+import com.chibi.avatar.chibimaker.core.extention.onClick1
 import com.chibi.avatar.chibimaker.core.extention.safeNavigate
 import com.chibi.avatar.chibimaker.core.extention.setImageActionBar
 import com.chibi.avatar.chibimaker.core.extention.setTextActionBar
@@ -26,6 +29,7 @@ import com.chibi.avatar.chibimaker.databinding.FragmentSuccessBinding
 import com.chibi.avatar.chibimaker.databinding.FragmentViewBinding
 import com.chibi.avatar.chibimaker.ui.main.customize.CustomizeFragment
 import com.chibi.avatar.chibimaker.ui.onboarding.permission.PermissionViewModel
+import com.chibi.avatar.chibimaker.utils.share.SocialShareManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.getValue
 @AndroidEntryPoint
@@ -36,11 +40,18 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
     private val storageHelper = PermissionRequestHelper()
 
     private val permissionViewModel: PermissionViewModel by activityViewModels()
-
+    private val socialShareManager by lazy(LazyThreadSafetyMode.NONE) {
+        SocialShareManager(requireContext())
+    }
     private var currentImagePath: String = ""
+    private var isReturningFromExternalScreen = false
     private val imagePath: String by lazy { arguments?.getString("imagePath") ?: "" }
     private val imageType: Int    by lazy { arguments?.getInt("imageType", 0) ?: 0 }
     private val idEdit: String    by lazy { arguments?.getString("idEdit") ?: "" }
+
+    companion object {
+        private const val EXTERNAL_SCREEN_RESTORE_DELAY_MS = 500L
+    }
 
     override fun inflateBinding(
         inflater: LayoutInflater,
@@ -48,14 +59,76 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
         savedInstanceState: Bundle?
     ): FragmentSuccessBinding = FragmentSuccessBinding.inflate(inflater, container, false)
 
+    override fun onResume() {
+        super.onResume()
+        hideLoadingSafe()
+        hideGlobalDialogSafe()
+        if (!isReturningFromExternalScreen || view == null) return
+
+        restoreWindowInteractions()
+        restoreViewInteractions()
+        binding.root.post {
+            if (!isAdded || view == null) return@post
+            restoreWindowInteractions()
+            restoreViewInteractions()
+        }
+        binding.root.postDelayed({
+            if (!isAdded || view == null) return@postDelayed
+            restoreWindowInteractions()
+            restoreViewInteractions()
+            isReturningFromExternalScreen = false
+        }, EXTERNAL_SCREEN_RESTORE_DELAY_MS)
+    }
+
+    private fun restoreViewInteractions() {
+        binding.root.isEnabled = true
+        binding.actionBar.root.isEnabled = true
+        binding.actionBar.btnActionBarLeft.isEnabled = true
+        binding.actionBar.btnActionBarLeft.isClickable = true
+        binding.actionBar.btnActionBarNextToRight.isEnabled = true
+        binding.actionBar.btnActionBarNextToRight.isClickable = true
+        binding.actionBar.btnActionBarRight.isEnabled = true
+        binding.actionBar.btnActionBarRight.isClickable = true
+        binding.btnBottomLeft.isEnabled = true
+        binding.btnBottomLeft.isClickable = true
+        binding.btnBottomRight.isEnabled = true
+        binding.btnBottomRight.isClickable = true
+        binding.btnBottomLeftSocial.isEnabled = true
+        binding.btnBottomLeftSocial.isClickable = true
+        binding.btnBottomRightSocial.isEnabled = true
+        binding.btnBottomRightSocial.isClickable = true
+        binding.root.requestLayout()
+        binding.root.invalidate()
+    }
+
+    private fun restoreWindowInteractions() {
+        requireActivity().window.clearFlags(
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+        )
+        requireActivity().window.decorView.isEnabled = true
+    }
+
     override fun initView() {
 
         currentImagePath = imagePath
         binding.apply {
             setImageActionBar(actionBar.btnActionBarLeft, R.drawable.back_app)
             loadImage(requireContext(), imagePath, imvImage)
-            txtLeft.apply  { visible(); text = getString(R.string.my_creation1) }
-            txtRight.apply { visible(); text = getString(R.string.download) }
+            txtLeftSocial.apply  {
+                isSelected =true
+            }
+            txtRightSocial.apply  {
+                isSelected =true
+            }
+            txtLeft.apply  {
+                isSelected =true
+                visible();
+                text = getString(R.string.my_food) }
+            txtRight.apply {
+                isSelected =true
+                visible();
+                text = getString(R.string.download) }
             setTextActionBar(actionBar.tvCenter, getString(R.string.successful))
             setImageActionBar(actionBar.btnActionBarNextToRight, R.drawable.ic_share)
             setImageActionBar(actionBar.btnActionBarRight, R.drawable.ic_home)
@@ -65,10 +138,10 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
 
     override fun viewListener() {
         binding.apply {
-            actionBar.btnActionBarLeft.onClick { findNavController().navigateUp() }
+            actionBar.btnActionBarLeft.onClick1 { findNavController().navigateUp() }
 
             // Home
-            actionBar.btnActionBarRight.onClick {
+            actionBar.btnActionBarRight.onClick1 {
                     findNavController().navigate(
                         R.id.action_success_to_home, null,
                         androidx.navigation.NavOptions.Builder()
@@ -81,7 +154,7 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
             actionBar.btnActionBarNextToRight.onClick( 1500) { shareImage() }
 
             // MyCreation
-            btnBottomLeft.onClick {
+            btnBottomLeft.onClick1 {
                     findNavController().navigate(
                         R.id.action_success_to_myPony, null,
                         androidx.navigation.NavOptions.Builder()
@@ -92,7 +165,23 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
             }
 
             // Download
-            btnBottomRight.onClick { downloadImage() }
+            btnBottomRight.onClick1 { downloadImage() }
+            btnBottomLeftSocial.onClick1 {
+                shareToSocialApp(SocialShareManager.SocialApp.FACEBOOK)
+            }
+            btnBottomRightSocial.onClick1 {
+                shareToSocialApp(SocialShareManager.SocialApp.INSTAGRAM)
+            }
+        }
+    }
+
+    private fun shareToSocialApp(app: SocialShareManager.SocialApp) {
+        val path = currentImagePath.takeIf { it.isNotBlank() } ?: imagePath
+        when (socialShareManager.shareImage(path, app)) {
+            SocialShareManager.ShareResult.Started -> isReturningFromExternalScreen = true
+            SocialShareManager.ShareResult.ImageNotFound -> showToast(getString(R.string.image_not_found))
+            is SocialShareManager.ShareResult.AppNotAvailable -> showToast(getString(if (app == SocialShareManager.SocialApp.FACEBOOK) R.string.facebook_not_available else R.string.instagram_not_available))
+            is SocialShareManager.ShareResult.Failed -> showToast(getString(R.string.share_failed))
         }
     }
     private fun shareImage() {
@@ -102,11 +191,13 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
             "${requireContext().packageName}.provider",
             java.io.File(imagePath)
         )
-        val intent = android.content.Intent(android.content.Intent.ACTION_SEND).apply {
+        val intent = Intent(Intent.ACTION_SEND).apply {
             type = "image/*"
-            putExtra(android.content.Intent.EXTRA_STREAM, uri)
-            addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            putExtra(Intent.EXTRA_STREAM, uri)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or
+                    Intent.FLAG_ACTIVITY_NEW_TASK)
         }
+        isReturningFromExternalScreen = true
         startActivity(android.content.Intent.createChooser(intent, getString(R.string.share)))
     }
 // ViewFragment.kt
@@ -117,7 +208,10 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
         val permission = android.Manifest.permission.WRITE_EXTERNAL_STORAGE
         when {
             requireContext().checkPermissions(arrayOf(permission)) -> performDownload()
-            permissionViewModel.shouldGoToSettings(isStorage = true) -> activity?.goToSettings()
+            permissionViewModel.shouldGoToSettings(isStorage = true) -> {
+                isReturningFromExternalScreen = true
+                activity?.goToSettings()
+            }
             else -> downloadPermissionLauncher.launch(arrayOf(permission))
         }
     }

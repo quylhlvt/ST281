@@ -34,6 +34,7 @@ import java.util.concurrent.atomic.AtomicInteger
 interface LoadingController {
     fun showGlobalLoading()
     fun hideGlobalLoading()
+    fun hideGlobalDialog()
     fun showGlobalConfirmDialog(
         message: String,
         title: String? = null,
@@ -54,20 +55,29 @@ class MainActivity : AppCompatActivity() , LoadingController{
     private var globalLoadingDialog: Dialog? = null
     private var globalConfirmDialog: Dialog? = null
     private lateinit var firebaseAnalytics: FirebaseAnalytics
+
+    private fun canShowWindow(): Boolean =
+        !isFinishing && !isDestroyed
+
     override fun showGlobalLoading() {
         if (globalLoadingDialog?.isShowing == true) return
         runOnUiThread {
-            globalLoadingDialog = buildDialog(
-                message = getString(R.string.loading),
-                showButtons = false,
-                cancelable = false
-            )
-            globalLoadingDialog?.show()
+            if (!canShowWindow()) return@runOnUiThread
+            if (globalLoadingDialog == null) {
+                globalLoadingDialog = buildDialog(
+                    message = getString(R.string.loading),
+                    showButtons = false,
+                    cancelable = false
+                )
+            }
+            runCatching { globalLoadingDialog?.show() }
+                .onFailure { globalLoadingDialog = null }
             hideNavigation(true)
         }
     }
     override fun showGlobalOkDialog(message: String, title: String?, onOk: (() -> Unit)?) {
         runOnUiThread {
+            if (!canShowWindow()) return@runOnUiThread
             globalConfirmDialog?.dismiss()
             globalConfirmDialog = buildDialog(
                 message = message,
@@ -80,7 +90,8 @@ class MainActivity : AppCompatActivity() , LoadingController{
                     onOk?.invoke()
                 }
             )
-            globalConfirmDialog?.show()
+            runCatching { globalConfirmDialog?.show() }
+                .onFailure { globalConfirmDialog = null }
             hideNavigation(true)
         }
     }
@@ -90,7 +101,15 @@ class MainActivity : AppCompatActivity() , LoadingController{
         runOnUiThread {
             globalLoadingDialog?.dismiss()
             globalLoadingDialog = null
-            hideNavigation(true)
+            if (hasWindowFocus()) hideNavigation(true)
+        }
+    }
+
+    override fun hideGlobalDialog() {
+        runOnUiThread {
+            globalConfirmDialog?.dismiss()
+            globalConfirmDialog = null
+            if (hasWindowFocus()) hideNavigation(true)
         }
     }
 
@@ -253,6 +272,11 @@ class MainActivity : AppCompatActivity() , LoadingController{
         Log.d("PERF2", "setContentView done: ${System.currentTimeMillis()}")
 
         hideNavigation(true)        // ← sau setContentView, window đã sẵn sàng
+        globalLoadingDialog = buildDialog(
+            message = getString(R.string.loading),
+            showButtons = false,
+            cancelable = false
+        )
         initSharedPreferences()
 //        applyLanguage()
 
@@ -347,6 +371,14 @@ class MainActivity : AppCompatActivity() , LoadingController{
 
     override fun onResume() {
         super.onResume()
-        hideNavigation(true)
+        // onResume co the den truoc khi window lay lai focus tu Settings/share.
+        // Chi an system bars khi focus da tro ve de tranh tranh chap transition.
+        if (hasWindowFocus()) hideNavigation(true)
     }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) hideNavigation(true)
+    }
+
 }

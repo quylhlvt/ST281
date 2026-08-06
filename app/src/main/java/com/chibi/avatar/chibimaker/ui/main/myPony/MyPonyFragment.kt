@@ -396,7 +396,7 @@ class MyPonyFragment : WhatsappSharingFragment<FragmentMyPonyBinding, MyPonyView
         }
         if (isAvatar) {
             myAvatarAdapter.submitList(updatedList)
-            setRecyclerBottomMargin(binding.recycleAvatar, 50) // ← thêm margin
+            setRecyclerBottomMargin(binding.recycleAvatar, 100) // ← thêm margin
         } else {
             myDesignAdapter.submitList(updatedList)
             setRecyclerBottomMargin(binding.recycleDesign, 50) // ← thêm margin
@@ -448,7 +448,7 @@ class MyPonyFragment : WhatsappSharingFragment<FragmentMyPonyBinding, MyPonyView
         myDesignAdapter.submitList(designReset)
 
         // Reset margin về 0
-        setRecyclerBottomMargin(binding.recycleAvatar, 0)
+        setRecyclerBottomMargin(binding.recycleAvatar, 25)
         setRecyclerBottomMargin(binding.recycleDesign, 0)
 
         updateSelectionUI()

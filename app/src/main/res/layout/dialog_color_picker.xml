@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             >
 
-            <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+            <com.chibi.avatar.chibimaker.core.extention.OuterStrokeTextView
                 android:id="@+id/tvTitle"
                 style="@style/single_marquee"
                 android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                 android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
                 android:textColor="@color/white"
-                app:outerStrokeWidth="3dp"
+                app:outerStrokeWidth="1.8dp"
                 app:outerStrokeColor="@color/app_color"
                 android:layout_marginTop="16dp"
                 android:layout_marginHorizontal="20dp"
@@ -137,7 +137,7 @@
                             android:layout_height="match_parent"
                             android:fontFamily="@font/carter_one_regular"
                             android:gravity="center"
-                            app:outerStrokeWidth="2dp"
+                            app:outerStrokeWidth="3dp"
                             app:outerStrokeColor="@color/app_color"
                             android:text="@string/cancel"
                             android:textColor="@color/white"
@@ -176,7 +176,7 @@
                             android:fontFamily="@font/carter_one_regular"
                             android:gravity="center"
                             android:text="@string/save"
-                            app:outerStrokeWidth="2dp"
+                            app:outerStrokeWidth="3dp"
                             app:outerStrokeColor="@color/app_color"
                             android:textColor="@color/white"
                             android:textSize="18sp"  />

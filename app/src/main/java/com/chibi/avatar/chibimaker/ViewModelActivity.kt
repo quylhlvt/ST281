@@ -31,6 +31,7 @@ import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.chibi.avatar.chibimaker.data.model.addcharacter.BackgroundCategoryModel
 import com.chibi.avatar.chibimaker.data.model.addcharacter.StickerCategoryModel
+import com.chibi.avatar.chibimaker.data.model.addcharacter.SpeechCategoryModel
 import javax.inject.Inject
 @HiltViewModel
 class ViewModelActivity @Inject constructor(
@@ -63,6 +64,8 @@ class ViewModelActivity @Inject constructor(
         _backgroundCategories.asStateFlow()
     private val _stickerCategories = MutableStateFlow<List<StickerCategoryModel>>(emptyList())
     val stickerCategories: StateFlow<List<StickerCategoryModel>> = _stickerCategories.asStateFlow()
+    private val _speechCategories = MutableStateFlow<List<SpeechCategoryModel>>(emptyList())
+    val speechCategories: StateFlow<List<SpeechCategoryModel>> = _speechCategories.asStateFlow()
     var cosplayBitmap: Bitmap? = null
     var userResultBitmap: Bitmap? = null
     var customizeBitmap: Bitmap? = null
@@ -129,7 +132,9 @@ class ViewModelActivity @Inject constructor(
         @SerializedName("background")
         val background: List<CategoryConfig> = emptyList(),
         @SerializedName("sticker")
-        val sticker: List<CategoryConfig> = emptyList()
+        val sticker: List<CategoryConfig> = emptyList(),
+        @SerializedName("speech bubble")
+        val speechBubble: List<CategoryConfig> = emptyList()
     )
 
     private data class CategoryConfig(
@@ -140,7 +145,7 @@ class ViewModelActivity @Inject constructor(
     )
 
     private fun loadBgConfig(): BgConfig {
-        val url = "https://lvtglobal.site/public/app/ST246_ChibiAvatarDollMaker/bg/bg.json"
+        val url = "https://lvtglobal.tech/public/app/ST281_FoodMaker/bg/bg.json"
         val connection = java.net.URL(url).openConnection() as java.net.HttpURLConnection
         return try {
             connection.connectTimeout = 10_000
@@ -188,16 +193,26 @@ class ViewModelActivity @Inject constructor(
                             )
                         }
                     val stickers = stickerCategories.firstOrNull()?.imageUrls().orEmpty()
+                    val speechCategories = config.speechBubble
+                        .filter { it.category.isNotBlank() && it.quantity > 0 }
+                        .map { item ->
+                            SpeechCategoryModel(
+                                category = item.category,
+                                quantity = item.quantity
+                            )
+                        }
+                    val speech = speechCategories.flatMap { it.imageUrls() }
 
-                    if (bgs.isEmpty() && stickers.isEmpty()) {
+                    if (bgs.isEmpty() && stickers.isEmpty() && speech.isEmpty()) {
                         Log.w("ViewModelActivity", "⚠️ Empty result, mark as failed")
                         _bgStickerFailed.value = true
                         return@coroutineScope
                     }
 
-                    appDataManager.updateBackgroundsAndStickers(bgs, stickers)
+                    appDataManager.updateBackgroundsStickersAndSpeech(bgs, stickers, speech)
                     _backgroundCategories.value = categories
                     _stickerCategories.value = stickerCategories
+                    _speechCategories.value = speechCategories
                     _bgStickerFailed.value = false
                     _bgStickerReady.value = true
                     Log.d("ViewModelActivity", "✅ bgs=${bgs.size} stickers=${stickers.size}")

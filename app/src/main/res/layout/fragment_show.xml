@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_bg_view"
+    android:background="@color/app_color2"
     android:clipChildren="false"
     android:clipToPadding="false"
     tools:context=".ui.main.show.ShowFragment">
@@ -39,7 +39,7 @@
 
         <include
             android:id="@+id/actionBar"
-            layout="@layout/layout_actionbar" />
+            layout="@layout/layout_actionbar2" />
     </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,7 +51,7 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timmer"
+        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar"
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="0dp">
 
@@ -67,167 +67,200 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
-            android:id="@+id/tvPercent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="8dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/atma_bold"
-            android:text="0%"
-            android:textColor="@color/app_color"
-            android:textSize="20sp"
-            app:outerStrokeColor="@color/white"
-            app:outerStrokeWidth="1dp"
-            app:layout_constraintBottom_toTopOf="@+id/frame_rando_all"
-            app:layout_constraintEnd_toEndOf="@+id/layoutProgress"
-            app:layout_constraintStart_toStartOf="@+id/layoutProgress" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutProgress"
-            android:layout_width="45dp"
+            android:layout_width="0dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:layout_marginVertical="20dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginEnd="13dp"
-            android:elevation="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvPercent"
-            app:layout_constraintDimensionRatio="0.45:2.5"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintBottom_toTopOf="@+id/frame_rando_all"
+            app:layout_constraintDimensionRatio="0.5:2.78"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.cardview.widget.CardView
+            <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextViewPermission2
+                android:id="@+id/tvPercent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="8dp"
+                android:fontFamily="@font/carter_one_regular"
+                android:text="0%"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/layoutProgress"
+                app:layout_constraintStart_toStartOf="@+id/layoutProgress"
+                app:outerStrokeColor="@color/app_color"
+                app:outerStrokeWidth="3dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutProgress"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginBottom="-2dp"
-                app:cardBackgroundColor="#334A2711"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"
-                app:layout_constraintBottom_toBottomOf="@+id/progressTrack"
-                app:layout_constraintEnd_toEndOf="@+id/progressTrack"
-                app:layout_constraintStart_toStartOf="@+id/progressTrack"
-                app:layout_constraintTop_toTopOf="@+id/progressTrack" />
-            <!-- 1. Track nền cam - elevation thấp nhất -->
-            <ImageView
-                android:id="@+id/progressTrack"
-                android:layout_width="22dp"
-                android:layout_height="0dp"
-                android:elevation="0dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_progress_track"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginVertical="10dp"
+                android:elevation="8dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tvPercent"
+                app:layout_constraintDimensionRatio="0.2:2.5"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- 1. Track nền cam - elevation thấp nhất -->
+                <ImageView
+                    android:id="@+id/progressTrack"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:elevation="0dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg_progress_track"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-            <!-- 2. Fill tím rectangle - trượt từ dưới lên -->
-            <ImageView
-                android:id="@+id/progressFill"
-                android:layout_width="22dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="6dp"
-                android:elevation="1dp"
-                android:scaleType="fitXY"
-                android:scaleY="0"
-                android:src="@drawable/bg_progress_match"
-                app:layout_constraintBottom_toBottomOf="@id/progressTrack"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/progressTrack" />
+                <!-- 2. Fill tím rectangle - trượt từ dưới lên -->
+                <ImageView
+                    android:id="@+id/progressFill"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="1dp"
+                    android:scaleType="fitXY"
+                    android:scaleY="0"
+                    android:src="@drawable/bg_progress_match"
+                    app:layout_constraintBottom_toBottomOf="@id/progressTrack"
+                    app:layout_constraintEnd_toEndOf="@+id/progressTrack"
+                    app:layout_constraintStart_toStartOf="@+id/progressTrack"
+                    app:layout_constraintTop_toTopOf="@id/progressTrack" />
 
-            <!-- 3. Bottom cố định ở đáy - đè lên fill -->
-            <ImageView
-                android:id="@+id/progressTrackBottom"
-                android:layout_width="22dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_progress_track_bottom"
-                android:translationY="2dp"
-                app:layout_constraintBottom_toBottomOf="@id/progressTrack"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                <!-- 3. Bottom cố định ở đáy - đè lên fill -->
+                <ImageView
+                    android:id="@+id/progressTrackBottom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    android:adjustViewBounds="true"
+                    android:elevation="2dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_progress_track_bottom"
+                    android:translationY="-3dp"
+                    app:layout_constraintBottom_toBottomOf="@id/progressTrack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-            <!-- 4. Sao - elevation cao nhất, bám đỉnh fill -->
-            <ImageView
-                android:id="@+id/imgStar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:elevation="3dp"
-                android:src="@drawable/ic_star"
-                android:translationY="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                <!-- 4. Sao - elevation cao nhất, bám đỉnh fill -->
+                <ImageView
+                    android:id="@+id/imgStar"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:elevation="3dp"
+                    android:src="@drawable/ic_star"
+                    android:translationY="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frame_rando_all"
             android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="13dp"
-            app:layout_constraintBottom_toTopOf="@+id/frameLayer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="6dp"
+            app:layout_constraintDimensionRatio="3.28:0.4"
+            app:layout_constraintBottom_toTopOf="@+id/rcvNav"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <!-- Icon mở màu — click để hiện rcvColor -->
             <ImageView
                 android:id="@+id/imgChangColor"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="15dp"
+                android:src="@drawable/ic_color_show"
                 android:clickable="true"
                 android:focusable="true"
-                android:src="@drawable/ic_color_show"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
+            <!-- Icon random -->
+            <ImageView
+                android:id="@+id/imgRandom"
+                android:layout_width="40dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:visibility="gone"
+                android:src="@drawable/ic_ramdom_cus"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <!-- Container màu ở giữa — y hệt llColor trong Activity -->
+            <ImageView
+                android:id="@+id/imgScale"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_scale_cus_none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/imgRandom"
+                app:layout_constraintTop_toTopOf="parent" />
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:elevation="1dp"
                 android:id="@+id/llColor"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginEnd="10dp"
-                android:elevation="1dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginStart="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imgScale"
                 app:layout_constraintStart_toEndOf="@+id/imgChangColor"
                 app:layout_constraintTop_toTopOf="parent">
-
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:cardBackgroundColor="@color/app_color3"
-                    app:cardCornerRadius="8dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/cardColor"
-                    app:layout_constraintEnd_toEndOf="@+id/cardColor"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="@color/app_color"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#F7EDE7"
                     app:layout_constraintStart_toStartOf="@+id/cardColor"
                     app:layout_constraintTop_toTopOf="@+id/cardColor"
-                    app:strokeColor="@color/stroker_blue"
-                    app:strokeWidth="2dp">
+                    app:layout_constraintBottom_toBottomOf="@+id/cardColor"
+                    app:layout_constraintEnd_toEndOf="@+id/cardColor">
 
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_10_stroke_linear_color"/>
 
                 </com.google.android.material.card.MaterialCardView>
-
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardColor"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    app:cardBackgroundColor="@color/transparent"
                     app:cardCornerRadius="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@color/transparent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:strokeWidth="0dp">
+                    app:layout_constraintBottom_toBottomOf="parent">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginVertical="8dp"
-                        android:layout_marginEnd="0dp">
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginVertical="8dp">
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rcvColor"
@@ -244,234 +277,275 @@
 
                     <!-- imvEndColor — đóng llColor -->
                     <ImageView
+                        android:visibility="gone"
                         android:id="@+id/end"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_gravity="end|center_vertical"
                         android:layout_marginEnd="8dp"
-                        android:adjustViewBounds="true"
-                        android:clickable="true"
                         android:elevation="3dp"
-                        android:focusable="true"
-                        android:scaleType="centerInside"
+                        android:adjustViewBounds="true"
                         android:src="@drawable/img_end_color"
-                        android:visibility="gone" />
+                        android:scaleType="centerInside"
+                        android:clickable="true"
+                        android:focusable="true" />
 
                 </com.google.android.material.card.MaterialCardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <FrameLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayer"
+            android:background="@color/app_color"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/app_color"
-            app:layout_constraintBottom_toTopOf="@+id/rcvNav"
-            app:layout_constraintHeight_percent="0.3">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.38">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvPart"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                app:cardBackgroundColor="@color/app_color2"
+                app:cardCornerRadius="20dp"
+                android:id="@+id/mater2"
+                android:elevation="2dp"
+                app:strokeWidth="0dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@+id/mater2"
+                app:layout_constraintBottom_toBottomOf="@+id/mater2"
+                app:layout_constraintStart_toStartOf="@+id/mater2"
+                app:layout_constraintEnd_toEndOf="@+id/mater2"
+                android:layout_margin="6dp"
+                app:cardBackgroundColor="@color/app_color3"
+                app:cardCornerRadius="14dp"
+                android:id="@+id/mater3"
                 android:elevation="1dp"
-                android:paddingHorizontal="12dp"
-                android:paddingTop="12dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="5"
-                tools:itemCount="40"
-                tools:listitem="@layout/item_layer" />
-        </FrameLayout>
+                app:strokeColor="@color/app_color4"
+                app:strokeWidth="1dp">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvPart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="3dp"
+                    android:paddingTop="3dp"
+                    android:elevation="1dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="5"
+                    tools:itemCount="40"
+                    tools:listitem="@layout/item_layer" />
+                <LinearLayout
+                    android:id="@+id/frameScale"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:elevation="5dp"
+                    android:focusable="true"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@+id/rcvNav"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/frameLayer">
+
+                    <FrameLayout
+                        android:id="@+id/btnResetScale"
+                        android:layout_width="120dp"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/btn_reset_scale"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+                            android:id="@+id/txtReset"
+                            style="@style/single_marquee"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/carter_one_regular"
+                            android:gravity="center"
+                            android:text="@string/reset"
+                            app:outerStrokeColor="@color/app_color"
+                            app:outerStrokeWidth="2dp"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+                    </FrameLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="19dp"
+                        android:layout_marginVertical="16dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintLayout4"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="18dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintDimensionRatio="0.7:1.22"
+                            app:layout_constraintEnd_toStartOf="@+id/constraintLayout5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:orientation="vertical"
+                                android:weightSum="92"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="0.7:0.92"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/ratioRight"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="38"
+                                    android:src="@drawable/ratio_right" />
+
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="16" />
+
+                                <ImageView
+                                    android:id="@+id/ratioLeft"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="38"
+                                    android:src="@drawable/ratio_left" />
+                            </LinearLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintLayout5"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginHorizontal="95dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/transitionLeft"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:src="@drawable/transition_left"
+                                app:layout_constraintBottom_toTopOf="@+id/transitionBottom"
+                                app:layout_constraintDimensionRatio="1:1"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/transitionTop" />
+
+                            <ImageView
+                                android:id="@+id/transitionRight"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:src="@drawable/transition_right"
+                                app:layout_constraintBottom_toTopOf="@+id/transitionBottom"
+                                app:layout_constraintDimensionRatio="1:1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/transitionTop" />
+
+                            <ImageView
+                                android:id="@+id/transitionTop"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:src="@drawable/transition_top"
+                                app:layout_constraintDimensionRatio="1:1"
+                                app:layout_constraintEnd_toStartOf="@+id/transitionRight"
+                                app:layout_constraintStart_toEndOf="@+id/transitionLeft"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/transitionBottom"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:src="@drawable/transition_bottom"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="1:1"
+                                app:layout_constraintEnd_toStartOf="@+id/transitionRight"
+                                app:layout_constraintStart_toEndOf="@+id/transitionLeft" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintLayout3"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="18dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintDimensionRatio="0.7:1.22"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/constraintLayout5"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:orientation="vertical"
+                                android:weightSum="92"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="0.7:0.92"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/scalePlus"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="38"
+                                    android:src="@drawable/scale_plus" />
+
+                                <Space
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="16" />
+
+                                <ImageView
+                                    android:id="@+id/scaleMinus"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="38"
+                                    android:src="@drawable/scale_minus" />
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvNav"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/bg_nav_custom"
+            app:layout_constraintDimensionRatio="4:0.38"
             android:clipToPadding="false"
             android:elevation="1dp"
             android:orientation="horizontal"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="5dp"
+
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="3.6:0.68"
+            app:layout_constraintBottom_toTopOf="@+id/frameLayer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:listitem="@layout/item_bottom_custom" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/timmer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="130dp"
-        android:background="@drawable/bg_shadown_timmer"
-        app:layout_constraintDimensionRatio="96.74:54.9"
-        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginVertical="15dp"
-            android:background="@color/app_color"
-            app:layout_constraintBottom_toBottomOf="@+id/frameTimer"
-            app:layout_constraintDimensionRatio="4.42:15.51"
-            app:layout_constraintStart_toEndOf="@+id/frameTimer"
-            app:layout_constraintTop_toTopOf="@+id/frameTimer" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frameTimer"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_frame_timmer"
-
-            android:orientation="horizontal"
-            app:layout_constraintDimensionRatio="88.76:42.15"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/imgNumber3"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginVertical="11dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="5.4:21.01"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imgNumber1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
-                android:layout_marginVertical="11dp"
-                android:layout_marginEnd="3dp"
-                android:adjustViewBounds="true"
-                android:gravity="center"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_number"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="11.4:21.01"
-                app:layout_constraintEnd_toStartOf="@+id/imgNumber2"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imgNumber2"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginVertical="11dp"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_number"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="11.4:21.01"
-                app:layout_constraintEnd_toStartOf="@+id/imgNumber3"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imgNumber4"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginVertical="11dp"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_number"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="11.4:21.01"
-                app:layout_constraintStart_toEndOf="@+id/number3"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imgNumber5"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginVertical="11dp"
-                android:layout_marginStart="3dp"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_number"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="11.4:21.01"
-                app:layout_constraintStart_toEndOf="@+id/number4"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/number1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
-                android:fontFamily="@font/digital_numbers_regular"
-                android:gravity="center"
-                android:text="1"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imgNumber1"
-                app:layout_constraintEnd_toEndOf="@+id/imgNumber1"
-                app:layout_constraintStart_toStartOf="@+id/imgNumber1"
-                app:layout_constraintTop_toTopOf="@+id/imgNumber1" />
-
-            <TextView
-                android:id="@+id/number2"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:fontFamily="@font/digital_numbers_regular"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imgNumber2"
-                app:layout_constraintEnd_toEndOf="@+id/imgNumber2"
-                app:layout_constraintStart_toStartOf="@+id/imgNumber2"
-                app:layout_constraintTop_toTopOf="@+id/imgNumber2" />
-
-            <TextView
-                android:id="@+id/number3"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:fontFamily="@font/digital_numbers_regular"
-                android:gravity="center"
-                android:text=":"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imgNumber3"
-                app:layout_constraintEnd_toEndOf="@+id/imgNumber3"
-                app:layout_constraintStart_toStartOf="@+id/imgNumber3"
-                app:layout_constraintTop_toTopOf="@+id/imgNumber3" />
-
-            <TextView
-                android:id="@+id/number4"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/bg_number"
-                android:fontFamily="@font/digital_numbers_regular"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imgNumber4"
-                app:layout_constraintEnd_toEndOf="@+id/imgNumber4"
-                app:layout_constraintStart_toStartOf="@+id/imgNumber4"
-                app:layout_constraintTop_toTopOf="@+id/imgNumber4" />
-
-            <TextView
-                android:id="@+id/number5"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/bg_number"
-                android:fontFamily="@font/digital_numbers_regular"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imgNumber5"
-                app:layout_constraintEnd_toEndOf="@+id/imgNumber5"
-                app:layout_constraintStart_toStartOf="@+id/imgNumber5"
-                app:layout_constraintTop_toTopOf="@+id/imgNumber5" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/materialSmall"
@@ -484,61 +558,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/constraintLayout">
 
-
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp"
-            android:elevation="0dp"
-            app:cardBackgroundColor="@color/shadown_blue2"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="0dp"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:elevation="1dp"
+            app:cardBackgroundColor="@color/app_color"
+            app:cardCornerRadius="12dp"
+            app:strokeWidth="0dp"/>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginBottom="3dp"
-            app:cardBackgroundColor="@color/app_color3"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            app:cardBackgroundColor="@color/app_color2"
+            app:cardCornerRadius="11dp"
+            android:id="@+id/materMini2"
+            android:elevation="2dp"
+            app:strokeWidth="0dp"/>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@+id/materMini2"
+            app:layout_constraintBottom_toBottomOf="@+id/materMini2"
+            app:layout_constraintStart_toStartOf="@+id/materMini2"
+            app:layout_constraintEnd_toEndOf="@+id/materMini2"
+            android:layout_margin="1dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/materMini3"
+            android:elevation="2dp"
+            app:strokeColor="@color/app_color4"
+            app:strokeWidth="1dp">
+            <ImageView
+                android:id="@+id/imvImage2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="4dp">
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_permission" />
 
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginEnd="0.5dp"
-                    app:cardBackgroundColor="@color/color_bg_item"
-                    app:cardCornerRadius="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:strokeColor="@color/app_color2"
-                    app:strokeWidth="2dp">
-
-                    <ImageView
-                        android:id="@+id/imvImage2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_permission" />
-
-
-                </com.google.android.material.card.MaterialCardView>
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -562,225 +621,66 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materBig1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="13dp"
-                android:elevation="0dp"
-                app:cardBackgroundColor="@color/shadown_blue2"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="0dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="match_parent"
+                android:elevation="1dp"
+                app:cardBackgroundColor="@color/app_color"
+                app:cardCornerRadius="50dp"
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginEnd="13dp"
-                android:layout_marginBottom="13dp"
-                app:cardBackgroundColor="@color/app_color3"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toTopOf="parent">
+                app:strokeWidth="0dp"/>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@+id/materBig1"
+                app:layout_constraintBottom_toBottomOf="@+id/materBig1"
+                app:layout_constraintStart_toStartOf="@+id/materBig1"
+                app:layout_constraintEnd_toEndOf="@+id/materBig1"
+                android:layout_margin="6dp"
+                app:cardBackgroundColor="@color/app_color2"
+                app:cardCornerRadius="44dp"
+                android:id="@+id/materBig2"
+                android:elevation="2dp"
+                app:strokeWidth="0dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@+id/materBig2"
+                app:layout_constraintBottom_toBottomOf="@+id/materBig2"
+                app:layout_constraintStart_toStartOf="@+id/materBig2"
+                app:layout_constraintEnd_toEndOf="@+id/materBig2"
+                android:layout_margin="6dp"
+                app:cardBackgroundColor="@color/transparent"
+                app:cardCornerRadius="38dp"
+                android:id="@+id/materBig3"
+                android:elevation="2dp"
+                app:strokeColor="@color/app_color4"
+                app:strokeWidth="1dp">
+                <ImageView
+                    android:id="@+id/imvImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="15dp">
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_permission" />
 
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginEnd="2dp"
-                        app:cardBackgroundColor="@color/color_bg_item"
-                        app:cardCornerRadius="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:strokeColor="@color/app_color2"
-                        app:strokeWidth="2dp">
-
-                        <ImageView
-                            android:id="@+id/imvImage"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_permission" />
-
-
-                    </com.google.android.material.card.MaterialCardView>
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/close"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="-5dp"
             android:src="@drawable/ic_close_guide"
             app:layout_constraintEnd_toEndOf="@+id/imgShow"
             app:layout_constraintTop_toTopOf="@+id/imgShow" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/showFail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#99000000"
-        android:focusable="true"
-        android:clickable="true"
-        android:visibility="gone"
-        android:focusableInTouchMode="true"
-      >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="14dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="67dp"
-                android:layout_marginHorizontal="11dp"
-                android:src="@drawable/context_body_show"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/img_fail" />
-
-            <ImageView
-                android:id="@+id/img_frame_title_fail"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:src="@drawable/frame_title_fail_show"
-                android:layout_marginBottom="15dp"
-                app:layout_constraintBottom_toTopOf="@+id/x_fail"
-                app:layout_constraintDimensionRatio="3.28:0.56"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
-                android:id="@+id/outerStrokeShadownTextView"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="11dp"
-                android:fontFamily="@font/atma_bold"
-                android:gravity="center"
-                android:text="@string/oops_not_in_character"
-                android:textColor="#FF3D00"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="@+id/img_frame_title_fail"
-                app:layout_constraintEnd_toEndOf="@+id/img_frame_title_fail"
-                app:layout_constraintStart_toStartOf="@+id/img_frame_title_fail"
-                app:layout_constraintTop_toTopOf="@+id/img_frame_title_fail"
-                app:outerStrokeColor="@color/white"
-                app:outerStrokeWidth="1dp" />
-
-            <ImageView
-                android:id="@+id/img_fail"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:paddingTop="20dp"
-                android:layout_marginHorizontal="42dp"
-                android:layout_marginBottom="-20dp"
-                android:src="@drawable/img_fail_show"
-                app:layout_constraintBottom_toTopOf="@+id/img_frame_title_fail"
-                app:layout_constraintDimensionRatio="2.43:1.47"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <ImageView
-                android:id="@+id/x_fail"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@drawable/x_fail_show"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
-                android:id="@+id/outerStrokeShadownTextView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="12dp"
-                android:lineSpacingMultiplier="0.8"
-                android:fontFamily="@font/atma_bold"
-                android:gravity="center"
-                android:text="@string/your_outfit_doesn_t_match_the_character"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/img_frame_title_fail"
-                app:layout_constraintStart_toStartOf="@+id/img_frame_title_fail"
-                app:layout_constraintTop_toBottomOf="@id/x_fail"
-                app:outerStrokeColor="@color/app_color"
-                app:outerStrokeWidth="1dp" />
-
-            <ImageView
-
-                android:id="@+id/imgRandomBg"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="-2dp"
-                android:layout_marginBottom="-2dp"
-                android:background="@drawable/frame_bg_type_lang"
-                android:scaleType="fitXY"
-
-                app:layout_constraintBottom_toBottomOf="@id/imgNext"
-                app:layout_constraintEnd_toEndOf="@id/imgNext"
-                app:layout_constraintStart_toStartOf="@id/imgNext"
-                app:layout_constraintTop_toTopOf="@id/imgNext" />
-
-            <ImageView
-                android:id="@+id/imgNext"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="105dp"
-                android:layout_marginTop="15dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_btn_type_selected"
-                app:layout_constraintTop_toBottomOf="@+id/outerStrokeShadownTextView2" />
-
-            <FrameLayout
-                android:id="@+id/frameTxtNext"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@id/imgNext"
-                app:layout_constraintEnd_toEndOf="@id/imgNext"
-                app:layout_constraintStart_toStartOf="@id/imgNext"
-                app:layout_constraintTop_toTopOf="@id/imgNext">
-
-                <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
-                    android:id="@+id/txtNext"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:fontFamily="@font/atma_bold"
-                    android:gravity="center"
-                    android:text="@string/next"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:outerStrokeColor="@color/app_color"
-                    app:outerStrokeWidth="2dp" />
-            </FrameLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutWin"
@@ -795,178 +695,97 @@
         android:focusableInTouchMode="true"
         android:clipChildren="false">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:src="@drawable/img_bg_win1"
-            android:scaleType="fitXY"
-
-            android:layout_marginBottom="-20dp"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:clipToOutline="false"
-            android:clipChildren="false"
-            android:layout_marginHorizontal="9dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/img_bg_mycreation"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="9dp">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:scaleType="fitXY"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="-45dp"
-                android:layout_marginBottom="-45dp"
-                android:src="@drawable/context_body_show_win"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <ImageView
-                android:id="@+id/star"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginHorizontal="68dp"
-                android:src="@drawable/img_bg_win2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="2.06:1.78"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:src="@drawable/firework_show"
-    android:scaleType="fitXY"
-    android:layout_marginBottom="50dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintDimensionRatio="3.41:2.85"
-    app:layout_constraintBottom_toBottomOf="@+id/title"/>
-
-            <ImageView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/check_ovan"
-                app:layout_constraintDimensionRatio="3.13:1.1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.chibi.avatar.chibimaker.core.extention.CurvedTextView
-                android:id="@+id/tvWin"
-                style="@style/single_marquee"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:ellipsize="marquee"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:fontFamily="@font/atma_bold"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:shadowColor="#50B848"
-                android:shadowDx="5"
-                android:paddingHorizontal="10dp"
-                android:shadowDy="-5"
-                android:shadowRadius="5"
-                android:singleLine="true"
-                android:text="@string/yay_perfect_match"
-                android:textColor="#50B848"
-                android:textSize="24sp"
-                app:arc_centerAngle2="-90"
-                app:arc_strokeColor="@color/white"
-                app:arc_strokeWidth="2dp"
-                app:curveDepth="0.115"
-                app:layout_constraintBottom_toBottomOf="@+id/title"
-                app:layout_constraintEnd_toEndOf="@+id/title"
-                app:layout_constraintStart_toStartOf="@+id/title"
-                app:layout_constraintTop_toTopOf="@+id/title" />
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:src="@drawable/people_win_show"
-    android:scaleType="fitXY"
-    android:layout_marginBottom="-15dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintDimensionRatio="2.82:2.44"
-    android:layout_marginHorizontal="30dp"
-    app:layout_constraintBottom_toTopOf="@+id/title"/>
-            <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+            <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextViewPermission2
+                android:id="@+id/tvTitleWin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtWin3"
-                style="@style/single_marquee"
-                android:text="@string/exactly_like_the_character"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@+id/title"
-                app:layout_constraintBottom_toTopOf="@+id/frameTxtNext2"
-                android:layout_marginHorizontal="50dp"
-                app:outerStrokeColor="@color/app_color"
-                app:outerStrokeWidth="2dp"
-                android:fontFamily="@font/atma_bold"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/carter_one_regular"
                 android:gravity="center"
-                android:textColor="@color/white"/>
+                android:text="@string/congratulation"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:outerStrokeColor="@color/app_color"
+                app:outerStrokeWidth="5dp" />
 
             <ImageView
-
-                android:id="@+id/imgShowNextBg"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="-2dp"
-                android:layout_marginBottom="-2dp"
-                android:background="@drawable/frame_bg_type_lang"
-                android:scaleType="fitXY"
-
-                app:layout_constraintBottom_toBottomOf="@id/imgShowNext"
-                app:layout_constraintEnd_toEndOf="@id/imgShowNext"
-                app:layout_constraintStart_toStartOf="@id/imgShowNext"
-                app:layout_constraintTop_toTopOf="@id/imgShowNext" />
-
-            <ImageView
-                android:id="@+id/imgShowNext"
+                android:id="@+id/imgAvatar_Win"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginHorizontal="105dp"
-                android:layout_marginTop="15dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg_btn_type_selected"
-                app:layout_constraintTop_toBottomOf="@+id/star" />
-
+                android:layout_marginHorizontal="100dp"
+                android:src="@drawable/img_win_avatar"
+                app:layout_constraintDimensionRatio="1.19:1.34"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleWin"/>
             <FrameLayout
-                android:id="@+id/frameTxtNext2"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="@id/imgShowNext"
-                app:layout_constraintEnd_toEndOf="@id/imgShowNext"
-                app:layout_constraintStart_toStartOf="@id/imgShowNext"
-                app:layout_constraintTop_toTopOf="@id/imgShowNext">
-
-                <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
-                    android:id="@+id/txtNext2"
+                android:id="@+id/txtcontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/imgAvatar_Win">
+                <TextView
+                    android:id="@+id/txtcontentWin"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:fontFamily="@font/atma_bold"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/app_color"
+                    android:textSize="18sp"
+                    android:maxLines="2"
+                    android:fontFamily="@font/carter_one_regular"
                     android:gravity="center"
-                    android:text="@string/next"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:outerStrokeColor="@color/app_color"
-                    app:outerStrokeWidth="2dp" />
+                    android:text="@string/congratulations_on_completing_the_challenge"
+                    />
+                <TextView
+                    android:id="@+id/txtcontentLost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/app_color"
+                    style="@style/single_marquee"
+                    android:singleLine="true"
+                    android:visibility="gone"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/carter_one_regular"
+                    android:gravity="center"
+                    android:text="@string/keep_trying_harder"
+                    />
             </FrameLayout>
 
+            <FrameLayout
+                android:id="@+id/btnNextWin"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/txtcontent"
+                android:layout_marginHorizontal="100dp"
+                android:background="@drawable/btn_win"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="28dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintDimensionRatio="1.56:0.4">
+                <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+                    android:id="@+id/txtNextWin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/carter_one_regular"
+                    android:gravity="center"
+                    android:text="@string/next"
+                    android:layout_marginHorizontal="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:outerStrokeColor="@color/app_color"
+                    app:outerStrokeWidth="5dp" />
+            </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

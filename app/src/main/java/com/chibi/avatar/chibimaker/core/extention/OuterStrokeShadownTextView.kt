@@ -43,6 +43,12 @@ class OuterStrokeShadownTextView : AppCompatTextView {
         outerStrokeColor = color
         invalidate()
     }
+
+    fun setOuterStrokeWidth(width: Float) {
+        outerStrokeWidth = width
+        setLayerType(if (width > 0f) LAYER_TYPE_SOFTWARE else LAYER_TYPE_NONE, null)
+        invalidate()
+    }
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (extraPadding > 0) {

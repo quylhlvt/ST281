@@ -3,17 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_bg_lang"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.successcosplay.SuccessCosplayFragment">
 
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/img_bg_view"
-        android:scaleType="fitXY"
-        android:elevation="-1dp"
-        android:adjustViewBounds="true" />
 
     <FrameLayout
         android:id="@+id/layoutActionBar"
@@ -33,7 +26,7 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical"
-        android:paddingHorizontal="46dp"
+        android:paddingHorizontal="16dp"
         app:layout_constraintBottom_toTopOf="@+id/btnTryAgain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -45,33 +38,22 @@
             android:clipChildren="false"
             android:clipToPadding="false"
 
-            app:layout_constraintDimensionRatio="2.5:0.4"
+            app:layout_constraintDimensionRatio="3.28:0.45"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginEnd="-2dp"
-                android:layout_marginBottom="-2dp"
-                app:cardBackgroundColor="#334A2711"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"
-                app:layout_constraintBottom_toBottomOf="@+id/progressTrack"
-                app:layout_constraintEnd_toEndOf="@+id/progressTrack"
-                app:layout_constraintStart_toStartOf="@+id/progressTrack"
-                app:layout_constraintTop_toTopOf="@+id/progressTrack" />
+
             <!-- 1. Track nền cam - elevation thấp nhất -->
             <ImageView
                 android:id="@+id/progressTrack"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:elevation="0dp"
-                android:scaleType="fitXY"
+                android:layout_marginVertical="8dp"
                 android:src="@drawable/bg_progress_track_success"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="2.5:0.22"
+                app:layout_constraintDimensionRatio="3.28:0.3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -81,23 +63,26 @@
                 android:id="@+id/progressFill"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginEnd="2dp"
                 android:elevation="1dp"
                 android:scaleType="fitXY"
                 android:scaleY="0"
                 android:src="@drawable/bg_progress_match_success"
-                app:layout_constraintBottom_toBottomOf="@id/progressTrack"
+                app:layout_constraintBottom_toBottomOf="@id/progressTrackBottom"
                 app:layout_constraintEnd_toEndOf="@id/progressTrack"
                 app:layout_constraintStart_toStartOf="@id/progressTrack"
-                app:layout_constraintTop_toTopOf="@id/progressTrack" />
+                app:layout_constraintTop_toTopOf="@id/progressTrackBottom" />
 
             <!-- 3. Bottom cố định ở đáy - đè lên fill -->
             <ImageView
                 android:id="@+id/progressTrackBottom"
-                android:layout_width="14dp"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
-
+                app:layout_constraintDimensionRatio="0.27:0.3"
                 android:adjustViewBounds="true"
+                android:layout_marginVertical="4dp"
+                android:layout_marginStart="2dp"
                 android:elevation="2dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_progress_track_start"
@@ -108,9 +93,11 @@
             <!-- 4. Sao - elevation cao nhất, bám đỉnh fill -->
             <ImageView
                 android:id="@+id/imgStar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
                 android:elevation="3dp"
+                android:layout_marginStart="-10dp"
                 android:src="@drawable/ic_star_success"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -122,14 +109,14 @@
             android:id="@+id/tvMatchPercent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/atma_bold"
+            android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
             android:text="0/100"
-            android:textColor="@color/app_color"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@+id/layoutProgress"
-            app:outerStrokeColor="@color/white"
-            app:outerStrokeWidth="1dp"
+            app:outerStrokeColor="@color/app_color"
+            app:outerStrokeWidth="5dp"
             tools:layout_editor_absoluteX="46dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -157,13 +144,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginVertical="16dp"
+        android:layout_marginVertical="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll1"
         app:layout_constraintBottom_toTopOf="@+id/constrainStar"
-        android:layout_marginHorizontal="20dp"
-        app:layout_constraintDimensionRatio="3.2:4.85">
+        android:layout_marginHorizontal="14dp"
+        app:layout_constraintDimensionRatio="3.3:4.3">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameImage1"
             android:layout_width="0dp"
@@ -185,62 +172,46 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:elevation="0dp"
-                    app:cardBackgroundColor="@color/shadown_blue2"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp"
-                    app:layout_constraintDimensionRatio="1:1"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent"
+                    android:elevation="1dp"
+                    app:cardBackgroundColor="@color/app_color"
+                    app:cardCornerRadius="30dp"
+                    app:strokeWidth="0dp"/>
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    app:cardBackgroundColor="@color/app_color3"
-                    app:cardCornerRadius="10dp"
-                    app:layout_constraintDimensionRatio="1:1"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    app:cardBackgroundColor="@color/app_color2"
+                    app:cardCornerRadius="27dp"
+                    android:id="@+id/materMini2"
+                    android:elevation="2dp"
+                    app:strokeWidth="0dp"/>
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="@+id/materMini2"
+                    app:layout_constraintBottom_toBottomOf="@+id/materMini2"
+                    app:layout_constraintStart_toStartOf="@+id/materMini2"
+                    app:layout_constraintEnd_toEndOf="@+id/materMini2"
+                    android:layout_margin="3dp"
+                    app:cardBackgroundColor="@color/transparent"
+                    app:cardCornerRadius="24dp"
+                    android:id="@+id/materMini3"
+                    android:elevation="2dp"
+                    app:strokeColor="@color/app_color4"
+                    app:strokeWidth="1dp">
+                    <ImageView
+                        android:id="@+id/imvImage2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="15dp">
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_permission" />
 
-
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_marginEnd="2dp"
-                            app:cardBackgroundColor="@color/color_bg_item"
-                            app:cardCornerRadius="10dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:strokeColor="@color/app_color2"
-                            app:strokeWidth="2dp">
-
-                            <ImageView
-                                android:id="@+id/imvImage2"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/img_permission" />
-
-
-
-                        </com.google.android.material.card.MaterialCardView>
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
-
+                </com.google.android.material.card.MaterialCardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -260,116 +231,74 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/frameImage1">
-            <androidx.constraintlayout.widget.ConstraintLayout
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="1dp"
+                app:cardBackgroundColor="@color/app_color"
+                app:cardCornerRadius="30dp"
+                app:strokeWidth="0dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                app:cardBackgroundColor="@color/app_color2"
+                app:cardCornerRadius="27dp"
+                android:id="@+id/materMini22"
+                android:elevation="2dp"
+                app:strokeWidth="0dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.cardview.widget.CardView
+                app:layout_constraintTop_toTopOf="@+id/materMini22"
+                app:layout_constraintBottom_toBottomOf="@+id/materMini22"
+                app:layout_constraintStart_toStartOf="@+id/materMini22"
+                app:layout_constraintEnd_toEndOf="@+id/materMini22"
+                android:layout_margin="3dp"
+                app:cardBackgroundColor="@color/transparent"
+                app:cardCornerRadius="24dp"
+                android:id="@+id/materMini24"
+                android:elevation="2dp"
+                app:strokeColor="@color/app_color4"
+                app:strokeWidth="1dp">
+                <ImageView
+                    android:id="@+id/imvImage3"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:elevation="0dp"
-                    app:cardBackgroundColor="@color/shadown_blue2"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp"
-                    app:layout_constraintDimensionRatio="1:1"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_permission" />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    app:cardBackgroundColor="@color/app_color3"
-                    app:cardCornerRadius="10dp"
-                    app:layout_constraintDimensionRatio="1:1"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="15dp">
-
-
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_marginEnd="2dp"
-                            app:cardBackgroundColor="@color/color_bg_item"
-                            app:cardCornerRadius="10dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:strokeColor="@color/app_color2"
-                            app:strokeWidth="2dp">
-
-                            <ImageView
-                                android:id="@+id/imvImage3"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/img_permission" />
-
-
-
-                        </com.google.android.material.card.MaterialCardView>
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="80dp"
             android:src="@drawable/img_vs"
             android:elevation="3dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="3:2.96"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="58dp" />
+            app:layout_constraintDimensionRatio="2.17:1.72"
+            app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <FrameLayout
         android:id="@+id/btnTryAgain"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginHorizontal="103dp"
-        android:layout_marginBottom="82dp"
+        android:layout_marginBottom="30dp"
         app:layout_constraintDimensionRatio="1.54:0.44"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:strokeColor="@color/app_color2"
+        android:background="@drawable/btn_try_again"
         app:strokeWidth="1dp">
 
-            <ImageView
-                android:id="@+id/imgViewdBg"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="1.8dp"
-                android:layout_marginTop="1.8dp"
-                android:background="@drawable/frame_bg_add"
-                android:scaleType="fitXY" />
-
-            <ImageView
-                android:id="@+id/imgViewFor"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="1.8dp"
-                android:layout_marginBottom="1.8dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/frame_select_add" />
             <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
                 android:id="@+id/txtShow"
                 style="@style/single_marquee"
@@ -379,10 +308,10 @@
                 android:gravity="center"
                 android:text="@string/try_again"
                 android:textColor="@color/white"
-                android:fontFamily="@font/atma_bold"
+                android:fontFamily="@font/carter_one_regular"
                 app:outerStrokeColor="@color/app_color"
-                app:outerStrokeWidth="1dp"
-                android:textSize="20sp" />
+                app:outerStrokeWidth="5dp"
+                android:textSize="18sp" />
 
     </FrameLayout>
 

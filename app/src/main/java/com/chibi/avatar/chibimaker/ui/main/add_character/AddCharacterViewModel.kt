@@ -9,6 +9,7 @@ import com.chibi.avatar.chibimaker.core.custom.DrawableDraw
 import com.chibi.avatar.chibimaker.data.model.addcharacter.SelectedAddModel
 import com.chibi.avatar.chibimaker.data.model.addcharacter.BackgroundCategoryModel
 import com.chibi.avatar.chibimaker.data.model.addcharacter.StickerCategoryModel
+import com.chibi.avatar.chibimaker.data.model.addcharacter.SpeechCategoryModel
 import com.chibi.avatar.chibimaker.utils.DataLocal
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -34,6 +35,7 @@ class AddCharacterViewModel @Inject constructor(
     var backgroundImageList: ArrayList<SelectedAddModel> = arrayListOf()
     var backgroundCategoryList: ArrayList<BackgroundCategoryModel> = arrayListOf()
     var stickerCategoryList: ArrayList<StickerCategoryModel> = arrayListOf()
+    var speechCategoryList: ArrayList<SpeechCategoryModel> = arrayListOf()
     var backgroundColorList: ArrayList<SelectedAddModel> = arrayListOf()
     var stickerList: ArrayList<SelectedAddModel> = arrayListOf()
     var speechList: ArrayList<SelectedAddModel> = arrayListOf()
@@ -113,6 +115,9 @@ class AddCharacterViewModel @Inject constructor(
 
         speechList.clear()
         speechList.addAll(speeches.map { SelectedAddModel(path = it) })
+        speechCategoryList.indexOfFirst { it.isSelected }
+            .takeIf { it >= 0 }
+            ?.let(::selectSpeechCategory)
 
         textFontList.clear()
         textFontList.addAll(DataLocal.getTextFontDefault())
@@ -186,6 +191,19 @@ class AddCharacterViewModel @Inject constructor(
             .orEmpty()
             .map { SelectedAddModel(path = it) }
             .toCollection(ArrayList())
+    }
+
+    fun setSpeechCategories(categories: List<SpeechCategoryModel>) {
+        val selected = speechCategoryList.firstOrNull { it.isSelected }?.category
+        speechCategoryList = categories.mapIndexed { index, category ->
+            category.copy(isSelected = selected?.let { it == category.category } ?: (index == 0))
+        }.toCollection(ArrayList())
+    }
+
+    fun selectSpeechCategory(position: Int) {
+        speechCategoryList.forEachIndexed { index, item -> item.isSelected = index == position }
+        speechList = speechCategoryList.getOrNull(position)?.imageUrls().orEmpty()
+            .map { SelectedAddModel(path = it) }.toCollection(ArrayList())
     }
 
     // ========== Selection helpers ==========
@@ -285,6 +303,7 @@ class AddCharacterViewModel @Inject constructor(
         backgroundImageList.clear()
         backgroundCategoryList.clear()
         stickerCategoryList.clear()
+        speechCategoryList.clear()
         backgroundColorList.clear()
         stickerList.clear()
         speechList.clear()

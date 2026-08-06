@@ -24,7 +24,6 @@ import com.chibi.avatar.chibimaker.core.extention.toHomeFromSetting
 import com.chibi.avatar.chibimaker.core.extention.toLangFromSetting
 import com.chibi.avatar.chibimaker.core.extention.visible
 import com.chibi.avatar.chibimaker.core.helper.RateHelper
-import com.chibi.avatar.chibimaker.databinding.FragmentQuickBinding
 import com.chibi.avatar.chibimaker.databinding.FragmentSettingBinding
 import com.chibi.avatar.chibimaker.utils.state.RateState
 import dagger.hilt.android.AndroidEntryPoint

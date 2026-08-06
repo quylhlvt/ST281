@@ -95,6 +95,18 @@ class AppDataManager @Inject constructor(
         _backgrounds.value = bgs
         _stickers.value = stickers
     }
+
+    fun updateBackgroundsStickersAndSpeech(
+        bgs: List<String>,
+        stickers: List<String>,
+        speech: List<String>
+    ) {
+        _stickers.value = stickers
+        _speechs.value = speech
+        // Emit backgrounds last so observers reading all three flows see the
+        // corresponding online data from the same config response.
+        _backgrounds.value = bgs
+    }
     suspend fun loadInitialData() {
         Log.d("PERF2", "loadInitialData START: ${System.currentTimeMillis()}")
         if (isDataLoaded) { Log.d(TAG, "⚠️ Already loaded, skip"); return }
@@ -481,10 +493,7 @@ class AppDataManager @Inject constructor(
     }
 
     private suspend fun loadSpeechs() {
-        runCatching {
-            _speechs.value = (context.assets.list("speech") ?: emptyArray())
-                .map { "$ASSET_PREFIX/speech/$it" }
-        }.onFailure { Log.e(TAG, "❌ loadSpeechs", it) }
+        _speechs.value = emptyList()
     }
 
     // ── MY DESIGNS ────────────────────────────────────────────────────────────

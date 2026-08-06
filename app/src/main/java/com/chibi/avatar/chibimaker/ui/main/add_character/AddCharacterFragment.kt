@@ -55,6 +55,7 @@ import com.chibi.avatar.chibimaker.databinding.FragmentAddCharacterBinding
 import com.chibi.avatar.chibimaker.ui.main.add_character.adapter.BackgroundColorAdapter
 import com.chibi.avatar.chibimaker.ui.main.add_character.adapter.BackgroundCategoryAdapter
 import com.chibi.avatar.chibimaker.ui.main.add_character.adapter.StickerCategoryAdapter
+import com.chibi.avatar.chibimaker.ui.main.add_character.adapter.SpeechCategoryAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chibi.avatar.chibimaker.ui.main.add_character.adapter.BackgroundImageAdapter
 import com.chibi.avatar.chibimaker.ui.main.add_character.adapter.StickerAdapter
@@ -96,6 +97,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
     private val backgroundImageAdapter by lazy { BackgroundImageAdapter() }
     private val backgroundCategoryAdapter by lazy { BackgroundCategoryAdapter() }
     private val stickerCategoryAdapter by lazy { StickerCategoryAdapter() }
+    private val speechCategoryAdapter by lazy { SpeechCategoryAdapter() }
     private val backgroundColorAdapter by lazy { BackgroundColorAdapter() }
     private val stickerAdapter by lazy { StickerAdapter() }
     private val speechAdapter by lazy { SpeechAdapter() }
@@ -203,6 +205,17 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                         if (categories.isNotEmpty()) {
                             viewModel.setStickerCategories(categories)
                             stickerCategoryAdapter.submitList(viewModel.stickerCategoryList)
+                        }
+                    }
+                }
+                launch {
+                    viewModelActivity.speechCategories.collectLatest { categories ->
+                        if (categories.isNotEmpty()) {
+                            viewModel.setSpeechCategories(categories)
+                            val selected = viewModel.speechCategoryList.indexOfFirst { it.isSelected }
+                            if (selected >= 0) viewModel.selectSpeechCategory(selected)
+                            speechCategoryAdapter.submitList(viewModel.speechCategoryList)
+                            speechAdapter.submitList(viewModel.speechList)
                         }
                     }
                 }
@@ -317,6 +330,13 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                 stickerAdapter.currentSelected = -1
                 stickerAdapter.submitList(viewModel.stickerList)
                 rcvSticker.scrollToPosition(0)
+            }
+            speechCategoryAdapter.onCategoryClick = { _, position ->
+                viewModel.selectSpeechCategory(position)
+                speechCategoryAdapter.submitList(viewModel.speechCategoryList)
+                speechAdapter.currentSelected = -1
+                speechAdapter.submitList(viewModel.speechList)
+                rcvSpeech.scrollToPosition(0)
             }
             speechAdapter.onItemClick = { path -> handleSpeech(path) }
             textFontAdapter.onTextFontClick = { font, position -> handleFontClick(font, position) }
@@ -491,6 +511,13 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                     requireContext(), LinearLayoutManager.HORIZONTAL, false
                 )
             }
+            rcvSpeechTittle.apply {
+                adapter = speechCategoryAdapter
+                itemAnimator = null
+                layoutManager = LinearLayoutManager(
+                    requireContext(), LinearLayoutManager.HORIZONTAL, false
+                )
+            }
             rcvSpeech.apply {
                 adapter = speechAdapter; itemAnimator = null
                 setHasFixedSize(true); setItemViewCacheSize(10)
@@ -557,6 +584,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
         backgroundImageAdapter.submitList(viewModel.backgroundImageList)
         backgroundCategoryAdapter.submitList(viewModel.backgroundCategoryList)
         stickerCategoryAdapter.submitList(viewModel.stickerCategoryList)
+        speechCategoryAdapter.submitList(viewModel.speechCategoryList)
         backgroundColorAdapter.submitList(viewModel.backgroundColorList, true)
         stickerAdapter.submitList(viewModel.stickerList, true)
         speechAdapter.submitList(viewModel.speechList)
@@ -673,6 +701,8 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                     lnlBackground.btnBackgroundColorTv.setTextColor(
                         ContextCompat.getColor(requireContext(), R.color.black3)
                     )
+                    lnlBackground.btnBackgroundImageTv.setOuterStrokeWidth(2.5f.dp(requireContext()).toFloat())
+                    lnlBackground.btnBackgroundColorTv.setOuterStrokeWidth(1.3f.dp(requireContext()).toFloat())
                     lnlBackground.btnBackgroundImageTv.setTextColor(
                         ContextCompat.getColor(requireContext(), R.color.white)
                     )
@@ -687,6 +717,8 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                     lnlBackground.btnBackgroundColorTv.setTextColor(
                         ContextCompat.getColor(requireContext(), R.color.white)
                     )
+                    lnlBackground.btnBackgroundColorTv.setOuterStrokeWidth(2.5f.dp(requireContext()).toFloat())
+                    lnlBackground.btnBackgroundImageTv.setOuterStrokeWidth(1.3f.dp(requireContext()).toFloat())
                     lnlBackground.btnBackgroundImageTv.setTextColor(
                         ContextCompat.getColor(requireContext(), R.color.black3)
                     )

@@ -46,6 +46,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
+import java.util.Locale
 import java.util.concurrent.atomic.AtomicInteger
 
 @AndroidEntryPoint
@@ -108,16 +109,17 @@ class ShowFragment : BaseFragment<FragmentShowBinding, ShowViewModel>(
     override fun initView() {
 
         binding.actionBar.apply {
-            setImageActionBar(btnActionBarLeft, R.drawable.back_app)
+            setImageActionBar(cvLogo, R.drawable.back_app)
 //            setImageActionBar(btnActionBarRight, R.drawable.next_app)
 //            setTextActionBar( tvCenter, "05:00" )
         }
         setupAdapters()
         readArgsAndInit()
         startCountDown()
-        binding.txtNext.isSelected = true
-        binding.txtNext2.isSelected = true
-        binding.txtWin3.isSelected = true
+        binding.tvTitleWin.isSelected = true
+        binding.txtNextWin.isSelected = true
+        binding.txtcontentLost.isSelected = true
+        binding.tvPercent.isSelected = true
         val bitmap = viewModelActivity.cosplayBitmap
         if (bitmap != null && !bitmap.isRecycled) {
             binding.imvImage2.setImageBitmap(bitmap)
@@ -128,17 +130,12 @@ class ShowFragment : BaseFragment<FragmentShowBinding, ShowViewModel>(
         }
     }
     private fun updateTimerUI(minutes: Int, seconds: Int) {
-        val min1 = minutes / 10
-        val min2 = minutes % 10
-
-        val sec1 = seconds / 10
-        val sec2 = seconds % 10
-
-        binding.number1.text = min1.toString()
-        binding.number2.text = min2.toString()
-
-        binding.number4.text = sec1.toString()
-        binding.number5.text = sec2.toString()
+        binding.actionBar.tvCenter.text = String.format(
+            Locale.US,
+            "%02d:%02d",
+            minutes,
+            seconds
+        )
     }
     private fun startTimer(fromSeconds: Int = totalSeconds) {
         timerJob?.cancel()
@@ -164,10 +161,16 @@ class ShowFragment : BaseFragment<FragmentShowBinding, ShowViewModel>(
     private fun showFailLayout() {
         if (!isAdded || isDetached) return
         timerJob?.cancel()
-        binding.showFail.visibility = View.VISIBLE
+        binding.layoutWin.visibility = View.VISIBLE
+        binding.txtcontentLost.visibility = View.VISIBLE
+        binding.txtcontentWin.visibility = View.GONE
+        Glide.with(binding.imgAvatarWin)
+            .load(R.drawable.img_lost_avatar)
+            .into(binding.imgAvatarWin)
+        binding.tvTitleWin.text = getString(R.string.oops)
     }
     private fun startCountDown() {
-        binding.actionBar.btnActionBarLeft.isEnabled = false
+        binding.actionBar.cvLogo.isEnabled = false
         binding.actionBar.btnActionBarRight.isEnabled = false
         val colors = listOf(
             ContextCompat.getColor(requireContext(), R.color.app_color5), // 3
@@ -214,7 +217,7 @@ class ShowFragment : BaseFragment<FragmentShowBinding, ShowViewModel>(
 
             // Ẩn overlay, bắt đầu timer
             binding.countDown.visibility = View.GONE
-            binding.actionBar.btnActionBarLeft.isEnabled = true
+            binding.actionBar.cvLogo.isEnabled = true
             binding.actionBar.btnActionBarRight.isEnabled = true
             binding.tvCountDown.alpha = 1f
             binding.tvCountDown.scaleX = 1f
@@ -282,7 +285,7 @@ class ShowFragment : BaseFragment<FragmentShowBinding, ShowViewModel>(
 
     override fun viewListener() {
         binding.apply {
-            actionBar.btnActionBarLeft.onClick {
+            actionBar.cvLogo.onClick {
                 popBack()
             }
 //            actionBar.btnActionBarRight.onClick { navigateToSuccess() }
@@ -298,14 +301,10 @@ class ShowFragment : BaseFragment<FragmentShowBinding, ShowViewModel>(
                 }.start()
             }
 
-            frameTxtNext.onClick(500) {
+            btnNextWin.onClick(500) {
                 navigateToSuccess()
             }
 
-            // ← nút Next trong layoutWin
-            frameTxtNext2.onClick(500) {
-                navigateToSuccess()
-            }
 
             // ── Color toggle ──────────────────────────────────────────────────────
             imgChangColor.onClick {
@@ -351,9 +350,13 @@ class ShowFragment : BaseFragment<FragmentShowBinding, ShowViewModel>(
         if (!isAdded || isDetached) return
         timerJob?.cancel()
         binding.layoutWin.visibility = View.VISIBLE
-        binding.tvWin.post {
-            binding.tvWin.startMarqueeWhenVisible()
-        }
+
+        binding.txtcontentWin.visibility = View.VISIBLE
+        binding.txtcontentLost.visibility = View.GONE
+        Glide.with(binding.imgAvatarWin)
+            .load(R.drawable.img_win_avatar)
+            .into(binding.imgAvatarWin)
+        binding.tvTitleWin.text = getString(R.string.congratulation)
     }
     override fun observeData() {
 
@@ -593,7 +596,6 @@ class ShowFragment : BaseFragment<FragmentShowBinding, ShowViewModel>(
         // ← Resume timer nếu đang đếm (chưa win/fail)
         if (remainingSeconds in 1 until totalSeconds
             && binding.layoutWin.visibility != View.VISIBLE
-            && binding.showFail.visibility != View.VISIBLE
             && binding.countDown.visibility != View.VISIBLE
         ) {
             startTimer(remainingSeconds)

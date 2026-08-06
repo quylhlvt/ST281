@@ -40,12 +40,17 @@ fun Activity.goToSettings() {
         .setTitle(R.string.go_to_setting_message)
         .setMessage(R.string.go_to_setting_message)
         .setPositiveButton(R.string.settings) { dialog, _ ->
+            // Đóng dialog trước khi rời Activity. Nếu để dialog còn tồn tại
+            // trong lúc mở Settings, window của dialog có thể giữ touch/focus
+            // khi người dùng quay lại app.
+            dialog.dismiss()
             val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
                 data = "package:${this@goToSettings.packageName}".toUri()
             }
             this.startActivity(intent)
-            dialog.dismiss()
-            hideNavigation(true)
+            // Không thay đổi system UI sau startActivity(): lúc này cửa sổ đang
+            // mất focus cho Settings. MainActivity sẽ khôi phục immersive mode
+            // khi cửa sổ app thực sự nhận lại focus.
         }
         .setNegativeButton(R.string.cancel) { dialog, _ ->
             dialog.dismiss()
