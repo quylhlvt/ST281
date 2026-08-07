@@ -5,10 +5,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black">#000000</color>
     <color name="gray">#99363636</color>
-    <color name="black1">#1F1F1F</color>
+    <color name="black1">#4B4B4B</color>
     <color name="black2">#1F000000</color>
     <color name="black3">#33000000</color>
     <color name="black4">#333333</color>
+    <color name="black5">#4B4B4B99</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="orange_F6">#F68300</color>
     <color name="purple_F0">#F091F5</color>

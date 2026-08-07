@@ -9,7 +9,7 @@
         android:id="@+id/layoutActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="1dp"
+        android:elevation="@dimen/dimension_1"
         app:layout_constraintTop_toTopOf="parent">
 
         <include
@@ -27,9 +27,9 @@
 
     <ImageView
         android:id="@+id/imgPermission"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="44dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginHorizontal="@dimen/dimension_44"
         app:layout_constraintDimensionRatio="1.8:1.86"
         android:adjustViewBounds="true"
         android:src="@drawable/img_permission"
@@ -40,17 +40,17 @@
 
     <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextViewPermission
         android:id="@+id/txtPermission"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimension_0"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="@dimen/dimension_20"
         android:gravity="center"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="@dimen/dimension_10"
 
         android:fontFamily="@font/atma_bold"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_16"
         android:textColor="@color/white"
         app:outerStrokeColor="@color/app_color"
-        app:outerStrokeWidth="2dp"
+        app:outerStrokeWidth="@dimen/dimension_2"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -59,42 +59,42 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="@dimen/dimension_80"
         android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/tvContinue">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="@dimen/dimension_20"
             android:orientation="vertical">
 
             <!-- btnStorage-->
             <RelativeLayout
                 android:id="@+id/btnStorage"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_margin="1dp"
+                android:layout_height="@dimen/dimension_56"
+                android:layout_margin="@dimen/dimension_1"
                 android:background="@drawable/bg_frame_permission">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="@dimen/dimension_16"
                     android:gravity="center_vertical"
                     style="@style/single_marquee"
                     android:text="@string/storage"
                     android:textColor="@color/app_color"
                     android:fontFamily="@font/carter_one_regular"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_16" />
 
                 <ImageView
                     android:id="@+id/swPermission"
-                    android:layout_width="56dp"
-                    android:layout_height="32dp"
+                    android:layout_width="@dimen/dimension_56"
+                    android:layout_height="@dimen/dimension_32"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/dimension_16"
                     android:layout_centerVertical="true"
                     android:src="@drawable/switch_off" />
             </RelativeLayout>
@@ -103,28 +103,28 @@
             <RelativeLayout
                 android:id="@+id/btnNotification"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="@dimen/dimension_56"
+                android:layout_marginTop="@dimen/dimension_16"
                 android:background="@drawable/bg_frame_permission">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="@dimen/dimension_16"
                     android:gravity="center_vertical"
                     style="@style/single_marquee"
                     android:text="@string/notification"
                     android:textColor="@color/app_color"
                     android:fontFamily="@font/carter_one_regular"
-                    android:textSize="16sp"/>
+                    android:textSize="@dimen/text_size_16"/>
 
                 <ImageView
                     android:id="@+id/swNotification"
-                    android:layout_width="56dp"
-                    android:layout_height="32dp"
+                    android:layout_width="@dimen/dimension_56"
+                    android:layout_height="@dimen/dimension_32"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/dimension_16"
                     android:layout_centerVertical="true"
                     android:src="@drawable/switch_off" />
             </RelativeLayout>
@@ -136,15 +136,15 @@
         android:id="@+id/tvContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginHorizontal="@dimen/dimension_12"
+        android:layout_marginBottom="@dimen/dimension_180"
         android:gravity="center"
         android:fontFamily="@font/atma_bold"
         android:text="@string/continue_per"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_16"
         android:textColor="@color/white"
         app:outerStrokeColor="@color/app_color"
-        app:outerStrokeWidth="2dp"
+        app:outerStrokeWidth="@dimen/dimension_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

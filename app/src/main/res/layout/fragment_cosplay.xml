@@ -23,45 +23,45 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mater1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="170dp"
-        android:elevation="1dp"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginHorizontal="@dimen/dimension_16"
+        android:layout_marginBottom="@dimen/dimension_170"
+        android:elevation="@dimen/dimension_1"
         app:cardBackgroundColor="@color/app_color"
-        app:cardCornerRadius="50dp"
+        app:cardCornerRadius="@dimen/dimension_50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toBottomOf="@+id/layoutActionBar"
-        app:strokeWidth="0dp" />
+        app:strokeWidth="@dimen/dimension_0" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mater2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="6dp"
-        android:elevation="2dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_margin="@dimen/dimension_6"
+        android:elevation="@dimen/dimension_2"
         app:cardBackgroundColor="@color/app_color2"
-        app:cardCornerRadius="44dp"
+        app:cardCornerRadius="@dimen/dimension_44"
         app:layout_constraintBottom_toBottomOf="@+id/mater1"
         app:layout_constraintEnd_toEndOf="@+id/mater1"
         app:layout_constraintStart_toStartOf="@+id/mater1"
         app:layout_constraintTop_toTopOf="@+id/mater1"
-        app:strokeWidth="0dp" />
+        app:strokeWidth="@dimen/dimension_0" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mater3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="6dp"
-        android:elevation="2dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_margin="@dimen/dimension_6"
+        android:elevation="@dimen/dimension_2"
         app:cardBackgroundColor="@color/transparent"
-        app:cardCornerRadius="38dp"
+        app:cardCornerRadius="@dimen/dimension_38"
         app:layout_constraintBottom_toBottomOf="@+id/mater2"
         app:layout_constraintEnd_toEndOf="@+id/mater2"
         app:layout_constraintStart_toStartOf="@+id/mater2"
         app:layout_constraintTop_toTopOf="@+id/mater2"
         app:strokeColor="@color/app_color4"
-        app:strokeWidth="1dp">
+        app:strokeWidth="@dimen/dimension_1">
 
         <ImageView
             android:id="@+id/imvImage"
@@ -81,17 +81,17 @@
 
     <FrameLayout
         android:id="@+id/random"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginTop="@dimen/dimension_50"
+        android:layout_marginEnd="@dimen/dimension_8"
         android:background="@drawable/bg_btn_random"
         app:layout_constraintDimensionRatio="1.56:0.48"
         app:layout_constraintEnd_toStartOf="@+id/show"
         app:layout_constraintStart_toStartOf="@+id/mater1"
         app:layout_constraintTop_toBottomOf="@+id/mater1"
         app:strokeColor="@color/app_color2"
-        app:strokeWidth="1dp">
+        app:strokeWidth="@dimen/dimension_1">
 
         <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
             android:id="@+id/txtRandom"
@@ -102,24 +102,26 @@
             android:gravity="center"
             android:text="@string/random"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_size_18"
             app:outerStrokeColor="@color/app_color"
-            app:outerStrokeWidth="4dp" />
+            app:outerStrokeWidth="@dimen/dimension_4" />
 
     </FrameLayout>
 
     <FrameLayout
         android:id="@+id/show"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginStart="@dimen/dimension_8"
+        android:alpha="0.5"
         android:background="@drawable/bg_btn_random"
+        android:enabled="false"
         app:layout_constraintDimensionRatio="1.56:0.48"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/mater1"
         app:layout_constraintStart_toEndOf="@+id/random"
         app:layout_constraintTop_toTopOf="@+id/random"
         app:strokeColor="@color/app_color2"
-        app:strokeWidth="1dp">
+        app:strokeWidth="@dimen/dimension_1">
 
 
         <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
@@ -131,9 +133,9 @@
             android:gravity="center"
             android:text="@string/cosplay"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_size_18"
             app:outerStrokeColor="@color/app_color"
-            app:outerStrokeWidth="4dp" />
+            app:outerStrokeWidth="@dimen/dimension_4" />
 
     </FrameLayout>
 
@@ -155,16 +157,16 @@
             android:clipToOutline="false"
             android:background="@drawable/img_bg_mycreation"
             android:clipToPadding="false"
-            android:layout_marginHorizontal="16dp">
+            android:layout_marginHorizontal="@dimen/dimension_16">
 
             <FrameLayout
                 android:id="@+id/frameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="@dimen/dimension_5"
+                android:layout_marginHorizontal="@dimen/dimension_24"
                 android:clipChildren="false"
-                android:paddingBottom="28dp"
+                android:paddingBottom="@dimen/dimension_28"
                 android:clipToPadding="false"
                 app:layout_constraintTop_toBottomOf="@+id/txtTilleShow">
 
@@ -178,7 +180,7 @@
                     android:fontFamily="@font/carter_one_regular"
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_16"
            />
             </FrameLayout>
 
@@ -187,23 +189,23 @@
                 style="@style/single_marquee"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginHorizontal="@dimen/dimension_20"
+                android:layout_marginTop="@dimen/dimension_28"
                 android:fontFamily="@font/carter_one_regular"
 
                 android:gravity="center"
                 android:text="@string/instruction"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="@dimen/text_size_24"
                 app:layout_constraintTop_toTopOf="parent"
                 app:outerStrokeColor="@color/app_color"
-                app:outerStrokeWidth="4dp" />
+                app:outerStrokeWidth="@dimen/dimension_4" />
 
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/closeGuide"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/dimension_40"
+                android:layout_height="@dimen/dimension_40"
 
                 android:src="@drawable/ic_close_guide"
                app:layout_constraintEnd_toEndOf="parent"

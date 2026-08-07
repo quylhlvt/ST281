@@ -90,6 +90,7 @@ class CosplayFragment : BaseFragment<FragmentCosplayBinding, CosplayViewModel>(
     override fun initView() {
         Glide.with(binding.imageGif).asGif().load(R.drawable.gif).into(binding.imageGif)
         binding.setupActionBar()
+        setShowButtonEnabled(false)
         binding.txtRandom.isSelected = true
         binding.txtShow.isSelected = true
         val space = SpannableString(" ")
@@ -150,6 +151,7 @@ class CosplayFragment : BaseFragment<FragmentCosplayBinding, CosplayViewModel>(
                 showGuide.gone()
             }
             show.onClick {
+                if (!show.isEnabled) return@onClick
                 val item = viewModel.randomItem.value ?: return@onClick
                 if (checkOnlineNetworkOrShowDialog(item.templateIndex)) return@onClick
                 val cached = viewModel.cachedBitmap
@@ -209,6 +211,7 @@ class CosplayFragment : BaseFragment<FragmentCosplayBinding, CosplayViewModel>(
 
     private fun renderCharacter(item: CosplayViewModel.RandomItem) {
         renderJob?.cancel()
+        setShowButtonEnabled(false)
         renderJob = viewLifecycleOwner.lifecycleScope.launch {
             val paths = item.resolvedPaths.filterNotNull()
             if (paths.isEmpty()) return@launch
@@ -271,6 +274,13 @@ class CosplayFragment : BaseFragment<FragmentCosplayBinding, CosplayViewModel>(
             setImageBitmap(bitmap)
         }
         binding.imageGif.gone()
+        setShowButtonEnabled(true)
+    }
+
+    private fun setShowButtonEnabled(enabled: Boolean) {
+        binding.show.isEnabled = enabled
+        binding.show.isClickable = enabled
+        binding.show.alpha = if (enabled) 1f else 0.5f
     }
 
     private fun mergeBitmaps(bitmaps: List<Bitmap>): Bitmap {

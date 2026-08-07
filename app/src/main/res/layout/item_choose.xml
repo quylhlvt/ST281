@@ -4,29 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/transparent"
-    android:layout_margin="5dp"
+    android:layout_margin="@dimen/dimension_5"
 
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dimension_0"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toTopOf="parent">
 
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginEnd="1dp"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="@dimen/dimension_0"
+                    android:layout_marginEnd="@dimen/dimension_1"
                     app:cardBackgroundColor="#FEF2EF"
-                    app:cardCornerRadius="28dp"
+                    app:cardCornerRadius="@dimen/dimension_28"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:strokeColor="@color/app_color2"
-                    app:strokeWidth="0dp">
+                    app:strokeWidth="@dimen/dimension_0">
 
                     <ImageView
                         android:id="@+id/imvImage"
@@ -57,4 +57,3 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-

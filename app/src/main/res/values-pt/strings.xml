@@ -9,8 +9,6 @@
     <string name="title_3">\u00A0Desenhe sua estética de sonho em miniatura\u00A0</string>
     <string name="not_select_lang">Por favor, selecione um idioma</string>
     <string name="pony_maker">Criador Chibi</string>
-    <string name="trending_custom">Personalizações em alta</string>
-    <string name="my_work">Meus trabalhos</string>
 
     <string name="permission">Permissão</string>
     <string name="storage">Armazenamento</string>
@@ -32,7 +30,6 @@
     <string name="no">Não</string>
     <string name="yes">Sim</string>
     <string name="null_edt">Por favor, insira um texto</string>
-    <string name="done">Concluído</string>
     <string name="choose_color">Escolher cor</string>
     <string name="do_you_want_to_reset_all">Deseja redefinir tudo?</string>
     <string name="reset">Redefinir</string>
@@ -41,7 +38,6 @@
     <string name="share_app">Compartilhar app</string>
     <string name="image_has_been_saved_successfully">Imagem salva com sucesso!</string>
     <string name="download">Baixar</string>
-    <string name="avatar">Avatar</string>
     <string name="my_avatar">Meu Chibi</string>
     <string name="design">Meu design</string>
     <string name="no_item_here">Nenhum item aqui</string>
@@ -50,7 +46,6 @@
     <string name="share">Compartilhar</string>
     <string name="no_app_found_to_handle_this_action">Nenhum aplicativo encontrado para esta ação</string>
     <string name="download_success">Download realizado com sucesso no álbum %s</string>
-    <string name="download_fail">Falha no download, tente novamente mais tarde!</string>
     <string name="delete">Excluir</string>
     <string name="are_you_sure_want_to_delete_this_item">Tem certeza de que deseja excluir este item?</string>
     <string name="please_select_an_image">Por favor, selecione uma imagem</string>
@@ -59,7 +54,6 @@
     <string name="invalid_action_msg">Aplicativo não instalado</string>
     <string name="invalid_action">Erro</string>
     <string name="download_failed_please_try_again_later">Falha no download, tente novamente mais tarde!</string>
-    <string name="edit">Editar</string>
     <string name="rate">Avaliar</string>
     <string name="privacy_policy"><![CDATA[Privacidade e Política]]></string>
 
@@ -67,10 +61,8 @@
     <string name="zero_star">Conte-nos sua experiência</string>
 
     <string name="one_star_title">Ah não!</string>
-    <string name="one_star">Por favor, envie seu feedback</string>
 
     <string name="two_star_title">Ah não!</string>
-    <string name="two_star">Por favor, envie seu feedback</string>
 
     <string name="three_star_title">Ah não!</string>
     <string name="three_star">Por favor, envie seu feedback</string>
@@ -83,21 +75,14 @@
 
     <string name="rate_us_0">Você ainda não avaliou!</string>
     <string name="have_rated">Obrigado por avaliar nosso app</string>
-    <string name="refresh">Atualizar</string>
-    <string name="hello_blank_fragment">Olá fragmento vazio</string>
-    <string name="cosplay_chibi">Fantasia Chibi</string>
     <string name="cosplay">Fantasia</string>
-    <string name="permission_camera_denied">Permissão de câmera necessária para usar este recurso</string>
-    <string name="cat_random">Gato aleatório</string>
     <string name="random">Aleatório</string>
     <string name="my_creation">Minha criação</string>
-    <string name="my_creation1">Minha criação</string>
     <string name="category">Categoria</string>
     <string name="image">Imagem</string>
     <string name="color">Cor</string>
     <string name="successful">Sucesso</string>
     <string name="successfully">Com sucesso</string>
-    <string name="context_guide_body">No modo Fantasia, os jogadores recebem aleatoriamente uma imagem de referência. Sua tarefa é recriar o personagem com a maior precisão possível, escolhendo os penteados, roupas, cores e acessórios corretos. Cada acerto aumenta sua porcentagem (%). Quanto mais parecido seu personagem for com a imagem, maior será sua pontuação final. Preste atenção aos detalhes para obter o melhor resultado.</string>
     <string name="try_again">Tentar novamente</string>
     <string name="no_internet">Sem internet</string>
     <string name="internet">Internet</string>
@@ -109,7 +94,6 @@
     <string name="enter_your_package_name">Digite o nome do pacote</string>
     <string name="please_enter_your_package_name">Digite o nome do pacote!</string>
     <string name="this_action_may_contain_advertising">Esta ação pode conter anúncios</string>
-    <string name="random_chibi">Chibi Aleatório</string>
     <string name="instruction">Instruções</string>
     <string name="tvCosplay1">No modo Cosplay,</string>
     <string name="tvCosplay2">os jogadores recebem aleatoriamente</string>
@@ -119,12 +103,7 @@
     <string name="tvCosplay6">Cada combinação correta aumenta sua</string>
     <string name="tvCosplay7">porcentagem (%).</string>
     <string name="tvCosplay8">Quanto mais o seu personagem se parecer com a imagem aleatória, maior será sua pontuação final. Preste atenção aos pequenos detalhes para obter o melhor resultado de cosplay.</string>
-    <string name="oops_not_in_character">Ops! Fora do personagem~</string>
-    <string name="your_outfit_doesn_t_match_the_character">Sua roupa não combina com o personagem</string>
-    <string name="yay_perfect_match">Eba! Combinação perfeita</string>
-    <string name="exactly_like_the_character">Exatamente como o personagem!</string>
     <string name="save">Salvar</string>
-    <string name="size">Tamanho</string>
     <string name="please_watch_full_ads">Assista ao anúncio completo</string>
     <string name="watch_ad">Assistir ao anúncio</string>
     <string name="error">Erro</string>
@@ -132,4 +111,7 @@
     <string name="load_ads_fail">Falha ao carregar o anúncio</string>
     <string name="random_chibi_dialog">Chibi aleatório</string>
     <string name="watch_a_short_ad_to_generate_a_random_chibi">Assista a um anúncio curto para gerar um chibi aleatório.</string>
+    <string name="image_not_found">Imagem não encontrada</string><string name="facebook_not_available">O Facebook não está instalado ou não pode receber esta imagem</string><string name="instagram_not_available">O Instagram não está instalado ou não pode receber esta imagem</string><string name="share_failed">Não foi possível compartilhar a imagem. Tente novamente.</string>
+    <string name="challenge_food">Desafio de comida</string><string name="food_random">Comida aleatória</string><string name="my_food">Minha comida</string><string name="facebook_share">Compartilhar no Facebook</string><string name="instagram_share">Compartilhar no Instagram</string>
+    <string name="congratulation">PARABÉNS!!!</string><string name="congratulations_on_completing_the_challenge">Parabéns por\nconcluir o desafio!!!</string><string name="oops">OPS... :((</string><string name="keep_trying_harder">Continue se esforçando!!!</string><string name="bubbles">Bolhas</string>
 </resources>

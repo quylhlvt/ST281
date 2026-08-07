@@ -10,9 +10,9 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView4"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimension_0"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="@dimen/dimension_110"
 
         android:adjustViewBounds="true"
         android:src="@drawable/img_title_splash"
@@ -22,8 +22,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/dimension_100"
+        android:layout_height="@dimen/dimension_100"
         android:layout_marginBottom="-10dp"
         app:layout_constraintBottom_toTopOf="@+id/appCompatTextView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,13 +35,13 @@
         android:id="@+id/appCompatTextView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="@dimen/dimension_30"
         android:fontFamily="@font/roboto_regular"
         android:gravity="center"
         android:text="@string/this_action_may_contain_advertising"
         android:textColor="@color/gray"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_16"
         app:outerStrokeColor="@color/black"
-        app:outerStrokeWidth="1dp"
+        app:outerStrokeWidth="@dimen/dimension_1"
         app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

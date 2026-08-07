@@ -22,45 +22,45 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mater1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="16dp"
-        android:elevation="1dp"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginHorizontal="@dimen/dimension_16"
+        android:elevation="@dimen/dimension_1"
         app:cardBackgroundColor="@color/app_color"
-        app:cardCornerRadius="50dp"
-        android:layout_marginBottom="170dp"
+        app:cardCornerRadius="@dimen/dimension_50"
+        android:layout_marginBottom="@dimen/dimension_170"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toBottomOf="@+id/layoutActionBar"
-        app:strokeWidth="0dp"/>
+        app:strokeWidth="@dimen/dimension_0"/>
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
         app:layout_constraintTop_toTopOf="@+id/mater1"
         app:layout_constraintBottom_toBottomOf="@+id/mater1"
         app:layout_constraintStart_toStartOf="@+id/mater1"
         app:layout_constraintEnd_toEndOf="@+id/mater1"
-        android:layout_margin="6dp"
+        android:layout_margin="@dimen/dimension_6"
         app:cardBackgroundColor="@color/app_color2"
-        app:cardCornerRadius="44dp"
+        app:cardCornerRadius="@dimen/dimension_44"
         android:id="@+id/mater2"
-        android:elevation="2dp"
-        app:strokeWidth="0dp"/>
+        android:elevation="@dimen/dimension_2"
+        app:strokeWidth="@dimen/dimension_0"/>
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
         app:layout_constraintTop_toTopOf="@+id/mater2"
         app:layout_constraintBottom_toBottomOf="@+id/mater2"
         app:layout_constraintStart_toStartOf="@+id/mater2"
         app:layout_constraintEnd_toEndOf="@+id/mater2"
-        android:layout_margin="6dp"
+        android:layout_margin="@dimen/dimension_6"
         app:cardBackgroundColor="@color/transparent"
-        app:cardCornerRadius="38dp"
+        app:cardCornerRadius="@dimen/dimension_38"
         android:id="@+id/mater3"
-        android:elevation="2dp"
+        android:elevation="@dimen/dimension_2"
         app:strokeColor="@color/app_color4"
-        app:strokeWidth="1dp">
+        app:strokeWidth="@dimen/dimension_1">
         <ImageView
             android:id="@+id/imvImage"
             android:layout_width="match_parent"
@@ -80,31 +80,31 @@
 
     <FrameLayout
         android:id="@+id/random"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginHorizontal="@dimen/dimension_100"
+        android:layout_marginTop="@dimen/dimension_50"
         android:background="@drawable/bg_btn_random"
         app:layout_constraintDimensionRatio="1.56:0.48"
         app:layout_constraintEnd_toEndOf="@+id/mater3"
         app:layout_constraintStart_toStartOf="@+id/mater3"
         app:layout_constraintTop_toBottomOf="@+id/mater3"
         app:strokeColor="@color/app_color2"
-        app:strokeWidth="1dp">
+        app:strokeWidth="@dimen/dimension_1">
 
         <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
             android:id="@+id/txtShow"
             style="@style/single_marquee"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="2dp"
+            android:layout_marginHorizontal="@dimen/dimension_2"
             android:fontFamily="@font/carter_one_regular"
             android:gravity="center"
             android:text="@string/random"
             android:textColor="@color/white"
             app:outerStrokeColor="@color/app_color"
-            app:outerStrokeWidth="4dp"
-            android:textSize="18sp" />
+            app:outerStrokeWidth="@dimen/dimension_4"
+            android:textSize="@dimen/text_size_18" />
 
     </FrameLayout>
 

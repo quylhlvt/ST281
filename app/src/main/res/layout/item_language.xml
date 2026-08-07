@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp">
+    android:layout_marginBottom="@dimen/dimension_8">
 
     <!-- Container chính — flat ConstraintLayout, không lồng -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/flMain"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:elevation="2dp">
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintDimensionRatio="3.28:0.56"
+        android:elevation="@dimen/dimension_2">
 
 
 
@@ -24,11 +26,11 @@
 
         <ImageView
             android:id="@+id/imvFlag"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/dimension_0"
+            android:layout_height="@dimen/dimension_0"
             app:layout_constraintDimensionRatio="1:1"
-            android:layout_marginStart="16dp"
-            android:layout_marginVertical="12dp"
+            android:layout_marginStart="@dimen/dimension_16"
+            android:layout_marginVertical="@dimen/dimension_12"
             android:src="@drawable/ic_flag_english"
             app:layout_constraintBottom_toBottomOf="@+id/imgLangFor"
             app:layout_constraintStart_toStartOf="@+id/imgLangFor"
@@ -36,11 +38,11 @@
 
         <ImageView
             android:id="@+id/btnRadio"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/dimension_0"
+            android:layout_height="@dimen/dimension_0"
             app:layout_constraintDimensionRatio="1:1"
-            android:layout_marginEnd="14dp"
-            android:layout_marginVertical="8dp"
+            android:layout_marginEnd="@dimen/dimension_14"
+            android:layout_marginVertical="@dimen/dimension_8"
             android:src="@drawable/ic_un_select_lang"
             app:layout_constraintBottom_toBottomOf="@+id/imgLangFor"
             app:layout_constraintEnd_toEndOf="@+id/imgLangFor"
@@ -49,22 +51,22 @@
         <TextView
             android:id="@+id/tvLang"
             style="@style/single_marquee"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dimension_0"
             android:layout_height="match_parent"
-            android:layout_marginStart="14dp"
+            android:layout_marginStart="@dimen/dimension_14"
             android:fontFamily="@font/carter_one_regular"
             android:gravity="start|center_vertical"
             android:text="@string/language"
             android:textColor="@color/app_color"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_16"
             app:layout_constraintBottom_toBottomOf="@+id/imvFlag"
             app:layout_constraintEnd_toStartOf="@+id/btnRadio"
             app:layout_constraintStart_toEndOf="@+id/imvFlag"
             app:layout_constraintTop_toTopOf="@+id/imvFlag"
             app:outerStrokeColor="@color/app_color"
-            app:outerStrokeWidth="1dp" />
+            app:outerStrokeWidth="@dimen/dimension_1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

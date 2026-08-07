@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="100dp"
-    app:cardElevation="100dp">
+    app:cardCornerRadius="@dimen/dimension_100"
+    app:cardElevation="@dimen/dimension_100">
 
     <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextViewPermission
         android:id="@+id/tvButton"
@@ -13,12 +13,12 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:paddingHorizontal="5dp"
+        android:paddingHorizontal="@dimen/dimension_5"
 
         android:fontFamily="@font/carter_one_regular"
         android:textColor="@color/white"
         app:outerStrokeColor="@color/app_color"
-        app:outerStrokeWidth="2dp"
-        android:textSize="16sp"
+        app:outerStrokeWidth="@dimen/dimension_2"
+        android:textSize="@dimen/text_size_16"
         tools:text="Next" />
 </FrameLayout>

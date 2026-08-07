@@ -112,6 +112,9 @@ class AddCharacterViewModel @Inject constructor(
 
         stickerList.clear()
         stickerList.addAll(stickers.map { SelectedAddModel(path = it) })
+        stickerCategoryList.indexOfFirst { it.isSelected }
+            .takeIf { it >= 0 }
+            ?.let(::selectStickerCategory)
 
         speechList.clear()
         speechList.addAll(speeches.map { SelectedAddModel(path = it) })
@@ -179,7 +182,14 @@ class AddCharacterViewModel @Inject constructor(
     }
 
     fun setStickerCategories(categories: List<StickerCategoryModel>) {
-        stickerCategoryList = categories.map { it.copy() }.toCollection(ArrayList())
+        val selected = stickerCategoryList.firstOrNull { it.isSelected }?.category
+        stickerCategoryList = categories.mapIndexed { index, category ->
+            category.copy(isSelected = selected?.let { it == category.category } ?: (index == 0))
+        }.toCollection(ArrayList())
+
+        stickerCategoryList.indexOfFirst { it.isSelected }
+            .takeIf { it >= 0 }
+            ?.let(::selectStickerCategory)
     }
 
     fun selectStickerCategory(position: Int) {

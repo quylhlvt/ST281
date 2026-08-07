@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:layout_marginEnd="6dp"
+    android:layout_marginEnd="@dimen/dimension_6"
     >
 
     <FrameLayout
         android:id="@+id/frame1"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimension_0"
         android:layout_height="match_parent"
-        android:elevation="2dp"
+        android:elevation="@dimen/dimension_2"
         app:layout_constraintDimensionRatio="5.2:3.8"
         app:layout_constraintStart_toStartOf="parent">
 

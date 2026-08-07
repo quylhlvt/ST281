@@ -16,9 +16,11 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 
 fun Activity.hideNavigation(isBlack: Boolean = false) {
-    // Bỏ FLAG_LAYOUT_NO_LIMITS — nó block keyboard detection
-    // Thay bằng fitSystemWindows = false qua WindowCompat
+    // Vẽ nội dung xuyên ra sau status bar trong suốt, nhưng vẫn giữ
+    // status bar của hệ thống (chỉ ẩn navigation bar).
     WindowCompat.setDecorFitsSystemWindows(window, false)
+    window.statusBarColor = android.graphics.Color.TRANSPARENT
+    window.navigationBarColor = android.graphics.Color.TRANSPARENT
 
     // Allow the app background to fill the area around notches/water-drop cameras.
     // Without this, Android 9-14 can letterbox the window below the display cutout.
@@ -35,9 +37,11 @@ fun Activity.hideNavigation(isBlack: Boolean = false) {
     window.decorView.setOnSystemUiVisibilityChangeListener(null)
     WindowCompat.getInsetsController(window, window.decorView).apply {
         isAppearanceLightStatusBars = isBlack
+        isAppearanceLightNavigationBars = false
         systemBarsBehavior =
             WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        hide(WindowInsetsCompat.Type.systemBars())
+        show(WindowInsetsCompat.Type.statusBars())
+        hide(WindowInsetsCompat.Type.navigationBars())
     }
 }
 fun Fragment.hideSoftKeyboard() {

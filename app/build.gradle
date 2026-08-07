@@ -19,14 +19,12 @@ android {
         applicationId "com.chibi.avatar.chibimaker"
         minSdk 24
         targetSdk 36
-        versionCode 3
-        versionName "1.0.2"
-
+        versionCode 1
+        versionName "1.0.0"
         testInstrumentationRunner= "androidx.test.runner.AndroidJUnitRunner"
         def formattedDate = new Date().format('MM.dd.yyyy')
         archivesBaseName = "ST281_FoodMaker_v${versionName}_${formattedDate}"
     }
-
     buildTypes {
         release {
             minifyEnabled true

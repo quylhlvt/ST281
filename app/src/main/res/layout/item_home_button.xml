@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/imgBg"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
         android:scaleType="fitXY"
         app:layout_constraintDimensionRatio="3.21:1.16"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,8 +17,8 @@
 
     <ImageView
         android:id="@+id/imgAvatar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
         android:scaleType="fitCenter"
         app:layout_constraintDimensionRatio="0.96:1.1"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,26 +28,26 @@
     <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
         android:id="@+id/tvLabel"
         style="@style/single_marquee"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginTop="@dimen/dimension_14"
+        android:layout_marginEnd="@dimen/dimension_14"
+        android:layout_marginBottom="@dimen/dimension_16"
         android:background="@drawable/img_bg_tv1"
         android:fontFamily="@font/baloo2_extrabold"
         android:gravity="center"
-        android:paddingHorizontal="5dp"
+        android:paddingHorizontal="@dimen/dimension_5"
         android:shadowColor="@color/app_color"
         android:shadowDx="5"
         android:shadowDy="-5"
         android:shadowRadius="5"
         android:textColor="@color/app_color2"
-        android:textSize="28dp"
+        android:textSize="@dimen/dimension_28"
         app:layout_constraintDimensionRatio="2.1:0.86"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:outerStrokeColor="@color/app_color"
-        app:outerStrokeWidth="1dp" />
+        app:outerStrokeWidth="@dimen/dimension_1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

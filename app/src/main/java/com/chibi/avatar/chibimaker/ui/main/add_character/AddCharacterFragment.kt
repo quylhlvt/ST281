@@ -205,6 +205,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                         if (categories.isNotEmpty()) {
                             viewModel.setStickerCategories(categories)
                             stickerCategoryAdapter.submitList(viewModel.stickerCategoryList)
+                            stickerAdapter.submitList(viewModel.stickerList)
                         }
                     }
                 }
@@ -229,6 +230,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                             )
                             backgroundImageAdapter.submitList(viewModel.backgroundImageList)
                             stickerAdapter.submitList(viewModel.stickerList, true)
+                            speechAdapter.submitList(viewModel.speechList)
                         }
                     }
                 }
@@ -432,6 +434,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
         isKeyboardOpen = true
         if (viewModel.isTextTabActive && !viewModel.isSpeechDialogOpen) {
             binding.flFunction.translationY = (-170).dp(requireContext()).toFloat()
+            binding.lnlBottom.translationY = (-170).dp(requireContext()).toFloat()
         }
     }
     override fun onDestroyView() {
@@ -448,11 +451,13 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
             && viewModel.isSpeechDialogOpen) return
 
         isKeyboardOpen = false
+        binding.lnlBottom.translationY = 0f
         binding.flFunction.translationY = 0f
     }
     // ĐỔI TÊN + ĐỔI bottomMargin → topMargin
     private fun setFlFunctionTopMargin(margin: Int) {
         (binding.flFunction.layoutParams as ViewGroup.MarginLayoutParams).topMargin = margin
+        (binding.lnlBottom.layoutParams as ViewGroup.MarginLayoutParams).topMargin = margin
     }
     /**
      * Đóng keyboard và reset view.

@@ -15,7 +15,9 @@ import com.chibi.avatar.chibimaker.core.extention.setImageActionBar
 import com.chibi.avatar.chibimaker.core.extention.setTextActionBar
 import com.chibi.avatar.chibimaker.databinding.FragmentSuccessCosplayBinding
 import com.chibi.avatar.chibimaker.ui.main.cosplay.CosplayViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SuccessCosplayFragment : BaseFragment<FragmentSuccessCosplayBinding, SuccessCosplayViewModel>( FragmentSuccessCosplayBinding::inflate, SuccessCosplayViewModel::class.java) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,7 +43,6 @@ class SuccessCosplayFragment : BaseFragment<FragmentSuccessCosplayBinding, Succe
     ): FragmentSuccessCosplayBinding = FragmentSuccessCosplayBinding.inflate(inflater, container, false)
 
     override fun initView() {
-
         binding.apply {
             txtShow.isSelected = true
             setupActionBar()
@@ -73,19 +74,21 @@ class SuccessCosplayFragment : BaseFragment<FragmentSuccessCosplayBinding, Succe
     }
     private fun updateProgressBar(percent: Int) {
         binding.progressTrack.post {
-            val trackW = binding.progressTrack.width.toFloat()
-            val fillMarginStartPx = 17 * resources.displayMetrics.density // margin 7dp từ XML
-            val fillW = trackW - fillMarginStartPx
-            val targetScale = percent / 100f
-            val adjustedScale = targetScale * fillW / trackW
+            // progressFill đã có sẵn chiều rộng thực tế theo margin trong XML.
+            // Chỉ scale trên chính chiều rộng đó, để 100% luôn phủ kín thanh.
+            val fillW = binding.progressFill.width.toFloat()
+            val targetScale = (percent.coerceIn(0, 100)) / 100f
 
             binding.progressFill.pivotX = 0f
             binding.progressFill.pivotY = binding.progressFill.height / 2f
-            binding.progressFill.scaleX = adjustedScale
+            binding.progressFill.scaleX = targetScale
             binding.progressFill.scaleY = 1f
 
             val starW = binding.imgStar.width.toFloat()
-            binding.imgStar.translationX = fillMarginStartPx + fillW * targetScale - starW / 2f
+            // Đưa tâm ngôi sao tới đúng đầu mút của phần fill ở mọi kích thước màn hình.
+            binding.imgStar.translationX =
+                binding.progressFill.left + fillW * targetScale -
+                    starW / 2f - binding.imgStar.left
         }
     }
     private fun FragmentSuccessCosplayBinding.setupActionBar() {

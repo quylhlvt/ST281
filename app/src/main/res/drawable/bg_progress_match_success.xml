@@ -1,10 +1,10 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="140dp"
-    android:height="22dp"
+    android:width="@dimen/dimension_140"
+    android:height="@dimen/dimension_22"
     android:viewportWidth="140"
     android:viewportHeight="22">
     <path
-        android:pathData="M140 22H0v-3.2-7.54V3.3 0h140v3.3 7.96 7.6V22Z">
+        android:pathData="M140 22H8A8 2 0 0 1 0 14V8A8 2 0 0 1 8 0H140V22Z">
         <aapt:attr xmlns:aapt="http://schemas.android.com/aapt" name="android:fillColor">
             <gradient
                 android:startX="0"

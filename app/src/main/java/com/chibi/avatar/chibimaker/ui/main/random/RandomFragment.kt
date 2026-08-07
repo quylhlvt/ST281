@@ -93,6 +93,7 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
     override fun initView() {
         Glide.with(binding.imageGif).asGif().load(R.drawable.gif).into(binding.imageGif)
         binding.setupActionBar()
+        setSaveButtonEnabled(false)
         binding.txtShow.isSelected = true
     }
 
@@ -136,6 +137,7 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
                 }
             }
             actionBar.btnActionBarRight.onClick {
+                if (!actionBar.btnActionBarRight.isEnabled) return@onClick
                 val item = viewModel.randomItem.value ?: return@onClick
                 if (checkOnlineNetworkOrShowDialog(item.templateIndex)) return@onClick
                 val templateId = viewModelActivity.templates.value
@@ -186,6 +188,7 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
     }
 
     private fun renderCharacter(item: RandomViewModel.RandomItem) {
+        setSaveButtonEnabled(false)
         viewLifecycleOwner.lifecycleScope.launch {
             val paths = item.resolvedPaths.filterNotNull()
             if (paths.isEmpty()) return@launch
@@ -247,6 +250,13 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
             setImageBitmap(bitmap)
         }
         binding.imageGif.gone()
+        setSaveButtonEnabled(true)
+    }
+
+    private fun setSaveButtonEnabled(enabled: Boolean) {
+        binding.actionBar.btnActionBarRight.isEnabled = enabled
+        binding.actionBar.btnActionBarRight.isClickable = enabled
+        binding.actionBar.btnActionBarRight.alpha = if (enabled) 1f else 0.5f
     }
 
     private fun mergeBitmaps(bitmaps: List<Bitmap>): Bitmap {

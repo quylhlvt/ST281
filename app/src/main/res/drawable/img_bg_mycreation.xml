@@ -4,7 +4,7 @@
     <!-- Shape ngoài cùng -->
     <item>
         <shape android:shape="rectangle">
-            <corners android:radius="50dp" />
+            <corners android:radius="@dimen/dimension_50" />
 
             <solid android:color="#664A42" />
 
@@ -14,13 +14,13 @@
 
     <!-- Shape thứ hai, nằm bên trong shape đầu -->
     <item
-        android:left="6dp"
-        android:top="6dp"
-        android:right="6dp"
-        android:bottom="6dp">
+        android:left="@dimen/dimension_6"
+        android:top="@dimen/dimension_6"
+        android:right="@dimen/dimension_6"
+        android:bottom="@dimen/dimension_6">
 
         <shape android:shape="rectangle">
-            <corners android:radius="44dp" />
+            <corners android:radius="@dimen/dimension_44" />
 
             <solid android:color="@color/app_color2" />
 
@@ -29,14 +29,14 @@
 
     <!-- Shape thứ ba, nằm trong cùng -->
     <item
-        android:left="12dp"
-        android:top="12dp"
-        android:right="12dp"
-        android:bottom="12dp">
+        android:left="@dimen/dimension_12"
+        android:top="@dimen/dimension_12"
+        android:right="@dimen/dimension_12"
+        android:bottom="@dimen/dimension_12">
 
         <shape android:shape="rectangle">
-            <corners android:radius="38dp" />
-            <stroke android:color="#DFC1B1" android:width="1dp"/>
+            <corners android:radius="@dimen/dimension_38" />
+            <stroke android:color="#DFC1B1" android:width="@dimen/dimension_1"/>
 
             <solid android:color="#EAD8CE" />
         </shape>

@@ -21,14 +21,14 @@
             layout="@layout/layout_actionbar" />
     </FrameLayout>
     <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
         app:cardBackgroundColor="@color/app_color4"
-    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/lnlBottomSocial"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar"
         android:id="@+id/imvImage"
         android:scaleType="centerCrop"
         android:src="@drawable/img_permission" />
@@ -38,11 +38,11 @@
     <!--    btnEdit-->
     <!--    <ImageView-->
     <!--        android:id="@+id/btnEdit"-->
-    <!--        android:layout_width="32dp"-->
+    <!--        android:layout_width="@dimen/dimension_32"-->
     <!--        android:visibility="gone"-->
-    <!--        android:layout_height="32dp"-->
-    <!--        android:layout_marginTop="10dp"-->
-    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:layout_height="@dimen/dimension_32"-->
+    <!--        android:layout_marginTop="@dimen/dimension_10"-->
+    <!--        android:layout_marginEnd="@dimen/dimension_16"-->
     <!--        android:src="@drawable/ic_edit_2"-->
     <!--        app:layout_constraintEnd_toEndOf="parent"-->
     <!--        app:layout_constraintTop_toBottomOf="@id/layoutActionBar" />-->
@@ -54,9 +54,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/lnlBottom"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginHorizontal="@dimen/dimension_16"
+        android:layout_marginBottom="@dimen/dimension_10"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="3.28:0.48">
@@ -64,7 +64,7 @@
 
         <FrameLayout
             android:id="@+id/btnBottomLeft"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dimension_0"
             android:background="@drawable/frame_select_success"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -83,16 +83,16 @@
                 android:gravity="center"
                 android:text="@string/share"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_size_20"
                 app:outerStrokeColor="@color/app_color"
                 android:fontFamily="@font/carter_one_regular"
-                app:outerStrokeWidth="2dp" />
+                app:outerStrokeWidth="@dimen/dimension_3_5" />
         </FrameLayout>
 
 
         <FrameLayout
             android:id="@+id/btnBottomRight"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dimension_0"
             android:layout_height="match_parent"
             android:background="@drawable/frame_select_success"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -112,10 +112,10 @@
                 android:gravity="center"
                 android:text="@string/download"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_size_20"
                 app:outerStrokeColor="@color/app_color"
                 android:fontFamily="@font/carter_one_regular"
-                app:outerStrokeWidth="2dp"/>
+                app:outerStrokeWidth="@dimen/dimension_3_5"/>
         </FrameLayout>
         <!--        btnBottomRight-->
 
@@ -123,9 +123,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/lnlBottomSocial"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginHorizontal="@dimen/dimension_16"
+        android:layout_marginBottom="@dimen/dimension_10"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/lnlBottom"
         app:layout_constraintDimensionRatio="3.28:0.48">
@@ -133,7 +133,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/btnBottomLeftSocial"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dimension_0"
             android:background="@drawable/img_bg_fb"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -144,27 +144,27 @@
 
             <ImageView
                 android:id="@+id/iconFb"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dimension_0"
                 android:layout_height="match_parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
                 android:src="@drawable/ic_fb"
-                android:layout_marginVertical="15dp"
-                android:layout_marginStart="10dp"/>
+                android:layout_marginVertical="@dimen/dimension_15"
+                android:layout_marginStart="@dimen/dimension_10"/>
 
             <TextView
                 android:id="@+id/txtLeftSocial"
                 style="@style/single_marquee"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dimension_0"
                 app:layout_constraintStart_toEndOf="@+id/iconFb"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginHorizontal="2dp"
+                android:layout_marginHorizontal="@dimen/dimension_2"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/facebook_share"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="@dimen/text_size_14"
                 android:fontFamily="@font/carter_one_regular"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -172,7 +172,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/btnBottomRightSocial"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dimension_0"
             android:layout_height="match_parent"
             android:background="@drawable/img_bg_ig"
 
@@ -182,20 +182,20 @@
             app:layout_constraintTop_toTopOf="parent">
             <ImageView
                 android:id="@+id/iconIg"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/dimension_0"
                 android:layout_height="match_parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
                 android:src="@drawable/ic_ig"
-                android:layout_marginVertical="15dp"
-                android:layout_marginStart="10dp"/>
+                android:layout_marginVertical="@dimen/dimension_15"
+                android:layout_marginStart="@dimen/dimension_10"/>
 
 
             <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
                 android:id="@+id/txtRightSocial"
                 style="@style/single_marquee"
-                android:layout_width="0dp"
-                android:layout_marginHorizontal="2dp"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_marginHorizontal="@dimen/dimension_2"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -203,7 +203,7 @@
                 android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/iconIg"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="14sp"
+                android:textSize="@dimen/text_size_14"
                 android:fontFamily="@font/carter_one_regular"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>

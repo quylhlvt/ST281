@@ -9,8 +9,6 @@
     <string name="title_3">\u00A0Rancang estetika impian kecilmu\u00A0</string>
     <string name="not_select_lang">Silakan pilih bahasa</string>
     <string name="pony_maker">Pembuat Chibi</string>
-    <string name="trending_custom">Kustom Populer</string>
-    <string name="my_work">Karya Saya</string>
 
     <string name="permission">Izin</string>
     <string name="storage">Penyimpanan</string>
@@ -32,7 +30,6 @@
     <string name="no">Tidak</string>
     <string name="yes">Ya</string>
     <string name="null_edt">Silakan masukkan teks</string>
-    <string name="done">Selesai</string>
     <string name="choose_color">Pilih Warna</string>
     <string name="do_you_want_to_reset_all">Apakah Anda ingin mengatur ulang semua?</string>
     <string name="reset">Atur Ulang</string>
@@ -41,7 +38,6 @@
     <string name="share_app">Bagikan Aplikasi</string>
     <string name="image_has_been_saved_successfully">Gambar berhasil disimpan!</string>
     <string name="download">Unduh</string>
-    <string name="avatar">Avatar</string>
     <string name="my_avatar">Chibi Saya</string>
     <string name="design">Desain Saya</string>
     <string name="no_item_here">Tidak ada item di sini</string>
@@ -50,7 +46,6 @@
     <string name="share">Bagikan</string>
     <string name="no_app_found_to_handle_this_action">Tidak ada aplikasi yang ditemukan untuk tindakan ini</string>
     <string name="download_success">Berhasil diunduh ke album %s</string>
-    <string name="download_fail">Gagal mengunduh, silakan coba lagi nanti!</string>
     <string name="delete">Hapus</string>
     <string name="are_you_sure_want_to_delete_this_item">Apakah Anda yakin ingin menghapus item ini?</string>
     <string name="please_select_an_image">Silakan pilih gambar</string>
@@ -59,7 +54,6 @@
     <string name="invalid_action_msg">Aplikasi tidak terpasang</string>
     <string name="invalid_action">Kesalahan</string>
     <string name="download_failed_please_try_again_later">Gagal mengunduh, silakan coba lagi nanti!</string>
-    <string name="edit">Edit</string>
     <string name="rate">Nilai</string>
     <string name="privacy_policy"><![CDATA[Kebijakan Privasi]]></string>
 
@@ -67,10 +61,8 @@
     <string name="zero_star">Beri tahu kami pengalaman Anda</string>
 
     <string name="one_star_title">Oh tidak!</string>
-    <string name="one_star">Silakan beri kami masukan</string>
 
     <string name="two_star_title">Oh tidak!</string>
-    <string name="two_star">Silakan beri kami masukan</string>
 
     <string name="three_star_title">Oh tidak!</string>
     <string name="three_star">Silakan beri kami masukan</string>
@@ -83,21 +75,14 @@
 
     <string name="rate_us_0">Anda belum memberi nilai!</string>
     <string name="have_rated">Terima kasih telah memberi nilai aplikasi kami</string>
-    <string name="refresh">Muat Ulang</string>
-    <string name="hello_blank_fragment">Halo fragmen kosong</string>
-    <string name="cosplay_chibi">Bermain Peran Chibi</string>
     <string name="cosplay">Bermain Peran</string>
-    <string name="permission_camera_denied">Izin kamera diperlukan untuk menggunakan fitur ini</string>
-    <string name="cat_random">Kucing Acak</string>
     <string name="random">Acak</string>
     <string name="my_creation">Kreasi Saya</string>
-    <string name="my_creation1">Kreasi saya</string>
     <string name="category">Kategori</string>
     <string name="image">Gambar</string>
     <string name="color">Warna</string>
     <string name="successful">Berhasil</string>
     <string name="successfully">Berhasil</string>
-    <string name="context_guide_body">Dalam mode Bermain Peran, pemain akan diberikan satu gambar referensi secara acak. Tugas Anda adalah membuat ulang karakter tersebut seakurat mungkin dengan memilih gaya rambut, pakaian, warna, dan aksesori yang tepat. Setiap kecocokan yang benar akan meningkatkan persentase Anda (%). Semakin mirip karakter Anda dengan gambar acak, semakin tinggi skor akhir Anda. Perhatikan detail kecil untuk mendapatkan hasil cosplay terbaik.</string>
     <string name="try_again">Coba Lagi</string>
     <string name="no_internet">Tidak ada internet</string>
     <string name="internet">Internet</string>
@@ -109,7 +94,6 @@
     <string name="enter_your_package_name">Masukkan nama paket</string>
     <string name="please_enter_your_package_name">Masukkan nama paket!</string>
     <string name="this_action_may_contain_advertising">Tindakan ini mungkin mengandung iklan</string>
-    <string name="random_chibi">Chibi Acak</string>
     <string name="instruction">Instruksi</string>
     <string name="tvCosplay1">Dalam Mode Cosplay,</string>
     <string name="tvCosplay2">pemain akan secara acak diberikan</string>
@@ -119,12 +103,7 @@
     <string name="tvCosplay6">Setiap kecocokan yang benar akan meningkatkan</string>
     <string name="tvCosplay7">persentase skor (%).</string>
     <string name="tvCosplay8">Semakin mirip karaktermu dengan gambar acak tersebut, semakin tinggi skor akhir yang akan kamu dapatkan. Perhatikan detail kecil untuk mendapatkan hasil cosplay terbaik.</string>
-    <string name="oops_not_in_character">Ups! Tidak sesuai karakter~</string>
-    <string name="your_outfit_doesn_t_match_the_character">Pakaianmu tidak cocok dengan karakter</string>
-    <string name="yay_perfect_match">Hore! Cocok sempurna</string>
-    <string name="exactly_like_the_character">Persis seperti karakternya!</string>
     <string name="save">Simpan</string>
-    <string name="size">Ukuran</string>
     <string name="please_watch_full_ads">Silakan tonton iklan sampai selesai</string>
     <string name="watch_ad">Tonton iklan</string>
     <string name="error">Kesalahan</string>
@@ -132,4 +111,7 @@
     <string name="load_ads_fail">Gagal memuat iklan</string>
     <string name="random_chibi_dialog">Chibi acak</string>
     <string name="watch_a_short_ad_to_generate_a_random_chibi">Tonton iklan singkat untuk membuat chibi acak.</string>
+    <string name="image_not_found">Gambar tidak ditemukan</string><string name="facebook_not_available">Facebook tidak terpasang atau tidak dapat menerima gambar ini</string><string name="instagram_not_available">Instagram tidak terpasang atau tidak dapat menerima gambar ini</string><string name="share_failed">Tidak dapat membagikan gambar. Silakan coba lagi.</string>
+    <string name="challenge_food">Tantangan Makanan</string><string name="food_random">Makanan Acak</string><string name="my_food">Makanan Saya</string><string name="facebook_share">Bagikan ke Facebook</string><string name="instagram_share">Bagikan ke Instagram</string>
+    <string name="congratulation">SELAMAT!!!</string><string name="congratulations_on_completing_the_challenge">Selamat telah\nmenyelesaikan tantangan!!!</string><string name="oops">UPS... :((</string><string name="keep_trying_harder">Terus berusaha lebih keras!!!</string><string name="bubbles">Gelembung</string>
 </resources>

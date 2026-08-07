@@ -16,48 +16,70 @@
             android:layout_height="wrap_content"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:layout_marginHorizontal="15dp">
+            android:layout_marginHorizontal="@dimen/dimension_15">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dimension_0"
+                app:layout_constraintDimensionRatio="3.28:2.14"
+                android:background="@drawable/img_bg_mycreation"
                 app:layout_constraintTop_toTopOf="parent"
                 >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/contrainColor"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/dimension_0"
                     android:layout_gravity="center"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/tvTitle"
-                    android:layout_marginTop="-20dp"
-                    android:paddingVertical="20dp"
-                    android:background="@drawable/frame_bg_dialog"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:paddingVertical="@dimen/dimension_20"
+
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
 
 
 
-
                     <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
+                        android:id="@+id/tvTitle"
+                        style="@style/single_marquee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimension_25"
+                        android:layout_marginHorizontal="@dimen/dimension_70"
+
+                        android:fontFamily="@font/carter_one_regular"
+                        android:gravity="center"
+
+                        android:paddingHorizontal="@dimen/dimension_5"
+                        android:text="@string/loading"
+                        app:outerStrokeColor="@color/app_color"
+                        app:outerStrokeWidth="@dimen/dimension_5"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        />
+                    <TextView
                         android:id="@+id/txtContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/baloo2_extrabold"
+                        android:layout_marginHorizontal="@dimen/dimension_40"
+                        android:fontFamily="@font/carter_one_regular"
                         android:gravity="center"
                         android:text="@string/haven_t_saved_it_yet_do_you_want_to_exit"
-                        android:textSize="20sp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:textColor="@color/white"
-                        app:outerStrokeColor="@color/app_color"
-                        app:outerStrokeWidth="2dp"
+                        android:textSize="@dimen/text_size_16"
+                        app:layout_constraintBottom_toTopOf="@+id/animationView"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                        android:textColor="@color/app_color"
                         />
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/animationView"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="@dimen/dimension_100"
                         android:visibility="gone"
                         app:layout_constraintBottom_toTopOf="@+id/bgEnd"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -72,163 +94,110 @@
                         android:id="@+id/bgEnd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginHorizontal="@dimen/dimension_25"
+                        android:layout_marginTop="@dimen/dimension_10"
                         android:gravity="center"
                         android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/animationView">
 
 
-
                         <!--                btnDone-->
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/bg"
-                            android:paddingVertical="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/dimension_10"
                             app:layout_constraintTop_toBottomOf="@+id/txtContent">
+
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/btnNo"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
-                                android:layout_marginHorizontal="8dp"
-                                app:layout_constraintDimensionRatio="1.24:0.36"
+                                android:layout_width="@dimen/dimension_0"
+                                android:layout_height="@dimen/dimension_0"
+                                android:layout_marginHorizontal="@dimen/dimension_8"
+                                android:background="@drawable/btn_dialog_base"
+                                app:layout_constraintDimensionRatio="1.34:0.4"
                                 app:layout_constraintEnd_toStartOf="@+id/btnYes"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:strokeColor="@color/app_color2"
-                                app:strokeWidth="1dp">
-                                <ImageView
-                                    android:id="@+id/imgCancleBg"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="2dp"
-                                    android:background="@drawable/frame_bg_type_lang"
-                                    android:scaleType="fitXY" />
-
-                                <ImageView
-                                    android:id="@+id/imgCancleFor"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginEnd="2dp"
-                                    android:layout_marginBottom="2dp"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/bg_btn_type_selected" />
+                                app:strokeWidth="@dimen/dimension_1">
 
                                 <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
                                     android:id="@+id/txtNo"
                                     style="@style/single_marquee"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintEnd_toEndOf="@+id/imgCancleFor"
-                                    app:layout_constraintTop_toTopOf="@+id/imgCancleFor"
-                                    app:layout_constraintBottom_toBottomOf="@+id/imgCancleFor"
-                                    android:fontFamily="@font/atma_bold"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginHorizontal="@dimen/dimension_2"
+                                    android:fontFamily="@font/carter_one_regular"
                                     android:gravity="center"
                                     android:text="@string/no"
                                     android:textColor="@color/white"
+                                    android:textSize="@dimen/text_size_18"
                                     app:outerStrokeColor="@color/app_color"
-                                    app:outerStrokeWidth="2dp"
-                                    android:textSize="20sp" />
+                                    app:outerStrokeWidth="@dimen/dimension_3" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
+
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/btnYes"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
-                                android:layout_marginHorizontal="8dp"
-                                app:layout_constraintDimensionRatio="1.24:0.36"
+                                android:layout_width="@dimen/dimension_0"
+                                android:layout_height="@dimen/dimension_0"
+                                android:layout_marginHorizontal="@dimen/dimension_8"
+                                android:background="@drawable/btn_dialog_base"
+                                app:layout_constraintDimensionRatio="1.34:0.4"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/btnNo"
                                 app:layout_constraintTop_toTopOf="@+id/btnNo"
                                 app:strokeColor="@color/app_color2"
-                                app:strokeWidth="1dp">
+                                app:strokeWidth="@dimen/dimension_1">
 
-                                <ImageView
-                                    android:id="@+id/imgSaveBg"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="2dp"
-                                    android:background="@drawable/frame_bg_type_lang"
-                                    android:scaleType="fitXY" />
-
-                                <ImageView
-                                    android:id="@+id/imgSaveFor"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginEnd="2dp"
-                                    android:layout_marginBottom="2dp"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/bg_btn_type_selected" />
 
                                 <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
                                     android:id="@+id/txtYes"
                                     style="@style/single_marquee"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintEnd_toEndOf="@+id/imgSaveFor"
-                                    app:layout_constraintTop_toTopOf="@+id/imgSaveFor"
-                                    app:layout_constraintBottom_toBottomOf="@+id/imgSaveFor"
-                                    android:fontFamily="@font/atma_bold"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginHorizontal="@dimen/dimension_2"
+                                    android:fontFamily="@font/carter_one_regular"
                                     android:gravity="center"
                                     android:text="@string/yes"
                                     android:textColor="@color/white"
+                                    android:textSize="@dimen/text_size_18"
                                     app:outerStrokeColor="@color/app_color"
-                                    app:outerStrokeWidth="2dp"
-                                    android:textSize="20sp" />
+                                    app:outerStrokeWidth="@dimen/dimension_3" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
+
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/btnOk"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
-                                android:layout_marginHorizontal="78dp"
-                                app:layout_constraintDimensionRatio="1.24:0.36"
+                                android:layout_width="@dimen/dimension_0"
+                                android:layout_height="@dimen/dimension_0"
+                                android:layout_marginHorizontal="@dimen/dimension_90"
+                                android:background="@drawable/btn_dialog_base"
+                                app:layout_constraintDimensionRatio="1.34:0.4"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="@+id/btnNo"
                                 app:strokeColor="@color/app_color2"
-                                app:strokeWidth="1dp">
+                                app:strokeWidth="@dimen/dimension_3">
 
-                                <ImageView
-                                    android:id="@+id/imgOkBg"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginStart="2dp"
-                                    android:layout_marginTop="2dp"
-                                    android:background="@drawable/frame_bg_type_lang"
-                                    android:scaleType="fitXY" />
-
-                                <ImageView
-                                    android:id="@+id/imgOkFor"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginEnd="2dp"
-                                    android:layout_marginBottom="2dp"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/bg_btn_type_selected" />
 
                                 <com.chibi.avatar.chibimaker.core.extention.OuterStrokeShadownTextView
                                     android:id="@+id/txtOk"
                                     style="@style/single_marquee"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintEnd_toEndOf="@+id/imgOkFor"
-                                    app:layout_constraintTop_toTopOf="@+id/imgOkFor"
-                                    app:layout_constraintBottom_toBottomOf="@+id/imgOkFor"
-                                    android:fontFamily="@font/atma_bold"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+
+                                    android:fontFamily="@font/carter_one_regular"
                                     android:gravity="center"
                                     android:text="@string/ok"
                                     android:textColor="@color/white"
+                                    android:textSize="@dimen/text_size_18"
                                     app:outerStrokeColor="@color/app_color"
-                                    app:outerStrokeWidth="2dp"
-                                    android:textSize="20sp" />
+                                    app:outerStrokeWidth="@dimen/dimension_3" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -238,36 +207,8 @@
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/bg_title_coosplay"
-                    app:layout_constraintEnd_toEndOf="@+id/tvTitle"
-                    app:layout_constraintStart_toStartOf="@+id/tvTitle"
-                    app:layout_constraintTop_toTopOf="@+id/tvTitle"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvTitle"/>
 
-                <TextView
-                    android:id="@+id/tvTitle"
-                    style="@style/single_marquee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingVertical="5dp"
-                    android:layout_marginHorizontal="70dp"
 
-                    android:fontFamily="@font/atma_bold"
-                    android:gravity="center"
-
-                    android:paddingHorizontal="5dp"
-                    android:text="@string/loading"
-                    android:textColor="@color/app_color"
-                    android:textSize="20sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-
-                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

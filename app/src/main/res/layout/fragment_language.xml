@@ -8,10 +8,10 @@
     tools:context=".ui.language.LanguageFragment">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginHorizontal="18dp"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginTop="@dimen/dimension_10"
+        android:layout_marginBottom="@dimen/dimension_5"
+        android:layout_marginHorizontal="@dimen/dimension_18"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutActionBar">
         <androidx.recyclerview.widget.RecyclerView
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:elevation="1dp"
+            android:elevation="@dimen/dimension_1"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
@@ -31,7 +31,7 @@
         android:id="@+id/layoutActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="5dp"
+        android:elevation="@dimen/dimension_5"
         app:layout_constraintTop_toTopOf="parent">
 
         <include

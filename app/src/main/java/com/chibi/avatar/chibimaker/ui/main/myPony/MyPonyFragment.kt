@@ -96,7 +96,7 @@ class MyPonyFragment : WhatsappSharingFragment<FragmentMyPonyBinding, MyPonyView
     private fun setupActionBar() {
         binding.actionBar.apply {
             setImageActionBar(btnActionBarLeft, R.drawable.back_app)
-            setTextActionBar(tvCenter, getString(R.string.my_creation1))
+            setTextActionBar(tvCenter, getString(R.string.my_creation))
             setImageActionBar(btnActionBarNextToRight1, R.drawable.ic_delete_all)
             setImageActionBar(btnActionBarRight1, R.drawable.ic_select_all)
             btnActionBarNextToRight1.invisible()

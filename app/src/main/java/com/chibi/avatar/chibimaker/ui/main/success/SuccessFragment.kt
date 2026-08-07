@@ -129,7 +129,7 @@ class SuccessFragment : BaseFragment<FragmentSuccessBinding, SuccessViewModel>(
                 isSelected =true
                 visible();
                 text = getString(R.string.download) }
-            setTextActionBar(actionBar.tvCenter, getString(R.string.successful))
+//            setTextActionBar(actionBar.tvCenter, getString(R.string.successful))
             setImageActionBar(actionBar.btnActionBarNextToRight, R.drawable.ic_share)
             setImageActionBar(actionBar.btnActionBarRight, R.drawable.ic_home)
             tvSuccess.visible()

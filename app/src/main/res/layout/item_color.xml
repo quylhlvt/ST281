@@ -4,12 +4,12 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:layout_marginEnd="6dp"
+    android:layout_marginEnd="@dimen/dimension_6"
     >
 
     <View
         android:id="@+id/viewColor"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimension_0"
         android:layout_height="match_parent"
         android:background="@drawable/circle_color"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,10 +20,10 @@
     <View
         android:id="@+id/colorSelected"
         android:visibility="gone"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
         android:background="@drawable/foreground_color_item"
-        android:elevation="2dp"
+        android:elevation="@dimen/dimension_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
