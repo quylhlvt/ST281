@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80545454"
+        android:weightSum="800"
+        android:orientation="vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:layout_marginHorizontal="@dimen/dimension_15">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension_0"
+                app:layout_constraintDimensionRatio="3.28:2.14"
+                android:background="@drawable/img_bg_mycreation"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/contrainColor"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:paddingVertical="@dimen/dimension_20"
+
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+
+
+                    <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+                        android:id="@+id/tvTitle"
+                        style="@style/single_marquee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimension_25"
+                        android:layout_marginHorizontal="@dimen/dimension_70"
+
+                        android:fontFamily="@font/carter_one_regular"
+                        android:gravity="center"
+
+                        android:paddingHorizontal="@dimen/dimension_5"
+                        android:text="@string/loading"
+                        app:outerStrokeColor="@color/app_color"
+                        app:outerStrokeWidth="@dimen/dimension_5"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        />
+                    <TextView
+                        android:id="@+id/txtContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimension_40"
+                        android:fontFamily="@font/carter_one_regular"
+                        android:gravity="center"
+                        android:text="@string/haven_t_saved_it_yet_do_you_want_to_exit"
+                        android:textSize="@dimen/text_size_16"
+                        app:layout_constraintBottom_toTopOf="@+id/animationView"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                        android:textColor="@color/app_color"
+                        />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animationView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension_100"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@+id/bgEnd"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtContent"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/json_loading" />
+
+
+                    <LinearLayout
+                        android:id="@+id/bgEnd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/dimension_25"
+                        android:layout_marginTop="@dimen/dimension_10"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/animationView">
+
+
+                        <!--                btnDone-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/bg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/dimension_10"
+                            app:layout_constraintTop_toBottomOf="@+id/txtContent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/btnNo"
+                                android:layout_width="@dimen/dimension_0"
+                                android:layout_height="@dimen/dimension_0"
+                                android:layout_marginHorizontal="@dimen/dimension_8"
+                                android:background="@drawable/btn_dialog_base"
+                                app:layout_constraintDimensionRatio="1.34:0.4"
+                                app:layout_constraintEnd_toStartOf="@+id/btnYes"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:strokeColor="@color/app_color2"
+                                app:strokeWidth="@dimen/dimension_1">
+
+                                <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+                                    android:id="@+id/txtNo"
+                                    style="@style/single_marquee"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginHorizontal="@dimen/dimension_2"
+                                    android:fontFamily="@font/carter_one_regular"
+                                    android:gravity="center"
+                                    android:text="@string/no"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_size_18"
+                                    app:outerStrokeColor="@color/app_color"
+                                    app:outerStrokeWidth="@dimen/dimension_3" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/btnYes"
+                                android:layout_width="@dimen/dimension_0"
+                                android:layout_height="@dimen/dimension_0"
+                                android:layout_marginHorizontal="@dimen/dimension_8"
+                                android:background="@drawable/btn_dialog_base"
+                                app:layout_constraintDimensionRatio="1.34:0.4"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/btnNo"
+                                app:layout_constraintTop_toTopOf="@+id/btnNo"
+                                app:strokeColor="@color/app_color2"
+                                app:strokeWidth="@dimen/dimension_1">
+
+
+                                <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+                                    android:id="@+id/txtYes"
+                                    style="@style/single_marquee"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginHorizontal="@dimen/dimension_2"
+                                    android:fontFamily="@font/carter_one_regular"
+                                    android:gravity="center"
+                                    android:text="@string/yes"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_size_18"
+                                    app:outerStrokeColor="@color/app_color"
+                                    app:outerStrokeWidth="@dimen/dimension_3" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/btnOk"
+                                android:layout_width="@dimen/dimension_0"
+                                android:layout_height="@dimen/dimension_0"
+                                android:layout_marginHorizontal="@dimen/dimension_90"
+                                android:background="@drawable/btn_dialog_base"
+                                app:layout_constraintDimensionRatio="1.34:0.4"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/btnNo"
+                                app:strokeColor="@color/app_color2"
+                                app:strokeWidth="@dimen/dimension_3">
+
+
+                                <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+                                    android:id="@+id/txtOk"
+                                    style="@style/single_marquee"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+
+                                    android:fontFamily="@font/carter_one_regular"
+                                    android:gravity="center"
+                                    android:text="@string/ok"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_size_18"
+                                    app:outerStrokeColor="@color/app_color"
+                                    app:outerStrokeWidth="@dimen/dimension_3" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

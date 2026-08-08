@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_bg_lang"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".ui.main.success.SuccessFragment">
+
+
+    <FrameLayout
+        android:id="@+id/layoutActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/actionBar"
+            layout="@layout/layout_actionbar" />
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginBottom="@dimen/dimension_82"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mater"
+            android:layout_width="@dimen/dimension_0"
+            android:layout_height="@dimen/dimension_0"
+            android:layout_marginHorizontal="@dimen/dimension_16"
+            android:elevation="@dimen/dimension_2"
+            app:cardBackgroundColor="@color/app_color"
+            app:cardCornerRadius="@dimen/dimension_50"
+            app:layout_constraintBottom_toTopOf="@+id/imgText"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeWidth="@dimen/dimension_0">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/mater1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/dimension_6"
+                android:elevation="@dimen/dimension_1"
+                app:cardBackgroundColor="@color/app_color2"
+                app:cardCornerRadius="@dimen/dimension_44"
+                app:strokeWidth="@dimen/dimension_0">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mater2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dimension_6"
+                    android:elevation="@dimen/dimension_1"
+                    app:cardBackgroundColor="@color/app_color2"
+                    app:cardCornerRadius="@dimen/dimension_38"
+                    app:strokeColor="@color/app_color4"
+                    app:strokeWidth="@dimen/dimension_1">
+
+                    <ImageView
+                        android:id="@+id/imvImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/img_permission" />
+                </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
+
+        <ImageView
+            android:id="@+id/imgText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_blur"
+            app:layout_constraintBottom_toTopOf="@+id/lnlBottom"
+            app:layout_constraintDimensionRatio="3.58:0.44" />
+
+        <!--        tvSuccess-->
+        <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+            android:id="@+id/tvSuccess"
+            style="@style/single_marquee"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            android:layout_marginBottom="@dimen/dimension_15"
+            android:gravity="center"
+            android:text="@string/image_has_been_saved_successfully"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18"
+            app:layout_constraintBottom_toBottomOf="@+id/imgText"
+            app:layout_constraintTop_toTopOf="@+id/imgText"
+            app:outerStrokeColor="@color/app_color"
+            android:fontFamily="@font/carter_one_regular"
+            app:outerStrokeWidth="@dimen/dimension_3_5" />
+
+
+        <!--    lnlBottom-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lnlBottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            android:layout_marginHorizontal="@dimen/dimension_16"
+            android:layout_marginBottom="@dimen/dimension_10"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/lnlBottomSocial"
+            app:layout_constraintDimensionRatio="3.28:0.48">
+
+
+            <FrameLayout
+                android:id="@+id/btnBottomLeft"
+                android:layout_width="@dimen/dimension_0"
+                android:background="@drawable/frame_select_success"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1.56:0.48"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+
+                <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+                    android:id="@+id/txtLeft"
+                    style="@style/single_marquee"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/my_food"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_20"
+                    app:outerStrokeColor="@color/app_color"
+                    android:fontFamily="@font/carter_one_regular"
+                    app:outerStrokeWidth="@dimen/dimension_3_5" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/btnBottomRight"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:background="@drawable/frame_select_success"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1.56:0.48"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+
+
+                <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+                    android:id="@+id/txtRight"
+                    style="@style/single_marquee"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/download"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_20"
+                    app:outerStrokeColor="@color/app_color"
+                    android:fontFamily="@font/carter_one_regular"
+                    app:outerStrokeWidth="@dimen/dimension_3_5"/>
+            </FrameLayout>
+            <!--        btnBottomRight-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lnlBottomSocial"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            android:layout_marginHorizontal="@dimen/dimension_16"
+            android:layout_marginTop="@dimen/dimension_20"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="3.28:0.48">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnBottomLeftSocial"
+                android:layout_width="@dimen/dimension_0"
+                android:background="@drawable/img_bg_fb"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1.56:0.48"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/iconFb"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    android:src="@drawable/ic_fb"
+                    android:layout_marginVertical="@dimen/dimension_15"
+                    android:layout_marginStart="@dimen/dimension_10"/>
+
+                <TextView
+                    android:id="@+id/txtLeftSocial"
+                    style="@style/single_marquee"
+                    android:layout_width="@dimen/dimension_0"
+                    app:layout_constraintStart_toEndOf="@+id/iconFb"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginHorizontal="@dimen/dimension_2"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/facebook_share"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_14"
+                    android:fontFamily="@font/carter_one_regular"
+                />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnBottomRightSocial"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:background="@drawable/img_bg_ig"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1.56:0.48"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <ImageView
+                    android:id="@+id/iconIg"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    android:src="@drawable/ic_ig"
+                    android:layout_marginVertical="@dimen/dimension_15"
+                    android:layout_marginStart="@dimen/dimension_10"/>
+
+
+                <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+                    android:id="@+id/txtRightSocial"
+                    style="@style/single_marquee"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_marginHorizontal="@dimen/dimension_2"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/instagram_share"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toEndOf="@+id/iconIg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/text_size_14"
+                    android:fontFamily="@font/carter_one_regular"
+              />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--        btnBottomRight-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    btnEdit-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/btnEdit"-->
+    <!--        android:layout_width="@dimen/dimension_32"-->
+    <!--        android:visibility="gone"-->
+    <!--        android:layout_height="@dimen/dimension_32"-->
+    <!--        android:layout_marginTop="@dimen/dimension_10"-->
+    <!--        android:layout_marginEnd="@dimen/dimension_16"-->
+    <!--        android:src="@drawable/ic_edit_2"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/layoutActionBar" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

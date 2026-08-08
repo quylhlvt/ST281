@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.myPony.MyPonyFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_bg_lang" />
+    <!-- layoutActionBar -->
+    <FrameLayout
+        android:id="@+id/layoutActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/actionBar"
+            layout="@layout/layout_actionbar" />
+    </FrameLayout>
+
+    <!--    cvType-->
+    <LinearLayout
+        android:id="@+id/cvType"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintDimensionRatio="3.04:0.58"
+        android:layout_marginHorizontal="@dimen/dimension_28"
+        android:layout_marginTop="@dimen/dimension_16"
+        app:layout_constraintTop_toBottomOf="@id/layoutActionBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="304">
+
+            <!--            btnMyAvatar-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnMyAvatar"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:layout_weight="146">
+
+
+                <ImageView
+                    android:id="@+id/imgMyponyFor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg_btn_type_selected" />
+                <!--                imvFocusMyAvatar-->
+
+
+                <!--                tvMyAvatar-->
+                <TextView
+                    android:id="@+id/tvMyAvatar"
+                    style="@style/single_marquee"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="@dimen/dimension_0"
+                    android:paddingBottom="@dimen/dimension_18"
+                    app:layout_constraintStart_toStartOf="@+id/imgMyponyFor"
+                    app:layout_constraintEnd_toEndOf="@+id/imgMyponyFor"
+                    app:layout_constraintTop_toTopOf="@+id/imgMyponyFor"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgMyponyFor"
+                    android:layout_marginVertical="@dimen/dimension_1"
+                    android:fontFamily="@font/carter_one_regular"
+                    android:gravity="center"
+                    android:text="@string/my_avatar"
+                    android:textColor="@color/white"
+                    app:outerStrokeColor="@color/app_color"
+                    app:outerStrokeWidth="@dimen/dimension_1_3"
+                    android:textSize="@dimen/text_size_20" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Space
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:layout_weight="12" />
+
+            <!--            btnMyDesign-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnMyDesign"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:layout_weight="146">
+
+
+
+                <ImageView
+                    android:id="@+id/imgMyponyFor2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg_btn_type_unselected" />
+
+                <!--                tvMyDesign-->
+                <TextView
+                    android:id="@+id/tvMyDesign"
+                    style="@style/single_marquee"
+                    android:fontFamily="@font/carter_one_regular"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="@dimen/dimension_0"
+                    android:paddingBottom="@dimen/dimension_18"
+                    app:layout_constraintStart_toStartOf="@+id/imgMyponyFor2"
+                    app:layout_constraintEnd_toEndOf="@+id/imgMyponyFor2"
+                    app:layout_constraintTop_toTopOf="@+id/imgMyponyFor2"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgMyponyFor2"
+                    android:gravity="center"
+                    android:text="@string/design"
+                    android:textColor="@color/app_color"
+                    app:outerStrokeColor="@color/app_color"
+                    app:outerStrokeWidth="@dimen/dimension_1_3"
+                    android:textSize="@dimen/text_size_20" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintDimensionRatio="3.04:0.4"
+        android:layout_marginHorizontal="@dimen/dimension_28"
+        android:layout_marginTop="@dimen/dimension_16"
+        app:layout_constraintTop_toBottomOf="@id/layoutActionBar"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mater"
+
+        android:elevation="@dimen/dimension_2"
+        app:cardBackgroundColor="@color/app_color"
+        app:cardCornerRadius="@dimen/dimension_50"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/view5"
+        android:layout_marginHorizontal="@dimen/dimension_16"
+        android:layout_marginBottom="@dimen/dimension_16"
+        app:strokeWidth="@dimen/dimension_0">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mater1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimension_6"
+        android:elevation="@dimen/dimension_1"
+        app:cardBackgroundColor="@color/app_color2"
+        app:cardCornerRadius="@dimen/dimension_44"
+        app:strokeWidth="@dimen/dimension_0">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mater2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimension_6"
+        android:elevation="@dimen/dimension_1"
+        app:cardBackgroundColor="@color/app_color2"
+        app:cardCornerRadius="@dimen/dimension_38"
+        app:strokeColor="@color/app_color4"
+        app:strokeWidth="@dimen/dimension_1">
+        <TextView
+            android:id="@+id/noItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/carter_one_regular"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/no_item_here"
+            android:textColor="@color/app_color"
+            android:visibility="gone"
+            app:outerStrokeColor="@color/white"
+            app:outerStrokeWidth="@dimen/dimension_2"
+            android:textSize="@dimen/text_size_18"
+ />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleAvatar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dimension_8"
+        android:layout_marginBottom="@dimen/dimension_25"
+        android:layout_marginHorizontal="@dimen/dimension_4"
+
+
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+
+        app:spanCount="2"
+        tools:itemCount="9"
+        tools:listitem="@layout/item_my_avatar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleDesign"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dimension_8"
+        android:layout_marginBottom="@dimen/dimension_25"
+        android:layout_marginHorizontal="@dimen/dimension_4"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="@+id/img_bg_frame_mycreation"
+        app:layout_constraintStart_toStartOf="@+id/img_bg_frame_mycreation"
+        app:layout_constraintEnd_toEndOf="@+id/img_bg_frame_mycreation"
+        app:layout_constraintTop_toTopOf="@id/img_bg_frame_mycreation"
+        app:spanCount="2"
+        tools:itemCount="9"
+        tools:listitem="@layout/item_my_design" />
+
+
+
+
+
+    <!--    lnlBottom-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lnlBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dimension_8"
+        android:paddingBottom="@dimen/dimension_5"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="@+id/img_bg_frame_mycreation"
+        app:layout_constraintStart_toStartOf="@+id/img_bg_frame_mycreation"
+        app:layout_constraintEnd_toEndOf="@+id/img_bg_frame_mycreation">
+
+        <!--        lnlBottomTop-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/lnlBottomTop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            android:layout_marginBottom="@dimen/dimension_15"
+            android:orientation="horizontal"
+            android:weightSum="288"
+            app:layout_constraintBottom_toTopOf="@+id/llBottom"
+            app:layout_constraintDimensionRatio="2.88:0.44">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnWhatsapp"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:layout_weight="140"
+                android:background="@drawable/bg_btn_whatsapp">
+<View
+    android:id="@+id/view1"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_width="@dimen/dimension_0"
+    android:layout_height="match_parent"
+    app:layout_constraintDimensionRatio="0.8:4.4"/>
+                <ImageView
+                    android:id="@+id/imgWhatApp"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="@dimen/dimension_0"
+                    android:layout_marginVertical="@dimen/dimension_13"
+
+                    android:src="@drawable/ic_whatapp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toEndOf="@+id/view1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvWhatApp"
+                    style="@style/single_marquee"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/dimension_4"
+                    android:fontFamily="@font/lilita_one_regular"
+                    android:gravity="center"
+                    android:text="@string/add_to_whatsapp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgWhatApp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Space
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:layout_weight="8" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnTelegram"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:layout_weight="140"
+                android:background="@drawable/bg_btn_telegram">
+                <View
+                    android:id="@+id/view2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="match_parent"
+                    app:layout_constraintDimensionRatio="0.8:4.4"/>
+                <ImageView
+                    android:id="@+id/imgTelegram"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="@dimen/dimension_0"
+                    android:layout_marginVertical="@dimen/dimension_13"
+                    android:src="@drawable/ic_telegram"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toEndOf="@+id/view2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTelegram"
+                    style="@style/single_marquee"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/dimension_4"
+                    android:fontFamily="@font/lilita_one_regular"
+                    android:gravity="center"
+                    android:text="@string/add_to_telegram"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgTelegram" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <LinearLayout
+            android:id="@+id/llBottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            android:orientation="horizontal"
+            android:weightSum="288"
+            android:layout_marginBottom="@dimen/dimension_20"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="2.88:0.48">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnShare"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:layout_weight="140">
+
+
+                <ImageView
+                    android:id="@+id/imgMyponyFor3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg_btn_mycreation" />
+                <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+                    android:id="@+id/tvShare"
+                    style="@style/single_marquee"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="@dimen/dimension_0"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/dimension_4"
+                    android:fontFamily="@font/carter_one_regular"
+                    android:gravity="center"
+                    android:text="@string/share"
+                    app:layout_constraintStart_toStartOf="@+id/imgMyponyFor3"
+                    app:layout_constraintEnd_toEndOf="@+id/imgMyponyFor3"
+                    app:layout_constraintTop_toTopOf="@+id/imgMyponyFor3"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgMyponyFor3"
+                    android:textColor="@color/white"
+                    app:outerStrokeColor="@color/app_color"
+                    app:outerStrokeWidth="@dimen/dimension_3_5"
+                    android:textSize="@dimen/text_size_18" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Space
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:layout_weight="8" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnDownload"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                android:layout_weight="140">
+
+
+                <ImageView
+                    android:id="@+id/imgMyponyFor4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg_btn_mycreation" />
+                <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+                    android:id="@+id/tvDownload"
+                    style="@style/single_marquee"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="@dimen/dimension_0"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/dimension_4"
+                    android:fontFamily="@font/carter_one_regular"
+                    android:gravity="center"
+                    android:text="@string/download"
+                    android:textColor="@color/white"
+                    app:outerStrokeColor="@color/app_color"
+                    app:outerStrokeWidth="@dimen/dimension_3_5"
+                    android:textSize="@dimen/text_size_18"
+                    app:layout_constraintStart_toStartOf="@+id/imgMyponyFor4"
+                    app:layout_constraintEnd_toEndOf="@+id/imgMyponyFor4"
+                    app:layout_constraintTop_toTopOf="@+id/imgMyponyFor4"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgMyponyFor4"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

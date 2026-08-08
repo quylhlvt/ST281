@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "710659912759",
+    "project_id": "st281-food-maker",
+    "storage_bucket": "st281-food-maker.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710659912759:android:ecf91a0010484ec9853bb2",
+        "android_client_info": {
+          "package_name": "com.food.diydrink.foodmaker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEuDc0IHAW7_SKjBg3jNNsop0p4zflCZo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

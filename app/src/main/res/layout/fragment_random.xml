@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_bg_lang"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.main.random.RandomFragment">
+
+
+    <FrameLayout
+        android:id="@+id/layoutActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/actionBar"
+            layout="@layout/layout_actionbar" />
+    </FrameLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mater1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginHorizontal="@dimen/dimension_16"
+        android:elevation="@dimen/dimension_1"
+        app:cardBackgroundColor="@color/app_color"
+        app:cardCornerRadius="@dimen/dimension_50"
+        android:layout_marginBottom="@dimen/dimension_170"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar"
+        app:strokeWidth="@dimen/dimension_0"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintTop_toTopOf="@+id/mater1"
+        app:layout_constraintBottom_toBottomOf="@+id/mater1"
+        app:layout_constraintStart_toStartOf="@+id/mater1"
+        app:layout_constraintEnd_toEndOf="@+id/mater1"
+        android:layout_margin="@dimen/dimension_6"
+        app:cardBackgroundColor="@color/app_color2"
+        app:cardCornerRadius="@dimen/dimension_44"
+        android:id="@+id/mater2"
+        android:elevation="@dimen/dimension_2"
+        app:strokeWidth="@dimen/dimension_0"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintTop_toTopOf="@+id/mater2"
+        app:layout_constraintBottom_toBottomOf="@+id/mater2"
+        app:layout_constraintStart_toStartOf="@+id/mater2"
+        app:layout_constraintEnd_toEndOf="@+id/mater2"
+        android:layout_margin="@dimen/dimension_6"
+        app:cardBackgroundColor="@color/transparent"
+        app:cardCornerRadius="@dimen/dimension_38"
+        android:id="@+id/mater3"
+        android:elevation="@dimen/dimension_2"
+        app:strokeColor="@color/app_color4"
+        app:strokeWidth="@dimen/dimension_1">
+        <ImageView
+            android:id="@+id/imvImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_permission" />
+        <ImageView
+            android:id="@+id/imageGif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+    <FrameLayout
+        android:id="@+id/random"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginHorizontal="@dimen/dimension_100"
+        android:layout_marginTop="@dimen/dimension_50"
+        android:background="@drawable/bg_btn_random"
+        app:layout_constraintDimensionRatio="1.56:0.48"
+        app:layout_constraintEnd_toEndOf="@+id/mater3"
+        app:layout_constraintStart_toStartOf="@+id/mater3"
+        app:layout_constraintTop_toBottomOf="@+id/mater3"
+        app:strokeColor="@color/app_color2"
+        app:strokeWidth="@dimen/dimension_1">
+
+        <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+            android:id="@+id/txtShow"
+            style="@style/single_marquee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/dimension_2"
+            android:fontFamily="@font/carter_one_regular"
+            android:gravity="center"
+            android:text="@string/random"
+            android:textColor="@color/white"
+            app:outerStrokeColor="@color/app_color"
+            app:outerStrokeWidth="@dimen/dimension_4"
+            android:textSize="@dimen/text_size_18" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

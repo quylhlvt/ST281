@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_color7"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.onboarding.splash.SplashFragment">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView4"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimension_16"
+        android:layout_marginTop="@dimen/dimension_110"
+
+        android:adjustViewBounds="true"
+        android:src="@drawable/img_title_splash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/imageAvatar"
+        android:layout_width="0dp"
+        app:cardCornerRadius="@dimen/dimension_64"
+        android:layout_height="0dp"
+        app:strokeWidth="@dimen/dimension_8"
+        app:strokeColor="@color/app_color8"
+        android:layout_marginHorizontal="@dimen/dimension_48"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatTextView2"
+        app:layout_constraintDimensionRatio="1:1"
+        android:layout_marginTop="@dimen/dimension_30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/dimension_100"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView4" >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/image_splash"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimension_8"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center"
+        android:text="@string/loading_point"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12"
+
+        app:layout_constraintBottom_toTopOf="@+id/progressWrapper"/>
+    <FrameLayout
+        android:id="@+id/progressWrapper"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/dimension_56"
+        android:layout_marginBottom="@dimen/dimension_16"
+        android:clipChildren="true"
+        app:layout_constraintBottom_toTopOf="@+id/appCompatTextView3"
+        app:layout_constraintDimensionRatio="3.2:0.24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Fill xanh đầy 100% -->
+        <View
+            android:id="@+id/progressFill"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_progress_fill" />
+
+
+    </FrameLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimension_30"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center"
+        android:text="@string/this_action_may_contain_advertising"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
