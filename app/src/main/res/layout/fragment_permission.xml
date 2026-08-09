@@ -16,7 +16,26 @@
             android:id="@+id/actionBar"
             layout="@layout/layout_actionbar" />
     </FrameLayout>
+    <View
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintDimensionRatio="3.6:0.8"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+    <ImageView
 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineBottom1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/bg_bottom_intro"
+        android:scaleType="fitXY"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,14 +48,14 @@
         android:id="@+id/imgPermission"
         android:layout_width="@dimen/dimension_0"
         android:layout_height="@dimen/dimension_0"
-        android:layout_marginHorizontal="@dimen/dimension_44"
-        app:layout_constraintDimensionRatio="1.8:1.86"
+        android:layout_marginHorizontal="@dimen/dimension_16"
+        app:layout_constraintDimensionRatio="1:1"
         android:adjustViewBounds="true"
         android:src="@drawable/img_permission"
-        app:layout_constraintBottom_toTopOf="@+id/txtPermission"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar" />
+        app:layout_constraintTop_toBottomOf="@+id/view1" />
 
     <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextViewPermission
         android:id="@+id/txtPermission"
@@ -59,29 +78,32 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dimension_80"
+        android:layout_marginBottom="@dimen/dimension_12"
         android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@+id/tvContinue">
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom1">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dimension_20"
             android:orientation="vertical">
 
             <!-- btnStorage-->
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintDimensionRatio="3.28:0.56"
                 android:id="@+id/btnStorage"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension_56"
+                android:layout_height="@dimen/dimension_0"
                 android:layout_margin="@dimen/dimension_1"
                 android:background="@drawable/bg_frame_permission">
 
                 <TextView
+                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/dimension_16"
+                    android:layout_marginStart="@dimen/dimension_24"
                     android:gravity="center_vertical"
                     style="@style/single_marquee"
                     android:text="@string/storage"
@@ -90,28 +112,32 @@
                     android:textSize="@dimen/text_size_16" />
 
                 <ImageView
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:id="@+id/swPermission"
-                    android:layout_width="@dimen/dimension_56"
-                    android:layout_height="@dimen/dimension_32"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="@dimen/dimension_16"
-                    android:layout_centerVertical="true"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="@dimen/dimension_16"
+                    app:layout_constraintDimensionRatio="3.6:2.4"
+                    android:layout_marginEnd="@dimen/dimension_24"
                     android:src="@drawable/switch_off" />
-            </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- btnNotification-->
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintTop_toBottomOf="@+id/btnStorage"
+                app:layout_constraintDimensionRatio="3.28:0.56"
                 android:id="@+id/btnNotification"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension_56"
+                android:layout_height="@dimen/dimension_0"
                 android:layout_marginTop="@dimen/dimension_16"
                 android:background="@drawable/bg_frame_permission">
 
                 <TextView
+                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/dimension_16"
+                    android:layout_marginStart="@dimen/dimension_24"
                     android:gravity="center_vertical"
                     style="@style/single_marquee"
                     android:text="@string/notification"
@@ -120,32 +146,32 @@
                     android:textSize="@dimen/text_size_16"/>
 
                 <ImageView
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:id="@+id/swNotification"
-                    android:layout_width="@dimen/dimension_56"
-                    android:layout_height="@dimen/dimension_32"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="@dimen/dimension_16"
-                    android:layout_centerVertical="true"
+                    android:layout_width="@dimen/dimension_0"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="@dimen/dimension_16"
+                    app:layout_constraintDimensionRatio="3.6:2.4"
+                    android:layout_marginEnd="@dimen/dimension_24"
                     android:src="@drawable/switch_off" />
-            </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-    <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextViewPermission
+    <TextView
         android:id="@+id/tvContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimension_12"
-        android:layout_marginBottom="@dimen/dimension_180"
+        android:layout_marginTop="@dimen/dimension_16"
         android:gravity="center"
         android:fontFamily="@font/atma_bold"
         android:text="@string/continue_per"
         android:textSize="@dimen/text_size_16"
-        android:textColor="@color/white"
-        app:outerStrokeColor="@color/app_color"
-        app:outerStrokeWidth="@dimen/dimension_2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/app_color2"
+
+        app:layout_constraintTop_toBottomOf="@+id/guidelineBottom1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

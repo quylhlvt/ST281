@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.Mohammad3125:KavehColorPicker:v1.0.0@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/8.13/transforms/e3faca5c4b2747ed3f26df4a1944bd06/transformed/KavehColorPicker-v1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/8.13/transforms/e3faca5c4b2747ed3f26df4a1944bd06/transformed/KavehColorPicker-v1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/8.13/transforms/e3faca5c4b2747ed3f26df4a1944bd06/transformed/KavehColorPicker-v1.0.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

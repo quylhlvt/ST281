@@ -7,18 +7,16 @@
     app:cardCornerRadius="@dimen/dimension_100"
     app:cardElevation="@dimen/dimension_100">
 
-    <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextViewPermission
+    <TextView
         android:id="@+id/tvButton"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:paddingHorizontal="@dimen/dimension_5"
+        android:paddingVertical="@dimen/dimension_5"
 
-        android:fontFamily="@font/carter_one_regular"
-        android:textColor="@color/white"
-        app:outerStrokeColor="@color/app_color"
-        app:outerStrokeWidth="@dimen/dimension_2"
+        android:fontFamily="@font/londrina_solid_regular"
+        android:textColor="@color/app_color2"
         android:textSize="@dimen/text_size_16"
         tools:text="Next" />
 </FrameLayout>

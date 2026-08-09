@@ -34,6 +34,7 @@ import com.food.diydrink.foodmaker.core.extention.InternetExtension.isNetworkCon
 import com.food.diydrink.foodmaker.core.extention.onClick
 import com.food.diydrink.foodmaker.core.extention.saveToFile
 import com.food.diydrink.foodmaker.core.extention.setImageActionBar
+import com.food.diydrink.foodmaker.core.extention.setTextActionBar
 import com.food.diydrink.foodmaker.data.model.custom.BodyPartModel
 import com.food.diydrink.foodmaker.data.model.custom.SelectionIndex
 import com.food.diydrink.foodmaker.databinding.DialogbaseBinding
@@ -121,9 +122,9 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
         }
         binding.actionBar.apply {
             setImageActionBar(btnActionBarLeft, R.drawable.back_app)
-            setImageActionBar(btnActionBarCenter2, R.drawable.ic_reset_all_custom)
+            setImageActionBar(btnActionBarCenter1, R.drawable.ic_reset_all_custom)
             setImageActionBar(btnActionBarCenter, R.drawable.ic_flip_all_custom)
-            setImageActionBar(btnActionBarRight, R.drawable.next_app)
+            setTextActionBar(binding.actionBar.tvRightText, getString(R.string.next))
         }
         setupAdapters()
 

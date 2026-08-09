@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:clipToOutline="false"
     android:clipToPadding="false"
     android:clipChildren="false"
     android:layout_height="match_parent">
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
     <ImageView
         android:id="@+id/imvImage"
         android:layout_width="match_parent"
@@ -14,25 +26,29 @@
         android:scaleType="fitXY"
         android:elevation="@dimen/dimension_1"
         android:src="@drawable/img_intro1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/guidelineBottom1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvContent"
         style="@style/single_marquee"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="@dimen/dimension_24"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginTop="@dimen/dimension_16"
+        android:layout_marginBottom="@dimen/dimension_8"
         android:elevation="@dimen/dimension_2"
+        android:fontFamily="@font/londrina_solid_regular"
         android:gravity="center"
-        android:fontFamily="@font/carter_one_regular"
-        android:textColor="@color/app_color"
-        app:outerStrokeWidth="@dimen/dimension_1_5"
         android:includeFontPadding="true"
-        app:outerStrokeColor="@color/app_color"
-        android:textSize="@dimen/text_size_18"
-        android:layout_marginBottom="@dimen/dimension_24"
+        android:background="@drawable/bg_content_intro"
         android:maxLines="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        android:paddingHorizontal="@dimen/dimension_16"
+        android:textColor="@color/app_color"
+        android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toBottomOf="@+id/guidelineBottom2"
+        app:layout_constraintDimensionRatio="3.28:0.56"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineBottom1"
+        app:outerStrokeColor="@color/app_color" />
 </androidx.constraintlayout.widget.ConstraintLayout>

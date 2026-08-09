@@ -3,42 +3,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/img_bg_lang"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.onboarding.intro.IntroFragment">
-    <ImageView
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/img_bg_lang"
-        android:scaleType="fitXY"
-        android:elevation="-1dp"
-        android:adjustViewBounds="true"/>
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimension_0"
+    app:layout_constraintTop_toBottomOf="@+id/guidelineBottom1"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:src="@drawable/bg_bottom_intro"
+    android:scaleType="fitXY"/>
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager2"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension_0"
-        app:layout_constraintBottom_toTopOf="@+id/frame_layout_continue"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_height="match_parent" />
     <FrameLayout
         android:id="@+id/frame_layout_continue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dimension_150"
-        android:layout_marginHorizontal="@dimen/dimension_10"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_marginHorizontal="@dimen/dimension_16"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineBottom2">
 
         <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
             android:id="@+id/dotsIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="start|center_vertical"
             app:dotsColor="@color/white"
             app:dotsCornerRadius="@dimen/dimension_8"
             app:dotsSize="@dimen/dimension_8"
             app:dotsSpacing="@dimen/dimension_3"
             app:dotsWidthFactor="2.5"
             app:progressMode="false"
-            app:selectedDotColor="@color/app_color" />
+            app:selectedDotColor="@color/app_color2" />
         <include
             android:id="@+id/btnNextPager"
             layout="@layout/bottom_bottom_view"

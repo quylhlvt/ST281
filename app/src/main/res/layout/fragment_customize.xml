@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color2"
+    android:background="@drawable/img_bg_lang"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.customize.CustomizeFragment">
 
@@ -36,6 +36,17 @@
             android:layout_height="@dimen/dimension_0"
             android:elevation="@dimen/dimension_2"
             android:background="@android:color/transparent"
+            app:layout_constraintBottom_toTopOf="@+id/frame_rando_all"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <View
+            android:id="@+id/rlCharacter1"
+            android:layout_width="@dimen/dimension_0"
+            android:layout_height="@dimen/dimension_0"
+            android:elevation="@dimen/dimension_0"
+            android:background="@android:color/white"
             app:layout_constraintBottom_toTopOf="@+id/frame_rando_all"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"

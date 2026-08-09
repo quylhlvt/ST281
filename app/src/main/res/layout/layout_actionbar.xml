@@ -9,19 +9,19 @@
     android:layout_width="match_parent"
     app:layout_constraintTop_toTopOf="parent"
     android:layout_height="@dimen/dimension_0"
-    app:layout_constraintDimensionRatio="3.6:1.04">
+    app:layout_constraintDimensionRatio="3.6:0.9">
 <View
     app:layout_constraintTop_toTopOf="parent"
     android:id="@+id/view1"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimension_0"
-    app:layout_constraintDimensionRatio="3.6:0.6"/>
+    app:layout_constraintDimensionRatio="3.6:0.4"/>
     <View
     app:layout_constraintBottom_toBottomOf="parent"
     android:id="@+id/view2"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimension_0"
-    app:layout_constraintDimensionRatio="3.6:0.04"/>
+    app:layout_constraintDimensionRatio="3.6:0.11"/>
 
     <!--    btnActionBarLeft-->
     <ImageView
@@ -69,7 +69,7 @@
         style="@style/single_marquee"
         android:layout_width="@dimen/dimension_0"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dimension_0"
+        android:layout_marginStart="@dimen/dimension_16"
         android:gravity="start|center_vertical"
         android:text="@string/language"
         android:textSize="@dimen/text_size_32"
@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view1"
         app:outerStrokeColor="@color/app_color"
         app:outerStrokeWidth="@dimen/dimension_3"
-        android:textColor="@color/white"
+        android:textColor="@color/app_color"
         />
 
     <!--    tvCenter-->
@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view1"
         app:outerStrokeColor="@color/app_color"
         app:outerStrokeWidth="@dimen/dimension_3"
-        android:textColor="@color/white"/>
+        android:textColor="@color/app_color"/>
 
     <!--    btnActionBarCenter-->
     <ImageView
@@ -192,17 +192,27 @@
         app:layout_constraintTop_toTopOf="@+id/btnActionBarRight" />
 
     <!--            btnActionBarRightText-->
-    <FrameLayout
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btnActionBarRightText"
         android:layout_width="@dimen/dimension_0"
         android:layout_height="@dimen/dimension_0"
-        app:layout_constraintDimensionRatio="0.7:0.3"
+        app:layout_constraintDimensionRatio="0.52:0.4"
         android:visibility="gone"
+        app:cardBackgroundColor="@color/app_color2"
+        app:cardCornerRadius="@dimen/dimension_20"
+        app:strokeWidth="@dimen/dimension_2"
+        app:strokeColor="#FFB299"
         android:layout_marginEnd="@dimen/dimension_16"
-        android:background="@drawable/frame_select_language"
         app:layout_constraintBottom_toBottomOf="@+id/btnActionBarRight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnActionBarRight">
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="@dimen/dimension_20"
+    app:strokeColor="#FFD9CC"
+    app:strokeWidth="@dimen/dimension_4"
+    app:cardBackgroundColor="@color/transparent">
 
         <TextView
             android:id="@+id/tvRightText"
@@ -211,9 +221,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
+            android:fontFamily="@font/londrina_solid_regular"
             android:text="@string/next"
             android:textColor="@color/white"
             android:textSize="@dimen/dimension_16" />
-    </FrameLayout>
+</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
