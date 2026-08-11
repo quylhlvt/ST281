@@ -32,18 +32,17 @@ class BackgroundImageAdapter : BaseAdapter<SelectedAddModel, ItemBackgroundImage
         val shimmerDrawable = ShimmerDrawable().apply { setShimmer(DataLocal.shimmer1) }
 
         binding.apply {
-            tvAddImage.isSelected =true
             if (currentSelected == position) {
                 materiaForcus.visible()
             } else {
                 materiaForcus.gone()
             }
-            if (position == 0) {
+            if (position == 1) {
                 lnlAddItem.visible()
                 imvImage.gone()
                 imvImageNone.gone()
                 lnlAddItem.onClick { onAddImageClick() }
-            } else if (position ==1){
+            } else if (position ==0){
                 imvImageNone.visible()
                 imvImage.gone()
                 lnlAddItem.gone()

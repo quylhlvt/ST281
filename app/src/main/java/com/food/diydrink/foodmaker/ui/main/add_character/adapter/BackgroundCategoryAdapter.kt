@@ -23,11 +23,9 @@ class BackgroundCategoryAdapter :
             txtTittle.text = item.category
             val context = binding.root.context
             if (item.isSelected) {
-                frameTittle.background = ContextCompat.getDrawable(context, R.drawable.img_bg_tittle_selected)
-                txtTittle.setTextColor(ContextCompat.getColor(context, R.color.app_color))
+                frameTittle.background = ContextCompat.getDrawable(context, R.drawable.bg_8_title)
             } else {
-                frameTittle.background = ContextCompat.getDrawable(context, R.drawable.img_bg_tittle_unselected)
-                txtTittle.setTextColor(ContextCompat.getColor(context, R.color.white))
+                frameTittle.background = ContextCompat.getDrawable(context, R.drawable.bg_8_title_unselect)
             }
 
         }

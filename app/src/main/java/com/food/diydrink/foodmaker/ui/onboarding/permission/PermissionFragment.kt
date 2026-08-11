@@ -73,9 +73,11 @@ class PermissionFragment : BaseFragment<FragmentPermissionBinding, PermissionVie
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             binding.btnStorage.visible()
             binding.btnNotification.gone()
+            binding.space.gone()
         } else {
             binding.btnNotification.visible()
             binding.btnStorage.gone()
+            binding.space.gone()
         }
         // cập nhật UI switch khi vào màn
         updatePermissionUI(requireContext().checkPermissions(PermissionHelper.storagePermission), true)

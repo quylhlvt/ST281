@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color2"
+    android:background="@drawable/img_bg_lang"
     tools:context=".ui.main.add_character.AddCharacterFragment">
 
     <!--    flGetText-->
@@ -58,13 +58,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_632"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.595" />
+
     <Space
         android:id="@+id/flSpce1"
         android:layout_width="@dimen/dimension_0"
@@ -73,14 +68,14 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/lnlBottom"
+        app:layout_constraintBottom_toTopOf="@+id/view1"
         app:layout_constraintTop_toBottomOf="@+id/flActionBar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/flSave"
         android:layout_width="0dp"
         android:layout_height="@dimen/dimension_0"
-        app:layout_constraintBottom_toTopOf="@+id/lnlBottom"
+        app:layout_constraintBottom_toTopOf="@+id/view1"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,46 +95,46 @@
             android:layout_height="match_parent"
             android:elevation="@dimen/dimension_1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/img_bg_addcharecter_layer"
+        app:layout_constraintTop_toTopOf="@+id/view1"/>
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginBottom="@dimen/dimension_0"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_63"
+        app:layout_constraintDimensionRatio="3.6:0.24"/>
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        android:layout_marginBottom="@dimen/dimension_0"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/lnlBottom"
+        app:layout_constraintDimensionRatio="3.6:0.16"/>
+
 
     <!--    flFunction-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/flFunction"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension_0"
-        android:background="@color/app_color"
         android:elevation="@dimen/dimension_3"
         android:layerType="hardware"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_63">
+        app:layout_constraintTop_toBottomOf="@+id/view2">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/mater2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/dimension_6"
-            android:elevation="@dimen/dimension_2"
-            app:cardBackgroundColor="@color/app_color2"
-            app:cardCornerRadius="@dimen/dimension_20"
-            app:strokeWidth="@dimen/dimension_0" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/mater3"
-            android:layout_width="@dimen/dimension_0"
-            android:layout_height="@dimen/dimension_0"
-            android:layout_margin="@dimen/dimension_6"
-            android:elevation="@dimen/dimension_1"
-            app:cardBackgroundColor="@color/app_color3"
-            app:cardCornerRadius="@dimen/dimension_14"
-            app:layout_constraintBottom_toBottomOf="@+id/mater2"
-            app:layout_constraintEnd_toEndOf="@+id/mater2"
-            app:layout_constraintStart_toStartOf="@+id/mater2"
-            app:layout_constraintTop_toTopOf="@+id/mater2"
-            app:strokeColor="@color/app_color4"
-            app:strokeWidth="@dimen/dimension_1">
-            <!--        lnlBackground-->
             <include
                 android:id="@+id/lnlBackground"
                 layout="@layout/layout_background_tab"
+                android:layout_marginHorizontal="@dimen/dimension_16"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -147,6 +142,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lnlSticker"
                 android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/dimension_20"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:paddingTop="@dimen/dimension_6"
@@ -192,51 +188,28 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lnlSpeech"
                 android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/dimension_24"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:visibility="gone">
-                <RelativeLayout
-                    android:id="@+id/relative2"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension_0"
-                    android:gravity="center"
-                    app:layout_constraintDimensionRatio="3.36:0.33"
-                    app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rcvSpeechTittle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:elevation="@dimen/dimension_2"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-
-                        tools:listitem="@layout/item_tittle_background_image" />
-
-
-                </RelativeLayout>
 
 
                 <!--            rcvSticker-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcvSpeech"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension_0"
-                    android:layout_marginTop="@dimen/dimension_8"
-                    android:paddingHorizontal="@dimen/dimension_3"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_height="match_parent"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:layout_constraintTop_toBottomOf="@+id/relative2"
                     app:spanCount="5"
-
                     tools:listitem="@layout/item_speech" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <include
                 android:id="@+id/lnlText"
+
                 layout="@layout/layout_text_panel" />
-        </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -246,57 +219,51 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension_0"
         android:layout_marginBottom="@dimen/dimension_0"
+        android:paddingHorizontal="@dimen/dimension_50"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/flFunction"
-        app:layout_constraintDimensionRatio="3.6:0.35">
-
+        app:layout_constraintTop_toBottomOf="@+id/view1"
+        app:layout_constraintDimensionRatio="3.6:0.32">
 
         <FrameLayout
             android:id="@+id/btnBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/dimension_5"
-            android:layout_weight="1"
-            android:background="@drawable/bg_selected_add">
+            android:layout_marginHorizontal="@dimen/dimension_16"
+            android:layout_weight="1">
             <!--        btnBackground-->
             <ImageView
                 android:id="@+id/imgBackground"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="@dimen/dimension_4"
-                android:src="@drawable/ic_background_selected" />
+                android:src="@drawable/ic_background" />
         </FrameLayout>
 
         <FrameLayout
             android:id="@+id/btnSticker"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="@dimen/dimension_5"
-            android:layout_weight="1"
-            android:background="@drawable/bg_unselected_add">
+            android:layout_marginHorizontal="@dimen/dimension_16"
+            android:layout_weight="1">
             <!--        btnSticker-->
             <ImageView
                 android:id="@+id/imgSticker"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="@dimen/dimension_4"
-                android:src="@drawable/ic_sticker_selected" />
+                android:src="@drawable/ic_sticker" />
         </FrameLayout>
         <!--        btnSpeech-->
         <FrameLayout
             android:id="@+id/btnSpeech"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="@dimen/dimension_5"
-            android:layout_weight="1"
-            android:background="@drawable/bg_unselected_add">
+            android:layout_marginHorizontal="@dimen/dimension_16"
+            android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/imgSpeech"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="@dimen/dimension_4"
                 android:src="@drawable/ic_speech" />
         </FrameLayout>
         <!--        btnText-->
@@ -304,15 +271,13 @@
             android:id="@+id/btnText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/dimension_5"
-            android:layout_weight="1"
-            android:background="@drawable/bg_unselected_add">
+            android:layout_marginHorizontal="@dimen/dimension_16"
+            android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/imgText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="@dimen/dimension_4"
                 android:src="@drawable/ic_text" />
         </FrameLayout>
     </LinearLayout>

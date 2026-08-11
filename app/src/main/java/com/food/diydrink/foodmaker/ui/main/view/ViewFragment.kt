@@ -15,6 +15,7 @@ import com.food.diydrink.foodmaker.core.extention.InternetExtension.isInternetAv
 import com.food.diydrink.foodmaker.core.extention.InternetExtension.isNetworkConnected
 import com.food.diydrink.foodmaker.core.extention.checkPermissions
 import com.food.diydrink.foodmaker.core.extention.goToSettings
+import com.food.diydrink.foodmaker.core.extention.gone
 import com.food.diydrink.foodmaker.core.extention.loadImage
 import com.food.diydrink.foodmaker.core.extention.onClick
 import com.food.diydrink.foodmaker.core.extention.safeNavigate
@@ -83,14 +84,14 @@ class ViewFragment : BaseFragment<FragmentViewBinding, ViewViewModel>(
         binding.actionBar.btnActionBarNextToRight.isClickable = true
         binding.actionBar.btnActionBarRight.isEnabled = true
         binding.actionBar.btnActionBarRight.isClickable = true
-        binding.btnBottomLeft.isEnabled = true
-        binding.btnBottomLeft.isClickable = true
-        binding.btnBottomRight.isEnabled = true
-        binding.btnBottomRight.isClickable = true
-        binding.btnBottomLeftSocial.isEnabled = true
-        binding.btnBottomLeftSocial.isClickable = true
-        binding.btnBottomRightSocial.isEnabled = true
-        binding.btnBottomRightSocial.isClickable = true
+        binding.btnEdit.isEnabled = true
+        binding.btnEdit.isClickable = true
+//        binding.btnBottomRight.isEnabled = true
+//        binding.btnBottomRight.isClickable = true
+//        binding.btnBottomLeftSocial.isEnabled = true
+//        binding.btnBottomLeftSocial.isClickable = true
+//        binding.btnBottomRightSocial.isEnabled = true
+//        binding.btnBottomRightSocial.isClickable = true
         binding.root.requestLayout()
         binding.root.invalidate()
     }
@@ -106,26 +107,23 @@ class ViewFragment : BaseFragment<FragmentViewBinding, ViewViewModel>(
     override fun initView() {
         currentImagePath = imagePath
         binding.apply {
-            setImageActionBar(actionBar.btnActionBarLeft, R.drawable.back_app)
+            actionBar.apply {
+                setImageActionBar(btnActionBarLeft, R.drawable.back_app)
+                setImageActionBar(actionBar.btnActionBarCenter, R.drawable.ic_delete_all)
+                setImageActionBar(actionBar.btnActionBarNextToRight, R.drawable.ic_share_mycreation)
+                setImageActionBar(actionBar.btnActionBarRight, R.drawable.ic_download_mycreation)
+            }
             loadImage(requireContext(), imagePath, imvImage)
-            txtRight.isSelected = true
-            txtLeft.isSelected = true
-            txtLeftSocial.isSelected = true
-            txtRightSocial.isSelected = true
+            txtEdit.isSelected = true
 
             when (imageType) {
+
                 1 -> {
-                    txtLeft.text = getString(R.string.share)
-                    setImageActionBar(actionBar.btnActionBarRight, R.drawable.ic_delete)
-                    setImageActionBar(actionBar.btnActionBarNextToRight, R.drawable.ic_edit1)
-                    txtRight.apply { visible(); text = getString(R.string.download) }
-                    txtLeft.visible()
+                    btnEdit.visible()
                 }
                 2 -> {
-                    txtLeft.text = getString(R.string.share)
-                    setImageActionBar(actionBar.btnActionBarRight, R.drawable.ic_delete)
-                    txtRight.apply { visible(); text = getString(R.string.download) }
-                    txtLeft.visible()
+
+                    btnEdit.gone()
                 }
             }
         }
@@ -137,22 +135,22 @@ class ViewFragment : BaseFragment<FragmentViewBinding, ViewViewModel>(
 
             when (imageType) {
                 1 -> {
-                    actionBar.btnActionBarRight.onClick1 { confirmDelete() }
-                    actionBar.btnActionBarNextToRight.onClick1 {
+                    actionBar.btnActionBarCenter.onClick1 { confirmDelete() }
+                    btnEdit.onClick1 {
                             navigateToEdit()
                     }
-                    btnBottomLeft.onClick(1500) { shareImage() }
-                    btnBottomRight.onClick1 { downloadImage() }
-                    btnBottomLeftSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.FACEBOOK) }
-                    btnBottomRightSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.INSTAGRAM) }
+                    actionBar.btnActionBarNextToRight.onClick(1500) { shareImage() }
+                    actionBar.btnActionBarRight.onClick1 { downloadImage() }
+//                    btnBottomLeftSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.FACEBOOK) }
+//                    btnBottomRightSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.INSTAGRAM) }
                 }
 
                 2 -> {
-                    actionBar.btnActionBarRight.onClick1 { confirmDelete() }
-                    btnBottomLeft.onClick(1500) { shareImage() }
-                    btnBottomRight.onClick1 { downloadImage() }
-                    btnBottomLeftSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.FACEBOOK) }
-                    btnBottomRightSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.INSTAGRAM) }
+                    actionBar.btnActionBarCenter.onClick1 { confirmDelete() }
+                    actionBar.btnActionBarNextToRight.onClick(1500) { shareImage() }
+                    actionBar.btnActionBarRight.onClick1 { downloadImage() }
+//                    btnBottomLeftSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.FACEBOOK) }
+//                    btnBottomRightSocial.onClick1 { shareToSocialApp(SocialShareManager.SocialApp.INSTAGRAM) }
                 }
             }
         }

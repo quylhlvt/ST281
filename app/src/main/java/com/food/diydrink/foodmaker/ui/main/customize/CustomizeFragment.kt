@@ -34,6 +34,7 @@ import com.food.diydrink.foodmaker.core.extention.InternetExtension.isNetworkCon
 import com.food.diydrink.foodmaker.core.extention.onClick
 import com.food.diydrink.foodmaker.core.extention.saveToFile
 import com.food.diydrink.foodmaker.core.extention.setImageActionBar
+import com.food.diydrink.foodmaker.core.extention.setMaterialCardViewActionBar1
 import com.food.diydrink.foodmaker.core.extention.setTextActionBar
 import com.food.diydrink.foodmaker.data.model.custom.BodyPartModel
 import com.food.diydrink.foodmaker.data.model.custom.SelectionIndex
@@ -123,8 +124,8 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
         binding.actionBar.apply {
             setImageActionBar(btnActionBarLeft, R.drawable.back_app)
             setImageActionBar(btnActionBarCenter1, R.drawable.ic_reset_all_custom)
-            setImageActionBar(btnActionBarCenter, R.drawable.ic_flip_all_custom)
-            setTextActionBar(binding.actionBar.tvRightText, getString(R.string.next))
+//            setImageActionBar(btnActionBarCenter, R.drawable.ic_flip_all_custom)
+            setMaterialCardViewActionBar1(btnActionBarRightText,tvRightText, getString(R.string.next))
         }
         setupAdapters()
 
@@ -218,6 +219,12 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
             if (viewModel.resolvePathAt(viewModel.state.value.currentNavIndex) == null) return@onClick
             toggleScalePanel()
         }
+        binding.btnExitScale.onClick {
+            closeScalePanel()
+        }
+        binding.imgFlip.onClick {
+            viewModel.toggleFlip()
+        }
 
         binding.ratioRight.onClickAndHold { changeCurrentTransform { it.copy(rotation = normalizeRotation(it.rotation + 5f)) } }
         binding.ratioLeft.onClickAndHold { changeCurrentTransform { it.copy(rotation = normalizeRotation(it.rotation - 5f)) } }
@@ -257,21 +264,21 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
                     llColor.visibility = View.INVISIBLE
                 }.start()
             }
-            imgChangColor.onClick {
-                val navPos = viewModel.state.value.currentNavIndex
-                if (!viewModel.state.value.hasMultipleColors) return@onClick
-                if (llColor.isVisible) {
-                    if (navPos < arrShowColor.size) arrShowColor[navPos] = false
-                    llColor.animate().alpha(0f).setDuration(200).withEndAction {
-                        llColor.visibility = View.INVISIBLE
-                    }.start()
-                } else {
-                    if (navPos < arrShowColor.size) arrShowColor[navPos] = true
-                    llColor.visibility = View.VISIBLE
-                    llColor.alpha = 0f
-                    llColor.animate().alpha(1f).setDuration(200).start()
-                }
-            }
+//            imgChangColor.onClick {
+//                val navPos = viewModel.state.value.currentNavIndex
+//                if (!viewModel.state.value.hasMultipleColors) return@onClick
+//                if (llColor.isVisible) {
+//                    if (navPos < arrShowColor.size) arrShowColor[navPos] = false
+//                    llColor.animate().alpha(0f).setDuration(200).withEndAction {
+//                        llColor.visibility = View.INVISIBLE
+//                    }.start()
+//                } else {
+//                    if (navPos < arrShowColor.size) arrShowColor[navPos] = true
+//                    llColor.visibility = View.VISIBLE
+//                    llColor.alpha = 0f
+//                    llColor.animate().alpha(1f).setDuration(200).start()
+//                }
+//            }
             imgRandom.onClick {
                 if (!checkOnlineNetworkOrShowDialog()) {
                     showConfirmDialog(
@@ -286,7 +293,7 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
                     )
                 }
             }
-            actionBar.btnActionBarCenter2.setOnClickListener {
+            actionBar.btnActionBarCenter1.setOnClickListener {
                 showConfirmDialog(
                     title = getString(R.string.reset),
                     message = getString(R.string.do_you_want_to_reset_all),
@@ -298,9 +305,9 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
                 )
             }
             actionBar.btnActionBarLeft.onClick {  confirmExit()}
-            actionBar.btnActionBarCenter.onClick { viewModel.toggleFlip() }
-            actionBar.btnActionBarRight.onClick { if (canSave) performSave() }
-            actionBar.btnActionBarRight.setOnClickListener {
+//            actionBar.btnActionBarCenter.onClick { viewModel.toggleFlip() }
+            actionBar.btnActionBarRightText.onClick { if (canSave) performSave() }
+            actionBar.btnActionBarRightText.setOnClickListener {
                 if (!canSave) return@setOnClickListener
                 if (checkOnlineNetworkOrShowDialog()) return@setOnClickListener
 
@@ -490,7 +497,7 @@ class CustomizeFragment : BaseFragment<FragmentCustomizeBinding, CustomizeViewMo
 
         adapterNav.submitList(visibleNavItems)
         adapterNav.setPos(visibleNavPosition.coerceIn(0, maxOf(0, visibleNavItems.lastIndex)))
-        binding.imgChangColor.isVisible = state.hasMultipleColors
+//        binding.imgChangColor.isVisible = state.hasMultipleColors
 
         // ── Color ──────────────────────────────────────────────────────────────
         adapterColor.setPos(state.currentColorIndex)

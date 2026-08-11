@@ -3,29 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:layout_marginEnd="@dimen/dimension_6"
+    android:layout_marginVertical="@dimen/dimension_4"
+    android:layout_marginEnd="@dimen/dimension_8"
+
     >
 
-    <FrameLayout
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/frame1"
         android:layout_width="@dimen/dimension_0"
+        app:cardCornerRadius="@dimen/dimension_8"
         android:layout_height="match_parent"
         android:elevation="@dimen/dimension_2"
-        app:layout_constraintDimensionRatio="5.2:3.8"
+        app:strokeWidth="@dimen/dimension_0"
+        app:cardBackgroundColor="@color/transparent"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="parent">
 
 
 
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <ImageView
                 android:id="@+id/imvImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:background="@color/app_color"
-                android:src="@drawable/img_permission"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.TopRoundedOnly" />
+                android:background="@color/app_color2"
+                android:src="@drawable/img_permission"/>
 
 
             <!--            imvImage-->
@@ -34,6 +38,6 @@
             <!--        sflShimmer-->
 
 
-    </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

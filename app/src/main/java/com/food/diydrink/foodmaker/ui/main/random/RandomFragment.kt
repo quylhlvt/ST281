@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -101,15 +102,12 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
         actionBar.apply {
             tvCenter.select()
             setImageActionBar(btnActionBarLeft, R.drawable.back_app)
-            setImageActionBar(btnActionBarRight, R.drawable.next_app)
-            setTextActionBar(tvCenter, getString(R.string.random))
         }
     }
 
     override fun viewListener() {
         binding.apply {
             actionBar.btnActionBarLeft.onClick {
-
                     popBack()
 
             }
@@ -136,8 +134,8 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
                     action()
                 }
             }
-            actionBar.btnActionBarRight.onClick {
-                if (!actionBar.btnActionBarRight.isEnabled) return@onClick
+            btnEdit.onClick {
+                if (!btnEdit.isEnabled) return@onClick
                 val item = viewModel.randomItem.value ?: return@onClick
                 if (checkOnlineNetworkOrShowDialog(item.templateIndex)) return@onClick
                 val templateId = viewModelActivity.templates.value
@@ -254,10 +252,14 @@ class RandomFragment : BaseFragment<FragmentRandomBinding, RandomViewModel>(
     }
 
     private fun setSaveButtonEnabled(enabled: Boolean) {
-        binding.actionBar.btnActionBarRight.isEnabled = enabled
-        binding.actionBar.btnActionBarRight.isClickable = enabled
-        binding.actionBar.btnActionBarRight.alpha = if (enabled) 1f else 0.5f
-    }
+        binding.btnEdit.isEnabled = enabled
+        binding.btnEdit.isClickable = enabled
+        binding.btnEdit.background =
+            ContextCompat.getDrawable(
+                binding.root.context,
+                if (enabled) R.drawable.bg_frame_random_edit
+                else R.drawable.bg_frame_random_unedit
+            )    }
 
     private fun mergeBitmaps(bitmaps: List<Bitmap>): Bitmap {
         val size = 800

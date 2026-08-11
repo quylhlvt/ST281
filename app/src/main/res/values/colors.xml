@@ -3,6 +3,9 @@
 
     <color name="color_text_intro">#1F2F4F</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white2">#FEFEF4</color>
+    <color name="white3">#FFF9E5</color>
+    <color name="gray1">#CCCCCC</color>
     <color name="black">#000000</color>
     <color name="gray">#99363636</color>
     <color name="black1">#4B4B4B</color>
@@ -22,11 +25,14 @@
     <color name="app_color3">#FFB399</color>
     <color name="app_color4">#FFD9CC</color>
     <color name="app_color5">#FEF2EF</color>
-    <color name="app_color6">#96C93E</color>
+    <color name="app_color6">#0087CC</color>
     <color name="app_color7">#99DDFF</color>
     <color name="app_color8">#33BBFF</color>
     <color name="app_color9">#FEFBE3</color>
-    <color name="app_color10">#C6363E</color>
+    <color name="app_color10">#CC0022</color>
+    <color name="app_color11">#CC0088</color>
+    <color name="app_color12">#4400CC</color>
+    <color name="app_color13">#80D4FF</color>
     <color name="color_bg_item">#FF8795</color>
     <color name="shadown_green">#6F9E1E</color>
     <color name="shadown_pink">#FF5D9A</color>

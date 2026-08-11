@@ -1,38 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipChildren="false"
     android:background="@drawable/img_bg_lang"
+    android:clipChildren="false"
     android:clipToPadding="false"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.view.ViewFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.595" />
 
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintDimensionRatio="3.6:0.24"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineBottom1" />
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintDimensionRatio="1.08:3.24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineBottom1" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="@dimen/dimension_0"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintDimensionRatio="1.08:3.24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineBottom1" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        android:scaleType="fitXY"
+        android:src="@drawable/img_view_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineBottom1" />
+<FrameLayout
+    android:id="@+id/btnEdit"
+    android:layout_width="@dimen/dimension_0"
+    android:layout_height="@dimen/dimension_0"
+    android:elevation="@dimen/dimension_4"
+    android:background="@drawable/bg_edit_view"
+    app:layout_constraintStart_toEndOf="@+id/view2"
+    app:layout_constraintEnd_toStartOf="@+id/view3"
+    app:layout_constraintTop_toBottomOf="@+id/view1"
+    app:layout_constraintDimensionRatio="1.44:0.4">
+<TextView
+    android:id="@+id/txtEdit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/dimension_16"
+    android:textColor="@color/white"
+    android:textSize="@dimen/text_size_20"
+    android:text="@string/edit"
+    android:fontFamily="@font/londrina_solid_regular"
+    android:gravity="center"/>
+</FrameLayout>
     <FrameLayout
         android:id="@+id/layoutActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
+
         <include
             android:id="@+id/actionBar"
-            layout="@layout/layout_actionbar" />
+            layout="@layout/layout_actionbar3" />
     </FrameLayout>
+
     <ImageView
+        android:id="@+id/imvImage"
         android:layout_width="@dimen/dimension_0"
         android:layout_height="@dimen/dimension_0"
+        android:background="@color/white"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_permission"
         app:cardBackgroundColor="@color/app_color4"
-    app:layout_constraintBottom_toTopOf="@+id/lnlBottomSocial"
+        app:layout_constraintBottom_toBottomOf="@+id/guidelineBottom1"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar"
-        android:id="@+id/imvImage"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img_permission" />
 
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar" />
 
 
     <!--    btnEdit-->
@@ -51,164 +112,162 @@
 
 
     <!--    lnlBottom-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/lnlBottom"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension_0"
-        android:layout_marginHorizontal="@dimen/dimension_16"
-        android:layout_marginBottom="@dimen/dimension_10"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="3.28:0.48">
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:id="@+id/lnlBottom"-->
+    <!--        -->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="@dimen/dimension_0"-->
+    <!--        android:layout_marginHorizontal="@dimen/dimension_16"-->
+    <!--        android:layout_marginBottom="@dimen/dimension_10"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintDimensionRatio="3.28:0.48">-->
 
 
-        <FrameLayout
-            android:id="@+id/btnBottomLeft"
-            android:layout_width="@dimen/dimension_0"
-            android:background="@drawable/frame_select_success"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1.56:0.48"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <!--        <FrameLayout-->
+    <!--            android:id="@+id/btnBottomLeft"-->
+    <!--            android:layout_width="@dimen/dimension_0"-->
+    <!--            android:background="@drawable/frame_select_success"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintDimensionRatio="1.56:0.48"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
 
 
-
-            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
-                android:id="@+id/txtLeft"
-                style="@style/single_marquee"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/share"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_20"
-                app:outerStrokeColor="@color/app_color"
-                android:fontFamily="@font/carter_one_regular"
-                app:outerStrokeWidth="@dimen/dimension_3_5" />
-        </FrameLayout>
-
-
-        <FrameLayout
-            android:id="@+id/btnBottomRight"
-            android:layout_width="@dimen/dimension_0"
-            android:layout_height="match_parent"
-            android:background="@drawable/frame_select_success"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1.56:0.48"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <!--            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView-->
+    <!--                android:id="@+id/txtLeft"-->
+    <!--                style="@style/single_marquee"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:gravity="center"-->
+    <!--                android:text="@string/share"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textSize="@dimen/text_size_20"-->
+    <!--                app:outerStrokeColor="@color/app_color"-->
+    <!--                android:fontFamily="@font/carter_one_regular"-->
+    <!--                app:outerStrokeWidth="@dimen/dimension_3_5" />-->
+    <!--        </FrameLayout>-->
 
 
+    <!--        <FrameLayout-->
+    <!--            android:id="@+id/btnBottomRight"-->
+    <!--            android:layout_width="@dimen/dimension_0"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:background="@drawable/frame_select_success"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintDimensionRatio="1.56:0.48"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
 
 
-            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
-                android:id="@+id/txtRight"
-                style="@style/single_marquee"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/download"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_20"
-                app:outerStrokeColor="@color/app_color"
-                android:fontFamily="@font/carter_one_regular"
-                app:outerStrokeWidth="@dimen/dimension_3_5"/>
-        </FrameLayout>
-        <!--        btnBottomRight-->
+    <!--            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView-->
+    <!--                android:id="@+id/txtRight"-->
+    <!--                style="@style/single_marquee"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:gravity="center"-->
+    <!--                android:text="@string/download"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textSize="@dimen/text_size_20"-->
+    <!--                app:outerStrokeColor="@color/app_color"-->
+    <!--                android:fontFamily="@font/carter_one_regular"-->
+    <!--                app:outerStrokeWidth="@dimen/dimension_3_5"/>-->
+    <!--        </FrameLayout>-->
+    <!--        &lt;!&ndash;        btnBottomRight&ndash;&gt;-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/lnlBottomSocial"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension_0"
-        android:layout_marginHorizontal="@dimen/dimension_16"
-        android:layout_marginBottom="@dimen/dimension_10"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/lnlBottom"
-        app:layout_constraintDimensionRatio="3.28:0.48">
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btnBottomLeftSocial"
-            android:layout_width="@dimen/dimension_0"
-            android:background="@drawable/img_bg_fb"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1.56:0.48"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:id="@+id/lnlBottomSocial"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="@dimen/dimension_0"-->
+    <!--        android:layout_marginHorizontal="@dimen/dimension_16"-->
+    <!--        android:layout_marginBottom="@dimen/dimension_10"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/lnlBottom"-->
+    <!--        app:layout_constraintDimensionRatio="3.28:0.48">-->
 
 
-            <ImageView
-                android:id="@+id/iconFb"
-                android:layout_width="@dimen/dimension_0"
-                android:layout_height="match_parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintDimensionRatio="1:1"
-                android:src="@drawable/ic_fb"
-                android:layout_marginVertical="@dimen/dimension_15"
-                android:layout_marginStart="@dimen/dimension_10"/>
-
-            <TextView
-                android:id="@+id/txtLeftSocial"
-                style="@style/single_marquee"
-                android:layout_width="@dimen/dimension_0"
-                app:layout_constraintStart_toEndOf="@+id/iconFb"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginHorizontal="@dimen/dimension_2"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/facebook_share"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_14"
-                android:fontFamily="@font/carter_one_regular"
-                />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:id="@+id/btnBottomLeftSocial"-->
+    <!--            android:layout_width="@dimen/dimension_0"-->
+    <!--            android:background="@drawable/img_bg_fb"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintDimensionRatio="1.56:0.48"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btnBottomRightSocial"
-            android:layout_width="@dimen/dimension_0"
-            android:layout_height="match_parent"
-            android:background="@drawable/img_bg_ig"
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iconFb"-->
+    <!--                android:layout_width="@dimen/dimension_0"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintDimensionRatio="1:1"-->
+    <!--                android:src="@drawable/ic_fb"-->
+    <!--                android:layout_marginVertical="@dimen/dimension_15"-->
+    <!--                android:layout_marginStart="@dimen/dimension_10"/>-->
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1.56:0.48"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-            <ImageView
-                android:id="@+id/iconIg"
-                android:layout_width="@dimen/dimension_0"
-                android:layout_height="match_parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintDimensionRatio="1:1"
-                android:src="@drawable/ic_ig"
-                android:layout_marginVertical="@dimen/dimension_15"
-                android:layout_marginStart="@dimen/dimension_10"/>
+    <!--            <TextView-->
+    <!--                android:id="@+id/txtLeftSocial"-->
+    <!--                style="@style/single_marquee"-->
+    <!--                android:layout_width="@dimen/dimension_0"-->
+    <!--                app:layout_constraintStart_toEndOf="@+id/iconFb"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                android:layout_marginHorizontal="@dimen/dimension_2"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:gravity="center"-->
+    <!--                android:text="@string/facebook_share"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textSize="@dimen/text_size_14"-->
+    <!--                android:fontFamily="@font/carter_one_regular"-->
+    <!--                />-->
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
-            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
-                android:id="@+id/txtRightSocial"
-                style="@style/single_marquee"
-                android:layout_width="@dimen/dimension_0"
-                android:layout_marginHorizontal="@dimen/dimension_2"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="@string/instagram_share"
-                android:textColor="@color/white"
-                app:layout_constraintStart_toEndOf="@+id/iconIg"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:textSize="@dimen/text_size_14"
-                android:fontFamily="@font/carter_one_regular"
-                />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        <!--        btnBottomRight-->
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:id="@+id/btnBottomRightSocial"-->
+    <!--            android:layout_width="@dimen/dimension_0"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:background="@drawable/img_bg_ig"-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintDimensionRatio="1.56:0.48"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+    <!--            <ImageView-->
+    <!--                android:id="@+id/iconIg"-->
+    <!--                android:layout_width="@dimen/dimension_0"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintDimensionRatio="1:1"-->
+    <!--                android:src="@drawable/ic_ig"-->
+    <!--                android:layout_marginVertical="@dimen/dimension_15"-->
+    <!--                android:layout_marginStart="@dimen/dimension_10"/>-->
+
+
+    <!--            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView-->
+    <!--                android:id="@+id/txtRightSocial"-->
+    <!--                style="@style/single_marquee"-->
+    <!--                android:layout_width="@dimen/dimension_0"-->
+    <!--                android:layout_marginHorizontal="@dimen/dimension_2"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:gravity="center"-->
+    <!--                android:text="@string/instagram_share"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                app:layout_constraintStart_toEndOf="@+id/iconIg"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                android:textSize="@dimen/text_size_14"-->
+    <!--                android:fontFamily="@font/carter_one_regular"-->
+    <!--                />-->
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--        &lt;!&ndash;        btnBottomRight&ndash;&gt;-->
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

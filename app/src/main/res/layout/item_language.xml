@@ -13,8 +13,30 @@
         android:layout_height="@dimen/dimension_0"
         app:layout_constraintDimensionRatio="3.28:0.56"
         android:elevation="@dimen/dimension_2">
-
-
+        <View
+            android:id="@+id/top18"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            app:layout_constraintDimensionRatio="3.28:0.18"/>
+ <View
+            android:id="@+id/top20"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            app:layout_constraintDimensionRatio="3.28:0.2"/>
+   <View
+            android:id="@+id/bottom18"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            app:layout_constraintDimensionRatio="3.28:0.18"/>
+ <View
+            android:id="@+id/bottom20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            app:layout_constraintDimensionRatio="3.28:0.2"/>
 
         <ImageView
             android:id="@+id/imgLangFor"
@@ -30,11 +52,10 @@
             android:layout_height="@dimen/dimension_0"
             app:layout_constraintDimensionRatio="1:1"
             android:layout_marginStart="@dimen/dimension_24"
-            android:layout_marginVertical="@dimen/dimension_18"
             android:src="@drawable/ic_flag_english"
-            app:layout_constraintBottom_toBottomOf="@+id/imgLangFor"
+            app:layout_constraintBottom_toTopOf="@+id/bottom18"
             app:layout_constraintStart_toStartOf="@+id/imgLangFor"
-            app:layout_constraintTop_toTopOf="@+id/imgLangFor" />
+            app:layout_constraintTop_toBottomOf="@+id/top18"/>
 
         <ImageView
             android:id="@+id/btnRadio"
@@ -42,11 +63,10 @@
             android:layout_height="@dimen/dimension_0"
             app:layout_constraintDimensionRatio="1:1"
             android:layout_marginEnd="@dimen/dimension_24"
-            android:layout_marginVertical="@dimen/dimension_20"
             android:src="@drawable/ic_select_lang"
-            app:layout_constraintBottom_toBottomOf="@+id/imgLangFor"
+            app:layout_constraintTop_toBottomOf="@+id/top20"
             app:layout_constraintEnd_toEndOf="@+id/imgLangFor"
-            app:layout_constraintTop_toTopOf="@+id/imgLangFor" />
+            app:layout_constraintBottom_toTopOf="@+id/bottom20" />
 
         <TextView
             android:id="@+id/tvLang"

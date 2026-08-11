@@ -60,6 +60,7 @@
     <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextViewPermission
         android:id="@+id/txtPermission"
         android:layout_width="@dimen/dimension_0"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimension_20"
         android:gravity="center"
@@ -93,9 +94,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintDimensionRatio="3.28:0.56"
                 android:id="@+id/btnStorage"
+
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension_0"
-                android:layout_margin="@dimen/dimension_1"
                 android:background="@drawable/bg_frame_permission">
 
                 <TextView
@@ -121,39 +122,46 @@
                     android:layout_marginEnd="@dimen/dimension_24"
                     android:src="@drawable/switch_off" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+<Space
+    android:id="@+id/space"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimension_0"
+    app:layout_constraintDimensionRatio="3.28:0.08"
+    app:layout_constraintTop_toBottomOf="@+id/btnStorage"/>
 
             <!-- btnNotification-->
             <androidx.constraintlayout.widget.ConstraintLayout
-                app:layout_constraintTop_toBottomOf="@+id/btnStorage"
-                app:layout_constraintDimensionRatio="3.28:0.56"
                 android:id="@+id/btnNotification"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension_0"
-                android:layout_marginTop="@dimen/dimension_16"
-                android:background="@drawable/bg_frame_permission">
+
+                android:background="@drawable/bg_frame_permission"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="3.28:0.56"
+                app:layout_constraintTop_toBottomOf="@+id/space">
 
                 <TextView
-                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/single_marquee"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/dimension_24"
+                    android:fontFamily="@font/carter_one_regular"
                     android:gravity="center_vertical"
-                    style="@style/single_marquee"
                     android:text="@string/notification"
                     android:textColor="@color/app_color"
-                    android:fontFamily="@font/carter_one_regular"
-                    android:textSize="@dimen/text_size_16"/>
+                    android:textSize="@dimen/text_size_16"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:id="@+id/swNotification"
                     android:layout_width="@dimen/dimension_0"
                     android:layout_height="match_parent"
                     android:layout_marginVertical="@dimen/dimension_16"
-                    app:layout_constraintDimensionRatio="3.6:2.4"
                     android:layout_marginEnd="@dimen/dimension_24"
-                    android:src="@drawable/switch_off" />
+                    android:src="@drawable/switch_off"
+                    app:layout_constraintDimensionRatio="3.6:2.4"
+                    app:layout_constraintEnd_toEndOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

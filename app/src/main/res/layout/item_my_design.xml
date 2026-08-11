@@ -17,44 +17,49 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="@dimen/dimension_0"
             android:layout_height="@dimen/dimension_0"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/dimension_30"
+            app:cardBackgroundColor="#F8FFFD"
+            app:cardCornerRadius="@dimen/dimension_12"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/app_color2"
-            app:strokeWidth="@dimen/dimension_0">
-
-            <ImageView
-                android:id="@+id/imvImage"
+            app:strokeColor="@color/app_color3"
+            app:strokeWidth="@dimen/dimension_2">
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_permission" />
+                app:cardBackgroundColor="@color/transparent"
+                app:strokeColor="@color/app_color4"
+                app:cardCornerRadius="@dimen/dimension_12"
+                app:strokeWidth="@dimen/dimension_4"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/imvImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_permission" />
+
+
+                <ImageView
+                    android:id="@+id/btnDelete"
+                    android:layout_width="@dimen/dimension_24"
+                    android:layout_height="@dimen/dimension_24"
+
+                    android:layout_margin="@dimen/dimension_8"
+                    android:src="@drawable/ic_delete" />
 
 
 
-            <ImageView
-                android:id="@+id/btnDelete"
-                android:layout_width="@dimen/dimension_30"
-                android:layout_height="@dimen/dimension_30"
-                android:layout_gravity="end"
-                android:layout_margin="@dimen/dimension_8"
-                android:src="@drawable/ic_delete" />
+                <!--        btnSelect-->
+                <ImageView
+                    android:id="@+id/btnSelect"
+                    android:layout_width="@dimen/dimension_24"
+                    android:layout_height="@dimen/dimension_24"
+                    android:layout_margin="@dimen/dimension_8"
+                    android:src="@drawable/ic_not_select"
+                    android:visibility="gone" />
 
-
-
-            <!--        btnSelect-->
-            <ImageView
-                android:id="@+id/btnSelect"
-                android:layout_width="@dimen/dimension_30"
-                android:layout_height="@dimen/dimension_30"
-                android:layout_gravity="end"
-                android:layout_margin="@dimen/dimension_8"
-                android:src="@drawable/ic_not_select"
-                android:visibility="gone" />
-
+            </com.google.android.material.card.MaterialCardView>
         </com.google.android.material.card.MaterialCardView>
 
 

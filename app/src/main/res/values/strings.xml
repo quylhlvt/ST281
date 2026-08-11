@@ -6,7 +6,7 @@
     <string name="title_2">\u00A0Add speech share thoughts\u00A0</string>
     <string name="title_3">\u00A0Make your own avatar\u00A0</string>
     <string name="not_select_lang">Please select a language</string>
-    <string name="pony_maker">Food Maker</string>
+    <string name="pony_maker">Avatar maker</string>
     <string name="permission">Permission</string>
     <string name="storage">Storage</string>
     <string name="continue_per">\u00A0Continue\u00A0</string>
@@ -37,7 +37,7 @@
     <string name="download">Download</string>
     <string name="my_avatar">My Food</string>
     <string name="design">My Design</string>
-    <string name="no_item_here">No Item Here</string>
+    <string name="no_item_here">No character here</string>
     <string name="add_to_whatsapp">Add To WhatsApp</string>
     <string name="add_to_telegram">Add To Telegram</string>
     <string name="share">Share</string>
@@ -79,7 +79,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="cosplay">Cosplay</string>
     <string name="random">Random</string>
-    <string name="my_creation">My Creation</string>
+    <string name="my_creation">Creation</string>
     <string name="category">Category</string>
     <string name="image">Image</string>
     <string name="color">Color</string>
@@ -113,8 +113,8 @@
     <string name="load_ads_fail">Load Ads Fail</string>
     <string name="random_chibi_dialog">Random Chibi</string>
     <string name="watch_a_short_ad_to_generate_a_random_chibi">Watch a short ad to generate a random chibi.</string>
-    <string name="challenge_food">Challenge Food</string>
-    <string name="food_random">Food Random</string>
+    <string name="challenge_food">Cosplay</string>
+    <string name="food_random">Lucky Roll</string>
     <string name="my_food">My Food</string>
     <string name="facebook_share">Facebook Share</string>
     <string name="instagram_share">Instagram Share</string>
@@ -124,4 +124,6 @@
     <string name="keep_trying_harder">Keep trying harder!!!</string>
     <string name="bubbles">Bubbles</string>
     <string name="loading_point">Loading...</string>
+    <string name="edit">Edit</string>
+    <string name="click_the_random_button_below_to_see_what_your_character_is">Click the random button below to see what your character is!</string>
 </resources>

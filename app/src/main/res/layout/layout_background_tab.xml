@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lnlBackground"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="226">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <View
+        android:id="@+id/view3"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension_0"
-        android:padding="@dimen/dimension_6"
-        android:layout_weight="46"
+        android:layout_marginBottom="@dimen/dimension_0"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/linear"
+        app:layout_constraintDimensionRatio="3.6:0.16"/>
+    <LinearLayout
+        android:id="@+id/linear"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintDimensionRatio="3.6:0.32"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        android:paddingHorizontal="@dimen/dimension_0"
+        android:layout_weight="2"
         android:elevation="@dimen/dimension_2"
         android:orientation="horizontal">
 
-        <FrameLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnBackgroundImage"
             android:layout_width="@dimen/dimension_0"
+            app:cardCornerRadius="@dimen/dimension_8"
+            app:cardBackgroundColor="@color/app_color2"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginEnd="@dimen/dimension_3"
+            app:strokeWidth="@dimen/dimension_0"
+            android:layout_marginHorizontal="@dimen/dimension_4"
             android:layout_weight="1">
 
-
-           <ImageView
-                android:id="@+id/imgAddFor"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/frame_select_add" />
 
 
             <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
@@ -47,29 +52,21 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_16"
                 tools:ignore="NestedWeights" />
-            <ImageView
-                android:id="@+id/imgAddForUnforcus"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:visibility="gone"
-                android:src="@drawable/frame_select_add_unforcus" />
-        </FrameLayout>
 
-        <FrameLayout
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnBackgroundColor"
             android:layout_width="@dimen/dimension_0"
+            app:cardCornerRadius="@dimen/dimension_8"
+            app:strokeWidth="@dimen/dimension_0"
+            app:cardBackgroundColor="@color/gray1"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/dimension_3"
+            android:layout_marginHorizontal="@dimen/dimension_8"
             android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/imgAddFor1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/frame_select_add" />
+
 
             <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
                 android:id="@+id/btnBackgroundColorTv"
@@ -84,71 +81,41 @@
                 app:outerStrokeWidth="@dimen/dimension_3"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_16" />
-            <ImageView
-                android:id="@+id/imgAddFor1Unforcus"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/frame_select_add_unforcus" />
-        </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension_0"
-        android:layout_weight="180">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/tabImage"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/dimension_4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvBackgroundImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <RelativeLayout
-                android:id="@+id/relative"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension_0"
-                android:gravity="center"
-                app:layout_constraintDimensionRatio="3.36:0.33"
-                app:layout_constraintTop_toTopOf="parent">
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvtTittle"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:elevation="@dimen/dimension_2"
-                    android:layout_height="match_parent"
-                    tools:listitem="@layout/item_tittle_background_image"
-                    />
-
-            </RelativeLayout>
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvBackgroundImage"
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="@dimen/dimension_4"
-                app:layout_constraintTop_toBottomOf="@+id/relative"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_height="@dimen/dimension_0"
-                android:layout_marginTop="@dimen/dimension_8"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="5"
-                tools:listitem="@layout/item_background_image" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relative"
+            app:spanCount="5"
+            tools:itemCount="20"
+            tools:listitem="@layout/item_background_image" />
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvBackgroundColor"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="@dimen/dimension_4"
-            app:layout_constraintTop_toBottomOf="@+id/relative"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dimension_8"
             android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relative"
             app:spanCount="5"
+            tools:itemCount="20"
             tools:listitem="@layout/item_background_color" />
     </FrameLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

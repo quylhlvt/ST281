@@ -10,7 +10,7 @@
     app:layout_constraintStart_toStartOf="parent"
     android:layout_height="match_parent"
     android:id="@+id/frame_tittle"
-    android:background="@drawable/img_bg_tittle_unselected"
+    android:background="@drawable/bg_8_title_unselect"
     app:layout_constraintDimensionRatio="9:3.6">
     <TextView
         android:id="@+id/txtTittle"

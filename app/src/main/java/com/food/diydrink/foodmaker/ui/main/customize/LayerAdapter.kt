@@ -56,7 +56,7 @@ class NavAdapter :
 
             imvImage.background = ContextCompat.getColor(
                 ctx,
-                if (posNav == position) R.color.app_color else R.color.white
+                if (posNav == position) R.color.app_color2 else R.color.white2
             ).toDrawable()
 
         Glide.with(imvImage)
@@ -86,12 +86,14 @@ class ColorAdapter : BaseAdapter<ColorModel, ItemColorBinding>(ItemColorBinding:
     }
 
     override fun onBind(binding: ItemColorBinding, item: ColorModel, position: Int) {
-        binding.colorSelected.isVisible = posColor == position
+        val isWhite = item.color.removePrefix("#").equals("FFFFFF", ignoreCase = true)
+        val isSelected = posColor == position
+
+        binding.colorSelected.isVisible = !isSelected && !isWhite
+        binding.colorSelectedWhite.isVisible = !isSelected && isWhite
+
         val colorInt = runCatching {
-            Color.parseColor(
-                if (item.color.isEmpty() || item.color == "#") "#FFFFFF"
-                else "#${item.color}"
-            )
+            Color.parseColor("#${item.color.removePrefix("#").ifEmpty { "FFFFFF" }}")
         }.getOrDefault(Color.WHITE)
 
         DrawableCompat.setTint(binding.viewColor.background.mutate(), colorInt)

@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginHorizontal="@dimen/dimension_3"
-android:layout_marginBottom="@dimen/dimension_6"
+    android:layout_marginHorizontal="@dimen/dimension_4"
+android:layout_marginBottom="@dimen/dimension_8"
     android:layout_height="wrap_content">
 
 
@@ -12,36 +12,25 @@ android:layout_marginBottom="@dimen/dimension_6"
         android:id="@+id/materialParent"
         android:layout_width="@dimen/dimension_0"
         android:layout_height="@dimen/dimension_0"
-        app:cardCornerRadius="@dimen/dimension_8"
+        app:cardCornerRadius="@dimen/dimension_4"
         android:elevation="@dimen/dimension_1"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:strokeColor="@color/app_color7"
+        app:strokeColor="@color/app_color2"
         app:strokeWidth="@dimen/dimension_0"
         app:cardElevation="@dimen/dimension_0"
-        app:cardBackgroundColor="@color/transparent"
+        app:cardBackgroundColor="@color/white"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-  <com.google.android.material.card.MaterialCardView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      app:cardCornerRadius="@dimen/dimension_8"
-      android:layout_margin="@dimen/dimension_2"
-      app:cardElevation="@dimen/dimension_1_5"
-      app:cardBackgroundColor="@color/app_color5"
-      android:outlineAmbientShadowColor="#EBAD88"
-      android:outlineSpotShadowColor="#EBAD88"
-      app:strokeWidth="@dimen/dimension_0">
       <ImageView
           android:id="@+id/imvImage"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:src="@drawable/img_permission"
-          android:foreground="@drawable/foreground_img_bg"
           android:scaleType="centerCrop" />
       <ImageView
           android:visibility="gone"
@@ -50,38 +39,19 @@ android:layout_marginBottom="@dimen/dimension_6"
           android:layout_height="match_parent"
           android:scaleType="fitCenter"
           android:src="@drawable/ic_none_item"/>
-      <LinearLayout
-          android:id="@+id/lnlAddItem"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:gravity="center"
-          android:orientation="vertical"
-          android:visibility="gone">
+
 
         <ImageView
+            android:id="@+id/lnlAddItem"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dimension_15"
+            android:layout_height="match_parent"
             android:adjustViewBounds="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
             android:src="@drawable/ic_add_item" />
 
-        <!--                tvAddImage-->
-        <TextView
-            android:id="@+id/tvAddImage"
-            style="@style/single_marquee"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dimension_1"
-            android:layout_marginTop="@dimen/dimension_2"
-            android:fontFamily="@font/carter_one_regular"
-            android:gravity="center"
-            android:text="@string/add_image"
-            android:textColor="@color/app_color"
-            android:textSize="@dimen/text_size_9"
-            tools:ignore="SmallSp" />
-      </LinearLayout>
 
-  </com.google.android.material.card.MaterialCardView>
   </com.google.android.material.card.MaterialCardView>
   <com.google.android.material.card.MaterialCardView
       android:id="@+id/materiaForcus"
@@ -89,14 +59,13 @@ android:layout_marginBottom="@dimen/dimension_6"
       android:layout_height="@dimen/dimension_0"
       android:elevation="@dimen/dimension_3"
       android:visibility="gone"
-      android:layout_margin="@dimen/dimension_2"
-      app:cardCornerRadius="@dimen/dimension_8"
+      app:strokeColor="@color/app_color2"
+      app:strokeWidth="@dimen/dimension_2"
+      app:cardCornerRadius="@dimen/dimension_4"
       app:cardBackgroundColor="@color/transparent"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintDimensionRatio="1:1"
       app:layout_constraintEnd_toEndOf="parent"
-      app:strokeColor="@color/app_color"
-      app:strokeWidth="@dimen/dimension_2"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"/>
 

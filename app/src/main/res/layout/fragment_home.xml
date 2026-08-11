@@ -11,10 +11,10 @@
 
     <!--    layoutActionBar-->
     <FrameLayout
-        android:elevation="@dimen/dimension_2"
         android:id="@+id/layoutActionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:elevation="@dimen/dimension_2"
         app:layout_constraintTop_toTopOf="parent">
 
         <include
@@ -26,12 +26,13 @@
         android:id="@+id/title_home"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension_0"
+        android:layout_marginTop="@dimen/dimension_50_"
         android:elevation="@dimen/dimension_1"
         android:scaleType="centerCrop"
-        android:layout_marginTop="@dimen/dimension_50_"
         android:src="@drawable/img_title_home"
+        android:visibility="gone"
         app:layout_constraintDimensionRatio="3.6:2.1935"
-        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar"/>
+        app:layout_constraintTop_toBottomOf="@+id/layoutActionBar" />
 
 
     <!--    scvMain-->
@@ -39,162 +40,159 @@
         android:id="@+id/scvMain"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension_0"
-        android:layout_marginTop="@dimen/dimension_20"
         android:layout_marginBottom="@dimen/dimension_0"
         android:elevation="@dimen/dimension_1"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_home">
+        app:layout_constraintTop_toBottomOf="@id/layoutActionBar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/dimension_30"
-            android:paddingHorizontal="@dimen/dimension_16">
+            android:paddingHorizontal="@dimen/dimension_16"
+            android:paddingBottom="@dimen/dimension_30">
 
-
-
+            <ImageView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension_0"
+                android:elevation="@dimen/dimension_8"
+                android:src="@drawable/img_title_home"
+                app:layout_constraintDimensionRatio="3.28:0.86"
+                app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension_0"
+                android:id="@+id/view1"
+                app:layout_constraintTop_toTopOf="@+id/title"
+                app:layout_constraintDimensionRatio="3.28:0.13"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension_0"
+                android:id="@+id/view2"
+                app:layout_constraintBottom_toBottomOf="@+id/btnCreate"
+                app:layout_constraintDimensionRatio="3.28:0.73"/>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btnCreate"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/dimension_0"
                 android:layout_height="@dimen/dimension_0"
                 android:background="@drawable/img_home"
                 android:elevation="@dimen/dimension_2"
-                app:layout_constraintDimensionRatio="3.28:0.9"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintDimensionRatio="1.56:3.13"
+                android:layout_marginEnd="@dimen/dimension_8"
+                app:layout_constraintEnd_toStartOf="@+id/btnChallenge"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/view1">
 
-
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.food.diydrink.foodmaker.core.extention.OuterStrokeTextView2
                     android:id="@+id/tv1"
                     style="@style/single_marquee"
                     android:layout_width="@dimen/dimension_0"
                     android:layout_height="@dimen/dimension_0"
-                    android:fontFamily="@font/carter_one_regular"
+                    android:fontFamily="@font/londrina_solid_regular"
                     android:gravity="center"
                     android:text="@string/pony_maker"
-                    android:textColor="@color/app_color"
-                    android:textSize="@dimen/text_size_24"
-
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_16"
                     app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintDimensionRatio="1.56:0.32"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:outerStrokeColor="@color/app_color"
-                  />
-
+                    app:outerStrokeColor="@color/app_color10"
+                    app:outerStrokeWidth="1dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btnChallenge"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/dimension_0"
                 android:layout_height="@dimen/dimension_0"
-                android:background="@drawable/img_home"
-                android:layout_marginTop="@dimen/dimension_16"
+                android:background="@drawable/img_home1"
                 android:elevation="@dimen/dimension_2"
-                app:layout_constraintDimensionRatio="3.28:0.9"
+                android:layout_marginStart="@dimen/dimension_8"
+                app:layout_constraintDimensionRatio="1.56:3.13"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnCreate"
-                app:strokeColor="@color/white"
-                app:strokeWidth="@dimen/dimension_0">
+                app:layout_constraintStart_toEndOf="@+id/btnCreate"
+                app:layout_constraintTop_toTopOf="@+id/btnCreate">
 
-
-
-
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.food.diydrink.foodmaker.core.extention.OuterStrokeTextView2
                     android:id="@+id/tv2"
                     style="@style/single_marquee"
                     android:layout_width="@dimen/dimension_0"
                     android:layout_height="@dimen/dimension_0"
-                    android:fontFamily="@font/carter_one_regular"
+                    android:fontFamily="@font/londrina_solid_regular"
                     android:gravity="center"
                     android:text="@string/challenge_food"
-                    android:textColor="@color/app_color"
-                    android:textSize="@dimen/text_size_24"
-
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_16"
                     app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintDimensionRatio="1.56:0.32"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:outerStrokeColor="@color/app_color"
-                    app:outerStrokeJoinStyle="miter"
-                    app:outerStrokeWidth="@dimen/dimension_2_5" />
-
+                    app:outerStrokeWidth="1dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/btnRandom"
-                android:layout_width="match_parent"
+
+ <androidx.constraintlayout.widget.ConstraintLayout
+     android:id="@+id/btnRandom"
+                android:layout_width="@dimen/dimension_0"
                 android:layout_height="@dimen/dimension_0"
-                android:background="@drawable/img_home"
-                android:layout_marginTop="@dimen/dimension_16"
-                android:elevation="@dimen/dimension_2"
-                app:layout_constraintDimensionRatio="3.28:0.9"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/img_home3"
+                app:layout_constraintDimensionRatio="1.56:3.13"
+                android:layout_marginEnd="@dimen/dimension_8"
+                app:layout_constraintEnd_toStartOf="@+id/btnMyAlbum"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnChallenge"
-                app:strokeColor="@color/white"
-                app:strokeWidth="@dimen/dimension_0">
+                app:layout_constraintTop_toTopOf="@+id/view2">
 
-
-
-
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.food.diydrink.foodmaker.core.extention.OuterStrokeTextView2
                     android:id="@+id/tv3"
                     style="@style/single_marquee"
                     android:layout_width="@dimen/dimension_0"
                     android:layout_height="@dimen/dimension_0"
-                    android:fontFamily="@font/carter_one_regular"
+                    android:fontFamily="@font/londrina_solid_regular"
                     android:gravity="center"
                     android:text="@string/food_random"
-                    android:textColor="@color/app_color"
-                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_16"
                     app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintDimensionRatio="1.56:0.32"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:outerStrokeColor="@color/app_color"
-                    app:outerStrokeJoinStyle="miter"
-                    app:outerStrokeWidth="@dimen/dimension_2_5" />
-
+                    app:outerStrokeColor="@color/app_color11"
+                    app:outerStrokeWidth="1dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btnMyAlbum"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/dimension_0"
                 android:layout_height="@dimen/dimension_0"
-                android:layout_marginTop="@dimen/dimension_16"
-                app:cardCornerRadius="@dimen/dimension_10"
-                android:elevation="@dimen/dimension_2"
-                android:background="@drawable/img_home"
-                app:layout_constraintDimensionRatio="3.28:0.9"
+                android:background="@drawable/img_home4"
+                android:layout_marginStart="@dimen/dimension_8"
+                app:layout_constraintDimensionRatio="1.56:3.13"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnRandom"
-                app:strokeColor="@color/white"
-                app:strokeWidth="@dimen/dimension_3">
+                app:layout_constraintStart_toEndOf="@+id/btnRandom"
+                app:layout_constraintTop_toTopOf="@+id/btnRandom">
 
-
-
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.food.diydrink.foodmaker.core.extention.OuterStrokeTextView2
                     android:id="@+id/tv4"
                     style="@style/single_marquee"
                     android:layout_width="@dimen/dimension_0"
                     android:layout_height="@dimen/dimension_0"
-                    android:fontFamily="@font/carter_one_regular"
+                    android:fontFamily="@font/londrina_solid_regular"
                     android:gravity="center"
                     android:text="@string/my_creation"
-                    android:textColor="@color/app_color"
-                    android:textSize="@dimen/text_size_24"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_16"
                     app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintDimensionRatio="1.56:0.32"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                     />
-
+                    app:outerStrokeColor="@color/app_color12"
+                    app:outerStrokeWidth="1dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

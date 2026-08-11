@@ -8,14 +8,12 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.doOnPreDraw
@@ -35,11 +33,8 @@ import com.food.diydrink.foodmaker.core.custom.DrawableDraw
 import com.food.diydrink.foodmaker.core.custom.listener.listenerdraw.OnDrawListener
 import com.food.diydrink.foodmaker.core.dialog.ChooseColorDialog
 import com.food.diydrink.foodmaker.core.dialog.DialogSpeech
-import com.food.diydrink.foodmaker.core.extention.checkPermissions
 import com.food.diydrink.foodmaker.core.extention.dp
-import com.food.diydrink.foodmaker.core.extention.dpToPx
 import com.food.diydrink.foodmaker.core.extention.drawToBitmap
-import com.food.diydrink.foodmaker.core.extention.goToSettings
 import com.food.diydrink.foodmaker.core.extention.gone
 import com.food.diydrink.foodmaker.core.extention.hideNavigation
 import com.food.diydrink.foodmaker.core.extention.hideSoftKeyboard
@@ -55,7 +50,6 @@ import com.food.diydrink.foodmaker.databinding.FragmentAddCharacterBinding
 import com.food.diydrink.foodmaker.ui.main.add_character.adapter.BackgroundColorAdapter
 import com.food.diydrink.foodmaker.ui.main.add_character.adapter.BackgroundCategoryAdapter
 import com.food.diydrink.foodmaker.ui.main.add_character.adapter.StickerCategoryAdapter
-import com.food.diydrink.foodmaker.ui.main.add_character.adapter.SpeechCategoryAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.food.diydrink.foodmaker.ui.main.add_character.adapter.BackgroundImageAdapter
 import com.food.diydrink.foodmaker.ui.main.add_character.adapter.StickerAdapter
@@ -97,7 +91,6 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
     private val backgroundImageAdapter by lazy { BackgroundImageAdapter() }
     private val backgroundCategoryAdapter by lazy { BackgroundCategoryAdapter() }
     private val stickerCategoryAdapter by lazy { StickerCategoryAdapter() }
-    private val speechCategoryAdapter by lazy { SpeechCategoryAdapter() }
     private val backgroundColorAdapter by lazy { BackgroundColorAdapter() }
     private val stickerAdapter by lazy { StickerAdapter() }
     private val speechAdapter by lazy { SpeechAdapter() }
@@ -215,7 +208,6 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                             viewModel.setSpeechCategories(categories)
                             val selected = viewModel.speechCategoryList.indexOfFirst { it.isSelected }
                             if (selected >= 0) viewModel.selectSpeechCategory(selected)
-                            speechCategoryAdapter.submitList(viewModel.speechCategoryList)
                             speechAdapter.submitList(viewModel.speechList)
                         }
                     }
@@ -293,10 +285,10 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                 } else false
             }
 
-            lnlText.btnDoneText.onClick {
-                handleDoneText()
-                clearFocus(true)
-            }
+//            lnlText.btnDoneText.onClick {
+//                handleDoneText()
+//                clearFocus(true)
+//            }
 
             // Click ngoài → đóng keyboard
             main.onClick { clearFocus() }
@@ -335,13 +327,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                 stickerAdapter.submitList(viewModel.stickerList)
                 rcvSticker.scrollToPosition(0)
             }
-            speechCategoryAdapter.onCategoryClick = { _, position ->
-                viewModel.selectSpeechCategory(position)
-                speechCategoryAdapter.submitList(viewModel.speechCategoryList)
-                speechAdapter.currentSelected = -1
-                speechAdapter.submitList(viewModel.speechList)
-                rcvSpeech.scrollToPosition(0)
-            }
+
             speechAdapter.onItemClick = { path ->
                 if (checkNetworkBeforeRemoteAsset(path)) handleSpeech(path)
             }
@@ -499,13 +485,13 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                 adapter = backgroundImageAdapter; itemAnimator = null
                 setHasFixedSize(true); setItemViewCacheSize(10)
             }
-            lnlBackground.rcvtTittle.apply {
-                adapter = backgroundCategoryAdapter
-                itemAnimator = null
-                layoutManager = LinearLayoutManager(
-                    requireContext(), LinearLayoutManager.HORIZONTAL, false
-                )
-            }
+//            lnlBackground.rcvtTittle.apply {
+//                adapter = backgroundCategoryAdapter
+//                itemAnimator = null
+//                layoutManager = LinearLayoutManager(
+//                    requireContext(), LinearLayoutManager.HORIZONTAL, false
+//                )
+//            }
             lnlBackground.rcvBackgroundColor.apply {
                 adapter = backgroundColorAdapter; itemAnimator = null
             }
@@ -520,13 +506,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                     requireContext(), LinearLayoutManager.HORIZONTAL, false
                 )
             }
-            rcvSpeechTittle.apply {
-                adapter = speechCategoryAdapter
-                itemAnimator = null
-                layoutManager = LinearLayoutManager(
-                    requireContext(), LinearLayoutManager.HORIZONTAL, false
-                )
-            }
+
             rcvSpeech.apply {
                 adapter = speechAdapter; itemAnimator = null
                 setHasFixedSize(true); setItemViewCacheSize(10)
@@ -593,7 +573,6 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
         backgroundImageAdapter.submitList(viewModel.backgroundImageList)
         backgroundCategoryAdapter.submitList(viewModel.backgroundCategoryList)
         stickerCategoryAdapter.submitList(viewModel.stickerCategoryList)
-        speechCategoryAdapter.submitList(viewModel.speechCategoryList)
         backgroundColorAdapter.submitList(viewModel.backgroundColorList, true)
         stickerAdapter.submitList(viewModel.stickerList, true)
         speechAdapter.submitList(viewModel.speechList)
@@ -703,18 +682,16 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
             when (type) {
                 ValueKey.IMAGE_BACKGROUND -> {
                     requireActivity().hideNavigation(true)
-                    lnlBackground.tabImage.visible()
                     lnlBackground.rcvBackgroundColor.gone()
-                    lnlBackground.imgAddForUnforcus.gone()
-                    lnlBackground.imgAddFor1Unforcus.visible()
+
+                    lnlBackground.rcvBackgroundImage.visible()
                     backgroundImageAdapter.submitList(viewModel.backgroundImageList)
                 }
                 ValueKey.COLOR_BACKGROUND -> {
                     requireActivity().hideNavigation(true)
-                    lnlBackground.tabImage.gone()
                     lnlBackground.rcvBackgroundColor.visible()
-                    lnlBackground.imgAddForUnforcus.visible()
-                    lnlBackground.imgAddFor1Unforcus.gone()
+
+                    lnlBackground.rcvBackgroundImage.gone()
 
                     backgroundColorAdapter.submitList(viewModel.backgroundColorList)
                 }

@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.food.diydrink.foodmaker.core.helper.CustomTypefaceSpan
 import com.food.diydrink.foodmaker.utils.DataLocal.KEY_LAST_CLICK_TIME
+import com.google.android.material.card.MaterialCardView
 import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
@@ -46,7 +47,13 @@ fun setImageActionBar(imageView: ImageView, res: Int) {
     imageView.visible()
 }
 
-fun setTextActionBar(textView: TextView, text: String) {
+fun setMaterialCardViewActionBar1(materialCardView: MaterialCardView, textView: TextView, text: String) {
+    textView.text = text
+    materialCardView.visible()
+    textView.isSelected = true
+}
+
+fun setTextActionBar( textView: TextView, text: String) {
     textView.text = text
     textView.visible()
     textView.isSelected = true
