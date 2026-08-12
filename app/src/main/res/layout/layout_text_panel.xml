@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginHorizontal="@dimen/dimension_16"
+    android:layout_marginHorizontal="@dimen/dimension_20"
     android:visibility="gone">
     <ScrollView
         android:elevation="@dimen/dimension_1"

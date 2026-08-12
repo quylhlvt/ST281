@@ -1,4 +1,4 @@
-package com.food.diydrink.foodmaker
+package com.fff.a
 
 import org.junit.Test
 

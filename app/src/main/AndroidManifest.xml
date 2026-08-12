@@ -59,8 +59,8 @@
                 android:resource="@xml/provider" />
         </provider>
         <provider
-            android:name="com.food.diydrink.foodmaker.utils.share.whatsapp.StickerContentProvider"
-            android:authorities="com.food.diydrink.foodmaker.utils.share.whatsapp.StickerContentProvider"
+            android:name="com.fff.a.utils.share.whatsapp.StickerContentProvider"
+            android:authorities="com.fff.a.utils.share.whatsapp.StickerContentProvider"
             android:exported="true"
             android:readPermission="com.whatsapp.sticker.READ" />
     </application>

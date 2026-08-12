@@ -135,7 +135,7 @@
     <!--            app:layout_constraintTop_toTopOf="parent">-->
 
 
-    <!--            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView-->
+    <!--            <com.fff.a.core.extention.OuterStrokeShadownTextView-->
     <!--                android:id="@+id/txtLeft"-->
     <!--                style="@style/single_marquee"-->
     <!--                android:layout_width="match_parent"-->
@@ -162,7 +162,7 @@
     <!--            app:layout_constraintTop_toTopOf="parent">-->
 
 
-    <!--            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView-->
+    <!--            <com.fff.a.core.extention.OuterStrokeShadownTextView-->
     <!--                android:id="@+id/txtRight"-->
     <!--                style="@style/single_marquee"-->
     <!--                android:layout_width="match_parent"-->
@@ -250,7 +250,7 @@
     <!--                android:layout_marginStart="@dimen/dimension_10"/>-->
 
 
-    <!--            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView-->
+    <!--            <com.fff.a.core.extention.OuterStrokeShadownTextView-->
     <!--                android:id="@+id/txtRightSocial"-->
     <!--                style="@style/single_marquee"-->
     <!--                android:layout_width="@dimen/dimension_0"-->

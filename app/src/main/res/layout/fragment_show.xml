@@ -4,32 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color2"
+    android:background="@drawable/img_bg_lang"
     android:clipChildren="false"
     android:clipToPadding="false"
     tools:context=".ui.main.show.ShowFragment">
-    <!-- chạy chữ vòng cung-->
-    <!--    <com.food.diydrink.foodmaker.core.extention.CurvedTextView-->
-    <!--        android:id="@+id/tv1"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
 
-    <!--        android:fontFamily="@font/baloo2_extrabold"-->
-    <!--        android:marqueeRepeatLimit="marquee_forever"-->
-    <!--        android:singleLine="true"-->
-    <!--        android:ellipsize="marquee"-->
-    <!--        android:text="@string/pony_maker"-->
-    <!--        android:textColor="@color/app_color2"-->
-    <!--        android:textSize="@dimen/text_size_28"-->
-    <!--        android:shadowColor="@color/app_color"-->
-    <!--        android:shadowDx="5"-->
-    <!--        android:shadowDy="-5"-->
-    <!--        android:shadowRadius="5"-->
-    <!--        app:curveDepth="0.13"-->
-    <!--        app:arc_centerAngle2="-90"-->
-    <!--        app:arc_strokeWidth="@dimen/dimension_2"-->
-    <!--        app:arc_strokeColor="@color/app_color" />-->
-
+    <View
+        android:id="@+id/view13"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintDimensionRatio="3.6:0.4"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/layoutActionBar"
@@ -59,234 +44,168 @@
             android:id="@+id/rlCharacter"
             android:layout_width="@dimen/dimension_0"
             android:layout_height="@dimen/dimension_0"
-            android:layout_marginVertical="@dimen/dimension_5"
             android:background="@android:color/transparent"
-            app:layout_constraintBottom_toTopOf="@+id/frame_rando_all"
+            app:layout_constraintBottom_toTopOf="@+id/bgScaleLayer"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <View
+            android:id="@+id/bgScaleLayer"
             android:layout_width="@dimen/dimension_0"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:layout_marginVertical="@dimen/dimension_20"
+            android:layout_height="@dimen/dimension_0"
+            android:background="@drawable/bg_custom_scale_layer"
+            android:elevation="@dimen/dimension_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view12" />
+
+        <View
+            android:id="@+id/view12"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/dimension_0"
             app:layout_constraintBottom_toTopOf="@+id/frame_rando_all"
-            app:layout_constraintDimensionRatio="0.5:2.78"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextViewPermission2
-                android:id="@+id/tvPercent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="@dimen/dimension_8"
-                android:fontFamily="@font/carter_one_regular"
-                android:text="0%"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_16"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/layoutProgress"
-                app:layout_constraintStart_toStartOf="@+id/layoutProgress"
-                app:outerStrokeColor="@color/app_color"
-                app:outerStrokeWidth="@dimen/dimension_3" />
-            <!-- 4. Sao - elevation cao nhất, bám đỉnh fill -->
-            <ImageView
-
-                android:id="@+id/imgStar"
-                android:layout_width="@dimen/dimension_0"
-                android:layout_height="@dimen/dimension_0"
-                android:elevation="@dimen/dimension_10"
-                android:layout_marginHorizontal="@dimen/dimension_6"
-                android:src="@drawable/ic_star"
-                android:translationY="@dimen/dimension_8"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintBottom_toBottomOf="@+id/layoutProgress"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/layoutProgress"
-                android:layout_width="@dimen/dimension_0"
-                android:layout_height="@dimen/dimension_0"
-                android:layout_marginTop="@dimen/dimension_10"
-                android:layout_marginBottom="@dimen/dimension_20"
-                android:elevation="@dimen/dimension_8"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/tvPercent"
-                app:layout_constraintDimensionRatio="0.2:2.5"
-                app:layout_constraintEnd_toEndOf="parent">
-                <View
-                    android:id="@+id/view1"
-                    app:layout_constraintTop_toTopOf="@+id/progressTrack"
-                    app:layout_constraintBottom_toBottomOf="@+id/progressTrack"
-                    app:layout_constraintStart_toStartOf="@+id/progressTrack"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="0.014:2.5"/>
-                <View
-                    android:id="@+id/view2"
-                    app:layout_constraintTop_toTopOf="@+id/progressTrack"
-                    app:layout_constraintBottom_toBottomOf="@+id/progressTrack"
-                    app:layout_constraintEnd_toEndOf="@+id/progressTrack"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="0.014:2.5"/>
-                <!-- 1. Track nền cam - elevation thấp nhất -->
-                <ImageView
-                    android:id="@+id/progressTrack"
-                    android:layout_width="@dimen/dimension_0"
-                    android:layout_height="@dimen/dimension_0"
-                    android:adjustViewBounds="true"
-                    android:elevation="@dimen/dimension_0"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/bg_progress_track"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <!-- 2. Fill tím rectangle - trượt từ dưới lên -->
-                <ImageView
-                    android:id="@+id/progressFill"
-                    android:layout_width="@dimen/dimension_0"
-                    android:layout_height="@dimen/dimension_0"
-                    android:layout_marginBottom="@dimen/dimension_12"
-                    android:elevation="@dimen/dimension_1"
-                    android:scaleType="fitXY"
-                    android:scaleY="0"
-                    android:src="@drawable/bg_progress_match"
-                    app:layout_constraintBottom_toBottomOf="@id/progressTrack"
-                    app:layout_constraintEnd_toStartOf="@+id/view2"
-                    app:layout_constraintStart_toEndOf="@+id/view1"
-                    app:layout_constraintTop_toTopOf="@id/progressTrack" />
-
-                <!-- 3. Bottom cố định ở đáy - đè lên fill -->
-                <ImageView
-                    android:id="@+id/progressTrackBottom"
-                    android:layout_width="@dimen/dimension_0"
-                    android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="1.7:1.1"
-                    android:adjustViewBounds="true"
-                    android:elevation="@dimen/dimension_2"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_progress_track_bottom"
-                    android:translationY="-2dp"
-                    app:layout_constraintBottom_toBottomOf="@id/progressTrack"
-                    app:layout_constraintEnd_toStartOf="@+id/view2"
-                    app:layout_constraintStart_toEndOf="@+id/view1"/>
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+            app:layout_constraintDimensionRatio="3.6:0.08" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frame_rando_all"
             android:layout_width="@dimen/dimension_0"
             android:layout_height="@dimen/dimension_0"
-            android:layout_marginHorizontal="@dimen/dimension_16"
-            android:layout_marginBottom="@dimen/dimension_6"
-            app:layout_constraintDimensionRatio="3.28:0.4"
-            app:layout_constraintBottom_toTopOf="@+id/rcvNav"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintBottom_toTopOf="@+id/frameLayer"
+            app:layout_constraintDimensionRatio="3.6:0.56"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <!-- Icon mở màu — click để hiện rcvColor -->
-            <ImageView
-                android:id="@+id/imgChangColor"
-                android:layout_width="@dimen/dimension_0"
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension_0"
-                android:src="@drawable/ic_color_show"
-                android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintDimensionRatio="3.6:0.08"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension_0"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="3.6:0.08" />
+
+            <View
+                android:id="@+id/view6"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="1.6:5.6"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <!-- Icon random -->
-            <ImageView
-                android:id="@+id/imgRandom"
-                android:layout_width="@dimen/dimension_40"
-                android:layout_height="@dimen/dimension_0"
-                android:layout_marginEnd="@dimen/dimension_16"
-                android:visibility="gone"
-                android:src="@drawable/ic_ramdom_cus"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <View
+                android:id="@+id/view7"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="1.6:5.6"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- Container màu ở giữa — y hệt llColor trong Activity -->
-            <ImageView
-                android:id="@+id/imgScale"
+            <View
+                android:id="@+id/view8"
                 android:layout_width="@dimen/dimension_0"
-                android:layout_height="@dimen/dimension_0"
-                android:visibility="invisible"
-                android:src="@drawable/ic_scale_cus_none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toStartOf="@+id/imgRandom"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="0.8:5.6"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/view9"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="0.8:5.6"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imgRandom"-->
+<!--                android:layout_width="@dimen/dimension_40"-->
+<!--                android:layout_height="@dimen/dimension_0"-->
+<!--                android:layout_marginEnd="@dimen/dimension_16"-->
+<!--                android:src="@drawable/ic_ramdom_cus"-->
+<!--                android:visibility="gone"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintDimensionRatio="1:1"-->
+<!--                app:layout_constraintEnd_toEndOf="parent" />-->
+
+            <!-- Container màu ở giữa — y hệt llColor trong Activity -->
+            <!--            <ImageView-->
+            <!--                android:id="@+id/imgScale"-->
+            <!--                android:layout_width="@dimen/dimension_0"-->
+            <!--                android:layout_height="@dimen/dimension_0"-->
+            <!--                android:src="@drawable/ic_scale_cus_none"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintDimensionRatio="1:1"-->
+            <!--                app:layout_constraintEnd_toStartOf="@+id/imgRandom"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:elevation="@dimen/dimension_1"
                 android:id="@+id/llColor"
                 android:layout_width="@dimen/dimension_0"
                 android:layout_height="@dimen/dimension_0"
-                android:layout_marginEnd="@dimen/dimension_14"
-                android:layout_marginStart="@dimen/dimension_8"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imgScale"
-                app:layout_constraintStart_toEndOf="@+id/imgChangColor"
-                app:layout_constraintTop_toTopOf="parent">
+                android:elevation="@dimen/dimension_1"
+                app:layout_constraintBottom_toTopOf="@+id/view5"
+                app:layout_constraintEnd_toStartOf="@+id/view7"
+                app:layout_constraintStart_toEndOf="@+id/view9"
+                app:layout_constraintTop_toBottomOf="@+id/view4">
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="@dimen/dimension_0"
                     android:layout_height="@dimen/dimension_0"
-                    app:strokeWidth="@dimen/dimension_2"
-                    app:strokeColor="@color/app_color"
-                    app:cardCornerRadius="@dimen/dimension_16_1"
-                    app:cardBackgroundColor="#F7EDE7"
+                    app:cardBackgroundColor="@color/transparent"
+                    app:cardCornerRadius="@dimen/dimension_20"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardColor"
+                    app:layout_constraintEnd_toEndOf="@+id/cardColor"
                     app:layout_constraintStart_toStartOf="@+id/cardColor"
                     app:layout_constraintTop_toTopOf="@+id/cardColor"
-                    app:layout_constraintBottom_toBottomOf="@+id/cardColor"
-                    app:layout_constraintEnd_toEndOf="@+id/cardColor">
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="@dimen/dimension_2">
 
-                    <ImageView
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/bg_10_stroke_linear_color"/>
+                        app:cardBackgroundColor="@color/transparent"
+                        app:cardCornerRadius="@dimen/dimension_20"
+                        app:strokeColor="#E5E5E5"
+                        app:strokeWidth="@dimen/dimension_4">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_10_stroke_linear_color" />
+                    </com.google.android.material.card.MaterialCardView>
+
 
                 </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardColor"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    app:cardCornerRadius="@dimen/dimension_0"
-                    app:strokeWidth="@dimen/dimension_0"
                     app:cardBackgroundColor="@color/transparent"
+                    app:cardCornerRadius="@dimen/dimension_20"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
+                    app:strokeColor="@color/transparent"
+                    app:strokeWidth="@dimen/dimension_4">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginEnd="@dimen/dimension_0"
-                        android:layout_marginVertical="@dimen/dimension_8">
+                        android:layout_marginVertical="@dimen/dimension_8"
+                        android:layout_marginEnd="@dimen/dimension_0">
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rcvColor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:layout_marginStart="@dimen/dimension_12"
+                            android:layout_marginStart="@dimen/dimension_25"
                             android:clipToPadding="false"
                             android:orientation="horizontal"
                             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -296,255 +215,60 @@
 
                     <!-- imvEndColor — đóng llColor -->
                     <ImageView
-                        android:visibility="gone"
                         android:id="@+id/end"
                         android:layout_width="@dimen/dimension_20"
                         android:layout_height="@dimen/dimension_20"
                         android:layout_gravity="end|center_vertical"
                         android:layout_marginEnd="@dimen/dimension_8"
-                        android:elevation="@dimen/dimension_3"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/img_end_color"
-                        android:scaleType="centerInside"
                         android:clickable="true"
-                        android:focusable="true" />
+                        android:elevation="@dimen/dimension_3"
+                        android:focusable="true"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/img_end_color"
+                        android:visibility="gone" />
 
                 </com.google.android.material.card.MaterialCardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayer"
-            android:background="@color/app_color"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension_0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.38">
+            app:layout_constraintBottom_toTopOf="@+id/rcvNav"
+            app:layout_constraintHeight_percent="0.265">
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/dimension_6"
-                app:cardBackgroundColor="@color/app_color2"
-                app:cardCornerRadius="@dimen/dimension_20"
-                android:id="@+id/mater2"
-                android:elevation="@dimen/dimension_2"
-                app:strokeWidth="@dimen/dimension_0"/>
-
-            <com.google.android.material.card.MaterialCardView
+            <View
+                android:id="@+id/view10"
                 android:layout_width="@dimen/dimension_0"
-                android:layout_height="@dimen/dimension_0"
-                app:layout_constraintTop_toTopOf="@+id/mater2"
-                app:layout_constraintBottom_toBottomOf="@+id/mater2"
-                app:layout_constraintStart_toStartOf="@+id/mater2"
-                app:layout_constraintEnd_toEndOf="@+id/mater2"
-                android:layout_margin="@dimen/dimension_6"
-                app:cardBackgroundColor="@color/app_color3"
-                app:cardCornerRadius="@dimen/dimension_14"
-                android:id="@+id/mater3"
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="0.2:2.12"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/view11"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="0.2:2.12"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvPart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:elevation="@dimen/dimension_1"
-                app:strokeColor="@color/app_color4"
-                app:strokeWidth="@dimen/dimension_1">
+                android:paddingTop="@dimen/dimension_4"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toStartOf="@+id/view11"
+                app:layout_constraintStart_toEndOf="@+id/view10"
+                app:spanCount="5"
+                tools:itemCount="40"
+                tools:listitem="@layout/item_layer" />
 
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvPart"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingHorizontal="@dimen/dimension_3"
-                    android:paddingTop="@dimen/dimension_3"
-                    android:elevation="@dimen/dimension_1"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:spanCount="5"
-                    tools:itemCount="40"
-                    tools:listitem="@layout/item_layer" />
-                <LinearLayout
-                    android:id="@+id/frameScale"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:elevation="@dimen/dimension_5"
-                    android:focusable="true"
-                    android:visibility="gone"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toTopOf="@+id/rcvNav"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/frameLayer">
-
-                    <FrameLayout
-                        android:id="@+id/btnResetScale"
-                        android:layout_width="@dimen/dimension_120"
-                        android:layout_height="@dimen/dimension_38"
-                        android:layout_marginTop="@dimen/dimension_12"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/btn_reset_scale"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
-                            android:id="@+id/txtReset"
-                            style="@style/single_marquee"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/carter_one_regular"
-                            android:gravity="center"
-                            android:text="@string/reset"
-                            app:outerStrokeColor="@color/app_color"
-                            app:outerStrokeWidth="@dimen/dimension_2"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/text_size_18" />
-                    </FrameLayout>
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="@dimen/dimension_19"
-                        android:layout_marginVertical="@dimen/dimension_16">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintLayout4"
-                            android:layout_width="@dimen/dimension_0"
-                            android:layout_height="@dimen/dimension_0"
-                            android:layout_marginEnd="@dimen/dimension_18"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintDimensionRatio="0.7:1.22"
-                            app:layout_constraintEnd_toStartOf="@+id/constraintLayout5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <LinearLayout
-                                android:layout_width="@dimen/dimension_0"
-                                android:layout_height="@dimen/dimension_0"
-                                android:orientation="vertical"
-                                android:weightSum="92"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintDimensionRatio="0.7:0.92"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <ImageView
-                                    android:id="@+id/ratioRight"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/dimension_0"
-                                    android:layout_weight="38"
-                                    android:src="@drawable/ratio_right" />
-
-                                <Space
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/dimension_0"
-                                    android:layout_weight="16" />
-
-                                <ImageView
-                                    android:id="@+id/ratioLeft"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/dimension_0"
-                                    android:layout_weight="38"
-                                    android:src="@drawable/ratio_left" />
-                            </LinearLayout>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintLayout5"
-                            android:layout_width="@dimen/dimension_0"
-                            android:layout_height="@dimen/dimension_0"
-                            android:layout_marginHorizontal="@dimen/dimension_95"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintDimensionRatio="1:1"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <ImageView
-                                android:id="@+id/transitionLeft"
-                                android:layout_width="@dimen/dimension_0"
-                                android:layout_height="@dimen/dimension_0"
-                                android:src="@drawable/transition_left"
-                                app:layout_constraintBottom_toTopOf="@+id/transitionBottom"
-                                app:layout_constraintDimensionRatio="1:1"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/transitionTop" />
-
-                            <ImageView
-                                android:id="@+id/transitionRight"
-                                android:layout_width="@dimen/dimension_0"
-                                android:layout_height="@dimen/dimension_0"
-                                android:src="@drawable/transition_right"
-                                app:layout_constraintBottom_toTopOf="@+id/transitionBottom"
-                                app:layout_constraintDimensionRatio="1:1"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/transitionTop" />
-
-                            <ImageView
-                                android:id="@+id/transitionTop"
-                                android:layout_width="@dimen/dimension_0"
-                                android:layout_height="@dimen/dimension_0"
-                                android:src="@drawable/transition_top"
-                                app:layout_constraintDimensionRatio="1:1"
-                                app:layout_constraintEnd_toStartOf="@+id/transitionRight"
-                                app:layout_constraintStart_toEndOf="@+id/transitionLeft"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <ImageView
-                                android:id="@+id/transitionBottom"
-                                android:layout_width="@dimen/dimension_0"
-                                android:layout_height="@dimen/dimension_0"
-                                android:src="@drawable/transition_bottom"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintDimensionRatio="1:1"
-                                app:layout_constraintEnd_toStartOf="@+id/transitionRight"
-                                app:layout_constraintStart_toEndOf="@+id/transitionLeft" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/constraintLayout3"
-                            android:layout_width="@dimen/dimension_0"
-                            android:layout_height="@dimen/dimension_0"
-                            android:layout_marginStart="@dimen/dimension_18"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintDimensionRatio="0.7:1.22"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/constraintLayout5"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <LinearLayout
-                                android:layout_width="@dimen/dimension_0"
-                                android:layout_height="@dimen/dimension_0"
-                                android:orientation="vertical"
-                                android:weightSum="92"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintDimensionRatio="0.7:0.92"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <ImageView
-                                    android:id="@+id/scalePlus"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/dimension_0"
-                                    android:layout_weight="38"
-                                    android:src="@drawable/scale_plus" />
-
-                                <Space
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/dimension_0"
-                                    android:layout_weight="16" />
-
-                                <ImageView
-                                    android:id="@+id/scaleMinus"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/dimension_0"
-                                    android:layout_weight="38"
-                                    android:src="@drawable/scale_minus" />
-                            </LinearLayout>
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -552,13 +276,14 @@
             android:id="@+id/rcvNav"
             android:layout_width="@dimen/dimension_0"
             android:layout_height="@dimen/dimension_0"
-            app:layout_constraintDimensionRatio="4:0.38"
             android:clipToPadding="false"
             android:elevation="@dimen/dimension_1"
             android:orientation="horizontal"
-
+            android:paddingStart="@dimen/dimension_8"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/frameLayer"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="3.6:0.48"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:listitem="@layout/item_bottom_custom" />
@@ -568,55 +293,22 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/materialSmall"
-        android:layout_width="@dimen/dimension_84"
+        android:layout_width="@dimen/dimension_80"
         android:layout_height="@dimen/dimension_0"
-        android:layout_marginHorizontal="@dimen/dimension_20"
-        android:layout_marginTop="@dimen/dimension_15"
+        android:layout_marginHorizontal="@dimen/dimension_4"
 
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/constraintLayout">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view13">
 
-        <com.google.android.material.card.MaterialCardView
+
+        <ImageView
+            android:id="@+id/imvImage2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:elevation="@dimen/dimension_1"
-            app:cardBackgroundColor="@color/app_color"
-            app:cardCornerRadius="@dimen/dimension_12"
-            app:strokeWidth="@dimen/dimension_0"/>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/dimension_1"
-            app:cardBackgroundColor="@color/app_color2"
-            app:cardCornerRadius="@dimen/dimension_11"
-            android:id="@+id/materMini2"
-            android:elevation="@dimen/dimension_2"
-            app:strokeWidth="@dimen/dimension_0"/>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="@dimen/dimension_0"
-            android:layout_height="@dimen/dimension_0"
-            app:layout_constraintTop_toTopOf="@+id/materMini2"
-            app:layout_constraintBottom_toBottomOf="@+id/materMini2"
-            app:layout_constraintStart_toStartOf="@+id/materMini2"
-            app:layout_constraintEnd_toEndOf="@+id/materMini2"
-            android:layout_margin="@dimen/dimension_1"
-            app:cardBackgroundColor="@color/transparent"
-            app:cardCornerRadius="@dimen/dimension_10"
-            android:id="@+id/materMini3"
-            android:elevation="@dimen/dimension_2"
-            app:strokeColor="@color/app_color4"
-            app:strokeWidth="@dimen/dimension_1">
-            <ImageView
-                android:id="@+id/imvImage2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_permission" />
-
-        </com.google.android.material.card.MaterialCardView>
+            android:background="@color/white"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_permission" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -634,187 +326,110 @@
             android:id="@+id/imgShow"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension_0"
-            android:layout_marginHorizontal="@dimen/dimension_16"
+            android:background="@drawable/bg_show_big"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintDimensionRatio="3.6:4.16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materBig1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:elevation="@dimen/dimension_1"
-                app:cardBackgroundColor="@color/app_color"
-                app:cardCornerRadius="@dimen/dimension_50"
-
-                app:strokeWidth="@dimen/dimension_0"/>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="@dimen/dimension_0"
-                android:layout_height="@dimen/dimension_0"
-                app:layout_constraintTop_toTopOf="@+id/materBig1"
-                app:layout_constraintBottom_toBottomOf="@+id/materBig1"
-                app:layout_constraintStart_toStartOf="@+id/materBig1"
-                app:layout_constraintEnd_toEndOf="@+id/materBig1"
-                android:layout_margin="@dimen/dimension_6"
-                app:cardBackgroundColor="@color/app_color2"
-                app:cardCornerRadius="@dimen/dimension_44"
-                android:id="@+id/materBig2"
-                android:elevation="@dimen/dimension_2"
-                app:strokeWidth="@dimen/dimension_0"/>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="@dimen/dimension_0"
-                android:layout_height="@dimen/dimension_0"
-                app:layout_constraintTop_toTopOf="@+id/materBig2"
-                app:layout_constraintBottom_toBottomOf="@+id/materBig2"
-                app:layout_constraintStart_toStartOf="@+id/materBig2"
-                app:layout_constraintEnd_toEndOf="@+id/materBig2"
-                android:layout_margin="@dimen/dimension_6"
-                app:cardBackgroundColor="@color/transparent"
-                app:cardCornerRadius="@dimen/dimension_38"
-                android:id="@+id/materBig3"
-                android:elevation="@dimen/dimension_2"
-                app:strokeColor="@color/app_color4"
-                app:strokeWidth="@dimen/dimension_1">
-                <ImageView
-                    android:id="@+id/imvImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img_permission" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/close"
-            android:layout_width="@dimen/dimension_40"
-            android:layout_height="@dimen/dimension_40"
-            android:layout_marginTop="-5dp"
-            android:src="@drawable/ic_close_guide"
-            app:layout_constraintEnd_toEndOf="@+id/imgShow"
-            app:layout_constraintTop_toTopOf="@+id/imgShow" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutWin"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#99000000"
-        android:focusable="true"
-        android:clipToPadding="false"
-        android:clipToOutline="false"
-        android:clickable="true"
-        android:visibility="gone"
-        android:focusableInTouchMode="true"
-        android:clipChildren="false">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dimension_16"
-            android:background="@drawable/img_bg_mycreation"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextViewPermission2
-                android:id="@+id/tvTitleWin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/dimension_20"
-                android:layout_marginTop="@dimen/dimension_28"
-                android:fontFamily="@font/carter_one_regular"
-                android:gravity="center"
-                android:text="@string/congratulation"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_size_24"
-                app:layout_constraintTop_toTopOf="parent"
-                app:outerStrokeColor="@color/app_color"
-                app:outerStrokeWidth="@dimen/dimension_5" />
 
             <ImageView
-                android:id="@+id/imgAvatar_Win"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension_0"
-                android:layout_marginHorizontal="@dimen/dimension_100"
-                android:src="@drawable/img_win_avatar"
-                app:layout_constraintDimensionRatio="1.19:1.34"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitleWin"/>
-            <FrameLayout
-                android:id="@+id/txtcontent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/imgAvatar_Win">
-                <TextView
-                    android:id="@+id/txtcontentWin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/app_color"
-                    android:textSize="@dimen/text_size_18"
-                    android:maxLines="2"
-                    android:fontFamily="@font/carter_one_regular"
-                    android:gravity="center"
-                    android:text="@string/congratulations_on_completing_the_challenge"
-                    />
-                <TextView
-                    android:id="@+id/txtcontentLost"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/app_color"
-                    style="@style/single_marquee"
-                    android:singleLine="true"
-                    android:visibility="gone"
-                    android:textSize="@dimen/text_size_18"
-                    android:fontFamily="@font/carter_one_regular"
-                    android:gravity="center"
-                    android:text="@string/keep_trying_harder"
-                    />
-            </FrameLayout>
+                android:layout_height="match_parent"
+                android:elevation="@dimen/dimension_2"
+                android:src="@drawable/pin" />
 
-            <FrameLayout
-                android:id="@+id/btnNextWin"
+            <View
+                android:id="@+id/view"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="0.48:4.16"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="0.48:4.16"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <View
+                android:id="@+id/view2"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension_0"
-                app:layout_constraintTop_toBottomOf="@+id/txtcontent"
-                android:layout_marginHorizontal="@dimen/dimension_100"
-                android:background="@drawable/btn_win"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="3.6:0.5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view14"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="0.16:4.16"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <View
+                android:id="@+id/view15"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="3.6:0.04"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="@dimen/dimension_28"
-                android:layout_marginTop="@dimen/dimension_10"
-                app:layout_constraintDimensionRatio="1.56:0.4">
-                <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
-                    android:id="@+id/txtNextWin"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/carter_one_regular"
-                    android:gravity="center"
-                    android:text="@string/next"
-                    android:layout_marginHorizontal="@dimen/dimension_2"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_18"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:outerStrokeColor="@color/app_color"
-                    app:outerStrokeWidth="@dimen/dimension_5" />
-            </FrameLayout>
+                app:layout_constraintDimensionRatio="3.6:1.02" />
+
+            <ImageView
+                android:id="@+id/imvImage"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="@dimen/dimension_0"
+                android:background="@color/white"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_permission"
+                app:layout_constraintBottom_toTopOf="@+id/view3"
+                app:layout_constraintEnd_toStartOf="@+id/view1"
+                app:layout_constraintStart_toEndOf="@+id/view"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+            <TextView
+                android:id="@+id/percent"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/view"
+                android:layout_marginTop="@dimen/dimension_12"
+                app:layout_constraintEnd_toStartOf="@+id/view1"
+                android:textColor="@color/app_color"
+                android:gravity="center"
+                android:text="0%"
+                android:fontFamily="@font/londrina_solid_regular"
+                android:textSize="@dimen/text_size_40"
+                app:layout_constraintTop_toBottomOf="@+id/imvImage"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/close"
+                android:layout_width="@dimen/dimension_40"
+                android:layout_height="@dimen/dimension_40"
+
+                android:src="@drawable/ic_close_guide"
+                app:layout_constraintEnd_toStartOf="@+id/view14"
+                app:layout_constraintTop_toBottomOf="@+id/view15" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
     <FrameLayout
         android:id="@+id/countDown"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#99000000"
-        android:focusable="true"
         android:clickable="true"
+        android:focusable="true"
         android:focusableInTouchMode="true"
         android:visibility="gone">
 

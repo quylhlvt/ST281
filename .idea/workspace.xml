@@ -4,15 +4,15 @@
     <shared>
       <config>
         <device id="Nexus 7 2013" />
-        <device id="pixel_10_pro_fold" />
-        <device id="pixel_9_pro_xl" />
+        <device id="pixel_3_xl" />
+        <device id="pixel_7a" />
         <device id="pixel_6_pro" />
-        <device id="_device_class_phone" />
-        <device id="pixel_8" />
         <device id="pixel" />
-        <device id="Nexus 9" />
+        <device id="pixel_6" />
         <device id="pixel_8_pro" />
-        <device id="pixel_9" />
+        <device id="Nexus 7" />
+        <device id="pixel_9_pro_xl" />
+        <device id="pixel_6a" />
       </config>
     </shared>
     <layouts>
@@ -61,6 +61,16 @@
           <theme>@style/Base.Theme.BaseFragment</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_rate.xml">
+        <config>
+          <theme>@style/Base.Theme.BaseFragment</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_speech.xml">
+        <config>
+          <theme>@style/Base.Theme.BaseFragment</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialogbase.xml">
         <config>
           <theme>@style/Base.Theme.BaseFragment</theme>
@@ -71,7 +81,17 @@
           <theme>@style/Base.Theme.BaseFragment</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_cosplay.xml">
+        <config>
+          <theme>@style/Base.Theme.BaseFragment</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_customize.xml">
+        <config>
+          <theme>@style/Base.Theme.BaseFragment</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
         <config>
           <theme>@style/Base.Theme.BaseFragment</theme>
         </config>
@@ -91,7 +111,23 @@
           <theme>@style/Base.Theme.BaseFragment</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_show.xml">
+        <config>
+          <theme>@style/Base.Theme.BaseFragment</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_splash.xml">
+        <config>
+          <theme>@style/Base.Theme.BaseFragment</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_success.xml">
+        <config>
+          <state>Landscape</state>
+          <theme>@style/Base.Theme.BaseFragment</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_success_cosplay.xml">
         <config>
           <theme>@style/Base.Theme.BaseFragment</theme>
         </config>
@@ -112,6 +148,16 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_color.xml">
+        <config>
+          <theme>@style/Base.Theme.BaseFragment</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_font.xml">
+        <config>
+          <theme>@style/Base.Theme.BaseFragment</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_intro.xml">
         <config>
           <theme>@style/Base.Theme.BaseFragment</theme>
         </config>
@@ -161,6 +207,11 @@
           <theme>@style/Base.Theme.BaseFragment</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/layout_speech_tab.xml">
+        <config>
+          <theme>@style/Base.Theme.BaseFragment</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/layout_text_panel.xml">
         <config>
           <theme>@style/Base.Theme.BaseFragment</theme>
@@ -173,8 +224,276 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f59ede7e-b077-4b12-8848-3358c7758a6f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/listenerdraw/OnValueListener.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/dialog/DialogSpeech.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/Config.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_speech_tab.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/basefragment/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/basefragment/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/ic_launcher-playstore.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/ic_launcher-playstore.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/MyApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/MyApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ViewModelActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ViewModelActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/base/BackPressHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/base/BackPressHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/base/BaseAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/base/BaseAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/base/BaseDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/base/BaseDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/base/BaseFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/base/BaseFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/CropView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/CropView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/Draw.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/Draw.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/DrawDraw.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/DrawDraw.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/DrawKey.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/key/DrawKey.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/DrawView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/DrawView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/DrawableDraw.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/DrawableDraw.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/TextDraw.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/TextDraw.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/KeyboardListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/KeyboardListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/OnFrameTouchListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/OnFrameTouchListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/listenerdraw/BitmapDrawIcon.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/listenerdraw/BitmapDrawIcon.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/listenerdraw/DeleteEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/listenerdraw/DeleteEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/listenerdraw/DrawEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/listenerdraw/DrawEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/listenerdraw/EditEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/listenerdraw/EditEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/listenerdraw/FlipEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/listenerdraw/FlipEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/listenerdraw/OnDrawListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/listenerdraw/OnDrawListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/listenerdraw/OnValueListener.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/listenerdraw/VideoEncoder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/listenerdraw/VideoEncoder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/custom/listener/listenerdraw/ZoomEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/listener/listenerdraw/ZoomEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/dialog/ChooseColorDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/dialog/ChooseColorDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/dialog/CreateNameDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/dialog/CreateNameDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/dialog/DialogSpeech.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/dialog/RateDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/dialog/RateDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/ActivityExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/ActivityExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/AdsExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/AdsExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/CurvedTextView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/CurvedTextView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/CustomModelExtensions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/CustomModelExtensions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/DrawEx.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/DrawEx.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/GlideExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/GlideExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/InternetExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/InternetExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/NavigationExt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/NavigationExt.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/OuterStrokeShadownTextView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/OuterStrokeShadownTextView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/OuterStrokeShadownTextViewCosplay.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/OuterStrokeShadownTextViewCosplay.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/OuterStrokeShadownTextViewPermission.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/OuterStrokeShadownTextViewPermission.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/OuterStrokeShadownTextViewPermission2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/OuterStrokeShadownTextViewPermission2.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/OuterStrokeTextView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/OuterStrokeTextView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/OuterStrokeTextView2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/OuterStrokeTextView2.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/Permission.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/Permission.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/SelectionExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/SelectionExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/ShadowTextView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/ShadowTextView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/ShadowTextView1.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/ShadowTextView1.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/StrokeAppCompatTextView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/StrokeAppCompatTextView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/SystemEx.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/SystemEx.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/extention/ViewEx.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/extention/ViewEx.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/BitmapHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/BitmapHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/DownloadHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/DownloadHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/JsonFileHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/JsonFileHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/LanguageHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/LanguageHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/NetworkMonitor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/NetworkMonitor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/PermissionHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/PermissionHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/PermissionRequestHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/PermissionRequestHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/RateHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/RateHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/SharePreferenceHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/SharePreferenceHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/StringHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/StringHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/core/helper/TypefaceSpanHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/helper/TypefaceSpanHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/datalocal/api/ApiHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/datalocal/api/ApiHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/datalocal/api/AvatarApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/datalocal/api/AvatarApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/datalocal/api/CatalogueApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/datalocal/api/CatalogueApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/datalocal/di/DataLocalModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/datalocal/di/DataLocalModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/datalocal/di/DataRemoveModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/datalocal/di/DataRemoveModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/datalocal/manager/AppDataManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/datalocal/manager/AppDataManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/datalocal/manager/CharacterImageManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/datalocal/manager/CharacterImageManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/addcharacter/BackgroundCategoryModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/addcharacter/BackgroundCategoryModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/addcharacter/SelectedAddModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/addcharacter/SelectedAddModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/addcharacter/SpeechCategoryModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/addcharacter/SpeechCategoryModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/addcharacter/StickerCategoryModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/addcharacter/StickerCategoryModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/api/PartAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/api/PartAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/color/SelectedModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/color/SelectedModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/custom/BodyPartModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/custom/BodyPartModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/custom/ColorModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/custom/ColorModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/custom/CustomModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/custom/CustomModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/custom/CustomizedCharacterDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/custom/CustomizedCharacterDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/custom/DataModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/custom/DataModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/custom/ModelNew.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/custom/ModelNew.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/custom/QuickMixItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/custom/QuickMixItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/custom/SelectedModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/custom/SelectedModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/custom/SelectionPart.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/custom/SelectionPart.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/intro/IntroModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/intro/IntroModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/language/LanguageModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/language/LanguageModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/mypony/MyAlbumModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/mypony/MyAlbumModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/model/quick/QuickRandomProgress.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/model/quick/QuickRandomProgress.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/repository/ApiRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/repository/ApiRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/repository/CharacterListRespon.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/repository/CharacterListRespon.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/data/usecase/GetCatalogueUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/data/usecase/GetCatalogueUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/language/LanguageAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/language/LanguageAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/language/LanguageFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/language/LanguageFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/language/LanguageViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/language/LanguageViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/add_character/AddCharacterFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/add_character/AddCharacterFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/add_character/AddCharacterViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/add_character/AddCharacterViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/add_character/adapter/BackgroundCategoryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/add_character/adapter/BackgroundCategoryAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/add_character/adapter/BackgroundColorAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/add_character/adapter/BackgroundColorAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/add_character/adapter/BackgroundImageAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/add_character/adapter/BackgroundImageAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/add_character/adapter/SpeechAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/add_character/adapter/SpeechAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/add_character/adapter/StickerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/add_character/adapter/StickerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/add_character/adapter/StickerCategoryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/add_character/adapter/StickerCategoryAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/add_character/adapter/TextColorAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/add_character/adapter/TextColorAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/add_character/adapter/TextFontAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/add_character/adapter/TextFontAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/cosplay/CosplayFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/cosplay/CosplayFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/cosplay/CosplayViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/cosplay/CosplayViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/createPony/ChoosePonyAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/createPony/ChoosePonyAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/createPony/ChoosePonyFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/createPony/ChoosePonyFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/createPony/ChoosePonyViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/createPony/ChoosePonyViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/customize/CustomizeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/customize/CustomizeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/customize/CustomizeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/customize/CustomizeViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/customize/LayerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/customize/LayerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/home/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/home/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/home/HomeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/home/HomeViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/myPony/MyPonyFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/myPony/MyPonyFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/myPony/MyPonyViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/myPony/MyPonyViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/myPony/adapter/MyAvatarAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/myPony/adapter/MyAvatarAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/myPony/adapter/MyDesignAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/myPony/adapter/MyDesignAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/random/RandomFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/random/RandomFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/random/RandomViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/random/RandomViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/setting/SettingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/setting/SettingFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/setting/SettingViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/setting/SettingViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/show/ShowFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/show/ShowFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/show/ShowState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/show/ShowState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/show/ShowViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/show/ShowViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/success/SuccessFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/success/SuccessFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/success/SuccessViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/success/SuccessViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/successcosplay/SuccessCosplayFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/successcosplay/SuccessCosplayFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/successcosplay/SuccessCosplayViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/successcosplay/SuccessCosplayViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/view/ViewFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/view/ViewFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/view/ViewViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/main/view/ViewViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/onboarding/intro/IntroAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/onboarding/intro/IntroAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/onboarding/intro/IntroContact.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/onboarding/intro/IntroContact.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/onboarding/intro/IntroFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/onboarding/intro/IntroFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/onboarding/intro/IntroViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/onboarding/intro/IntroViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/onboarding/permission/PermissionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/onboarding/permission/PermissionFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/onboarding/permission/PermissionViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/onboarding/permission/PermissionViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/onboarding/splash/SplashFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/onboarding/splash/SplashFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/onboarding/splash/SplashViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/ui/onboarding/splash/SplashViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/AppGlideModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/AppGlideModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/BlockableFrameLayout.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/BlockableFrameLayout.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/Config.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/Constans.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/Constans.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/DataLocal.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/DataLocal.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/LanguageManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/LanguageManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/Resource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/Resource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/key/DrawKey.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/core/custom/DrawKey.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/key/IntentKey.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/key/IntentKey.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/key/RequestKey.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/key/RequestKey.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/key/ValueKey.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/key/ValueKey.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/SocialShareManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/SocialShareManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/telegram/TelegramSharing.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/telegram/TelegramSharing.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/whatsapp/IdGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/whatsapp/IdGenerator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/whatsapp/ImageManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/whatsapp/ImageManipulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/whatsapp/LocalStorageUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/whatsapp/LocalStorageUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/whatsapp/Sticker.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/whatsapp/Sticker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/whatsapp/StickerBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/whatsapp/StickerBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/whatsapp/StickerContentProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/whatsapp/StickerContentProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/whatsapp/StickerPack.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/whatsapp/StickerPack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/whatsapp/WhatsappSharingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/whatsapp/WhatsappSharingActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/share/whatsapp/WhitelistCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/share/whatsapp/WhitelistCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/state/HandleState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/state/HandleState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/state/RateState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/state/RateState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/utils/state/SaveState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/fff/a/utils/state/SaveState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-sw600dp/bg_btn_mycreation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-sw600dp/bg_btn_telegram.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-sw600dp/bg_btn_whatsapp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-sw600dp/ic_telegram.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-sw600dp/ic_whatapp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bg_btn_random.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bg_rated.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/btn_try_again.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/gif.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_close_guide.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_color_show.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_delete_all.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_delete_all.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_dice.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_done_1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_edit1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_home.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_none.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_ramdom_cus.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_share.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_share_mycreation.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_share_mycreation.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_telegram.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_whatapp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/img_bg_rcy_lang.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/logoapp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/next_app.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/save_background.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_color_picker.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_color_picker.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_rate.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_rate.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_speech.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_speech.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialogbase.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialogbase.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_character.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_character.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_choose_pony.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_choose_pony.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_cosplay.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_cosplay.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_customize.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_customize.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_language.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_language.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_pony.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_pony.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_permission.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_permission.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_show.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_show.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_success.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_success.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_success_cosplay.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_success_cosplay.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_font.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_font.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_intro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_intro.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_speech.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_speech.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_actionbar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_actionbar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_actionbar2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_actionbar2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_actionbar3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_actionbar3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_background_tab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_background_tab.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_text_panel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_text_panel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/nav_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/nav_onboarding.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_onboarding.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/nav_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-es/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-es/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-fr/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-fr/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-hi/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-hi/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-in/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-in/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-pt/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-pt/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-sw600dp/dimens_dp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-sw600dp/dimens_dp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/basefragment/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/basefragment/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,32 +503,45 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=RF8M91ART6Z)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[PhysicalDevice::serial=R9TWA01S47J]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="resourceFile" />
+      </list>
+    </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="$USER_HOME$/keyStore/key0.jks" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="main2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "quylhlvt"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;quylhlvt&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:quylhlvt/ST281.git",
-    "accountId": "458ec1b2-fe4e-4e6a-9099-4912ae38510f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:quylhlvt/ST281.git&quot;,
+    &quot;accountId&quot;: &quot;458ec1b2-fe4e-4e6a-9099-4912ae38510f&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 6
@@ -222,31 +554,44 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;ApkExportedModule&quot;: &quot;ST287_Avatar_Maker_High_School_OC.app&quot;,
+    &quot;ExportApk.ApkPathForST281_Food_Maker_DIY_Food_&amp;_Drink.app&quot;: &quot;/home/lequy/LVT/ST281/app&quot;,
+    &quot;ExportApk.ApkPathForST287_Avatar_Maker_High_School_OC.app&quot;: &quot;/home/lequy/LVT/ST281/app&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main2&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main3&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/lequy/LVT/ST281/app/src/main/res/drawable&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/lequy/keyStore/key0.jks&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;memory.settings&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ExportApk.BuildVariants&quot;: [
+      &quot;debug&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/food/diydrink/foodmaker/ui/main/customize" />
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.fff.a" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="ST281_Food_Maker_DIY_Food_&amp;_Drink.app" />
+      <module name="ST287_Avatar_Maker_High_School_OC.app" />
       <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -266,8 +611,6 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
       <Auto>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -276,7 +619,6 @@
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
         <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Auto>
       <Hybrid>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -285,11 +627,9 @@
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
         <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Hybrid>
       <Java>
         <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Java>
       <Native>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -298,7 +638,6 @@
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
         <option name="SHOW_OPTIMIZED_WARNING" value="true" />
         <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
       </Native>
       <Profilers>
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
@@ -331,14 +670,24 @@
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
+        <entry key="com.fff.a">
+          <value>
+            <CheckInfo lastCheckTimestamp="1786529516525" />
+          </value>
+        </entry>
+        <entry key="com.fff.a.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1786529516525" />
+          </value>
+        </entry>
         <entry key="com.food.diydrink.foodmaker">
           <value>
-            <CheckInfo lastCheckTimestamp="1786418251765" />
+            <CheckInfo lastCheckTimestamp="1786504656376" />
           </value>
         </entry>
         <entry key="com.food.diydrink.foodmaker.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1786418251764" />
+            <CheckInfo lastCheckTimestamp="1786504656375" />
           </value>
         </entry>
       </map>

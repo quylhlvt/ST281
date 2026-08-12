@@ -28,7 +28,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnBackgroundImage"
             android:layout_width="@dimen/dimension_0"
-            app:cardCornerRadius="@dimen/dimension_8"
+            app:cardCornerRadius="@dimen/dimension_8_1"
             app:cardBackgroundColor="@color/app_color2"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -58,7 +58,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnBackgroundColor"
             android:layout_width="@dimen/dimension_0"
-            app:cardCornerRadius="@dimen/dimension_8"
+            app:cardCornerRadius="@dimen/dimension_8_1"
             app:strokeWidth="@dimen/dimension_0"
             app:cardBackgroundColor="@color/gray1"
             android:layout_height="match_parent"
@@ -91,8 +91,6 @@
         android:layout_marginHorizontal="@dimen/dimension_4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3">
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvBackgroundImage"
             android:layout_width="match_parent"
@@ -103,8 +101,6 @@
             app:spanCount="5"
             tools:itemCount="20"
             tools:listitem="@layout/item_background_image" />
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvBackgroundColor"
             android:layout_width="match_parent"
@@ -117,5 +113,4 @@
             tools:itemCount="20"
             tools:listitem="@layout/item_background_color" />
     </FrameLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

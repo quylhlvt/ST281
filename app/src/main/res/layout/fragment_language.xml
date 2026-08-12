@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img_bg_lang"
-    tools:context=".ui.language.LanguageFragment">
+    tools:context="com.fff.a.ui.language.LanguageFragment">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension_0"

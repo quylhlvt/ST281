@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.food.diydrink.foodmaker.ui.main.home.HomeFragment"
+        android:name="com.fff.a.ui.main.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
         <action
@@ -59,7 +59,7 @@
 
     <fragment
         android:id="@+id/createPony"
-        android:name="com.food.diydrink.foodmaker.ui.main.createPony.ChoosePonyFragment"
+        android:name="com.fff.a.ui.main.createPony.ChoosePonyFragment"
         android:label="Create Pony"
         tools:layout="@layout/fragment_choose_pony">
         <action
@@ -75,7 +75,7 @@
     </fragment>
 <!--    <fragment-->
 <!--        android:id="@+id/quick"-->
-<!--        android:name="com.food.diydrink.foodmaker.ui.main.quick.QuickFragment"-->
+<!--        android:name="com.fff.a.ui.main.quick.QuickFragment"-->
 <!--        android:label="Quick"-->
 <!--        tools:layout="@layout/fragment_quick">-->
 <!--        <action-->
@@ -91,7 +91,7 @@
 <!--    </fragment>-->
     <fragment
         android:id="@+id/myPony"
-        android:name="com.food.diydrink.foodmaker.ui.main.myPony.MyPonyFragment"
+        android:name="com.fff.a.ui.main.myPony.MyPonyFragment"
         android:label="My Pony"
         tools:layout="@layout/fragment_my_pony">
         <action
@@ -126,7 +126,7 @@
     </fragment>
     <fragment
         android:id="@+id/custom"
-        android:name="com.food.diydrink.foodmaker.ui.main.customize.CustomizeFragment"
+        android:name="com.fff.a.ui.main.customize.CustomizeFragment"
         android:label="Custom"
         tools:layout="@layout/fragment_customize">
 
@@ -149,7 +149,7 @@
     </fragment>
     <fragment
         android:id="@+id/addCharacterFragment"
-        android:name="com.food.diydrink.foodmaker.ui.main.add_character.AddCharacterFragment"
+        android:name="com.fff.a.ui.main.add_character.AddCharacterFragment"
         android:label="fragment_add_character"
         tools:layout="@layout/fragment_add_character">
 
@@ -168,7 +168,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewFragment"
-        android:name="com.food.diydrink.foodmaker.ui.main.view.ViewFragment"
+        android:name="com.fff.a.ui.main.view.ViewFragment"
         android:label="fragment_view"
         tools:layout="@layout/fragment_view">
 
@@ -208,7 +208,7 @@
     </fragment>
     <fragment
         android:id="@+id/cosplay"
-        android:name="com.food.diydrink.foodmaker.ui.main.cosplay.CosplayFragment"
+        android:name="com.fff.a.ui.main.cosplay.CosplayFragment"
         android:label="fragment_cosplay"
         tools:layout="@layout/fragment_cosplay">
 
@@ -222,7 +222,7 @@
     </fragment>
     <fragment
         android:id="@+id/show"
-        android:name="com.food.diydrink.foodmaker.ui.main.show.ShowFragment"
+        android:name="com.fff.a.ui.main.show.ShowFragment"
         android:label="fragment_show"
         tools:layout="@layout/fragment_show">
         <action
@@ -236,7 +236,7 @@
     </fragment>
     <fragment
         android:id="@+id/successCosplay"
-        android:name="com.food.diydrink.foodmaker.ui.main.successcosplay.SuccessCosplayFragment"
+        android:name="com.fff.a.ui.main.successcosplay.SuccessCosplayFragment"
         android:label="fragment_success_cosplay"
         tools:layout="@layout/fragment_success_cosplay">
         <action
@@ -261,7 +261,7 @@
     </fragment>
     <fragment
         android:id="@+id/random"
-        android:name="com.food.diydrink.foodmaker.ui.main.random.RandomFragment"
+        android:name="com.fff.a.ui.main.random.RandomFragment"
         android:label="fragment_random"
         tools:layout="@layout/fragment_random">
         <action
@@ -274,12 +274,12 @@
     </fragment>
 <!--    <fragment-->
 <!--        android:id="@+id/webViewFragment"-->
-<!--        android:name="com.food.diydrink.foodmaker.ui.main.webview.WebViewFragment"-->
+<!--        android:name="com.fff.a.ui.main.webview.WebViewFragment"-->
 <!--        android:label="fragment_web_view"-->
 <!--        tools:layout="@layout/fragment_web_view" />-->
     <fragment
         android:id="@+id/successFragment"
-        android:name="com.food.diydrink.foodmaker.ui.main.success.SuccessFragment"
+        android:name="com.fff.a.ui.main.success.SuccessFragment"
         android:label="fragment_success"
         tools:layout="@layout/fragment_success">
 

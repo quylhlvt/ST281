@@ -7,7 +7,7 @@
     >
     <fragment
         android:id="@+id/setting"
-        android:name="com.food.diydrink.foodmaker.ui.main.setting.SettingFragment"
+        android:name="com.fff.a.ui.main.setting.SettingFragment"
         tools:layout="@layout/fragment_setting"
         android:label="My Setting" >
         <action
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/language"
-        android:name="com.food.diydrink.foodmaker.ui.language.LanguageFragment"
+        android:name="com.fff.a.ui.language.LanguageFragment"
         android:label="Language"
         tools:layout="@layout/fragment_language" >
         <action

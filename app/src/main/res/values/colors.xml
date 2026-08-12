@@ -48,8 +48,8 @@
     <color name="stroke_forcus_1">#7EFEFD</color>
     <color name="stroke_forcus_2">#F5A8F6</color>
     <color name="color_content_dialog">#991F2F4F</color>
-    <color name="color_draw">#664A42</color>
-    <color name="color_draw_unselect">#4C664A42</color>
+    <color name="color_draw">#FF8C66</color>
+    <color name="color_draw_unselect">#7BD18166</color>
 
     <color name="color_1">#E2D2D2</color>
     <color name="color_2">#DCD5FF</color>

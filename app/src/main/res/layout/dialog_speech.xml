@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dimension_48"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/sizeSpeech"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -26,6 +26,7 @@
             <!--            imvBubble-->
             <ImageView
                 android:id="@+id/imvBubble"
+                android:layout_marginHorizontal="@dimen/dimension_18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true" />
@@ -63,6 +64,110 @@
                 android:translationY="-10dp"
                 android:visibility="invisible" />
         </FrameLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/linear2"
+            app:layout_constraintDimensionRatio="3.6:0.16"/>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="3.6:0.16"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/sizeSpeech"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toTopOf="@+id/linear"
+            app:layout_constraintDimensionRatio="3.6:0.32"
+            android:layout_marginBottom="@dimen/dimension_16"
+            android:layout_height="@dimen/dimension_0">
+            <View
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/view4"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="2.4:3.2"/>
+            <View
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/view5"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="match_parent"
+                app:layout_constraintDimensionRatio="2.4:3.2"/>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/frame"
+                android:layout_width="@dimen/dimension_0"
+                android:layout_height="@dimen/dimension_0"
+                app:strokeWidth="@dimen/dimension_0"
+
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@+id/view4"
+                app:layout_constraintEnd_toStartOf="@+id/view5"
+                app:cardCornerRadius="@dimen/dimension_30"
+                app:cardBackgroundColor="@color/app_color2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="3.12:0.32">
+
+                <com.fff.a.ui.main.add_character.HorizontalSizeSlider
+                    android:id="@+id/sizeSlider"
+                    android:layout_marginVertical="@dimen/dimension_8"
+                    android:layout_marginHorizontal="@dimen/dimension_28"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/size_slider"
+                    android:paddingHorizontal="@dimen/dimension_0" />
+
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            android:layout_marginHorizontal="@dimen/dimension_4"
+            android:layout_weight="2"
+            android:elevation="@dimen/dimension_2"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintDimensionRatio="3.6:0.4">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvFontSpeech"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_font" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linear2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension_0"
+            android:layout_marginHorizontal="@dimen/dimension_4"
+            android:layout_weight="2"
+            android:elevation="@dimen/dimension_2"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/view3"
+            app:layout_constraintDimensionRatio="3.6:0.4">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvColorSpeech"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_text_color" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

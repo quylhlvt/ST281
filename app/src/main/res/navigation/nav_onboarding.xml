@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splash"
-        android:name="com.food.diydrink.foodmaker.ui.onboarding.splash.SplashFragment"
+        android:name="com.fff.a.ui.onboarding.splash.SplashFragment"
         android:label="Splash"
         tools:layout="@layout/fragment_splash">
         <action
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/language"
-        android:name="com.food.diydrink.foodmaker.ui.language.LanguageFragment"
+        android:name="com.fff.a.ui.language.LanguageFragment"
         android:label="Language"
         tools:layout="@layout/fragment_language">
         <action
@@ -36,7 +36,7 @@
 
     <fragment
         android:id="@+id/intro"
-        android:name="com.food.diydrink.foodmaker.ui.onboarding.intro.IntroFragment"
+        android:name="com.fff.a.ui.onboarding.intro.IntroFragment"
         android:label="Intro"
         tools:layout="@layout/fragment_intro">
         <action
@@ -57,7 +57,7 @@
 
     <fragment
         android:id="@+id/permission"
-        android:name="com.food.diydrink.foodmaker.ui.onboarding.permission.PermissionFragment"
+        android:name="com.fff.a.ui.onboarding.permission.PermissionFragment"
         android:label="Permission"
         tools:layout="@layout/fragment_permission">
         <action

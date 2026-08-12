@@ -89,7 +89,7 @@
             android:scaleType="centerCrop" />
 
         <!--        drawView-->
-        <com.food.diydrink.foodmaker.core.custom.DrawView
+        <com.fff.a.core.custom.DrawView
             android:id="@+id/drawView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -152,8 +152,9 @@
                 <RelativeLayout
                     android:id="@+id/relative"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension_0"
+                    android:layout_height="0dp"
                     android:gravity="center"
+                    android:visibility="gone"
                     app:layout_constraintDimensionRatio="3.36:0.33"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -176,35 +177,22 @@
                     android:id="@+id/rcvSticker"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension_0"
-                    android:layout_marginTop="@dimen/dimension_8"
                     android:paddingHorizontal="@dimen/dimension_3"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:layout_constraintTop_toBottomOf="@+id/relative"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:spanCount="5"
                     tools:listitem="@layout/item_sticker" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!--        lnlSpeech-->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/lnlSpeech"
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="@dimen/dimension_24"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:visibility="gone">
+        <include
+            android:id="@+id/lnlSpeech"
+            layout="@layout/layout_speech_tab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/dimension_20"
+            android:visibility="gone" />
 
-
-
-                <!--            rcvSticker-->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvSpeech"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:spanCount="5"
-                    tools:listitem="@layout/item_speech" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <include
@@ -254,19 +242,20 @@
                 android:src="@drawable/ic_sticker" />
         </FrameLayout>
         <!--        btnSpeech-->
-        <FrameLayout
-            android:id="@+id/btnSpeech"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="@dimen/dimension_16"
-            android:layout_weight="1">
+<!--        <FrameLayout-->
+<!--            -->
+<!--            android:id="@+id/btnSpeech"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginHorizontal="@dimen/dimension_16"-->
+<!--            android:layout_weight="1">-->
 
-            <ImageView
-                android:id="@+id/imgSpeech"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_speech" />
-        </FrameLayout>
+<!--            <ImageView-->
+<!--                android:id="@+id/imgSpeech"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:src="@drawable/ic_speech" />-->
+<!--        </FrameLayout>-->
         <!--        btnText-->
         <FrameLayout
             android:id="@+id/btnText"

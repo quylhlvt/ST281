@@ -10,20 +10,20 @@ plugins {
 }
 
 android {
-    namespace 'com.food.diydrink.foodmaker'
+    namespace 'com.fff.a'
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId "com.food.diydrink.foodmaker"
+        applicationId "com.fff.a"
         minSdk 24
         targetSdk 36
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner= "androidx.test.runner.AndroidJUnitRunner"
         def formattedDate = new Date().format('MM.dd.yyyy')
-        archivesBaseName = "ST281_Food_Maker_DIY_Food_&_Drink_v${versionName}_${formattedDate}"
+        archivesBaseName = "ST287_Avatar_Maker_High_School_OC_v${versionName}_${formattedDate}"
     }
     buildTypes {
         release {

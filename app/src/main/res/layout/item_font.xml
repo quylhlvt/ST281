@@ -13,7 +13,7 @@
         android:layout_width="@dimen/dimension_0"
         android:layout_height="@dimen/dimension_0"
         app:strokeWidth="@dimen/dimension_2"
-        app:cardBackgroundColor="@color/transparent"
+        app:cardBackgroundColor="@color/white"
         app:strokeColor="@color/white"
         app:cardCornerRadius="@dimen/dimension_100"
         app:layout_constraintBottom_toBottomOf="parent"

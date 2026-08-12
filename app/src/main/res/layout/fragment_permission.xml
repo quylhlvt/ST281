@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.onboarding.permission.PermissionFragment">
+    tools:context="com.fff.a.ui.onboarding.permission.PermissionFragment">
     <FrameLayout
         android:id="@+id/layoutActionBar"
         android:layout_width="match_parent"
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view1" />
 
-    <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextViewPermission
+    <com.fff.a.core.extention.OuterStrokeShadownTextViewPermission
         android:id="@+id/txtPermission"
         android:layout_width="@dimen/dimension_0"
         android:visibility="gone"
@@ -167,19 +167,25 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension_0"
+        app:layout_constraintDimensionRatio="3.6:0.16"
+        android:id="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineBottom1"
+        />
     <TextView
         android:id="@+id/tvContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimension_12"
-        android:layout_marginTop="@dimen/dimension_16"
         android:gravity="center"
-        android:fontFamily="@font/atma_bold"
+        android:fontFamily="@font/londrina_solid_regular"
         android:text="@string/continue_per"
         android:textSize="@dimen/text_size_16"
         android:textColor="@color/app_color2"
 
-        app:layout_constraintTop_toBottomOf="@+id/guidelineBottom1"
+        app:layout_constraintTop_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

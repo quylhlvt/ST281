@@ -21,7 +21,7 @@
     android:id="@+id/view2"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimension_0"
-    app:layout_constraintDimensionRatio="3.6:0.11"/>
+    app:layout_constraintDimensionRatio="3.6:0.16"/>
 
     <!--    btnActionBarLeft-->
     <ImageView
