@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:layout_marginEnd="@dimen/dimension_8"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <FrameLayout
     android:layout_width="@dimen/dimension_0"
@@ -11,7 +12,7 @@
     android:layout_height="match_parent"
     android:id="@+id/frame_tittle"
     android:background="@drawable/bg_8_title_unselect"
-    app:layout_constraintDimensionRatio="9:3.6">
+    app:layout_constraintDimensionRatio="9.6:2.8">
     <TextView
         android:id="@+id/txtTittle"
         android:layout_width="match_parent"
@@ -20,8 +21,8 @@
         android:layout_gravity="center"
         android:gravity="center"
         app:outerStrokeWidth="@dimen/dimension_0"
-        android:fontFamily="@font/carter_one_regular"
-        android:textSize="@dimen/text_size_14"
+        android:fontFamily="@font/londrina_solid_regular"
+        android:textSize="@dimen/text_size_16"
         android:textColor="@color/white"/>
 </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

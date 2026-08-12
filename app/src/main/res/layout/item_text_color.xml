@@ -6,22 +6,6 @@
     android:layout_marginEnd="@dimen/dimension_10"
 
     >
-
-    <com.google.android.material.card.MaterialCardView
-        android:visibility="gone"
-        android:id="@+id/frameShadown"
-        android:layout_width="@dimen/dimension_0"
-        android:layout_height="@dimen/dimension_0"
-        app:strokeWidth="@dimen/dimension_0"
-        app:strokeColor="@color/app_color"
-        app:cardCornerRadius="@dimen/dimension_100"
-        app:cardBackgroundColor="@color/black2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
     <com.google.android.material.card.MaterialCardView
         android:layout_marginBottom="@dimen/dimension_2"
         android:id="@+id/frame"

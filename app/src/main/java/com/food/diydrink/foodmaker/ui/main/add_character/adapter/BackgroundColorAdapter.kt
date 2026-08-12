@@ -18,6 +18,7 @@ class BackgroundColorAdapter : BaseAdapter<SelectedAddModel, ItemBackgroundColor
     ItemBackgroundColorBinding::inflate
 ) {
     var onChooseColorClick: (() -> Unit) = {}
+    var onNoneColorClick: (() -> Unit) = {}
     var onBackgroundColorClick: ((Int, Int) -> Unit) = { _, _ -> }
     var currentSelected = -1
 
@@ -31,14 +32,21 @@ class BackgroundColorAdapter : BaseAdapter<SelectedAddModel, ItemBackgroundColor
                 materiaForcus.gone()
             }
             if (position == 0) {
+                imvImageNone.visible()
+                imvAddColor.gone()
+                imvColor.gone()
+                root.onClick { onNoneColorClick() }
+            } else if (position == 1) {
+                imvImageNone.gone()
                 imvAddColor.visible()
                 imvColor.gone()
-                root.onClick { onChooseColorClick()}
+                root.onClick { onChooseColorClick() }
             } else {
+                imvImageNone.gone()
                 imvAddColor.gone()
                 imvColor.visible()
-                    imvColor.setBackgroundColor(item.color)
-                    root.onClick { onBackgroundColorClick(item.color, position) }
+                imvColor.setBackgroundColor(item.color)
+                root.onClick { onBackgroundColorClick(item.color, position) }
             }
 
         }

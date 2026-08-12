@@ -38,7 +38,7 @@
 
 
 
-            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+            <TextView
                 android:id="@+id/btnBackgroundImageTv"
                 style="@style/single_marquee"
                 android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                 android:gravity="center"
                 android:paddingVertical="@dimen/dimension_2"
                 android:text="@string/image"
-                android:fontFamily="@font/carter_one_regular"
+                android:fontFamily="@font/londrina_solid_regular"
                 app:outerStrokeColor="@color/app_color"
                 app:outerStrokeWidth="@dimen/dimension_3"
                 android:textColor="@color/white"
@@ -68,7 +68,7 @@
 
 
 
-            <com.food.diydrink.foodmaker.core.extention.OuterStrokeShadownTextView
+            <TextView
                 android:id="@+id/btnBackgroundColorTv"
                 style="@style/single_marquee"
                 android:layout_width="match_parent"
@@ -76,7 +76,7 @@
                 android:gravity="center"
                 android:paddingVertical="@dimen/dimension_2"
                 android:text="@string/color"
-                android:fontFamily="@font/carter_one_regular"
+                android:fontFamily="@font/londrina_solid_regular"
                 app:outerStrokeColor="@color/app_color"
                 app:outerStrokeWidth="@dimen/dimension_3"
                 android:textColor="@color/white"

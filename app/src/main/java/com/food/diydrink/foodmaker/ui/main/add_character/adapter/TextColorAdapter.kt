@@ -38,16 +38,12 @@ class TextColorAdapter :
 
             // ── Sau đó mới apply selected state ────────────────
             if (item.isSelected) {
-                frameShadown.visible()
                 frame.apply {
-                    strokeColor = ContextCompat.getColor(context, R.color.app_color)
-
+                    strokeColor = ContextCompat.getColor(context, R.color.app_color2)
                 }
             } else {
-                frameShadown.gone()
                 frame.apply {
                     strokeColor = ContextCompat.getColor(context, R.color.transparent)
-
                 }
             }
         }

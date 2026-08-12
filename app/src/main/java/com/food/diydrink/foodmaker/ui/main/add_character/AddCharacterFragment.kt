@@ -314,6 +314,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                 }
             }
             backgroundColorAdapter.onChooseColorClick = { handleChooseColor() }
+            backgroundColorAdapter.onNoneColorClick = { handleRemoveBackground(fromColorTab = true) }
             backgroundColorAdapter.onBackgroundColorClick = { color, position ->
                 handleSetBackgroundColor(color, position)
             }
@@ -354,8 +355,6 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
 
     // ── Init ──────────────────────────────────────────────────────────────────
     override fun initView() {
-        binding.lnlBackground.btnBackgroundColorTv.isSelected = true
-        binding.lnlBackground.btnBackgroundImageTv.isSelected = true
         requireActivity().hideNavigation(true)
 
         setupKeyboardListener()
@@ -425,6 +424,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
         if (viewModel.isTextTabActive && !viewModel.isSpeechDialogOpen) {
             binding.flFunction.translationY = (-170).dp(requireContext()).toFloat()
             binding.lnlBottom.translationY = (-170).dp(requireContext()).toFloat()
+            binding.view3.translationY = (-170).dp(requireContext()).toFloat()
         }
     }
     override fun onDestroyView() {
@@ -443,11 +443,13 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
         isKeyboardOpen = false
         binding.lnlBottom.translationY = 0f
         binding.flFunction.translationY = 0f
+        binding.view3.translationY = 0f
     }
     // ĐỔI TÊN + ĐỔI bottomMargin → topMargin
     private fun setFlFunctionTopMargin(margin: Int) {
         (binding.flFunction.layoutParams as ViewGroup.MarginLayoutParams).topMargin = margin
         (binding.lnlBottom.layoutParams as ViewGroup.MarginLayoutParams).topMargin = margin
+        (binding.view3.layoutParams as ViewGroup.MarginLayoutParams).topMargin = margin
     }
     /**
      * Đóng keyboard và reset view.
@@ -583,6 +585,13 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
     private fun restoreUIState() {
         submitAllAdapters()
 
+        backgroundImageAdapter.selectItem(
+            viewModel.backgroundImageList.indexOfFirst { it.isSelected }
+        )
+        backgroundColorAdapter.selectItem(
+            viewModel.backgroundColorList.indexOfFirst { it.isSelected }
+        )
+
         val currentNav = viewModel.typeNavigation.value
         if (currentNav != -1) setupTypeNavigation(currentNav)
 
@@ -679,6 +688,21 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
     // ── UI setup ──────────────────────────────────────────────────────────────
     private fun setupTypeBackground(type: Int) {
         binding.apply {
+            val isImageSelected = type == ValueKey.IMAGE_BACKGROUND
+
+            lnlBackground.btnBackgroundImage.setCardBackgroundColor(
+                requireContext().getColor(
+                    if (isImageSelected) R.color.app_color2 else R.color.gray1
+                )
+            )
+            lnlBackground.btnBackgroundColor.setCardBackgroundColor(
+                requireContext().getColor(
+                    if (isImageSelected) R.color.gray1 else R.color.app_color2
+                )
+            )
+            lnlBackground.btnBackgroundImageTv.isSelected = isImageSelected
+            lnlBackground.btnBackgroundColorTv.isSelected = !isImageSelected
+
             when (type) {
                 ValueKey.IMAGE_BACKGROUND -> {
                     requireActivity().hideNavigation(true)
@@ -708,10 +732,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
                 DataLocal.bottomNavigationNotSelect[index]
             }
 
-            button.setBackgroundResource(
-                if (isSelected) R.drawable.bg_selected_add
-                else R.drawable.bg_unselected_add
-            )
+
             imageNavigationList()[index].setImageResource(iconRes)
             layoutNavigationList()[index].isVisible = isSelected
         }
@@ -792,7 +813,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
         backgroundColorAdapter.selectItem(position)
     }
 
-    private fun handleRemoveBackground() {
+    private fun handleRemoveBackground(fromColorTab: Boolean = false) {
         viewModel.setBackgroundImage(null)
         viewModel.selectedBackgroundImagePath = null
         viewModel.selectedBackgroundImagePosition = NONE_BACKGROUND_POSITION
@@ -803,9 +824,15 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
             requireContext().getColor(R.color.transparent)
         )
 
-        viewModel.updateBackgroundImageSelected(NONE_BACKGROUND_POSITION)
-        backgroundColorAdapter.clearSelection()
-        backgroundImageAdapter.selectItem(NONE_BACKGROUND_POSITION)
+        if (fromColorTab) {
+            viewModel.updateBackgroundColorSelected(NONE_BACKGROUND_POSITION)
+            backgroundImageAdapter.clearSelection()
+            backgroundColorAdapter.selectItem(NONE_BACKGROUND_POSITION)
+        } else {
+            viewModel.updateBackgroundImageSelected(NONE_BACKGROUND_POSITION)
+            backgroundColorAdapter.clearSelection()
+            backgroundImageAdapter.selectItem(NONE_BACKGROUND_POSITION)
+        }
     }
 
 
@@ -819,8 +846,8 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
     }
 
     private companion object {
-        const val ADD_BACKGROUND_POSITION = 0
-        const val NONE_BACKGROUND_POSITION = 1
+        const val NONE_BACKGROUND_POSITION = 0
+        const val ADD_BACKGROUND_POSITION = 1
     }
 
     private fun handleChooseColor(isTextColor: Boolean = false) {
@@ -829,7 +856,7 @@ class AddCharacterFragment : BaseFragment<FragmentAddCharacterBinding, AddCharac
         dialog.onCloseEvent = { dialog.dismiss() }
         dialog.onDoneEvent = { color ->
             dialog.dismiss()
-            if (!isTextColor) handleSetBackgroundColor(color, 0)
+            if (!isTextColor) handleSetBackgroundColor(color, ADD_BACKGROUND_POSITION)
             else handleTextColorClick(color, 0)
         }
     }
