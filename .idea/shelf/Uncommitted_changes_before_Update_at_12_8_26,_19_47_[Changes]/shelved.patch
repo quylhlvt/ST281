@@ -1,0 +1,126 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AndroidLayouts\">\n    <shared>\n      <config>\n        <device id=\"Nexus 7 2013\" />\n        <device id=\"pixel_10_pro_fold\" />\n        <device id=\"pixel_9_pro_xl\" />\n        <device id=\"pixel_6_pro\" />\n        <device id=\"_device_class_phone\" />\n        <device id=\"pixel_8\" />\n        <device id=\"pixel\" />\n        <device id=\"Nexus 9\" />\n        <device id=\"pixel_8_pro\" />\n        <device id=\"pixel_9\" />\n      </config>\n    </shared>\n    <layouts>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/drawable/bg_10_stroke_linear_color.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/drawable/bg_8_color_name.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/drawable/bg_8_solid_white.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/drawable/bg_8_title.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/drawable/bg_8_title_unselect.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/drawable/bg_btn_type_selected.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/drawable/bg_btn_type_unselected.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/drawable/ic_rate.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/drawable/img_bg_mycreation.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/dialogbase.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_character.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/fragment_customize.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/fragment_my_pony.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/fragment_permission.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/fragment_random.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/fragment_splash.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/fragment_view.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/item_background_image.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/item_bottom_custom.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/item_color.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/item_language.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/item_layer.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/item_my_avatar.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/item_speech.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/item_tittle_background_image.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/layout_actionbar.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/layout_actionbar2.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/layout_actionbar3.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/layout_background_tab.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/layout_text_panel.xml\">\n        <config>\n          <theme>@style/Base.Theme.BaseFragment</theme>\n        </config>\n      </layout>\n    </layouts>\n  </component>\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"NONE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"f59ede7e-b077-4b12-8848-3358c7758a6f\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.gradle/config.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gradle/config.properties\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/local.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/local.properties\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ClangdSettings\">\n    <option name=\"formatViaClangd\" value=\"false\" />\n  </component>\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=RF8M91ART6Z)]\" />\n  <component name=\"ExternalProjectsData\">\n    <projectState path=\"$PROJECT_DIR$\">\n      <ProjectState />\n    </projectState>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\n  \"lastFilter\": {\n    \"state\": \"OPEN\",\n    \"assignee\": \"quylhlvt\"\n  }\n}]]></component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"git@github.com:quylhlvt/ST281.git\",\n    \"accountId\": \"458ec1b2-fe4e-4e6a-9099-4912ae38510f\"\n  }\n}]]></component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;customColor&quot;: &quot;&quot;,\n  &quot;associatedIndex&quot;: 6\n}</component>\n  <component name=\"ProjectId\" id=\"3Hhh3dJUmPMpW4x1Bw4VwzclWdk\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Android App.app.executor&quot;: &quot;Run&quot;,\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,\n    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,\n    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,\n    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main2&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/lequy/LVT/ST281/app/src/main/res/drawable&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;memory.settings&quot;,\n    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/app/src/main/res/drawable\" />\n      <recent name=\"$PROJECT_DIR$/app/src/main/res/layout\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"app\" type=\"AndroidRunConfigurationType\" factoryName=\"Android App\" activateToolWindowBeforeRun=\"false\">\n      <module name=\"ST281_Food_Maker_DIY_Food_&amp;_Drink.app\" />\n      <option name=\"ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION\" value=\"1\" />\n      <option name=\"DEPLOY\" value=\"true\" />\n      <option name=\"DEPLOY_APK_FROM_BUNDLE\" value=\"false\" />\n      <option name=\"DEPLOY_AS_INSTANT\" value=\"false\" />\n      <option name=\"ARTIFACT_NAME\" value=\"\" />\n      <option name=\"PM_INSTALL_OPTIONS\" value=\"\" />\n      <option name=\"ALL_USERS\" value=\"false\" />\n      <option name=\"ALWAYS_INSTALL_WITH_PM\" value=\"false\" />\n      <option name=\"ALLOW_ASSUME_VERIFIED\" value=\"false\" />\n      <option name=\"CLEAR_APP_STORAGE\" value=\"false\" />\n      <option name=\"DYNAMIC_FEATURES_DISABLED_LIST\" value=\"\" />\n      <option name=\"ACTIVITY_EXTRA_FLAGS\" value=\"\" />\n      <option name=\"MODE\" value=\"default_activity\" />\n      <option name=\"RESTORE_ENABLED\" value=\"false\" />\n      <option name=\"RESTORE_FILE\" value=\"\" />\n      <option name=\"RESTORE_FRESH_INSTALL_ONLY\" value=\"false\" />\n      <option name=\"CLEAR_LOGCAT\" value=\"false\" />\n      <option name=\"SHOW_LOGCAT_AUTOMATICALLY\" value=\"false\" />\n      <option name=\"TARGET_SELECTION_MODE\" value=\"DEVICE_AND_SNAPSHOT_COMBO_BOX\" />\n      <option name=\"SELECTED_CLOUD_MATRIX_CONFIGURATION_ID\" value=\"-1\" />\n      <option name=\"SELECTED_CLOUD_MATRIX_PROJECT_ID\" value=\"\" />\n      <option name=\"DEBUGGER_TYPE\" value=\"Auto\" />\n      <Auto>\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\n        <option name=\"WORKING_DIR\" value=\"\" />\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\n      </Auto>\n      <Hybrid>\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\n        <option name=\"WORKING_DIR\" value=\"\" />\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\n      </Hybrid>\n      <Java>\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\n      </Java>\n      <Native>\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\n        <option name=\"WORKING_DIR\" value=\"\" />\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\n      </Native>\n      <Profilers>\n        <option name=\"ADVANCED_PROFILING_ENABLED\" value=\"false\" />\n        <option name=\"STARTUP_PROFILING_ENABLED\" value=\"false\" />\n        <option name=\"STARTUP_CPU_PROFILING_ENABLED\" value=\"false\" />\n        <option name=\"STARTUP_CPU_PROFILING_CONFIGURATION_NAME\" value=\"Java/Kotlin Method Sample (legacy)\" />\n        <option name=\"STARTUP_NATIVE_MEMORY_PROFILING_ENABLED\" value=\"false\" />\n        <option name=\"NATIVE_MEMORY_SAMPLE_RATE_BYTES\" value=\"2048\" />\n      </Profilers>\n      <option name=\"DEEP_LINK\" value=\"\" />\n      <option name=\"ACTIVITY\" value=\"\" />\n      <option name=\"ACTIVITY_CLASS\" value=\"\" />\n      <option name=\"SEARCH_ACTIVITY_IN_GLOBAL_SCOPE\" value=\"false\" />\n      <option name=\"SKIP_ACTIVITY_VALIDATION\" value=\"false\" />\n      <method v=\"2\">\n        <option name=\"Android.Gradle.BeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"f59ede7e-b077-4b12-8848-3358c7758a6f\" name=\"Changes\" comment=\"\" />\n      <created>1786326009588</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1786326009588</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"play_dynamic_filters_status\">\n    <option name=\"appIdToCheckInfo\">\n      <map>\n        <entry key=\"com.food.diydrink.foodmaker\">\n          <value>\n            <CheckInfo lastCheckTimestamp=\"1786418251765\" />\n          </value>\n        </entry>\n        <entry key=\"com.food.diydrink.foodmaker.test\">\n          <value>\n            <CheckInfo lastCheckTimestamp=\"1786418251764\" />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 492f5a9206e386269c152f87f16c95682ad2e59b)
++++ b/.idea/workspace.xml	(date 1786538842679)
+@@ -4,7 +4,6 @@
+     <shared>
+       <config>
+         <device id="Nexus 7 2013" />
+-        <device id="pixel_10_pro_fold" />
+         <device id="pixel_9_pro_xl" />
+         <device id="pixel_6_pro" />
+         <device id="_device_class_phone" />
+@@ -97,6 +96,11 @@
+         </config>
+       </layout>
+       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_view.xml">
++        <config>
++          <theme>@style/Base.Theme.BaseFragment</theme>
++        </config>
++      </layout>
++      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_background_color.xml">
+         <config>
+           <theme>@style/Base.Theme.BaseFragment</theme>
+         </config>
+@@ -112,6 +116,11 @@
+         </config>
+       </layout>
+       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_color.xml">
++        <config>
++          <theme>@style/Base.Theme.BaseFragment</theme>
++        </config>
++      </layout>
++      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_font.xml">
+         <config>
+           <theme>@style/Base.Theme.BaseFragment</theme>
+         </config>
+@@ -136,6 +145,11 @@
+           <theme>@style/Base.Theme.BaseFragment</theme>
+         </config>
+       </layout>
++      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_text_color.xml">
++        <config>
++          <theme>@style/Base.Theme.BaseFragment</theme>
++        </config>
++      </layout>
+       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_tittle_background_image.xml">
+         <config>
+           <theme>@style/Base.Theme.BaseFragment</theme>
+@@ -172,9 +186,8 @@
+     <option name="autoReloadType" value="NONE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="f59ede7e-b077-4b12-8848-3358c7758a6f" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.gradle/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/config.properties" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
++    <list default="true" id="f59ede7e-b077-4b12-8848-3358c7758a6f" name="Changes" comment="Update">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -193,23 +206,23 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="main" />
++        <entry key="$PROJECT_DIR$" value="main2" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+-  "lastFilter": {
+-    "state": "OPEN",
+-    "assignee": "quylhlvt"
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;quylhlvt&quot;
+   }
+-}]]></component>
+-  <component name="GithubPullRequestsUISettings"><![CDATA[{
+-  "selectedUrlAndAccountId": {
+-    "url": "git@github.com:quylhlvt/ST281.git",
+-    "accountId": "458ec1b2-fe4e-4e6a-9099-4912ae38510f"
++}</component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;git@github.com:quylhlvt/ST281.git&quot;,
++    &quot;accountId&quot;: &quot;458ec1b2-fe4e-4e6a-9099-4912ae38510f&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="ProjectColorInfo">{
+   &quot;customColor&quot;: &quot;&quot;,
+   &quot;associatedIndex&quot;: 6
+@@ -231,10 +244,10 @@
+     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main2&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main3&quot;,
+     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+     &quot;last_opened_file_path&quot;: &quot;/home/lequy/LVT/ST281/app/src/main/res/drawable&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;memory.settings&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+   }
+ }</component>
+@@ -327,6 +340,11 @@
+       <updated>1786326009588</updated>
+     </task>
+     <servers />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <option name="MARK_IGNORED_AS_EXCLUDED" value="true" />
++    <MESSAGE value="Update" />
++    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+   </component>
+   <component name="play_dynamic_filters_status">
+     <option name="appIdToCheckInfo">
